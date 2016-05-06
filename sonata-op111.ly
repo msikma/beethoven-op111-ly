@@ -210,8 +210,8 @@ arietta-section-three = {
                 \set Timing.measureLength = #(ly:make-moment 9/16)
                 % todo check with manuscript
                 b'8\< <b, e>16\)\!_\( <c e>16\> c' b\! c( <e, b'>\)) <e' b>( |
+                \override Tie.minimum-length = #3.25
                 f8 e16) e8( d16) d c c~ |
-                % fixme these ties are too short
                 \once \override TextSpanner.outside-staff-priority = ##f
                 \once \override TextSpanner.Y-offset = #-5
                 \once \override TextSpanner.bound-details.left.text = #"cresc. "
@@ -355,26 +355,27 @@ arietta-section-three = {
               \repeat volta 2 {
                 \relative c''' {
                   \arietta-section-three
-                  \override Tie.minimum-length = #2.75
+                  \override Tie.minimum-length = #3
                   \set Timing.measureLength = #(ly:make-moment 4/32)
                   \stemNeutral
                   \tuplet 3/2 { c32-[^(\f g64 e32 c64] }
                   \tuplet 3/2 { g32-[ e64 c32 g64]) } |
                   \set Timing.measureLength = #(ly:make-moment 12/32)
                   \omit Dots
-                  \tuplet 3/2 { <e' g>32.~-[ <e g>32 <e g>64~ <e g>32.~ <e g>32 <e g>64] }
-                  \tuplet 3/2 { <f g>32.~-[ <f g>32 <f g>64~ <f g>32.~ <f g>32 <f g>64] }
+                  \tuplet 3/2 { <e'_~ g^~>32.-[ <e g>32 <e_~ g^~>64 <e_~ g^~>32. <e g>32 <e g>64] }
+                  \tuplet 3/2 { <f_~ g^~>32.-[ <f g>32 <f_~ g^~>64 <f_~ g^~>32. <f g>32 <f g>64] }
                   \tuplet 3/2 { f''32-[^( d64 b32 g64 f32 d64 b32 g64]) } |
-                  \tuplet 3/2 { <f g>32.~-[ <f g>32 <f g>64~ <f g>32.~ <f g>32 <f g>64] }
+                  \tuplet 3/2 { <f_~ g^~>32.-[ <f g>32 <f_~ g^~>64 <f_~ g^~>32. <f g>32 <f g>64] }
                   \tuplet 3/2 { g32.~-[ g32 g64~ g32.~ g32 g64] }
-                  \tuplet 3/2 { g''32-[ e64 c32 g64 e32 c64 g32 g'64] } |
-                  \tuplet 3/2 { <g, bf cs g'>32.~-[ <g bf cs g'>32 <g bf cs g'>64~ <g b d g>32.~ <g b d g>32 <g b d g>64] }
-                  \tuplet 3/2 { <g b g'>32.~-[ <g b g'>32 <g b g'>64~] }
-                  \tuplet 3/2 { <g c g'>32.~-[ <g c g'>32 <g c g'>64] }
-                  \tuplet 3/2 { <e' g e'>32.~-[ <e g e'>32 <e g e'>64~ <e g e'>32.~ <e g e'>32 <c e c'>64] } |
-                  \tuplet 3/2 { c'32-[ a64 fs32 ef64 c32 a64 fs32 <ef c'>64] }
-                  \tuplet 3/2 { b''32-[ g64 d32 b64 g32 d64 b32 <af'' b d, b>64~] }
-                  \tuplet 3/2 { <af b d, b>32.-[~ <af b d, b>32 <af b d, b>64~ <af b d, b>32~<af b d, b>32. <af b d, b>64] } |
+                  \tuplet 3/2 { g''32-[( e64 c32 g64 e32 c64 g32 g'64]) } |
+                  % todo clean up these ties a little
+                  \tuplet 3/2 { <g,_~ bf_~ cs^~ g'^~>32.-[ <g bf cs g'>32 <g_~ bf_~ cs^~ g'^~>64 <g_~ b^~ d^~ g^~>32. <g b d g>32 <g b d g>64] }
+                  \tuplet 3/2 { <g_~ b^~ g'^~>32.-[ <g b g'>32 <g_~ b^~ g'^~>64] }
+                  \tuplet 3/2 { <g_~ c g'^~>32.-[ <g c g'>32 <g c g'>64] }
+                  \tuplet 3/2 { <e'_~ g^~ e'^~>32.-[ <e g e'>32 <e_~ g^~ e'^~>64 <e_~ g^~ e'^~>32. <e g e'>32 <c e c'>64] } |
+                  \tuplet 3/2 { c'32-[( a64 fs32 ef64 c32 a64 fs32 <ef c'>64)] }
+                  \tuplet 3/2 { b''32-[( g64 d32 b64 g32 d64 b32) <af''_~ b^~ d,_~ b_~>64] }
+                  \tuplet 3/2 { <af_~ b^~ d,_~ b_~>32.-[ <af b d, b>32 <af_~ b^~ d,_~ b_~>64 <af_~ b^~ d,_~ b_~>32 <af b d, b>32. <af b d, b>64] } |
                   \tuplet 3/2 { c32-[( g64 e!32\sf c64 g32 e64 e'32\sf c64)] }
                   \tuplet 3/2 { e32-[ c64 g'32\sf e64 c32 g64\sf e'32 c64] }
                   \tuplet 3/2 { g'32-[ e64 c'32\sf g64 e32 c64 g'32\sf e64] } |
@@ -421,9 +422,10 @@ arietta-section-three = {
                 \relative c' {
                   \omit Dots
                   \stemNeutral
-                  \tuplet 3/2 { <e c'>32.-[~\f <e c'>32 <e c'>64~ <e c'>32.~ <e c'>32 <e c'>64] }
+                  \tuplet 3/2 { <e_~ c'^~>32.-[\f <e c'>32 <e_~ c'^~>64 <e_~ c'^~>32. <e c'>32 <e c'>64] }
                   \tuplet 3/2 { c''32-[\p gs64 a32 e64 d32 c64 e32 c64] }
-                  \tuplet 3/2 { b32-[ a64 c32 a64 b32 a64 c32 <d, f b>64] }
+                  \tuplet 3/2 { b32-[ a64 c32 a64 b32 a64 c32 <d, f b>64] } |
+                  
                 }
               }
             }
@@ -612,9 +614,9 @@ arietta-section-three = {
                 e16\) cs, e'~e d, f' fs fs, a' |
                 af16^( g, g' a g, bf'~bf) b b |
                 b16^( c f, e f d) e c
-                % note: repeattie modified to go forward
-                \once \override RepeatTie.control-points = #'((1 . 2.24) (1.5 . 2.75) (2.0 . 2.75) (2.5 . 2.24))
-                g'\repeatTie |
+                % Moving the LV tie up a bit for clarity.
+                \once \override LaissezVibrerTie.Y-offset = #'0.2
+                g'\laissezVibrer |
                 b16-[^( c d c b a gs a b]) |
                 c16 a, e'~ |
                 e16_( gs, e'~e a, e'~ |
@@ -714,9 +716,9 @@ arietta-section-three = {
                 \tuplet 3/2 { gs,,,,32-[_( a64 b32 a64])_~ } |
                 \omit Dots
                 \tuplet 3/2 { a32-[_( c64 e32 gs64 a32 c64 e32 gs64]) }
-                \tuplet 3/2 { a32.-[~ a32 <a c e>64~ <a c e>32.~ <a c e>32 <a c e>64~] }
+                \tuplet 3/2 { a32.-[~ a32 <a_~ c^~ e^~>64 <a_~ c^~ e^~>32. <a c e>32 <a_~ c^~ e^~>64] }
                 \once \override TupletBracket.transparent = ##t
-                \tuplet 3/2 { <a c e>32.~-[ <a c e>32 <a c e>64~ <a c e>32.~ <a c e>32] <a,, a'>64 }
+                \tuplet 3/2 { <a_~ c^~ e^~>32.-[ <a c e>32 <a_~ c^~ e^~>64~ <a_~ c^~ e^~>32. <a c e>32] <a,, a'>64 }
                 \undo \omit Dots |
               }
             }
@@ -750,9 +752,7 @@ arietta-section-three = {
                 s4. s8. |
                 b16 g c~c~c e^( f e) e^~ |
                 e16 a,
-                % note: repeattie modified to go forward rather than backwards
-                \once \override RepeatTie.control-points = #'((1 . 1.24) (1.5 . 1.75) (2.0 . 1.75) (2.5 . 1.24))
-                e'\repeatTie |
+                e'^\laissezVibrer |
                 b16 g c~c8 c16 |
                 s8 |
                 s4 s8 |
