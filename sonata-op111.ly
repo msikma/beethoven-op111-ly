@@ -4,7 +4,7 @@
 %
 %--- Notes -----------------------------------------------------------------
 %
-%  * The *Arietta* section is comprised of several variations on a theme.
+%  * The Arietta section is comprised of several variations on a theme.
 %    The third and fourth variations use implied tuplets. Their first
 %    measures are both exactly the length of a quaver.
 %
@@ -110,7 +110,6 @@ arietta-section-three = {
                   \relative c'' {
                     \set Timing.measureLength = #(ly:make-moment 9/16)
                     g4. e8.
-                    \bar ".|:"
                   }
                 }
               }
@@ -163,13 +162,12 @@ arietta-section-three = {
                 {
                   \relative c'' {
                     <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p c8_(_\markup { \italic "dolce" } e,16
-                    \bar ".|:"
                   }
                 }
               }
 
               %-------------------------------------------------------------
-              %    Variation 2, part 1
+              %    Variation 1, part 3
               %-------------------------------------------------------------
               \repeat volta 2 {
                 \relative c'' {
@@ -188,6 +186,7 @@ arietta-section-three = {
                   \relative c'' {
                     % Move down the volta brackets, since there's just one
                     % slur pushing them up.
+                    % todo fixme
                     \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
                     g4. c8( e,16)
                   }
@@ -198,13 +197,12 @@ arietta-section-three = {
                     g8.~g16\>-[( gs a\! b e, e]) |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8^\( e,16
-                    \bar ".|:"
                   }
                 }
               }
 
               %-------------------------------------------------------------
-              %    Variation 2, part 2
+              %    Variation 1, part 4
               %-------------------------------------------------------------
               \repeat volta 2 {
                 \set Timing.measureLength = #(ly:make-moment 6/16)
@@ -240,6 +238,10 @@ arietta-section-three = {
                   }
                 }
               }
+              
+              %-----------------------------------------------------------------
+              %    Variation 2, part 1
+              %-----------------------------------------------------------------
               \repeat volta 2 {
                 \relative c' {
                   \arietta-section-two
@@ -284,10 +286,14 @@ arietta-section-three = {
                     \set Timing.measureLength = #(ly:make-moment 6/16)
                     g'16-[ g]~
                     \tuplet 3/2 { g16-[ gs32 a16 b32] }
-                    \tuplet 3/2 { e,16-[ e32~e16 e32] } \bar ".|:"
+                    \tuplet 3/2 { e,16-[ e32~e16 e32] }
                   }
                 }
               }
+              
+              %-----------------------------------------------------------------
+              %    Variation 2, part 2
+              %-----------------------------------------------------------------
               \repeat volta 2 {
                 \relative c'' {
                   \override Tie.minimum-length = #3.25
@@ -298,10 +304,11 @@ arietta-section-three = {
                   \tuplet 5/4 { b16-[~b16 c32] }
                   \tuplet 5/4 { b16-[~b16 c32] }
                   \tuplet 5/4 { b16-[~b16 e32]) } |
-                  % todo hide dot
+                  \omit Dots
                   \tuplet 3/2 { <b e>16.-[~<b e>16 <c e>32] }
                   \tuplet 3/2 { <c e>16.-[~<c e>16 <gs b d>32] }
-                  \tuplet 3/2 { <e b' d>16-[_( <f a c>32 <fs a c>16 <b, g' b>32]) } |
+                  \tuplet 3/2 { <e b' d>16-[_( <f a c>32 <fs a c>16 <b, g' b>32]) }
+                  \undo \omit Dots |
                   \tuplet 3/2 { <b gs' b>16-[ <b gs' b>32~ <b gs' b>16 <b gs' b>32~] }
                   \tuplet 3/2 { <b gs' b>16-[ <c a' c>32~ <c a' c>16 <c a' c>32~] }
                   \stemNeutral
@@ -322,8 +329,9 @@ arietta-section-three = {
                 {
                   \relative c''' {
                     \override Tie.minimum-length = #3.25
-                    % todo hide dot
+                    \omit Dots
                     \tuplet 3/2 { g16.-[~g16 f32] }
+                    \undo \omit Dots
                     e16 r16
                     \once \override TupletBracket.transparent = ##t
                     \tuplet 3/2 { r16 e,32-[~ e16 e32] }
@@ -337,18 +345,85 @@ arietta-section-three = {
                     \tuplet 3/2 { g16.-[~\sf\> g16 f32] }
                     \tuplet 3/2 { e16-[\!\p g32~ g16 g32] }
                     \revert Tie.minimum-length
-                    \bar ".|:"
+                  }
+                }
+              }
+              
+              %-----------------------------------------------------------------
+              %    Variation 3, part 1
+              %-----------------------------------------------------------------
+              \repeat volta 2 {
+                \relative c''' {
+                  \arietta-section-three
+                  \override Tie.minimum-length = #2.75
+                  \set Timing.measureLength = #(ly:make-moment 4/32)
+                  \stemNeutral
+                  \tuplet 3/2 { c32-[^(\f g64 e32 c64] }
+                  \tuplet 3/2 { g32-[ e64 c32 g64]) } |
+                  \set Timing.measureLength = #(ly:make-moment 12/32)
+                  \omit Dots
+                  \tuplet 3/2 { <e' g>32.~-[ <e g>32 <e g>64~ <e g>32.~ <e g>32 <e g>64] }
+                  \tuplet 3/2 { <f g>32.~-[ <f g>32 <f g>64~ <f g>32.~ <f g>32 <f g>64] }
+                  \tuplet 3/2 { f''32-[^( d64 b32 g64 f32 d64 b32 g64]) } |
+                  \tuplet 3/2 { <f g>32.~-[ <f g>32 <f g>64~ <f g>32.~ <f g>32 <f g>64] }
+                  \tuplet 3/2 { g32.~-[ g32 g64~ g32.~ g32 g64] }
+                  \tuplet 3/2 { g''32-[ e64 c32 g64 e32 c64 g32 g'64] } |
+                  \tuplet 3/2 { <g, bf cs g'>32.~-[ <g bf cs g'>32 <g bf cs g'>64~ <g b d g>32.~ <g b d g>32 <g b d g>64] }
+                  \tuplet 3/2 { <g b g'>32.~-[ <g b g'>32 <g b g'>64~] }
+                  \tuplet 3/2 { <g c g'>32.~-[ <g c g'>32 <g c g'>64] }
+                  \tuplet 3/2 { <e' g e'>32.~-[ <e g e'>32 <e g e'>64~ <e g e'>32.~ <e g e'>32 <c e c'>64] } |
+                  \tuplet 3/2 { c'32-[ a64 fs32 ef64 c32 a64 fs32 <ef c'>64] }
+                  \tuplet 3/2 { b''32-[ g64 d32 b64 g32 d64 b32 <af'' b d, b>64~] }
+                  \tuplet 3/2 { <af b d, b>32.-[~ <af b d, b>32 <af b d, b>64~ <af b d, b>32~<af b d, b>32. <af b d, b>64] } |
+                  \tuplet 3/2 { c32-[( g64 e!32\sf c64 g32 e64 e'32\sf c64)] }
+                  \tuplet 3/2 { e32-[ c64 g'32\sf e64 c32 g64\sf e'32 c64] }
+                  \tuplet 3/2 { g'32-[ e64 c'32\sf g64 e32 c64 g'32\sf e64] } |
+                  \stemDown
+                  \once \override TupletBracket.transparent = ##t
+                  \tuplet 3/2 { r32 s64 g32-[\sf e64 cs32 e64 g32\sf e64] }
+                  \tuplet 3/2 { f32-[ d64 f32\sf a,64 f'32 f,64 a32\sf f64] }
+                  \tuplet 3/2 { a32-[ f64 f'32\sf d64 a32 a'64\sf f32 d64] } |
+                  \tuplet 3/2 { c!32-[ b64 f'32 d64\sf b'32 f64 d32\sf b64] }
+                  \tuplet 3/2 { d32-[ c64 af'32\sf f64 c'32 a64 f32\sf c64] }
+                  \tuplet 3/2 { ef32-[ d64 d'32\sf d,64 d'32 d,64 d'32\sf <d, g>64] }
+                  \undo \omit Dots
+                }
+              }
+              \alternative {
+                {
+                  \relative c''' {
+                    \stemUp
+                    \set Timing.measureLength = #(ly:make-moment 8/32)
+                    \omit Dots
+                    \tuplet 3/2 { g32.~-[ g32 g64]~ }
+                    \tuplet 3/2 { g32.~-[ g32 g64]~ }
+                    \tuplet 3/2 { g32.~-[ g32 g64]( }
+                    \tuplet 3/2 { f32-[ g64 a32 b64)] }
+                    \undo \omit Dots
+                  }
+                }
+                {
+                  \relative c''' {
+                    \stemUp
+                    \set Timing.measureLength = #(ly:make-moment 12/32)
+                    \omit Dots
+                    \tuplet 3/2 { g32.~-[ g32 g64]~ }
+                    \tuplet 3/2 { g32.~-[ g32 g64]~ }
+                    \tuplet 3/2 { g32.~-[ g32 g64]~ }
+                    \tuplet 3/2 { g32.~-[ g32 g64] }
+                    \tuplet 3/2 { gs32-[ a64 b32 e,,64~] }
+                    \tuplet 3/2 { e32~ e64~ e32 e64 }
+                    \undo \omit Dots
                   }
                 }
               }
               \repeat volta 2 {
-                \relative c''' {
-                  \arietta-section-three
-                  \set Timing.measureLength = #(ly:make-moment 4/32)
+                \relative c' {
+                  \omit Dots
                   \stemNeutral
-                  \tuplet 3/2 { c32-[^(\f g64 e32 c64] }
-                  \tuplet 3/2 { g32-[ e64 c32 g64]) }
-                  \bar "." |
+                  \tuplet 3/2 { <e c'>32.-[~\f <e c'>32 <e c'>64~ <e c'>32.~ <e c'>32 <e c'>64] }
+                  \tuplet 3/2 { c''32-[\p gs64 a32 e64 d32 c64 e32 c64] }
+                  \tuplet 3/2 { b32-[ a64 c32 a64 b32 a64 c32 <d, f b>64] }
                 }
               }
             }
@@ -439,8 +514,9 @@ arietta-section-three = {
                 \tuplet 3/2 { g16-[ c32 b16 c32] }
                 \tuplet 3/2 { c16-[ bf32 a16 bf32]~ }
                 \tuplet 3/2 { bf16-[ s32 bf16 a32] } |
-                % todo hide this dot, even though it's basically correct
+                \omit Dots
                 \tuplet 3/2 { a16-[ c32 d16.]~ }
+                \undo \omit Dots
                 \tuplet 3/2 { d16-[ ds32 e16 s32] }
                 \tuplet 3/2 { e16-[ f32 <b, f'>16 <b d>32] } |
                 \tuplet 3/2 { <b d>16-[ b32 c16 d32] }
@@ -448,7 +524,26 @@ arietta-section-three = {
                 \tuplet 3/2 { c16-[ b32 a16 <gs d'>32] } |
                 \tuplet 3/2 { <b' d>16-[ b32 c16 d32] }
                 \tuplet 3/2 { g,16-[ d'32 e16 f32] }
-                \revert Tie.minimum-length
+                \revert Tie.minimum-length |
+                s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                \tuplet 3/2 { d32-[( e64 f32) <f d>64]( }
+                \tuplet 3/2 { b,32-[ c64 d32) c64]( }
+                \tuplet 3/2 { d32-[ e64 f32) e64] }
+                s16 |
+                \tuplet 3/2 { d32-[( e64 f32) <f d>64]( }
+                \tuplet 3/2 { b,32-[ c64 d32) c64]( }
+                \tuplet 3/2 { d32-[ e64 f32) e64]( }
+                \tuplet 3/2 { f32-[ d64 f32) e64] }
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { d32-[ c64 b32] e,,64\rest }
+                \tuplet 3/2 { b'32-[ c64 d32 c64] } |
               }
             }
           >>
@@ -463,29 +558,23 @@ arietta-section-three = {
       } {
         \clef bass \relative c, {
           \arietta-section-one
-
-          %-----------------------------------------------------------------
-          %    Variation 1, part 1
-          %-----------------------------------------------------------------
           <<
             \new Voice {
               \voiceOne
-              \repeat volta 2 {
-                \relative c, {
-                  <c g'>8. |
-                  <c g'>8.-[ <d g> <b g'>] |
-                  <b g'>8.-[ <c g'> <d g>] |
-                  <e g>8.-[ <c g'> <e g>] |
-                  \once \override PhrasingSlur.eccentricity = #2.0
-                  \once \override PhrasingSlur.height-limit = #5
-                  g,8.-[_\( g' g8^( f16 ] |
-                  % todo fix slur
-                  <e, e'>4.)\) <e e'>8. |
-                  <d d'>4. <f f'>8_( <fs fs'>16) |
-                  g'8.-[( a b8) b16]_~ |
-                  b8-[ b16_( c8 d16)] |
-                  b8-[_(_\repeatTie c16 d8 c16]) e8. |
-                }
+              \relative c, {
+                <c g'>8. |
+                <c g'>8.-[ <d g> <b g'>] |
+                <b g'>8.-[ <c g'> <d g>] |
+                <e g>8.-[ <c g'> <e g>] |
+                \once \override PhrasingSlur.eccentricity = #2.0
+                \once \override PhrasingSlur.height-limit = #5
+                g,8.-[_\( g' g8^( f16 ] |
+                % todo fix slur
+                <e, e'>4.)\) <e e'>8. |
+                <d d'>4. <f f'>8_( <fs fs'>16) |
+                g'8.-[( a b8) b16]_~ |
+                b8-[ b16_( c8 d16)] |
+                b8-[_(_\repeatTie c16 d8 c16]) e8. |
               }
             }
             \new Voice {
@@ -502,88 +591,133 @@ arietta-section-three = {
               }
             }
           >>
-
-          %-----------------------------------------------------------------
-          %    Variation 1, part 2
-          %-----------------------------------------------------------------
           <<
             \new Voice {
               \voiceOne
-              \repeat volta 2 {
-                \relative c {
-                  a8.-[ e'8. e8.] |
-                  gs,8.-[ e'8. e8.] |
-                  <gs, e'>8.-[ <a e'>8. <a e'>8.] |
-                  e8.-[ e'8. <a, a,>8.] |
-                  <g, g'>4. <g g'>8. |
-                  <c c'>4. <f, f'>8. |
-                  <g g'>8.-[ <g g'>8. <g g'>8 <g g'>16] |
-                  <g g'>8_( <c c'>16) <c c'>8. e'8. |
-                  <g,, g'>8_( <c c'>16) <c c'>16( g'' f \stemDown e c g')~ \stemNeutral |
-                  g16\( cs, g'~g d g~g as, g'~ |
-                  g16 b, g'~g c, g' e d g~ |
-                  g16 ds e g c, g'~g e g~ |
-                  g16 fs, g'16~g g, g'~g f, g'~ |
-                  g16 e, g'~g c,, e'~e c, e'~ |
-                  e16\) cs, e'~e d, f' fs fs, a' |
-                  af16^( g, g' a g, bf'~bf) b b |
-                  b16^( c f, e f d) e c
-                  % note: repeattie modified to go forward
-                  \once \override RepeatTie.control-points = #'((1 . 2.24) (1.5 . 2.75) (2.0 . 2.75) (2.5 . 2.24))
-                  g'\repeatTie |
-                  b16-[^( c d c b a gs a b]) |
-                  c16 a, e'~ |
-                  e16_( gs, e'~e a, e'~ |
-                  e16 gs, e'~e a, e'~e gs, gs'~ |
-                  gs16)_\markup { \italic "sempre legato" } gs a~a a b~b c d |
-                  ds16 c c~c a a~a g g~_( |
-                  g16 g, g'~g g, g'~g g, g'~ |
-                  g16) c,, c'~c c, c'~c f,, f' |
-                  g16 g, g'~g g, g'~g g, b' |
-                  s16 \stemUp g'16 g( a g) s4 |
-                  s16 s16 s16 |
-                  s16 g-[ g] a g g \stemNeutral |
-                  \impliedTuplets
-                  \tuplet 3/2 { c16-[(_\markup { \italic "dolce" } g32 fs16 g32)] } |
-                  g16-[ g~g g] \stemDown \tuplet 3/2 { d-[^( g,32 fs16 g32]) } |
-                  s4 s8 |
-                  s8 \stemNeutral \tuplet 3/2 { d'16-[( b32 d16 c32] }
-                  \tuplet 3/2 { f16-[ ds32 f16 e32]) } |
-                  g8\noBeam g,8 \tuplet 3/2 { f16-[_( e32 g16 f32] } |
-                  \tuplet 3/2 { e16-[ d32 f16 e32]) }
-                  \tuplet 3/2 { c16-[_( b32 d16 c32] }
-                  \tuplet 3/2 { bf16-[ a32 c16 bf32]) } |
-                  a16-[ a'16] d,16-[ d'16] f,16-[ fs16]~ |
-                  \tuplet 3/2 { fs16-[ fs32_( a16 g32]) }
-                  a16-[ bf16]~bf-[ b16~] |
-                  b16 s16 s8 |
-                  b16\repeatTie s16 s4 |
-                  \stemUp
-                  \tuplet 5/4 { a16-[ ds32 e16~] }
-                  \tuplet 5/4 { e16-[ ds32 e16~] }
-                  \tuplet 5/4 { e16-[ ds32 e16~] } |
-                  \tuplet 5/4 { e16-[ ds32 e16~] }
-                  \tuplet 5/4 { e16-[ ds32 e16~] }
-                  \tuplet 5/4 { e16-[ ds32 e16] } |
-                  s4 s8 |
-                  s4 s8 |
-                  \tuplet 3/2 { s16 f'32-[ e16 f32] }
-                  \tuplet 3/2 { f16-[ d32 cs16 d32] }
-                  \tuplet 3/2 { b16-[ s32 d16 c32] } |
-                  \tuplet 3/2 { c16-[ e32 d16 e32] }
-                  \tuplet 3/2 { e16-[ g32 fs16 g32]~ }
-                  \tuplet 3/2 { g16-[ g32 e16 f32] } |
-                  \tuplet 3/2 { c16-[ s32 c16 b32] }
-                  \tuplet 3/2 { b16-[ b32 c16 s32] }
-                  \tuplet 3/2 { cs16-[ d32 <d f!>16 <d f>32] } |
-                  \stemDown
-                  \tuplet 3/2 { <g, d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
-                  \tuplet 3/2 { <c! c'!>16-[) d32^( e16 f32] }
-                  \tuplet 3/2 { e16-[ d32 c16 b32)] } |
-                  \tuplet 3/2 { <g' d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
-                  \tuplet 3/2 { <c! c'!>16-[) \clef treble b''32^( c16 d32)] } \clef bass |
-                  d,,8\rest |	
-                }
+              \relative c {
+                a8.-[ e'8. e8.] |
+                gs,8.-[ e'8. e8.] |
+                <gs, e'>8.-[ <a e'>8. <a e'>8.] |
+                e8.-[ e'8. <a, a,>8.] |
+                <g, g'>4. <g g'>8. |
+                <c c'>4. <f, f'>8. |
+                <g g'>8.-[ <g g'>8. <g g'>8 <g g'>16] |
+                <g g'>8_( <c c'>16) <c c'>8. e'8. |
+                <g,, g'>8_( <c c'>16) <c c'>16( g'' f \stemDown e c g')~ \stemNeutral |
+                g16\( cs, g'~g d g~g as, g'~ |
+                g16 b, g'~g c, g' e d g~ |
+                g16 ds e g c, g'~g e g~ |
+                g16 fs, g'16~g g, g'~g f, g'~ |
+                g16 e, g'~g c,, e'~e c, e'~ |
+                e16\) cs, e'~e d, f' fs fs, a' |
+                af16^( g, g' a g, bf'~bf) b b |
+                b16^( c f, e f d) e c
+                % note: repeattie modified to go forward
+                \once \override RepeatTie.control-points = #'((1 . 2.24) (1.5 . 2.75) (2.0 . 2.75) (2.5 . 2.24))
+                g'\repeatTie |
+                b16-[^( c d c b a gs a b]) |
+                c16 a, e'~ |
+                e16_( gs, e'~e a, e'~ |
+                e16 gs, e'~e a, e'~e gs, gs'~ |
+                gs16)_\markup { \italic "sempre legato" } gs a~a a b~b c d |
+                ds16 c c~c a a~a g g~_( |
+                g16 g, g'~g g, g'~g g, g'~ |
+                g16) c,, c'~c c, c'~c f,, f' |
+                g16 g, g'~g g, g'~g g, b' |
+                s16 \stemUp g'16 g( a g) s4 |
+                s16 s16 s16 |
+                s16 g-[ g] a g g \stemNeutral |
+                \impliedTuplets
+                \tuplet 3/2 { c16-[(_\markup { \italic "dolce" } g32 fs16 g32)] } |
+                g16-[ g~g g] \stemDown \tuplet 3/2 { d-[^( g,32 fs16 g32]) } |
+                s4 s8 |
+                s8 \stemNeutral \tuplet 3/2 { d'16-[( b32 d16 c32] }
+                \tuplet 3/2 { f16-[ ds32 f16 e32]) } |
+                g8\noBeam g,8 \tuplet 3/2 { f16-[_( e32 g16 f32] } |
+                \tuplet 3/2 { e16-[ d32 f16 e32]) }
+                \tuplet 3/2 { c16-[_( b32 d16 c32] }
+                \tuplet 3/2 { bf16-[ a32 c16 bf32]) } |
+                a16-[ a'16] d,16-[ d'16] f,16-[ fs16]~ |
+                \tuplet 3/2 { fs16-[ fs32_( a16 g32]) }
+                a16-[ bf16]~bf-[ b16~] |
+                b16 s16 s8 |
+                b16\repeatTie s16 s4 |
+                \stemUp
+                \tuplet 5/4 { a16-[ ds32 e16~] }
+                \tuplet 5/4 { e16-[ ds32 e16~] }
+                \tuplet 5/4 { e16-[ ds32 e16~] } |
+                \tuplet 5/4 { e16-[ ds32 e16~] }
+                \tuplet 5/4 { e16-[ ds32 e16~] }
+                \tuplet 5/4 { e16-[ ds32 e16] } |
+                s4 s8 |
+                s4 s8 |
+                \tuplet 3/2 { s16 f'32-[ e16 f32] }
+                \tuplet 3/2 { f16-[ d32 cs16 d32] }
+                \tuplet 3/2 { b16-[ s32 d16 c32] } |
+                \tuplet 3/2 { c16-[ e32 d16 e32] }
+                \tuplet 3/2 { e16-[ g32 fs16 g32]~ }
+                \tuplet 3/2 { g16-[ g32 e16 f32] } |
+                \tuplet 3/2 { c16-[ s32 c16 b32] }
+                \tuplet 3/2 { b16-[ b32 c16 s32] }
+                \tuplet 3/2 { cs16-[ d32 <d f!>16 <d f>32] } |
+                \stemDown
+                \tuplet 3/2 { <g, d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
+                \tuplet 3/2 { <c! c'!>16-[) d32^( e16 f32] }
+                \tuplet 3/2 { e16-[ d32 c16 b32)] } |
+                \tuplet 3/2 { <g' d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
+                \tuplet 3/2 { <c! c'!>16-[) \clef treble b''32^( c16 d32)] } \clef bass |
+                d,,8\rest |
+                \stemUp
+                \tuplet 3/2 { c,32-[ e64 g32 c64 e32 g64 b32 c64] }
+                \tuplet 3/2 { d,,32-[ g64 b32 d64 g32 b64 cs32 d64] }
+                d,8\rest |
+                \tuplet 3/2 { d,32-[ g64 b32 d64 g32 b64 cs32 d64] }
+                \tuplet 3/2 { e,,32-[ g64 c!32 e64 g32 c64 ds32 e64] }
+                d,8\rest |
+                \tuplet 3/2 { e,32-[ bf'64 cs32 e64 f32 b64 d32 f64] }
+                \tuplet 3/2 { ds,32-[ g64 b32 ds64 e,32 g64 c!32 e64] }
+                \tuplet 3/2 { c,32-[ e64 g32 c64] }
+                \tuplet 3/2 { c,,32-[ e64 g32 c64] } |
+                \omit Dots
+                \tuplet 3/2 { <g, g'>32.-[~ <g g'>32 <g g'>64~ <g g'>32.~ <g g'>32 <g g'>64]~ }
+                \tuplet 3/2 { <g g'>32.-[~ <g g'>32 <g g'>64~ <g g'>32.~ <g g'>32 <f f'>64] }
+                \tuplet 3/2 { f32-[ b64 d32 f64 b32 d64 e32 f64] }
+                \undo \omit Dots |
+                <e, e'>32 d'32\rest d32\rest
+                \stemDown
+                \tuplet 3/2 { g'32-[ e64] }
+                \tuplet 3/2 { c32-[ g64 e32 c64] }
+                \tuplet 3/2 { e'32-[ c64 g32 e64] }
+                \tuplet 3/2 { e'32-[ c64 g32 e64] }
+                \tuplet 3/2 { c'32-[ g64 e32 c64] } |
+                \tuplet 3/2 { a'32-[ g64 e32 cs64 a32 g'64 e32 cs64] }
+                \tuplet 3/2 { a'32-[ f64 d32 f64 d32 d'64 f32 d64] }
+                \tuplet 3/2 { f32-[ d64 a32 f64 f'32 d64 a32 f64] }
+                \clef treble |
+                \stemUp
+                \tuplet 3/2 { g32-[ f'64 d32 b64] }
+                \tuplet 3/2 { g32-[ b64 d32 f64] }
+                \tuplet 3/2 { af,32-[ af'64 f32 c64 a32 c64 f32 a64] }
+                \tuplet 3/2 { bf,32-[ bf'64 bf,32 bf'64 bf,32 bf'64 b,32 b'64] } |
+                \stemNeutral
+                \tuplet 3/2 { b,32-[_( c64 d32) b64]_( }
+                \tuplet 3/2 { d32-[ e64 f32) e64]^( }
+                \tuplet 3/2 { b'32-[ c64 d32) c64]^( }
+                \tuplet 3/2 { d32-[ e64 f32 e64]) } |
+                \tuplet 3/2 { b,32-[_( c64 d32) b64]_( }
+                \tuplet 3/2 { d32-[ e64 f32) e64]^( }
+                \tuplet 3/2 { b'32-[ c64 d32) c64]^( }
+                \tuplet 3/2 { d32-[ b64 d32) c64]^( }
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { b32-[ a64 gs32]) d'64\rest }
+                \clef bass
+                \tuplet 3/2 { gs,,,,32-[_( a64 b32 a64])_~ } |
+                \omit Dots
+                \tuplet 3/2 { a32-[_( c64 e32 gs64 a32 c64 e32 gs64]) }
+                \tuplet 3/2 { a32.-[~ a32 <a c e>64~ <a c e>32.~ <a c e>32 <a c e>64~] }
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { <a c e>32.~-[ <a c e>32 <a c e>64~ <a c e>32.~ <a c e>32] <a,, a'>64 }
+                \undo \omit Dots |
               }
             }
             \new Voice {
@@ -643,11 +777,12 @@ arietta-section-three = {
                 \tuplet 5/4 { gs16-[~ gs a32] }
                 \tuplet 5/4 { gs16-[~ gs a32] }
                 \tuplet 5/4 { gs16-[~ gs gs32]~ } |
-                % todo hide dot
                 \stemUp
+                \omit Dots
                 \tuplet 3/2 { gs16-[ <gs,! gs'!>32\( <a a'>16.]~ }
                 \tuplet 3/2 { <a a'>16-[\) <a a'>32\( <b b'>16.]( }
-                \tuplet 3/2 { <c c'>16-[) <d d'>32 <ds ds'>16 <e e'>32\)] } | 
+                \tuplet 3/2 { <c c'>16-[) <d d'>32 <ds ds'>16 <e e'>32\)] }
+                \undo \omit Dots | 
                 \tuplet 3/2 { <e e'>16-[ <e e'>32~ <e e'>16 <e e'>32]~ }
                 \tuplet 3/2 { <e e'>16-[ <a, a'>32~ <a a'>16 <a a'>32]~ }
                 \tuplet 3/2 { <a a'>16-[ <g! g'!>32~ <g g'>16 <g g'>32] } |
@@ -665,7 +800,7 @@ arietta-section-three = {
     \layout {
       \context {
         \Score
-        % Set the score to a default note value of one crotchet.
+        % Set the score to a good default spacing value.
         \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16)
         \consists #Span_stem_engraver
       }
