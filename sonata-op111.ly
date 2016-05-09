@@ -57,6 +57,12 @@ arietta-section-three = {
   \tempo "L'istesso tempo"
 }
 
+% Variation 5.
+arietta-section-four = {
+  \key c \major
+  \time 9/16
+}
+
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
@@ -425,9 +431,50 @@ arietta-section-three = {
                   \tuplet 3/2 { <e_~ c'^~>32.-[\f <e c'>32 <e_~ c'^~>64 <e_~ c'^~>32. <e c'>32 <e c'>64] }
                   \tuplet 3/2 { c''32-[\p gs64 a32 e64 d32 c64 e32 c64] }
                   \tuplet 3/2 { b32-[ a64 c32 a64 b32 a64 c32 <d, f b>64] } |
-                  
+                  \tuplet 3/2 { <d_~ e^~ b'^~>32.-[ \f <d e b'>32 <d_~ e^~ b'^~>64 <d_~ e^~ b'^~>32. <d_~ e^~ b'^~>32 <d e b'>64] }
+                  \tuplet 3/2 { c''32-[( \p b64 e32 b64 a32 gs64 b32 e,64] }
+                  \tuplet 3/2 { b'32-[ e,64 f32 d64 c32 b64 e32 b64)] } |
+                  \tuplet 3/2 { c32-[\( b64 e32 b64 d32 c64 e32 c64 e32 d64 gs32 d64 f32 e64 a32 e64 a32 f64 a32 b,64 a'32 fs64 a32 c,64~] } |
+                  \tuplet 3/2 { <c a'>32-[\f b64 a'32 gs64\) <d_~ b'^~>16.]^\(\sf }
+                  \tuplet 3/2 { <d b'>32-[ c64 b'32 a64\) <e_~ c'^~>16.]^\(\sf }
+                  \once \override TupletBracket.transparent = ##t
+                  \tuplet 3/2 { <e c'>32-[ d64 c'32 b64\) <f_~ d'^~>32.\sf <f d'>32 <f d'>64] } |
+                  \tuplet 3/2 { <f_~ g^~ b^~ d^~>32.-[ <f g b d>32 <f_~ g^~ b^~ d^~>64 <f_~ g^~ b^~ d^~>32. <f g b d>32 <f_~ g^~ b^~ d^~>64] }
+                  \tuplet 3/2 { <f g b d>32-[ b64( f'32 d64 c32 b64 d32 b64] }
+                  \tuplet 3/2 { g32-[ f64 a32 f64 e32 d64 f32 d64)] } |
+                  \stemUp
+                  \tuplet 3/2 { <g,_~ c_~ e^~>32.-[ <g c e>32 <g_~ c_~ e^~>64 <g_~ c_~ e^~>32. <g c e>32 <g_~ c_~ e^~>64] }
+                  \once \override TupletBracket.transparent = ##t
+                  \tuplet 3/2 { <g c e>32-[( <g b>64 <a c>32 <b d>64]) e16.~ e32-[( cs64 d32 e64 f16.~]) } |
+                  \stemUp
+                  \tuplet 3/2 { <f b,>32-[( <as, cs>64 <b d>32 <c e>64 d16.]~) }
+                  \tuplet 3/2 { d32-[( cs64 d32 e64 d16.)]~ }
+                  \tuplet 3/2 { d32-[( e64 f32 fs64 g16.~]) } |
                 }
               }
+              \alternative {
+                {
+                  \tuplet 3/2 { g32-[ a64 g32 a64 g32 <d f>64 e32 <d f>64] }
+                  \tuplet 3/2 { e32-[ <g, d' f>64^( <g e'>32 d'64 c32 b64 c32 e64]) }
+                  \tuplet 3/2 { e,32-[_( <c' e>64 e,32 <b' d>64 e,32 <a c>64 e32 <gs b>64)] }
+                }
+                {
+                  \set Timing.measureLength = #(ly:make-moment 8/32)
+                  \tuplet 3/2 { g'32-[\repeatTie a64 g32 a64 g32 <d f>64 e32 <d f>64] }
+                  \tuplet 3/2 { e32-[ <c, f>64 <b e>32 <a d>64] }
+                  \clef bass
+                  \stemDown
+                  \tuplet 3/2 { g32-[ a64 g32 f64] }
+                  \bar "||"
+                }
+              }
+              \arietta-section-four
+              \set Timing.measureLength = #(ly:make-moment 3/16)
+              <e c'>16 <e_~ g^~ c^~>16 <e g c> |
+              \set Timing.measureLength = #(ly:make-moment 9/16)
+              d16\rest <b_~ d_~ f^~ g^~> <b d f g>
+              d16\rest <b_~ d_~ f^~ g^~> <b d f g>
+              d16\rest <f_~ g_~ b^~ d^~> <f g b d> |
             }
             \new Voice {
               \voiceTwo
@@ -546,6 +593,114 @@ arietta-section-three = {
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { d32-[ c64 b32] e,,64\rest }
                 \tuplet 3/2 { b'32-[ c64 d32 c64] } |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s8.
+                \once \override TupletBracket.transparent = ##t
+                \omit Dots
+                \tuplet 3/2 { g'32-[( e64 f32 g64] a16.~) }
+                \tuplet 3/2 { a32-[( f64 g32 a64] } |
+                % Some hackery to properly integrate two voices.
+                \hideNotes
+                \stemUp
+                \once \override TupletBracket.transparent = ##t
+                \override NoteColumn.ignore-collision = ##t
+                \tuplet 3/2 { \single \hide Stem \single \hide Flag b32) \unHideNotes s64 s32 s64 \single \hide Flag b16.(\noBeam }
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { \stemDown g16.)~ g32-[ a64 b32 c64] b16.\noBeam r32 e64-[ d32 c64] } |
+                \stemDown
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { d32-[ d64~ d32 d64]~ \stemUp \single \hide Flag d32 \noBeam s64 s32 s64 } s4
+                \revert NoteColumn.ignore-collision |
+                \stemDown
+                \tuplet 3/2 { d32-[ d64~ d32 d64]~ }
+                \tuplet 3/2 { d32-[ g,64~ g32 g64]~ }
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { g16. } \stemUp c,16 \stemNeutral
+                \undo \omit Dots |
+              }
+            }
+            \new Voice {
+              \voiceThree
+              \relative c' {
+                \impliedTuplets
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 |
+                s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                s4 s8 |
+                \stemDown
+                s16
+                \once \override NoteColumn.ignore-collision = ##t
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 {
+                  g'32-[ g64_~ g32 g64_~]
+                  \stemUp
+                  \once \override NoteColumn.force-hshift = #0
+                  \single \hide Flag
+                  g32
+                }
               }
             }
           >>
@@ -718,8 +873,41 @@ arietta-section-three = {
                 \tuplet 3/2 { a32-[_( c64 e32 gs64 a32 c64 e32 gs64]) }
                 \tuplet 3/2 { a32.-[~ a32 <a_~ c^~ e^~>64 <a_~ c^~ e^~>32. <a c e>32 <a_~ c^~ e^~>64] }
                 \once \override TupletBracket.transparent = ##t
-                \tuplet 3/2 { <a_~ c^~ e^~>32.-[ <a c e>32 <a_~ c^~ e^~>64~ <a_~ c^~ e^~>32. <a c e>32] <a,, a'>64 }
+                \tuplet 3/2 { <a_~ c^~ e^~>32.-[ <a c e>32 <a_~ c^~ e^~>64~ <a_~ c^~ e^~>32. <a c e>32] <a,, a'>64 } |
+                \tuplet 3/2 { gs32-[_( b64 e32 gs64 b32 e64 gs32 a64)] }
+                \tuplet 3/2 { <gs_~ b^~ e^~>32.-[ <gs b e>32 <gs_~ b^~ e^~>64 <gs_~ b^~ e^~>32. <gs b e>32 <gs_~ b^~ e^~>64] }
+                \tuplet 3/2 { <gs_~ b^~ e^~>32.-[ <gs b e>32 <gs_~ b^~ e^~>64 <gs_~ b^~ e^~>32. <gs b e>32 <gs b e>64] } |
+                \stemDown
+                \tuplet 3/2 { gs,32.~-[ gs32 gs'64 a,32.~ a32 a'64] }
+                \tuplet 3/2 { b,32.~-[ b32 b'64 c,32.~ c32 c'64] }
+                \tuplet 3/2 { d,32.~-[ d32 d'64 ds,32.~ ds32 ds'64] } |
+                % todo put 32nd flags in the same direction
+                \tuplet 3/2 { e16.~-[ e32 e,64 f32 e64] }
+                \tuplet 3/2 { a16.~-[ a32 a,64 b32 a64] }
+                \stemNeutral
+                \tuplet 3/2 { g16._~-[ g32 g,64_( af32 g64]_~ } |
+                \tuplet 3/2 { g32-[ b64 d32 g64 b32 d64 fs32 g64]) }
+                \override Tie.minimum-length = #2.65
+                \tuplet 3/2 { <g,_~ b^~ d^~ f^~>32.-[ <g b d f>32 <g_~ b^~ d^~ f^~>64 <g_~ b^~ d^~ f^~>32. <g b d f>32 <g_~ b^~ d^~ f^~>64] }
+                \tuplet 3/2 { <g_~ b^~ d^~ f^~>32.-[ <g b d f>32 <g_~ b^~ d^~ f^~>64 <g_~ b^~ d^~ f^~>32. <g b d f>32 <g b d f>64] } |
+                \tuplet 3/2 { c,32-[_( e64 g32 b64 c32 e64 g32 b64)] }
+                \once \override TupletBracket.transparent = ##t
+                \override Beam.auto-knee-gap = #1
+                % Ignore the warning about the beam slope.
+                #(ly:expect-warning "no viable")
+                \tuplet 3/2 { c32-[^( f64 e32 d64] c32-[) c,,64_( d32 e64] f32-[) g'64_( f32 e64] d32-[) d,64_( e32 f64] }
+                \revert Beam.auto-knee-gap |
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { g16.) g'32-[ fs64 g32 a64] b16.~ b32-[ c64 d32 e64] f!32-[ e64 d32 c64] b32-[ c64 b32 g64] } |
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { b32-[ b64~ b32 b64~] b32-[ b64( c32 b64)] c32-[( b64 c32 d64 e32 d64 e32 c64]) \stemNeutral d,32.\rest d32\rest e,64~ e32.-[ e32 e64] } |
+                \once \override TupletBracket.transparent = ##t
+                \tuplet 3/2 { b''32-[ b64~ b32 b64~] b32-[ b64( c32 b64] c32-[) a,64^( g32 f64] e32-[ f64 e32 d64]) }
                 \undo \omit Dots |
+                \tuplet 3/2 { c32-[ g' c, g' c, g' c, g' c,] } |
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] } |
               }
             }
             \new Voice {
