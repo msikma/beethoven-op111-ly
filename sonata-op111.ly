@@ -35,7 +35,7 @@ maestoso-section-one = {
   \tempo "Maestoso"
 }
 
-% Variation 1-2.
+% Variation 1.
 arietta-section-one = {
   \key c \major
   \time 9/16
@@ -43,21 +43,21 @@ arietta-section-one = {
   \tempo "Adagio molto semplice e cantabile"
 }
 
-% Variation 3.
+% Variation 2.
 arietta-section-two = {
   \key c \major
   \time 6/16
   \tempo "L'istesso tempo"
 }
 
-% Variation 4.
+% Variation 3.
 arietta-section-three = {
   \key c \major
   \time 12/32
   \tempo "L'istesso tempo"
 }
 
-% Variation 5.
+% Variation 4.
 arietta-section-four = {
   \key c \major
   \time 9/16
@@ -424,6 +424,10 @@ arietta-section-four = {
                   }
                 }
               }
+              
+              %-----------------------------------------------------------------
+              %    Variation 3, part 2
+              %-----------------------------------------------------------------
               \repeat volta 2 {
                 \relative c' {
                   \omit Dots
@@ -468,6 +472,10 @@ arietta-section-four = {
                   \bar "||"
                 }
               }
+              
+              %-----------------------------------------------------------------
+              %    Variation 4, part 1
+              %-----------------------------------------------------------------
               \arietta-section-four
               \set Timing.measureLength = #(ly:make-moment 3/16)
               <e c'>16 <e_~ g^~ c^~>16 <e g c> |
