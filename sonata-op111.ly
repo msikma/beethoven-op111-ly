@@ -483,6 +483,43 @@ arietta-section-four = {
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <f_~ g_~ b^~ d^~> <f g b d> |
+              d16\rest <d f^~ g^~> <c e g>
+              d16\rest <c_~ e^~ g^~> <c e g>
+              \override Tie.minimum-length = #4
+              d16\rest <d_~ f^~ g^~> <d f g> |
+              d16\rest <ds fs g^~> <e g>
+              d16\rest <e_~ g^~ e'^~> <e g e'>
+              d16\rest <ef_~ fs^~ a^~ c^~> <ef fs a c> |
+              d16\rest <d_~ f_~ af^~ c^~> <d f af c>
+              d16\rest <d_~ f_~ af^~ b^~> <d f af b>
+              d16\rest <d_~ f_~ g^~ b^~> <d f g b> |
+              d16\rest <ds fs c'^~> <e g c>
+              d16\rest <g_~ b e^~> <g c e>
+              d16\rest \stemUp \clef treble <bf'_~ df_~ e^~ g^~> <bf df e g> |
+              b'16\rest <bf,_~ df_~ e^~ g^~> <bf df e g>
+              b'16\rest \stemDown \clef bass <f,_~ c'^~ f^~> <f c' f>
+              d16\rest <f_~ af^~ d^~> <f af d> |
+              d16\rest <f_~ af^~ b^~> <f af b>
+              d16\rest <f e c'^~> <e g c>
+              d16\rest <f g d'>^( <d f g>) \clef treble |
+              \explicitTuplets
+              \stemUp
+              \override TupletBracket.bracket-visibility = #'if-no-beam
+              \tuplet 3/2 { g32-[ a b }
+              \tuplet 3/2 { c d e }
+              \tuplet 3/2 { f g a] }
+              \impliedTuplets
+              \stemNeutral
+              \tuplet 3/2 { b-[ c d }
+              \tuplet 3/2 { e f g }
+              \tuplet 3/2 { a g b] }
+              \tuplet 3/2 { c-[ \pp d c }
+              \tuplet 3/2 { b c b }
+              \tuplet 3/2 { c d c] } |
+              \override TupletBracket.transparent = ##t
+              \tuplet 3/2 { g32-[ a g fs g fs g a g] fs-[ g fs g a g cs d cs] d-[ e d cs d cs d e d] } |
+              \tuplet 3/2 { cs32-[ d cs d e d g, a g] a-[ b a g a g b c b] c-[ d c d e d ds e ds] } |
+              \tuplet 3/2 { e32-[ a, g fs a g fs a g] fs-[ g gs a bf b c cs d] e-[ f e d e d c d c] } |
             }
             \new Voice {
               \voiceTwo
@@ -916,6 +953,48 @@ arietta-section-four = {
                 \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
                 \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
                 \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] } |
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] } |
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] } |
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] } |
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] } |
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { a'32-[ c, a' c, a' c, a' c, a'] }
+                \tuplet 3/2 { c,32-[ b' c, b' c, b' c, b' c,] } |
+                \tuplet 3/2 { d'32-[ c, d' c, d' c, d' c, d'] }
+                \tuplet 3/2 { c,32-[ c' c, c' c, c' c, c' c,] }
+                \tuplet 3/2 { b'32-[ c, b' c, b' c, b' c, b'] } |
+                \explicitTuplets
+                \stemDown
+                \override TupletBracket.bracket-visibility = #'if-no-beam
+                \override TupletBracket.direction = #-1
+                \tuplet 3/2 { b32-[ c d }
+                \tuplet 3/2 { e f g }
+                \tuplet 3/2 { a b c] }
+                \impliedTuplets
+                \clef treble
+                \stemUp
+                \tuplet 3/2 { d-[ e f }
+                \tuplet 3/2 { g a b }
+                \tuplet 3/2 { c e d] }
+                \stemDown
+                e16-.-[ e-. e-.] |
+                e-.-[ ds-. e-.]
+                ds-.-[ e-. <e g>-.]
+                <f g>-.-[ <e g>-. <f g>-.] |
+                <e g>-.-[ <f g>-. <b, f'>-.]
+                <c! f>-.-[ <b f'>-. <d f>-.]
+                <e g>-.-[ <f g>-. <fs g>-.] |
+                \tuplet 3/2 { g32-[ f! e ds f e ds f e] }
+                \tuplet 3/2 { ds32-[ e f fs g gs a as b] }
+                c16-.-[ <f, g>-. <e g>-.] |
               }
             }
             \new Voice {
