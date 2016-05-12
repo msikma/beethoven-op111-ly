@@ -504,10 +504,9 @@ arietta-section-four = {
               d16\rest <f g d'>^( <d f g>) \clef treble |
               \explicitTuplets
               \stemUp
-              \override TupletBracket.bracket-visibility = #'if-no-beam
-              \tuplet 3/2 { g32-[ a b }
-              \tuplet 3/2 { c d e }
-              \tuplet 3/2 { f g a] }
+              \override TupletBracket.bracket-visibility = ##t
+              \tuplet 3/2 { g32-[ a b c d e f g a] }
+              \override TupletBracket.transparent = ##t
               \impliedTuplets
               \stemNeutral
               \tuplet 3/2 { b-[ c d }
@@ -516,10 +515,38 @@ arietta-section-four = {
               \tuplet 3/2 { c-[ \pp d c }
               \tuplet 3/2 { b c b }
               \tuplet 3/2 { c d c] } |
-              \override TupletBracket.transparent = ##t
               \tuplet 3/2 { g32-[ a g fs g fs g a g] fs-[ g fs g a g cs d cs] d-[ e d cs d cs d e d] } |
               \tuplet 3/2 { cs32-[ d cs d e d g, a g] a-[ b a g a g b c b] c-[ d c d e d ds e ds] } |
               \tuplet 3/2 { e32-[ a, g fs a g fs a g] fs-[ g gs a bf b c cs d] e-[ f e d e d c d c] } |
+              \tuplet 3/2 { b32-[ d c as c b c d e] b-[ c b as b as b c b] cs-[ e d e f e f g f] } |
+              \tuplet 3/2 { g,32-[ g' g, c! g' c, b g' b,] c-[ g' d ds g e f g fs] g-[ a fs g fs g cs, a' g] } |
+              \tuplet 3/2 { cs,32-[ a' g cs, f! e cs a' g] cs,-[ a' g d! g f a, e' d] af-[ e' d g, e' d g, d' c] } |
+              \tuplet 3/2 { g32-[ d' c f, c' b g d' c] g-[ d' c g d' cs a! e' d] a-[ e' d b e d cs d g,] } |
+              \tuplet 3/2 { a32-[ fs g a fs g a fs g] a-[ fs g a fs g a gs e'] b-[ a e' c b e] } b,16\rest |
+              b16\rest \clef bass <a, b~>16 <g b>
+              d16\rest <a' b~>16 <g b>
+              d16\rest <a' b~>16 <g b> |
+              d16\rest <a' b~> <gs b>
+              d16\rest <a' b~> <gs b>
+              d16\rest <a' b~ e~> <gs b e> |
+              d16\rest <gs c~ e~> <a c e>
+              d,16\rest <gs c~ e~> <a c e>
+              d,16\rest <b' d> <a c> |
+              d,16\rest <ds_~ fs_~ a^~ c^~> <ds fs a c>
+              d16\rest <d_~ f_~ gs^~ b^~> <d f gs b>
+              d16\rest <e_~ a^~ c^~> <e a c> |
+              d16\rest <f_~ c'_~ d^~> <f c' d>
+              d16\rest <c d^~> <b d>
+              d16\rest <f_~ c'_~ d^~> <f c' d> |
+              d16\rest <g_~ d' e^~> <g c e>
+              d16\rest <d e^~> <c e>
+              d16\rest <af' b_~ d^~ f^~> <g b d f> |
+              d16\rest <c d~> <b d>
+              d16\rest <c d~ g~> <b d g>
+              d16\rest \clef treble <c' d_~ g^~> <b d g> \clef bass |
+              d,16\rest <b d g>^( <c e>)
+              d16\rest <c' e>^( e,)
+              d16\rest \clef treble <d'' e>_( <d, e>) |
             }
             \new Voice {
               \voiceTwo
@@ -973,11 +1000,10 @@ arietta-section-four = {
                 \tuplet 3/2 { b'32-[ c, b' c, b' c, b' c, b'] } |
                 \explicitTuplets
                 \stemDown
-                \override TupletBracket.bracket-visibility = #'if-no-beam
+                \override TupletBracket.bracket-visibility = ##t
                 \override TupletBracket.direction = #-1
-                \tuplet 3/2 { b32-[ c d }
-                \tuplet 3/2 { e f g }
-                \tuplet 3/2 { a b c] }
+                \tuplet 3/2 { b32-[ c d e f g a b c] }
+                \override TupletBracket.transparent = ##t
                 \impliedTuplets
                 \clef treble
                 \stemUp
@@ -995,6 +1021,46 @@ arietta-section-four = {
                 \tuplet 3/2 { g32-[ f! e ds f e ds f e] }
                 \tuplet 3/2 { ds32-[ e f fs g gs a as b] }
                 c16-.-[ <f, g>-. <e g>-.] |
+                <e g>-.-[ <d g>-. <e g>-.]
+                <d g>-.-[ <cs g'>-. <d g>-.]
+                <f g>-.-[ <cs g'>-. <d g>-.] |
+                e-.-[ e-. e-.]
+                e-.-[ c'-. d-.]
+                e-.-[ e-. <e, bf'>-.] |
+                <e bf'>-.-[ <e g>-. <e bf'>-.]
+                <e bf'>-.-[ <f a> f]
+                f-[ f e] |
+                e16-[ d e]
+                e-[ e f]
+                fs-[ g <b, f'>] |
+                <b f'>-[ <c e> <d f>]
+                <d f>-[ <c e> <b d>]
+                \stemUp <a c>-[ <gs b>] \clef bass \tuplet 3/2 { e,32-[ e, e'] } |
+                \tuplet 3/2 { e,32-[ e' e, e' e, e' e, e' e,] }
+                \tuplet 3/2 { e'32-[ e, e' e, e' e, e' e, e'] }
+                \tuplet 3/2 { e,32-[ e' e, e' e, e' e, e' e,] } |
+                \tuplet 3/2 { e'32-[ e, e' e, e' e, e' e, e'] }
+                \tuplet 3/2 { e,32-[ e' e, e' e, e' e, e' e,] }
+                \tuplet 3/2 { e'32-[ e, e' e, e' e, e' e, e'] } |
+                \tuplet 3/2 { e,32-[ e' e, e' e, e' e, e' e,] }
+                \tuplet 3/2 { e'32-[ e, e' e, e' e, e' e, e'] }
+                \tuplet 3/2 { e,32-[ e' e, e' e, e' e, e' e,] } |
+                \tuplet 3/2 { e'32-[ e, e' e, e' e, e' e, e'] }
+                \tuplet 3/2 { e,32-[ e' e, e' e, e' e, e' e,] }
+                \tuplet 3/2 { a32-[ a, a' a, a' a, a' a, a'] } |
+                \tuplet 3/2 { g,!32-[ g'! g, g' g, g' g, g' g,] }
+                \tuplet 3/2 { g'32-[ g, g' g, g' g, g' g, g'] }
+                \tuplet 3/2 { g,32-[ g' g, g' g, g' g, g' g,] } |
+                \tuplet 3/2 { g'32-[ g, g' g, g' g, g' g, g'] }
+                \tuplet 3/2 { g,32-[ g' g, g' g, g' g, g' g,] }
+                \tuplet 3/2 { g'32-[ g, g' g, g' g, g' g, g'] } |
+                \tuplet 3/2 { g,32-[ g' g, g' g, g' g, g' g,] }
+                \tuplet 3/2 { g'32-[ g, g' g, g' g, g' g, g'] }
+                \tuplet 3/2 { g,32-[ g' g, g' g, g' g, g' g,] } |
+                \tuplet 3/2 { g'32-[ g, g' g, g' g, g' c, g'] }
+                \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
+                \tuplet 3/2 { gs'32-[ b, gs' b, gs' b, gs' b, gs'] } |
+                
               }
             }
             \new Voice {
@@ -1073,6 +1139,8 @@ arietta-section-four = {
       }
     >>
     \layout {
+      %#(layout-set-staff-size 16.5)
+      %ragged-right = ##t
       \context {
         \Score
         % Set the score to a good default spacing value.
