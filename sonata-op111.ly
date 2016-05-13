@@ -255,7 +255,7 @@ arietta-section-four = {
                   b'8\rest |
                   \set Timing.measureLength = #(ly:make-moment 6/16)
                   \stemUp
-                  \impliedTuplets
+                  \implicitTuplets
                   \tuplet 3/2 { e16-[(_\markup { \italic "mano sinistra" } c32 b16 c32] }
                   \tuplet 3/2 { d16-[ b32 as16 b32]) }
                   b8\rest |
@@ -483,11 +483,14 @@ arietta-section-four = {
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <f_~ g_~ b^~ d^~> <f g b d> |
-              d16\rest <d f^~ g^~> <c e g>
+              \set doubleSlurs = ##t
+              % todo fix all the other legato chords
+              d16\rest <d f^~ g^~>( <c e g>)
               d16\rest <c_~ e^~ g^~> <c e g>
               \override Tie.minimum-length = #4
               d16\rest <d_~ f^~ g^~> <d f g> |
-              d16\rest <ds fs g^~> <e g>
+              d16\rest <ds fs g^~>( <e g>)
+              \set doubleSlurs = ##f
               d16\rest <e_~ g^~ e'^~> <e g e'>
               d16\rest <ef_~ fs^~ a^~ c^~> <ef fs a c> |
               d16\rest <d_~ f_~ af^~ c^~> <d f af c>
@@ -507,7 +510,7 @@ arietta-section-four = {
               \override TupletBracket.bracket-visibility = ##t
               \tuplet 3/2 { g32-[ a b c d e f g a] }
               \override TupletBracket.transparent = ##t
-              \impliedTuplets
+              \implicitTuplets
               \stemNeutral
               \tuplet 3/2 { b-[ c d }
               \tuplet 3/2 { e f g }
@@ -547,6 +550,75 @@ arietta-section-four = {
               d,16\rest <b d g>^( <c e>)
               d16\rest <c' e>^( e,)
               d16\rest \clef treble <d'' e>_( <d, e>) |
+              \explicitTuplets
+              \override TupletBracket.bracket-visibility = ##t
+              \override TupletBracket.transparent = ##f
+              \override TupletBracket.direction = #-1
+              <e c' e>16 \tuplet 3/2 { c''32-[ \pp d b c b a] }
+              \implicitTuplets
+              \override TupletBracket.bracket-visibility = #'if-no-beam
+              \tuplet 3/2 { gs32-[ a b a b c b c d] }
+              \tuplet 3/2 { c32-[ d b c c d c b a] } |
+              \tuplet 3/2 { b32-[ c d c b a gs a b] }
+              \tuplet 3/2 { gs32-[ a b a b c b c d] }
+              \tuplet 3/2 { b32-[ c d f e d c b e] } |
+              \tuplet 3/2 { a,32-[ gs e' b a e' c b e] }
+              \tuplet 3/2 { d32-[ c e c b e d c e] }
+              \tuplet 3/2 { d32-[ c e c b d b a c] } |
+              \tuplet 3/2 { b32-[ a c b d c b a c] }
+              \tuplet 3/2 { a32-[ gs b a c b a gs b] }
+              \tuplet 3/2 { c32-[ d c b c b c d c] } |
+              \tuplet 3/2 { d32-[ e cs d b c as b a] }
+              \tuplet 3/2 { b32-[ a c b d c d cs ef] }
+              \tuplet 3/2 { d32-[ e d f d e ds f ds] } |
+              \tuplet 3/2 { e32-[ f ds e cs d b d c] }
+              \tuplet 3/2 { d32-[ e d e f e f ds e] }
+              \tuplet 3/2 { f32-[ g e f e f e g f] } |
+              \tuplet 3/2 { d!32-[ f d f d f d f d] }
+              \tuplet 3/2 { f32-[ d f d fs d fs d fs] }
+              \tuplet 3/2 { d32-[ fs d g d g d g d] } |
+              \tuplet 3/2 { g32-[ d g f! g d f d e] }
+              \tuplet 3/2 { g32-[ f e f e d f e c] }
+              \tuplet 3/2 { g'32-[ f e f e d f e c] } |
+              \tuplet 3/2 { f32-[ e d e d b d c b] }
+              \tuplet 3/2 { f'32-[ e d e d b d c b] }
+              \tuplet 3/2 { f'32-[ e d e d b d c b] } |
+              \tuplet 3/2 { g'32-[ f e f e d f e c] }
+              \undo \omit Dots
+              % note I would rather keep this rest at the same height as the other notes
+              r8.
+              \tuplet 3/2 { g32-[ f e f e d f e c] } |
+              \tuplet 3/2 { f32-[ e d e d b d c b] }
+              \tuplet 3/2 { f'32-[ e d e d b d c b] }
+              \tuplet 3/2 { f'32-[ e d e d b d c b] } |
+              \relative c'' { b8.\rest }
+              <c e>8.-[ <c_~ e^~>8.] |
+              <c e>8. <e c' e>8.-[ <e c' e>] |
+              <e c' e>8.-[ <e c' e> <d b' d>8] \clef bass
+              \explicitTuplets
+              \tuplet 3/2 { g,,,,32-[ a b] }
+              \implicitTuplets |
+              \tuplet 3/2 { c32-[ e g] }
+              \relative c { d16\rest }
+              \clef treble
+              \tuplet 3/2 { c'32-[ e g] }
+              \omit Dots
+              \tuplet 3/2 { c32-[ e g e g c e16.~] }
+              \undo \omit Dots
+              \tuplet 3/2 { e32-[ b c d b c e b c] } |
+              \relative c'' { b16\rest }
+              \clef bass
+              \tuplet 3/2 { a,,,32-[ c e] }
+              \relative c { d16\rest }
+              \clef treble
+              % note: hack to accommodate Beethoven's weird notation.
+              \tuplet 3/2 { a'32-[ c e c e a e64 a c e64^(] s32 }
+              \tuplet 3/2 { e32-[) b c e, b' c e b c] } |
+              \relative c'' { b16\rest }
+              \tuplet 3/2 { e32-[ c e, e' cs e,] }
+              \relative c'' { b16\rest }
+              \tuplet 3/2 { f'32-[ d f, f' d f,] }
+              \tuplet 3/2 { e'32-[ cs e, f' d f, d' b d,] } |
             }
             \new Voice {
               \voiceTwo
@@ -601,7 +673,7 @@ arietta-section-four = {
                 \revert NoteColumn.ignore-collision
                 s16 |
                 s8 |
-                \impliedTuplets
+                \implicitTuplets
                 \tuplet 3/2 { g16-[ e32 d16 e32] }
                 \tuplet 3/2 { f16-[ d32 cs16 d32] } s8 |
                 s4 s8 |
@@ -693,12 +765,14 @@ arietta-section-four = {
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { g16. } \stemUp c,16 \stemNeutral
                 \undo \omit Dots |
+                s8. |
+                s4. s8. |
               }
             }
             \new Voice {
               \voiceThree
               \relative c' {
-                \impliedTuplets
+                \implicitTuplets
                 s4. s8. |
                 s4. s8. |
                 s4. s8. |
@@ -856,7 +930,7 @@ arietta-section-four = {
                 s16 \stemUp g'16 g( a g) s4 |
                 s16 s16 s16 |
                 s16 g-[ g] a g g \stemNeutral |
-                \impliedTuplets
+                \implicitTuplets
                 \tuplet 3/2 { c16-[(_\markup { \italic "dolce" } g32 fs16 g32)] } |
                 g16-[ g~g g] \stemDown \tuplet 3/2 { d-[^( g,32 fs16 g32]) } |
                 s4 s8 |
@@ -1004,7 +1078,7 @@ arietta-section-four = {
                 \override TupletBracket.direction = #-1
                 \tuplet 3/2 { b32-[ c d e f g a b c] }
                 \override TupletBracket.transparent = ##t
-                \impliedTuplets
+                \implicitTuplets
                 \clef treble
                 \stemUp
                 \tuplet 3/2 { d-[ e f }
@@ -1060,7 +1134,44 @@ arietta-section-four = {
                 \tuplet 3/2 { g'32-[ g, g' g, g' g, g' c, g'] }
                 \tuplet 3/2 { c,32-[ g' c, g' c, g' c, g' c,] }
                 \tuplet 3/2 { gs'32-[ b, gs' b, gs' b, gs' b, gs'] } |
-                
+                <a, a'>16 \clef treble
+                \stemNeutral
+                e''''16-.-[ e-.] e-.-[ e-. e-.] e-.-[ e-. e-.] |
+                e16-.-[ e-. e-.] e-.-[ e-. e-.] e-.-[ e-. e-.] |
+                e16-[ e e] e-[ e e] e-[ e e] |
+                e16-[ e e] e-[ e e] c-[ a' af] |
+                g16-[ g g] g16-[ g g] g16-[ g g] |
+                g16-[ g g] g16-[ g g] a-[ gs a] |
+                bf16-[ bf bf] bf-[ bf bf] b-[ b b] |
+                b16-[ <g b> c] c-[ <c, e g> <c e g>] <c e g>-[ <c e g> <c e g>] |
+                <c d f g>16-[ <c d f g> <c d f g>] <c d f g>-[ <c d f g> <c d f g>] <c d f g>-[ <c d f g> <c d f g>] |
+                <c e g>16-[ <c e g> <c e g>]
+                \tuplet 3/2 { g'32-[ f e f e d f e c] }
+                c16-[ <c, e g> <c e g>] |
+                <c d f g>16-[ <c d f g> <c d f g>] <c d f g>-[ <c d f g> <c d f g>] <c d f g>-[ <c d f g> <c d f g>] \clef bass |
+                \tuplet 3/2 { c,32-[ c' e e, c' e g, c e] }
+                \tuplet 3/2 { b32-[ c e g, c e f, c' e] }
+                \tuplet 3/2 { e,32-[ c' e d, c' e c, c' e] } |
+                \tuplet 3/2 { a,,32-[ c' e c, c' e e, c' e] }
+                \tuplet 3/2 { gs,32-[ a c e, a c d, a' c] }
+                \tuplet 3/2 { c,32-[ a' c b, a' c a, a' c] } |
+                \tuplet 3/2 { g,!32-[ g'! c c, g' c e, g c] }
+                \tuplet 3/2 { g,32-[ g' b b, g' b d, g b] }
+                \stemDown
+                \tuplet 3/2 { g,32-[ d' g g, f' g g, a b] } |
+                \relative c { d16\rest }
+                \tuplet 3/2 { c32-[ e g] }
+                \relative c { d16\rest d8.\rest d8.\rest } |
+                \stemNeutral
+                \tuplet 3/2 { a,,32-[ c e] }
+                \relative c { d16\rest }
+                \tuplet 3/2 { a'32-[ c e] }
+                \relative c { d8.\rest d8.\rest } |
+                \omit Dots
+                \tuplet 3/2 { g,,,32-[ c e g c e g16.] }
+                \tuplet 3/2 { g,,32-[ c e g c e g16.] }
+                \undo \omit Dots
+                \relative c { d8.\rest } |
               }
             }
             \new Voice {
@@ -1103,7 +1214,7 @@ arietta-section-four = {
                 s4 s8 |
                 s4 s8 |
                 s8 g,8~g16-[ g~] |
-                \impliedTuplets
+                \implicitTuplets
                 \tuplet 3/2 { g16-[ b32^( d16 e32] }
                 \tuplet 3/2 { f16-[ e32 d16 c32]) } |
                 \stemDown

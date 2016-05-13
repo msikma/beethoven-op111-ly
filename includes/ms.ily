@@ -18,11 +18,11 @@
 % Force "mid" file extension for compatibility.
 #(ly:set-option 'midi-extension "mid")
 
-% \impliedTuplets
+% \implicitTuplets
 %
 % Shorthand for turning off tuplet numbers. This turns off
 % the numbers for all subsequent tuplets, until \explicitTuplets.
-impliedTuplets = \override TupletNumber.stencil = ##f
+implicitTuplets = \override TupletNumber.stencil = ##f
 
 % \explicitTuplets
 %
