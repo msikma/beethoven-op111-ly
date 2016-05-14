@@ -1255,7 +1255,7 @@ arietta-section-four = {
       \context {
         \Score
         % Set the score to a good default spacing value.
-        \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16)
+        \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/8)
         \consists #Span_stem_engraver
       }
     }
