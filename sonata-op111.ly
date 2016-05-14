@@ -35,7 +35,7 @@ maestoso-section-one = {
   \tempo "Maestoso"
 }
 
-% Variation 1.
+% Main theme and variation 1.
 arietta-section-one = {
   \key c \major
   \time 9/16
@@ -57,10 +57,15 @@ arietta-section-three = {
   \tempo "L'istesso tempo"
 }
 
-% Variation 4.
+% Variation 4-7.
 arietta-section-four = {
   \key c \major
   \time 9/16
+}
+
+% Variation 4, bar 35-49.
+arietta-section-four-minor = {
+  \key c \minor
 }
 
 \bookpart {
@@ -88,7 +93,7 @@ arietta-section-four = {
           \arietta-section-one
 
           %-----------------------------------------------------------------
-          %    Variation 1, part 1
+          %    Main theme, part 1
           %-----------------------------------------------------------------
           <<
             \new Voice {
@@ -140,7 +145,7 @@ arietta-section-four = {
           >>
 
           %-----------------------------------------------------------------
-          %    Variation 1, part 2
+          %    Main theme, part 2
           %-----------------------------------------------------------------
           <<
             \new Voice {
@@ -151,12 +156,9 @@ arietta-section-four = {
                   b4. b8( e16) |
                   <b e>8.-[ <c e>_( <b d>8 <a c>16]) |
                   <a c>8.-[_( <gs b> <e a c>]) |
-                  \once \override TextSpanner.outside-staff-priority = ##f
-                  \once \override TextSpanner.Y-offset = #-5
-                  \once \override TextSpanner.bound-details.left.text = #"cresc. "
-                  <g b d>4. \startTextSpan <g b d>8. |
+                  <g b d>4. \cresc <g b d>8. |
                   <g c e>4. <a c f>8. |
-                  <g b d>8.-[ <g b d>] <b d>8-[( <d g>16]) \stopTextSpan
+                  <g b d>8.-[ <g b d>] <b d>8-[( <d g>16]) \!
                 }
               }
               \alternative {
@@ -167,18 +169,18 @@ arietta-section-four = {
                 }
                 {
                   \relative c'' {
-                    <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p c8_(_\markup { \italic "dolce" } e,16
+                    <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p c8_( \dolce e,16
                   }
                 }
               }
 
               %-------------------------------------------------------------
-              %    Variation 1, part 3
+              %    Variation 1, part 1
               %-------------------------------------------------------------
               \repeat volta 2 {
                 \relative c'' {
                   a8 e16 g8 f16 d'8 d,16 |
-                  g8_\markup { \italic "sempre legato" } d16 f8 e16 g8 f16 |
+                  g8 \sempreLegato d16 f8 e16 g8 f16 |
                   a8 g16 e'8 e,16 c'8 e,16) |
                   <ef c'>8( <d b'>16 <c a'>8 <b g'>16 <c a'>8 <d b'>16 |
                   \stemUp
@@ -208,7 +210,7 @@ arietta-section-four = {
               }
 
               %-------------------------------------------------------------
-              %    Variation 1, part 4
+              %    Variation 1, part 2
               %-------------------------------------------------------------
               \repeat volta 2 {
                 \set Timing.measureLength = #(ly:make-moment 6/16)
@@ -218,12 +220,9 @@ arietta-section-four = {
                 b'8\< <b, e>16\)\!_\( <c e>16\> c' b\! c( <e, b'>\)) <e' b>( |
                 \override Tie.minimum-length = #3.25
                 f8 e16) e8( d16) d c c~ |
-                \once \override TextSpanner.outside-staff-priority = ##f
-                \once \override TextSpanner.Y-offset = #-5
-                \once \override TextSpanner.bound-details.left.text = #"cresc. "
-                <c a>16 \startTextSpan <b gs>
+                <c a>16 \cresc <b gs>
                 \once \override Tie.minimum-length = #2.75
-                <b gs>_~_( <b gs> <c e,>) <c e,>_~_( <c e,> <d b>)\stopTextSpan <d b> \p |
+                <b gs>_~_( <b gs> <c e,>) <c e,>_~_( <c e,> <d b>)\! <d b> \p |
                 \mergeDifferentlyDottedOn
                 <d b>4. <ds b>8. |
                 e8. e8( g16) g8( f16) |
@@ -256,7 +255,7 @@ arietta-section-four = {
                   \set Timing.measureLength = #(ly:make-moment 6/16)
                   \stemUp
                   \implicitTuplets
-                  \tuplet 3/2 { e16-[(_\markup { \italic "mano sinistra" } c32 b16 c32] }
+                  \tuplet 3/2 { e16-[( \manoSinistra c32 b16 c32] }
                   \tuplet 3/2 { d16-[ b32 as16 b32]) }
                   b8\rest |
                   \change Staff = "left"
@@ -268,12 +267,9 @@ arietta-section-four = {
                   <g e'>8\noBeam <g c>8 |
                   \stemUp
                   \tuplet 3/2 { c16-[ b32 d16 c32] }
-                  \tuplet 3/2 { c16-[_\markup { \italic "sempre legato" } as32 c!16 b32] } b8 |
-                  \once \override TextSpanner.outside-staff-priority = ##f
-                  \once \override TextSpanner.Y-offset = #-6
-                  \once \override TextSpanner.bound-details.left.text = #"cresc. "
-                  c8\startTextSpan \tuplet 3/2 { e16-[( d32 f16 e32] } g8)~ |
-                  g16-[\stopTextSpan g~]\> \tuplet 3/2 { g16-[ e32 g16 f32] }
+                  \tuplet 3/2 { c16-[ \sempreLegato as32 c!16 b32] } b8 |
+                  c8\cresc \tuplet 3/2 { e16-[( d32 f16 e32] } g8)~ |
+                  g16-[\! g~]\> \tuplet 3/2 { g16-[ e32 g16 f32] }
                   \tuplet 3/2 { e16-[ cs32 e16 d32]\! } |
                   c!16-[( b c cs
                   \once \override TupletBracket.transparent = ##t                  
@@ -474,7 +470,7 @@ arietta-section-four = {
               }
               
               %-----------------------------------------------------------------
-              %    Variation 4, part 1
+              %    Variation 4
               %-----------------------------------------------------------------
               \arietta-section-four
               \set Timing.measureLength = #(ly:make-moment 3/16)
@@ -525,11 +521,11 @@ arietta-section-four = {
               \tuplet 3/2 { g,32-[ g' g, c! g' c, b g' b,] c-[ g' d ds g e f g fs] g-[ a fs g fs g cs, a' g] } |
               \tuplet 3/2 { cs,32-[ a' g cs, f! e cs a' g] cs,-[ a' g d! g f a, e' d] af-[ e' d g, e' d g, d' c] } |
               \tuplet 3/2 { g32-[ d' c f, c' b g d' c] g-[ d' c g d' cs a! e' d] a-[ e' d b e d cs d g,] } |
-              \tuplet 3/2 { a32-[ fs g a fs g a fs g] a-[ fs g a fs g a gs e'] b-[ a e' c b e] } b,16\rest |
+              \tuplet 3/2 { a32-[ fs g a fs g a fs g] a-[ fs g a fs g a gs e'] b-[ a e' c b e] } b,16\rest \pp |
               b16\rest \clef bass <a, b~>16 <g b>
               d16\rest <a' b~>16 <g b>
               d16\rest <a' b~>16 <g b> |
-              d16\rest <a' b~> <gs b>
+              d16\rest \semprePp <a' b~> <gs b>
               d16\rest <a' b~> <gs b>
               d16\rest <a' b~ e~> <gs b e> |
               d16\rest <gs c~ e~> <a c e>
@@ -554,7 +550,7 @@ arietta-section-four = {
               \override TupletBracket.bracket-visibility = ##t
               \override TupletBracket.transparent = ##f
               \override TupletBracket.direction = #-1
-              <e c' e>16 \tuplet 3/2 { c''32-[ \pp d b c b a] }
+              <e c' e>16 \tuplet 3/2 { c''32-[ \ppLeggiermente d b c b a] }
               \implicitTuplets
               \override TupletBracket.bracket-visibility = #'if-no-beam
               \tuplet 3/2 { gs32-[ a b a b c b c d] }
@@ -562,7 +558,7 @@ arietta-section-four = {
               \tuplet 3/2 { b32-[ c d c b a gs a b] }
               \tuplet 3/2 { gs32-[ a b a b c b c d] }
               \tuplet 3/2 { b32-[ c d f e d c b e] } |
-              \tuplet 3/2 { a,32-[ gs e' b a e' c b e] }
+              \tuplet 3/2 { a,32-[ gs e' \semprePp b a e' c b e] }
               \tuplet 3/2 { d32-[ c e c b e d c e] }
               \tuplet 3/2 { d32-[ c e c b d b a c] } |
               \tuplet 3/2 { b32-[ a c b d c b a c] }
@@ -611,7 +607,10 @@ arietta-section-four = {
               \tuplet 3/2 { a,,,32-[ c e] }
               \relative c { d16\rest }
               \clef treble
-              % note: hack to accommodate Beethoven's weird notation.
+              % Note: hack to accommodate Beethoven's weird notation.
+              % This should actually be e32.~e32, but Beethoven uses
+              % a 64th. Since a tie cannot pass through a space, we
+              % use a slur instead.
               \tuplet 3/2 { a'32-[ c e c e a e64 a c e64^(] s32 }
               \tuplet 3/2 { e32-[) b c e, b' c e b c] } |
               \relative c'' { b16\rest }
@@ -619,6 +618,19 @@ arietta-section-four = {
               \relative c'' { b16\rest }
               \tuplet 3/2 { f'32-[ d f, f' d f,] }
               \tuplet 3/2 { e'32-[ cs e, f' d f, d' b d,] } |
+              \stemUp \grace cs32 \stemNeutral
+              \trillSpanDown
+              d4._~ \startTrillSpan d8._~ |
+              d4._~ d8._~ |
+              d8. \stopTrillSpan \pitchedTrill d4._~ \startTrillSpan ef |
+              d4._~ d8._~ |
+              d4._~ d8._~ |
+              d4._~ d8._~ \stopTrillSpan |
+              \pitchedTrill d4._~ \startTrillSpan ef d8._~ |
+              % Note: this trill ends before the final note, as per the manuscript.
+              d4._~ d8._~ \stopTrillSpan |
+              d8.-[ a'8. bf8.]~ |
+              bf8.-[ b8.]
             }
             \new Voice {
               \voiceTwo
@@ -658,13 +670,9 @@ arietta-section-four = {
                 b16\< b\! c\> c8\! gs16 gs16 a a~ |
                 \single \hide Stem
                 a16 s8 s8. s8. \stemDown |
-                %todo Can we improve this crescendo spanner?
-                \once \override TextSpanner.outside-staff-priority = ##f
-                \once \override TextSpanner.Y-offset = #-8
-                \once \override TextSpanner.bound-details.left.text = #"cresc. "
-                b8-[_(\startTextSpan f16 e8 f16]) b8-[ f16] |
+                b8-[_( \cresc f16 e8 f16]) b8-[ f16] |
                 bf8 e,16 <bf' g>8 <bf e>16 a8. |
-                <f b>8. <f b>8. <b d>8 d16\stopTextSpan |
+                <f b>8. <f b>8. <b d>8 d16\! |
                 d16 b c~c-[~c] s8 s8 |
                 s8. |
                 s16 s
@@ -767,6 +775,59 @@ arietta-section-four = {
                 \undo \omit Dots |
                 s8. |
                 s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                \stemUp
+                s4. a''8^( g16) |
+                g4. af8^( g16) |
+                g8.-[ g8. g8.] |
+                g8.-[ af8. af8.] |
+                af8.-[ af8. af8.] |
+                \trillSpanUp
+                \pitchedTrill
+                af4.^~ \startTrillSpan bf af8.^~ |
+                af4.^~ af8.^~ |
+                \once \override NoteColumn.ignore-collision = ##t
+                \stemDown \omit Flag af8. s8. s8. \stopTrillSpan |
               }
             }
             \new Voice {
@@ -869,8 +930,8 @@ arietta-section-four = {
                 <c g'>8.-[ <d g> <b g'>] |
                 <b g'>8.-[ <c g'> <d g>] |
                 <e g>8.-[ <c g'> <e g>] |
-                \once \override PhrasingSlur.eccentricity = #2.0
-                \once \override PhrasingSlur.height-limit = #5
+                \once \override PhrasingSlur.eccentricity = #1.75
+                \once \override PhrasingSlur.height-limit = #7
                 g,8.-[_\( g' g8^( f16 ] |
                 % todo fix slur
                 <e, e'>4.)\) <e e'>8. |
@@ -922,7 +983,7 @@ arietta-section-four = {
                 c16 a, e'~ |
                 e16_( gs, e'~e a, e'~ |
                 e16 gs, e'~e a, e'~e gs, gs'~ |
-                gs16)_\markup { \italic "sempre legato" } gs a~a a b~b c d |
+                gs16) \sempreLegato gs a~a a b~b c d |
                 ds16 c c~c a a~a g g~_( |
                 g16 g, g'~g g, g'~g g, g'~ |
                 g16) c,, c'~c c, c'~c f,, f' |
@@ -931,7 +992,7 @@ arietta-section-four = {
                 s16 s16 s16 |
                 s16 g-[ g] a g g \stemNeutral |
                 \implicitTuplets
-                \tuplet 3/2 { c16-[(_\markup { \italic "dolce" } g32 fs16 g32)] } |
+                \tuplet 3/2 { c16-[( \dolce g32 fs16 g32)] } |
                 g16-[ g~g g] \stemDown \tuplet 3/2 { d-[^( g,32 fs16 g32]) } |
                 s4 s8 |
                 s8 \stemNeutral \tuplet 3/2 { d'16-[( b32 d16 c32] }
@@ -1101,7 +1162,7 @@ arietta-section-four = {
                 e-.-[ e-. e-.]
                 e-.-[ c'-. d-.]
                 e-.-[ e-. <e, bf'>-.] |
-                <e bf'>-.-[ <e g>-. <e bf'>-.]
+                <e bf'>-.-[ \sempreStaccato <e g>-. <e bf'>-.]
                 <e bf'>-.-[ <f a> f]
                 f-[ f e] |
                 e16-[ d e]
@@ -1172,6 +1233,18 @@ arietta-section-four = {
                 \tuplet 3/2 { g,,32-[ c e g c e g16.] }
                 \undo \omit Dots
                 \relative c { d8.\rest } |
+                \relative c { d8.\rest d8.\rest }
+                <c, c,>8( <g g,>16) |
+                <g g,>4. \clef treble c''8^( b16) |
+                b4. c8^( b16) |
+                b8.-[ b8. b8.] |
+                b8.-[ bf8.] \clef bass <f, f,>8_( <bf, bf,>16) |
+                <bf bf,>4. \clef treble f''8_( bf,16) |
+                \trillSpanUp
+                f'4.^~ \startTrillSpan f8.^~ |
+                f4.^~ f8.^~ |
+                f8. \stopTrillSpan
+                \relative c'' { b8.\rest b8.\rest } |
               }
             }
             \new Voice {
@@ -1250,7 +1323,7 @@ arietta-section-four = {
       }
     >>
     \layout {
-      %#(layout-set-staff-size 16.5)
+      %#(layout-set-staff-size 17.52)
       %ragged-right = ##t
       \context {
         \Score

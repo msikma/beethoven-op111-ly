@@ -29,6 +29,73 @@ implicitTuplets = \override TupletNumber.stencil = ##f
 % Turns tuplet numbers back on.
 explicitTuplets = \revert TupletNumber.stencil
 
+% \trillSpanDown
+%
+% Ensures trill spanners appear at the bottom of the staff.
+trillSpanDown = \override TrillSpanner.direction = #-1
+
+% \trillSpanUp
+%
+% Ensures trill spanners appear at the top of the staff.
+trillSpanUp = \override TrillSpanner.direction = #1
+
+% \ppLeggiermente
+%
+% Prints a \pp followed by "leggiermente". Offset slightly to the left
+% due to the fact \pp is normally center-offset.
+ppLeggiermente = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-offset #-1
+  #(make-dynamic-script
+     (markup #:dynamic "pp"
+             #:normal-text (#:italic "leggiermente")))
+
+% \semprePp
+%
+% Prints "sempre" followed by a \pp.
+semprePp = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "sempre")
+             #:dynamic "pp"))
+  
+% \sempreStaccato
+%
+% Prints "sempre staccato".
+sempreStaccato = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "sempre staccato")))
+
+% \dolce
+%
+% Prints "dolce".
+dolce = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "dolce")))
+
+% \sempreLegato
+%
+% Prints "sempre legato".
+sempreLegato = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "sempre legato")))
+
+% \manoSinistra
+%
+% Prints "mano sinistra" (use left hand).
+manoSinistra = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "mano sinistra")))
+
 % Language-independent variables.
 CURRENT-YEAR = #(strftime "%Y" (localtime (current-time)))
 CURRENT-DATE = #(strftime "%Y-%m-%d" (localtime (current-time)))
