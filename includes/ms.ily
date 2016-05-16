@@ -96,6 +96,30 @@ manoSinistra =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "mano sinistra")))
 
+% \shortestNoteDuration <int>
+%
+% Sets the shortest note duration in a bar. The larger the number,
+% the more spaced out the notes will be. Thanks to anabain from IRC.
+shortestNoteDuration =
+#(define-music-function
+     (parser location space)
+     (number?)
+   #{\newSpacingSection
+     \override Score.SpacingSpanner
+     #'common-shortest-duration = #(ly:make-moment 1 space)    
+   #})
+
+% \resetNoteDuration
+%
+% Sets the shortest note duration back to the staff default.
+resetNoteDuration =
+#(define-music-function
+     (parser location)
+     ()
+   #{\newSpacingSection
+     \revert Score.SpacingSpanner #'common-shortest-duration  
+   #})
+
 % Language-independent variables.
 CURRENT-YEAR = #(strftime "%Y" (localtime (current-time)))
 CURRENT-DATE = #(strftime "%Y-%m-%d" (localtime (current-time)))

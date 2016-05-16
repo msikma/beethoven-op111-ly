@@ -164,7 +164,9 @@ arietta-section-four-minor = {
               \alternative {
                 {
                   \relative c'' {
+                    \shortestNoteDuration 16
                     \stemDown <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p \stemUp e8. \stemNeutral
+                    \shortestNoteDuration 8
                   }
                 }
                 {
@@ -620,6 +622,7 @@ arietta-section-four-minor = {
               \tuplet 3/2 { e'32-[ cs e, f' d f, d' b d,] } |
               \stemUp \grace cs32 \stemNeutral
               \trillSpanDown
+              % todo use flat trill maybe http://permalink.gmane.org/gmane.comp.gnu.lilypond.general/48896
               d4._~ \startTrillSpan d8._~ |
               d4._~ d8._~ |
               d8. \stopTrillSpan \pitchedTrill d4._~ \startTrillSpan ef |
@@ -630,7 +633,10 @@ arietta-section-four-minor = {
               % Note: this trill ends before the final note, as per the manuscript.
               d4._~ d8._~ \stopTrillSpan |
               d8.-[ a'8. bf8.]~ |
-              bf8.-[ b8.]
+              bf8.-[ b8. c8.^~] \bar "||" |
+              \arietta-section-four-minor
+              c8.-[ cs8. d8.]^~ |
+              d4.^~ \afterGrace d8. { \stemUp c32-[ d32] \stemNeutral } |
             }
             \new Voice {
               \voiceTwo
@@ -827,7 +833,10 @@ arietta-section-four-minor = {
                 af4.^~ \startTrillSpan bf af8.^~ |
                 af4.^~ af8.^~ |
                 \once \override NoteColumn.ignore-collision = ##t
-                \stemDown \omit Flag af8. s8. s8. \stopTrillSpan |
+                \stemDown \omit Flag af8. s8. s8. |
+                s8. s8. s8. |
+                s8. s8. s8. \stopTrillSpan \startTrillSpan |
+                s8. s8. s8. \stopTrillSpan |
               }
             }
             \new Voice {
@@ -931,11 +940,13 @@ arietta-section-four-minor = {
                 <b g'>8.-[ <c g'> <d g>] |
                 <e g>8.-[ <c g'> <e g>] |
                 \once \override PhrasingSlur.eccentricity = #1.75
-                \once \override PhrasingSlur.height-limit = #7
+                \once \override PhrasingSlur.height-limit = #8
                 g,8.-[_\( g' g8^( f16 ] |
                 % todo fix slur
                 <e, e'>4.)\) <e e'>8. |
-                <d d'>4. <f f'>8_( <fs fs'>16) |
+                <d d'>4.
+                % note make slur higher
+                <f f'>8_( <fs fs'>16) |
                 g'8.-[( a b8) b16]_~ |
                 b8-[ b16_( c8 d16)] |
                 b8-[_(_\repeatTie c16 d8 c16]) e8. |
@@ -967,7 +978,7 @@ arietta-section-four-minor = {
                 <c c'>4. <f, f'>8. |
                 <g g'>8.-[ <g g'>8. <g g'>8 <g g'>16] |
                 <g g'>8_( <c c'>16) <c c'>8. e'8. |
-                <g,, g'>8_( <c c'>16) <c c'>16( g'' f \stemDown e c g')~ \stemNeutral |
+                \shortestNoteDuration 16 <g,, g'>8_( <c c'>16) \shortestNoteDuration 8 <c c'>16( g'' f \stemDown e c g')~ \stemNeutral |
                 g16\( cs, g'~g d g~g as, g'~ |
                 g16 b, g'~g c, g' e d g~ |
                 g16 ds e g c, g'~g e g~ |
@@ -1245,6 +1256,10 @@ arietta-section-four-minor = {
                 f4.^~ f8.^~ |
                 f8. \stopTrillSpan
                 \relative c'' { b8.\rest b8.\rest } |
+                \relative c'' { b8.\rest b8.\rest b8.\rest } \clef bass |
+                \arietta-section-four-minor
+                \relative c { d8.\rest d8.\rest } bf,,,8._~\sf\> |
+                bf4._~ bf8_( af16)\!\p |
               }
             }
             \new Voice {
@@ -1316,6 +1331,76 @@ arietta-section-four-minor = {
                 \tuplet 3/2 { fs16-[ a32 fs16 g32]~ }
                 g16-[ g16]~
                 \tuplet 3/2 { g16-[ s32 g16 g32] } |
+                s8 s8 s8 |
+                s8 s8 |
+                s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s8 s8 s8 |
+                s4 s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                bf8.-[ bf8. bf8.] |
+                bf8.
               }
             }
           >>
