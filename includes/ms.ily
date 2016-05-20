@@ -39,6 +39,31 @@ trillSpanDown = \override TrillSpanner.direction = #-1
 % Ensures trill spanners appear at the top of the staff.
 trillSpanUp = \override TrillSpanner.direction = #1
 
+% \sharpTrill
+%
+% Override trill spanners to have a sharp sign. Undo with \regularTrill.
+% Using \once does not work for trill spanners that cross over to
+% the next line, hence the need to use a separate \regularTrill command.
+sharpTrill = \override TrillSpanner.bound-details.left.text = \markup { 
+  \halign #4.75 \raise #0.97 \teeny \sharp \musicglyph #"scripts.trill"
+}
+
+% \flatTrill
+%
+% Override trill spanners to have a flat sign. Undo with \regularTrill.
+% Using \once does not work for trill spanners that cross over to
+% the next line, hence the need to use a separate \regularTrill command.
+flatTrill = \override TrillSpanner.bound-details.left.text = \markup { 
+  \halign #5.30 \raise #0.65 \teeny \flat \musicglyph #"scripts.trill"
+}
+
+% \regularTrill
+%
+% Revert the trill spanners back to having a standard trill symbol.
+regularTrill = \override TrillSpanner.bound-details.left.text = \markup { 
+  \musicglyph #"scripts.trill"
+}
+
 % \ppLeggiermente
 %
 % Prints a \pp followed by "leggiermente". Offset slightly to the left
