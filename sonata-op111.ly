@@ -64,8 +64,8 @@ arietta-section-four = {
 }
 
 % Variation 4, bar 35-49.
-arietta-section-four-minor = {
-  \key c \minor
+arietta-section-four-ef = {
+  \key ef \major
 }
 
 \bookpart {
@@ -622,10 +622,12 @@ arietta-section-four-minor = {
               \tuplet 3/2 { e'32-[ cs e, f' d f, d' b d,] } |
               % Ensure trills don't pass the bar line.
               \override TrillSpanner.to-barline = ##t
-              \stemUp \grace cs32 \stemNeutral
+              \stemUp \grace cs32
+              % todo: shortest note duration, space this a little
+              \stemNeutral
               \trillSpanDown
               % Make some space for the flat sign in front of the next trill.
-              \once \override TrillSpanner.bound-details.right.padding = #3.0
+              \once \override TrillSpanner.bound-details.right.padding = #2.5
               d4._~ \f
               \startTrillSpan d8._~ |
               d4._~ d8._~ \p |
@@ -648,9 +650,25 @@ arietta-section-four-minor = {
               \once \override TrillSpanner.to-barline = ##t
               d8.-[ \stopTrillSpan \p \cresc a'8. \regularTrill bf8.]~ |
               bf8.-[ b8. c8.^~] \bar "||" |
-              \arietta-section-four-minor
+              \arietta-section-four-ef
               c8.-[ cs8. d8.]^~\!\sf\> |
-              d4.^~ \afterGrace d8. { \stemUp c32-[ d32]\! \stemNeutral } |
+              d4.^~
+              \afterGrace d8. { \stemUp c32-[ d32]\! \stemNeutral } |
+              \break
+              \once \override PhrasingSlur.height-limit = #8
+              ef8.-[^\( g bf~] |
+              bf8-[ a16] af16-[ bf, <af bf,>]\) c,8-[ c16] |
+              \set Timing.beatStructure = 3
+              \stemDown
+              <f, af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
+              g16 g g g g g <ef g> <ef g> <ef g> |
+              <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
+              ef16 ef ef ef ef ef <c ef> <c ef> <c ef> |
+              <df ef>16 <df ef> <df ef> <df ef>16 <df ef> <df ef> <df ef>16 <df ef> df |
+              df16 c c c <c d> c c b b |
+              bf!16 <bf df> bf bf a a s8. \clef bass |
+              af16 g g g g g g fs <fs a> |
+              <f af>16 <f g> f f e <g e> <gf e> <f e> e |
             }
             \new Voice {
               \voiceTwo
@@ -842,13 +860,15 @@ arietta-section-four-minor = {
                 g8.-[ g8. g8.] |
                 g8.-[ af8. af8.] |
                 af8.-[ af8. af8.] |
+                \break
                 \trillSpanUp
                 \flatTrill
-                \once \override TrillSpanner.bound-details.right.padding = #3.0
+                \once \override TrillSpanner.bound-details.right.padding = #2.5
                 af4.^~ \startTrillSpan af8.^~ |
                 af4.^~ af8.^~ |
                 \once \override NoteColumn.ignore-collision = ##t
                 \stemDown \omit Flag af8. s8. s8. |
+                \undo \omit Flag
                 s8. s8. s8. |
                 s8. s8. 
                 % Attempt to position the next trill exactly at the same height
@@ -858,6 +878,18 @@ arietta-section-four-minor = {
                 s8.
                 \stopTrillSpan \startTrillSpan |
                 s8. s8. s8. \stopTrillSpan \regularTrill |
+                s8. s8. s8. |
+                \stemUp
+                s8. s8. g16^( f) ef |
+                ef16-[ d8] \relative c''' { a16\rest } ef8 \relative c''' { a16\rest } f16-[^( bf,]) |
+                bf8 \relative c'' { f16\rest f8.\rest f8.\rest } |
+                \relative c'' { f16\rest } b8 \relative c'' { f16\rest } c8 \relative c'' { f16\rest } d16-[^( g,]) |
+                g8 \relative c'' { d16\rest d8.\rest d8.\rest } |
+                \relative c'' { d16\rest } g8 \relative c'' { d16\rest } af8 \relative c'' { d16\rest } bf16-[^( ef,]) |
+                ef8-[ ef16] ef16-[ a^( d,]) d8-[ d16] |
+                df16-[ g^( c,)] c8-[ c16] <af cf>16-[ <af bf f'>^( <af bf>)] |
+                bf8-[ bf16] bf16-[ ef a,] a8-[ d16] |
+                d16-[ d^( g,]) g16-[ g^( c]) c16-[ c^( f,]) |
               }
             }
             \new Voice {
@@ -1266,8 +1298,13 @@ arietta-section-four-minor = {
                 \tuplet 3/2 { g,,32-[ c e g c e g16.] }
                 \undo \omit Dots
                 \relative c { d8.\rest } |
-                \relative c { d8.\rest d8.\rest }
-                <c, c,>8( <g g,>16) |
+                \relative c {
+                  d8.\rest
+                  % Move the forte dynamic closer to the next notes.
+                  \once \override DynamicText.self-alignment-X = #-3.3
+                  d8.\rest \f
+                }
+                <c, c,>8_( <g g,>16) |
                 <g g,>4. \clef treble c''8^( b16) |
                 b4. c8^( b16) |
                 b8.-[ b8. b8.] |
@@ -1281,9 +1318,21 @@ arietta-section-four-minor = {
                 f8. \stopTrillSpan
                 \relative c'' { b8.\rest b8.\rest } |
                 \relative c'' { b8.\rest b8.\rest b8.\rest } \clef bass |
-                \arietta-section-four-minor
+                \arietta-section-four-ef
                 \relative c { d8.\rest d8.\rest } bf,,,8._~\sf\> |
                 bf4._~ bf8_( af16)\!\p |
+                \once \override PhrasingSlur.height-limit = #4
+                g4._\( gf8. |
+                f8._~ f8-[ g!16 af8 a16]\) |
+                bf8 \relative c { d16\rest d8.\rest d8.\rest } |
+                \relative c { d16\rest } <ef ef'>8 \relative c { d16\rest } <f f'>8 \relative c { d16\rest } <g g'>16_( <c, c'>) |
+                <b b'>8 \relative c { d16\rest d8.\rest d8.\rest } |
+                \relative c { d16\rest } <c c'>8 \relative c { d16\rest } <df df'>8 \relative c { d16\rest } <ef ef'>16_( <af, af'>) |
+                <g g'>8 \relative c { d16\rest d8.\rest d8.\rest } |
+                \relative c { d16\rest } <af' af'>8 \relative c { d16\rest } <fs fs'>8 \relative c { d16\rest } <g g'>8 \clef treble |
+                \relative c'' { b16\rest } e'''8 \relative c'' { b16\rest } f8 \relative c'' { b16\rest } d8 \clef bass |
+                \relative c { d16\rest } <ef,,, ef'>8 \relative c { d16\rest } <c c'>8 \relative c { d16\rest } <d d'>16_(-[ <c c'>)] |
+                <b b'>16\noBeam \clef treble \stemNeutral b'''8 \relative c'' { b16\rest } c8 \relative c'' { b16\rest } a8 \clef bass |
               }
             }
             \new Voice {
