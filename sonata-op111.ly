@@ -197,13 +197,13 @@ arietta-section-four-minor = {
                     % Move down the volta brackets, since there's just one
                     % slur pushing them up.
                     % todo fixme
-                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
+                    %\once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
                     g4. c8( e,16)
                   }
                 }
                 {
                   \relative c'' {
-                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
+                    %\once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
                     g8.~g16\>-[( gs a\! b e, e]) |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8^\( e,16
@@ -620,23 +620,37 @@ arietta-section-four-minor = {
               \relative c'' { b16\rest }
               \tuplet 3/2 { f'32-[ d f, f' d f,] }
               \tuplet 3/2 { e'32-[ cs e, f' d f, d' b d,] } |
+              % Ensure trills don't pass the bar line.
+              \override TrillSpanner.to-barline = ##t
               \stemUp \grace cs32 \stemNeutral
               \trillSpanDown
-              % todo use flat trill maybe http://permalink.gmane.org/gmane.comp.gnu.lilypond.general/48896
-              d4._~ \startTrillSpan d8._~ |
-              d4._~ d8._~ |
-              d8. \stopTrillSpan \pitchedTrill d4._~ \startTrillSpan ef |
-              d4._~ d8._~ |
-              d4._~ d8._~ |
-              d4._~ d8._~ \stopTrillSpan |
-              \pitchedTrill d4._~ \startTrillSpan ef d8._~ |
+              % Make some space for the flat sign in front of the next trill.
+              \once \override TrillSpanner.bound-details.right.padding = #3.0
+              d4._~ \f
+              \startTrillSpan d8._~ |
+              d4._~ d8._~ \p |
+              % Ensure the diminuendo is close to the bar line.
+              \once \override DynamicTextSpanner.bound-details.right.padding = #-3.0
+              d8.\dim
+              \flatTrill
+              % Give a little bit of breathing space, since it goes to the bar line.
+              \once \override TrillSpanner.bound-details.right.padding = #1.0
+              d4._~ \stopTrillSpan
+              \startTrillSpan |
+              d4._~
+              d8._~\! |
+              d4._~ \pp d8._~ |
+              d4._~ d8. |
+              \once \override TrillSpanner.bound-details.right.padding = #1.0
+              d4._~\< \stopTrillSpan \startTrillSpan d8._~\! |
               % Note: this trill ends before the final note, as per the manuscript.
-              d4._~ d8._~ \stopTrillSpan |
-              d8.-[ a'8. bf8.]~ |
+              d4._~\> d8._~\! |
+              \once \override TrillSpanner.to-barline = ##t
+              d8.-[ \stopTrillSpan \p \cresc a'8. \regularTrill bf8.]~ |
               bf8.-[ b8. c8.^~] \bar "||" |
               \arietta-section-four-minor
-              c8.-[ cs8. d8.]^~ |
-              d4.^~ \afterGrace d8. { \stemUp c32-[ d32] \stemNeutral } |
+              c8.-[ cs8. d8.]^~\!\sf\> |
+              d4.^~ \afterGrace d8. { \stemUp c32-[ d32]\! \stemNeutral } |
             }
             \new Voice {
               \voiceTwo
@@ -829,14 +843,21 @@ arietta-section-four-minor = {
                 g8.-[ af8. af8.] |
                 af8.-[ af8. af8.] |
                 \trillSpanUp
-                \pitchedTrill
-                af4.^~ \startTrillSpan bf af8.^~ |
+                \flatTrill
+                \once \override TrillSpanner.bound-details.right.padding = #3.0
+                af4.^~ \startTrillSpan af8.^~ |
                 af4.^~ af8.^~ |
                 \once \override NoteColumn.ignore-collision = ##t
                 \stemDown \omit Flag af8. s8. s8. |
                 s8. s8. s8. |
-                s8. s8. s8. \stopTrillSpan \startTrillSpan |
-                s8. s8. s8. \stopTrillSpan |
+                s8. s8. 
+                % Attempt to position the next trill exactly at the same height
+                % as the previous one.
+                \override TrillSpanner.staff-padding = #5.41
+                \once \override TrillSpanner.bound-details.right.padding = #-1.5
+                s8.
+                \stopTrillSpan \startTrillSpan |
+                s8. s8. s8. \stopTrillSpan \regularTrill |
               }
             }
             \new Voice {
@@ -982,6 +1003,7 @@ arietta-section-four-minor = {
                 g16\( cs, g'~g d g~g as, g'~ |
                 g16 b, g'~g c, g' e d g~ |
                 g16 ds e g c, g'~g e g~ |
+                \override Tie.minimum-length = #3.00
                 g16 fs, g'16~g g, g'~g f, g'~ |
                 g16 e, g'~g c,, e'~e c, e'~ |
                 e16\) cs, e'~e d, f' fs fs, a' |
@@ -1252,6 +1274,8 @@ arietta-section-four-minor = {
                 b8.-[ bf8.] \clef bass <f, f,>8_( <bf, bf,>16) |
                 <bf bf,>4. \clef treble f''8_( bf,16) |
                 \trillSpanUp
+                % Ensure the trill ends clearly over the note.
+                \once \override TrillSpanner.bound-details.right.padding = #-1.5
                 f'4.^~ \startTrillSpan f8.^~ |
                 f4.^~ f8.^~ |
                 f8. \stopTrillSpan
