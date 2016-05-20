@@ -658,7 +658,7 @@ arietta-section-four-ef = {
               \once \override PhrasingSlur.height-limit = #8
               ef8.-[^\( g bf~] |
               bf8-[ a16] af16-[ bf, <af bf,>]\) c,8-[ c16] |
-              \set Timing.beatStructure = 3
+              \set beatStructure = #'(3 3 3)
               \stemDown
               <f, af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
               g16 g g g g g <ef g> <ef g> <ef g> |
