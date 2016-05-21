@@ -656,16 +656,16 @@ arietta-section-four-ef = {
               \afterGrace d8. { \stemUp c32-[ d32]\! \stemNeutral } |
               \break
               \once \override PhrasingSlur.height-limit = #8
-              ef8.-[^\( g bf~] |
-              bf8-[ a16] af16-[ bf, <af bf,>]\) c,8-[ c16] |
+              ef8.-[^\( \p \cresc g bf~] |
+              bf8-[ a16] af16-[\!\dim bf, <af bf,>]\) c,8-[ c16] |
               \set beatStructure = #'(3 3 3)
               \stemDown
-              <f, af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
-              g16 g g g g g <ef g> <ef g> <ef g> |
+              <f, af>16^\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
+              g16 \p \dim g g g g g <ef g> <ef g> <ef g> |
               <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
-              ef16 ef ef ef ef ef <c ef> <c ef> <c ef> |
+              ef16\!\pp ef ef ef ef ef <c ef> <c ef> <c ef> |
               <df ef>16 <df ef> <df ef> <df ef>16 <df ef> <df ef> <df ef>16 <df ef> df |
-              df16 c c c <c d> c c b b |
+              df16\semprePp c c c <c d> c c b b |
               bf!16 <bf df> bf bf a a s8. \clef bass |
               af16 g g g g g g fs <fs a> |
               <f af>16 <f g> f f e <g e> <gf e> <f e> e |
