@@ -67,6 +67,10 @@ arietta-section-four = {
 arietta-section-four-ef = {
   \key ef \major
 }
+% Variation 5.
+arietta-section-five = {
+  \key c \major
+}
 
 \bookpart {
   \paper {
@@ -665,10 +669,26 @@ arietta-section-four-ef = {
               <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
               ef16\!\pp ef ef ef ef ef <c ef> <c ef> <c ef> |
               <df ef>16 <df ef> <df ef> <df ef>16 <df ef> <df ef> <df ef>16 <df ef> df |
-              df16\semprePp c c c <c d> c c b b |
+              df16 c c c <c d> c c b b |
               bf!16 <bf df> bf bf a a s8. \clef bass |
               af16 g g g g g g fs <fs a> |
               <f af>16 <f g> f f e <g e> <gf e> <f e> e |
+              ef16 df <df f> <df ef> <df ef> df c \cresc c ef \clef treble |
+              c'16 c ef d d d
+              
+              %-----------------------------------------------------------------
+              %    Variation 5
+              %-----------------------------------------------------------------
+              \arietta-section-five <c e> <c e> <c e> |
+              e16 d e f e f d c <d f> |
+              d16 e d e f e f e f |
+              c16 b c e d e g f e |
+              e ds e d d d <d g> <d g> <d g> |
+              % Todo make this spanner a bit more pretty
+              \once \override TextSpanner.to-barline = ##t
+              g\!\f fs g e g g d' cs d |
+              cs\sf\> b cs d cs d f, f fs |
+              s8\!
             }
             \new Voice {
               \voiceTwo
@@ -886,10 +906,21 @@ arietta-section-four-ef = {
                 \relative c'' { f16\rest } b8 \relative c'' { f16\rest } c8 \relative c'' { f16\rest } d16-[^( g,]) |
                 g8 \relative c'' { d16\rest d8.\rest d8.\rest } |
                 \relative c'' { d16\rest } g8 \relative c'' { d16\rest } af8 \relative c'' { d16\rest } bf16-[^( ef,]) |
-                ef8-[ ef16] ef16-[ a^( d,]) d8-[ d16] |
+                ef8-[\semprePp ef16] ef16-[ a^( d,]) d8-[ d16] |
                 df16-[ g^( c,)] c8-[ c16] <af cf>16-[ <af bf f'>^( <af bf>)] |
-                bf8-[ bf16] bf16-[ ef a,] a8-[ d16] |
+                bf8-[ bf16] bf16-[ ef^( a,])
+                % note: no slur in manuscript?
+                a8-[ d16] |
                 d16-[ d^( g,]) g16-[ g^( c]) c16-[ c^( f,]) |
+                f16 f^( b) b b^( ef,) ef ef^( c') |
+                ef16 ef^( c') c c^( b) c8^( g16) |
+                g4. d'8^( g,16) |
+                g4. g8. |
+                g8.-[^( e' c]) |
+                % Note: slur ends on second note.
+                c8.-[^( b) b] |
+                c8.-[^( e g)] |
+                g8.-[^( f d8 c16)] |
               }
             }
             \new Voice {
@@ -1333,6 +1364,33 @@ arietta-section-four-ef = {
                 \relative c'' { b16\rest } e'''8 \relative c'' { b16\rest } f8 \relative c'' { b16\rest } d8 \clef bass |
                 \relative c { d16\rest } <ef,,, ef'>8 \relative c { d16\rest } <c c'>8 \relative c { d16\rest } <d d'>16_(-[ <c c'>)] |
                 <b b'>16\noBeam \clef treble \stemNeutral b'''8 \relative c'' { b16\rest } c8 \relative c'' { b16\rest } a8 \clef bass |
+                \relative c { d16\rest } <bf,,, bf'>8 \relative c { d16\rest } <g g'>8
+                \tuplet 3/2 { af32-[ af' af, af' af, af' af, af' af,] } |
+                \tuplet 3/2 { \repeat unfold 4 { fs' fs, } fs' }
+                \tuplet 3/2 { \repeat unfold 4 { g, g' } g, }
+                \stemUp
+                \arietta-section-five
+                \tuplet 3/2 { g'32-[ c, e g c e c e g] } |
+                \stemNeutral \tuplet 3/2 { c,32 e g b, d g c, e g }
+                \tuplet 3/2 { d32 f g c, e g d f g }
+                \tuplet 3/2 { b, d g a, c g' b, d g } |
+                \tuplet 3/2 { b, d g c, e g b, d g }
+                \tuplet 3/2 { c, e g d f g c, e g }
+                \tuplet 3/2 { d f g cs, e g d f g } |
+                \tuplet 3/2 { e g e g e g e g e }
+                \tuplet 3/2 { c g' c, g' c, g' c, g' c, } 
+                \tuplet 3/2 { e g e g d g c, g' c, } |
+                \tuplet 3/2 { g fs' g fs, fs' g g, fs' g }
+                \tuplet 3/2 { g, fs' g fs, fs' g g, fs' g }
+                \tuplet 3/2 { g, fs' g fs, fs' g f, fs'! g } |
+                \tuplet 3/2 { e, c' g' ds, c' g' e, c' g' }
+                \tuplet 3/2 { c, e g b, d g c, e g }
+                \tuplet 3/2 { bf, d g a, e' g bf, d g } |
+                \tuplet 3/2 { a, e' g a g e a, e' g }
+                \tuplet 3/2 { a, d f a f d a d f }
+                \stemDown
+                \tuplet 3/2 { a, d f a, d f af, d fs } |
+                
               }
             }
             \new Voice {
