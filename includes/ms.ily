@@ -94,6 +94,11 @@ sempreStaccato =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre staccato")))
 
+% \espressivoText
+%
+% Prints "espressivo".
+espressivoText = \markup { \italic "espressivo" }
+
 % \dolce
 %
 % Prints "dolce".
