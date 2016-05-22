@@ -104,14 +104,14 @@ arietta-section-five = {
               \voiceOne
               \repeat volta 2 {
                 \relative c'' {
-                  c8( \p g16) |
-                  g4. d'8( g,16) |
-                  g4. g8. |
-                  g8.-[( e' c]) |
-                  c8.-[ b <b g>] |
-                  c8.-[( e g]) |
-                  g8.-[( f d8 c16]) |
-                  b8.-[( c d8 g,16]) |
+                  c8(-5 \p g16)-3 |
+                  g4. d'8( g,16)\finger \markup \tied-lyric #"3~4" |
+                  g4.-4 g8.-4 |
+                  g8.-[(-2 e'-5 c])\finger \markup \tied-lyric #"4~5" |
+                  c8.-[-5 b-4 <b g>] |
+                  c8.-[(-2 e g-5]) |
+                  g8.-[( f\finger \markup \tied-lyric #"4~5" d8\finger \markup \tied-lyric #"4~5" c16])\finger \markup \tied-lyric #"4~5" |
+                  b8.-[(-4 c\finger \markup \tied-lyric #"5~4" d8 g,16])\finger \markup \tied-lyric #"3~5" |
                 }
               }
               \alternative {
@@ -124,7 +124,7 @@ arietta-section-five = {
                 {
                   \relative c'' {
                     \set Timing.measureLength = #(ly:make-moment 9/16)
-                    g4. e8.
+                    g4. e8.\finger \markup \tied-lyric #"4~1"
                   }
                 }
               }
@@ -133,17 +133,20 @@ arietta-section-five = {
               \voiceTwo
               \relative c' {
                 e8. |
-                e8.-[( f8. d8.]) |
-                d8.-[( e f]) |
+                e8.-[( f8.^2 d8.]) |
+                d8.-[( e^2 f]) |
                 s8. e8.-[ g] |
                 e8.-[ d d] |
-                g4.\< g8.\! |
-                a4.\> a8-[ <d, a'>16]\! |
-                <d g>8.-[ <c g'> <d g>8 d16]~ |
-                d8-[\< d16^(\! <c e>8\> <b f'>16)\!] |
+                g4.\< g8. |
+                a4.\!\> a8-[
+                -\tweak X-offset #-0.75
+                -\tweak Y-offset #-6.1
+                _\finger \markup \tied-lyric #"1~2" <d, a'>16]\! |
+                <d g>8.-[ <c g'> <d g>8 d16]~\finger \markup \tied-lyric #"1~2" |
+                d8-[ d16^(^2\< <c e-3>8\!\> <b f'-4>16)\!] |
                 % todo fix this slur
                 \once \override Slur.control-points = #'((1.5 . -1.5) (3.5 . 0.5) (6 . 1) (8.5 . -0.83))
-                d8-[^(\<\repeatTie <c e>16\! <b f'>8\> <c e>16)]\! s8. |
+                d8-[^(\repeatTie <c e-4>16\< <b f'-5>8\!\> <c e-4>16)]\! s8. |
               }
             }
           >>
@@ -156,13 +159,16 @@ arietta-section-five = {
               \voiceOne
               \repeat volta 2 {
                 \relative c'' {
-                  c4. \p c8( b16) |
-                  b4. b8( e16) |
-                  <b e>8.-[ <c e>_( <b d>8 <a c>16]) |
-                  <a c>8.-[_( <gs b> <e a c>]) |
-                  <g b d>4. \cresc <g b d>8. |
-                  <g c e>4. <a c f>8. |
-                  <g b d>8.-[ <g b d>] <b d>8-[( <d g>16]) \!
+                  c4. \p c8( b16)-4 |
+                  b4.\finger \markup \tied-lyric #"4~3" b8(-2 e16) |
+                  <b e>8.-[ <c e>_(-3-5 <b d>8-2-\finger \markup \tied-lyric #"4~5" <a c>16-1-\finger \markup \tied-lyric #"4~5"]) |
+                  <a c>8.-[_(-3-5 <gs b>-2-4 <e a c>])-3-5
+                  \override DynamicLineSpanner.staff-padding = #3 |
+                  <g b d>4.-3-5 \cresc 
+                  <g b d>8.-2-4 |
+                  \revert DynamicLineSpanner.staff-padding
+                  <g c e>4.-3-\finger \markup \tied-lyric #"5~4" <a c f>8.-2-3-\finger \markup \tied-lyric #"5~4" |
+                  <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-lyric #"4~3" <d g>16]) \!
                 }
               }
               \alternative {
@@ -1019,10 +1025,10 @@ arietta-section-five = {
             \new Voice {
               \voiceOne
               \relative c, {
-                <c g'>8. |
-                <c g'>8.-[ <d g> <b g'>] |
-                <b g'>8.-[ <c g'> <d g>] |
-                <e g>8.-[ <c g'> <e g>] |
+                <c g'\finger \markup \tied-lyric #"(2~1)">8. |
+                <c g'>8.-[ <d_4 g> <b g'>] |
+                <b g'>8.-[ <c_4 g'> <d_3 g>] |
+                <e_2 g>8.-[ <c g'> <e_2 g>] |
                 \once \override PhrasingSlur.eccentricity = #1.75
                 \once \override PhrasingSlur.height-limit = #8
                 g,8.-[_\( g' g8^( f16 ] |
@@ -1031,8 +1037,8 @@ arietta-section-five = {
                 <d d'>4.
                 % note make slur higher
                 <f f'>8_( <fs fs'>16) |
-                g'8.-[( a b8) b16]_~ |
-                b8-[ b16_( c8 d16)] |
+                g'8.-[( a b8) b16]_~\finger \markup \tied-lyric #"1~3" |
+                b8-[ b16_(-3 c8-2 d16)]-1 |
                 b8-[_(_\repeatTie c16 d8 c16]) e8. |
               }
             }
@@ -1043,7 +1049,12 @@ arietta-section-five = {
                 s4. s8. |
                 s4. s8. |
                 s4. s8. |
-                g4.~g8 f16 |
+                g4.~g8
+                % Note: manually positioning the fingering.
+                f16
+                -\tweak X-offset #0.425
+                -\tweak Y-offset #-9.1
+                _4 |
                 s4. s8.
                 s4. s8. |
                 g4. s8. |
