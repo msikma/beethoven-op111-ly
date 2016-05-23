@@ -163,10 +163,9 @@ arietta-section-five = {
                   b4.\finger \markup \tied-lyric #"4~3" b8(-2 e16) |
                   <b e>8.-[ <c e>_(-3-5 <b d>8-2-\finger \markup \tied-lyric #"4~5" <a c>16-1-\finger \markup \tied-lyric #"4~5"]) |
                   <a c>8.-[_(-3-5 <gs b>-2-4 <e a c>])-3-5
-                  \override DynamicLineSpanner.staff-padding = #3 |
+                  \once \override DynamicLineSpanner.staff-padding = #3 |
                   <g b d>4.-3-5 \cresc 
                   <g b d>8.-2-4 |
-                  \revert DynamicLineSpanner.staff-padding
                   <g c e>4.-3-\finger \markup \tied-lyric #"5~4" <a c f>8.-2-3-\finger \markup \tied-lyric #"5~4" |
                   <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-lyric #"4~3" <d g>16]) \!
                 }
@@ -226,16 +225,19 @@ arietta-section-five = {
               %-------------------------------------------------------------
               \repeat volta 2 {
                 \set Timing.measureLength = #(ly:make-moment 6/16)
-                f,8\> e16\! c'8 <e, c>16 |
+                f,8\> e16\! c'8 <e, c>16
+                \override DynamicLineSpanner.staff-padding = #4.5 |
                 \set Timing.measureLength = #(ly:make-moment 9/16)
                 % todo check with manuscript
                 b'8\< <b, e>16\)\!_\( <c e>16\> c' b\! c( <e, b'>\)) <e' b>( |
                 \override Tie.minimum-length = #3.25
                 f8 e16) e8( d16) d c c~ |
+                \override DynamicLineSpanner.staff-padding = #3
                 <c a>16 \cresc <b gs>
                 \once \override Tie.minimum-length = #2.75
                 <b gs>_~_( <b gs> <c e,>) <c e,>_~_( <c e,> <d b>)\! <d b> \p |
                 \mergeDifferentlyDottedOn
+                \revert DynamicLineSpanner.staff-padding
                 <d b>4. <ds b>8. |
                 e8. e8( g16) g8( f16) |
                 e8-[ d16 cs8 d16] d16 a' g |
@@ -243,7 +245,7 @@ arietta-section-five = {
               \alternative {
                 {
                   \relative c'' {
-                    g'16-[\sf f\> e] f-[ e]\! e,-[ f e e]_( |
+                    g'16-[\sf\> f e] f-[ e]\! e,-[ f e e]_( |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8 <c, e>16)
                   }
@@ -251,7 +253,7 @@ arietta-section-five = {
                 {
                   \relative c'' {
                     \set Timing.measureLength = #(ly:make-moment 6/16)
-                    \stemDown <g' d>16-[\sf <f b,>\> <e c>] <f c>-[ <e c> <e c>]\! |
+                    \stemDown <g' d>16-[\sf\> <f b,> <e c>] <f c>-[ <e c> <e c>]\! |
                   }
                 }
               }
@@ -319,16 +321,17 @@ arietta-section-five = {
                   \tuplet 5/4 { b16-[~b16 c32] }
                   \tuplet 5/4 { b16-[~b16 e32]) } |
                   \omit Dots
-                  \tuplet 3/2 { <b e>16.-[~<b e>16 <c e>32] }
-                  \tuplet 3/2 { <c e>16.-[~<c e>16 <gs b d>32] }
+                  \tuplet 3/2 { <b_~ e^~>16.-[ <b e>16 <c e>32] }
+                  \tuplet 3/2 { <c_~ e^~>16.-[ <c e>16 <gs b d>32] }
                   \tuplet 3/2 { <e b' d>16-[_( <f a c>32 <fs a c>16 <b, g' b>32]) }
                   \undo \omit Dots |
-                  \tuplet 3/2 { <b gs' b>16-[ <b gs' b>32~ <b gs' b>16 <b gs' b>32~] }
-                  \tuplet 3/2 { <b gs' b>16-[ <c a' c>32~ <c a' c>16 <c a' c>32~] }
+                  \tuplet 3/2 { <b gs' b>16-[ <b_~ gs'^~ b^~>32 <b gs' b>16 <b_~ gs'^~ b^~>32] }
+                  \tuplet 3/2 { <b gs' b>16-[ <c_~ a'^~ c^~>32 <c a' c>16 <c_~ a'^~ c^~>32] }
                   \stemNeutral
-                  \tuplet 3/2 { <c a' c>16-[ <d b' d>32~ <d b' d>16 <d' b' d>32] } |
+                  \tuplet 3/2 { <c a' c>16-[ <d_~ b'^~ d^~>32 <d b' d>16 <d' b' d>32] } |
+                  
+                  \tuplet 3/2 { <d b' d>16-[ d32^( cs16 d32)] }
                   \stemUp
-                  \tuplet 3/2 { <d b' d>16-[ d32_( cs16 d32)] }
                   d8~
                   \tuplet 3/2 { d16-[ cs32 f16 e32] } |
                   e8~ e16-[ e16]~
@@ -356,8 +359,10 @@ arietta-section-five = {
                   \relative c''' {
                     \set Timing.measureLength = #(ly:make-moment 4/16)
                     \override Tie.minimum-length = #3.25
+                    \omit Dots
                     \tuplet 3/2 { g16.-[~\sf\> g16 f32] }
                     \tuplet 3/2 { e16-[\!\p g32~ g16 g32] }
+                    \undo \omit Dots
                     \revert Tie.minimum-length
                   }
                 }
@@ -638,6 +643,7 @@ arietta-section-five = {
               \trillSpanDown
               % Make some space for the flat sign in front of the next trill.
               \once \override TrillSpanner.bound-details.right.padding = #2.5
+              % todo: perfectly align the dynamics
               d4._~ \f
               \startTrillSpan d8._~ |
               d4._~ d8._~ \p |
@@ -694,7 +700,10 @@ arietta-section-five = {
               \once \override TextSpanner.to-barline = ##t
               g\!\f fs g e g g d' cs d |
               cs\sf\> b cs d cs d f, f fs |
-              s8\!
+              g16\! a g fs g fs f f f |
+              <d f> <c e> <b f'> <b f'> <c e> d d c b |
+              <c e> e e e e e e e e |
+              e e e e e e e e e |
             }
             \new Voice {
               \voiceTwo
@@ -714,9 +723,11 @@ arietta-section-five = {
                 s4. s8. |
                 s4. bf8 g16 |
                 a8 g16 a8 s16 a8 fs16 |
-                <f d>8. <f d>8.~<f d>16 <f d> <f d> |
+                <f d>8. <f d>8.~<f d>16 <f d> <f d>
+                \override DynamicLineSpanner.staff-padding = #5 |
                 % todo fix this slur
                 <d f>16^(\< e d\! c\> d b)\! s8 s16 |
+                \revert DynamicLineSpanner.staff-padding
                 <d f>16\<-[ e f\! e <d e> <c e>] <b e> <c e> d |
                 s8 c16 |
                 <b d>8. s8. |
@@ -731,7 +742,9 @@ arietta-section-five = {
                 s8 s8 \stemDown
                 \single \hide Stem
                 b'16~ |
+                \override DynamicLineSpanner.staff-padding = #3
                 b16\< b\! c\> c8\! gs16 gs16 a a~ |
+                \revert DynamicLineSpanner.staff-padding
                 \single \hide Stem
                 a16 s8 s8. s8. \stemDown |
                 b8-[_( \cresc f16 e8 f16]) b8-[ f16] |
@@ -761,6 +774,7 @@ arietta-section-five = {
                 \tuplet 3/2 { d16-[ c32 f16 e32] } |
                 \tuplet 3/2 { <d f>16-[ d32 <b f'>16 <c e>32] }
                 % todo maybe move this tie up a bit
+                \override Tie.minimum-length = #2.65
                 \tuplet 3/2 { e16-[ <d e>32~<c e>16 <b e>32~] }
                 \tuplet 3/2 { b16-[ <b d>32 <a c>16 <gs d'>32] } | 
                 \tuplet 5/4 { a16-[( ds32 e16]~ }
@@ -927,6 +941,11 @@ arietta-section-five = {
                 c8.-[^( b) b] |
                 c8.-[^( e g)] |
                 g8.-[^( f d8 c16)] |
+                b8.-[^( c8. d8 g,16)] |
+                % todo fix the dot!
+                g8.^~\< g8-[\!\> e16] e16-[^~\!\p e16 e16] |
+                c'4. c8-[^( b16)] |
+                b4. b8-[^( e16)] |
               }
             }
             \new Voice {
@@ -1132,8 +1151,14 @@ arietta-section-five = {
                 \tuplet 3/2 { b16-[ b32 c16 s32] }
                 \tuplet 3/2 { cs16-[ d32 <d f!>16 <d f>32] } |
                 \stemDown
-                \tuplet 3/2 { <g, d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
-                \tuplet 3/2 { <c! c'!>16-[) d32^( e16 f32] }
+                \tuplet 3/2 {
+                  <g, d' f>16-[
+                  \once \override PhrasingSlur.height-limit = #3.7
+                  \once \override PhrasingSlur.eccentricity = #0.95
+                  <g, g'>32^\(
+                  <a a'>16 <b b'>32]
+                }
+                \tuplet 3/2 { <c! c'!>16-[\) d32^( e16 f32] }
                 \tuplet 3/2 { e16-[ d32 c16 b32)] } |
                 \tuplet 3/2 { <g' d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
                 \tuplet 3/2 { <c! c'!>16-[) \clef treble b''32^( c16 d32)] } \clef bass |
@@ -1376,6 +1401,7 @@ arietta-section-five = {
                 \relative c { d16\rest } <ef,,, ef'>8 \relative c { d16\rest } <c c'>8 \relative c { d16\rest } <d d'>16_(-[ <c c'>)] |
                 <b b'>16\noBeam \clef treble \stemNeutral b'''8 \relative c'' { b16\rest } c8 \relative c'' { b16\rest } a8 \clef bass |
                 \relative c { d16\rest } <bf,,, bf'>8 \relative c { d16\rest } <g g'>8
+                % todo: need a tuplet bracket here, just once?
                 \tuplet 3/2 { af32-[ af' af, af' af, af' af, af' af,] } |
                 \tuplet 3/2 { \repeat unfold 4 { fs' fs, } fs' }
                 \tuplet 3/2 { \repeat unfold 4 { g, g' } g, }
@@ -1401,7 +1427,18 @@ arietta-section-five = {
                 \tuplet 3/2 { a, d f a f d a d f }
                 \stemDown
                 \tuplet 3/2 { a, d f a, d f af, d fs } |
-                
+                \tuplet 3/2 { g, d' g g, d' g g, d' g }
+                \tuplet 3/2 { g, d' a' g, d' a' g, d' a' }
+                \tuplet 3/2 { g, g' b a, g' c b, g' d' } |
+                \tuplet 3/2 { b, g' b c, e g d f g }
+                \tuplet 3/2 { d f g c, e g b, e gs }
+                \tuplet 3/2 { b, e gs a, e' a gs, e' gs } |
+                \tuplet 3/2 { a, e' a gs, e' gs a, e' a }
+                \tuplet 3/2 { a, e' a gs, e' gs a, e' a }
+                \tuplet 3/2 { a, e' a a, e' a gs, e' b' } |
+                \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' }
+                \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' }
+                \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' } |
               }
             }
             \new Voice {
@@ -1461,13 +1498,13 @@ arietta-section-five = {
                 \tuplet 5/4 { gs16-[~ gs gs32]~ } |
                 \stemUp
                 \omit Dots
-                \tuplet 3/2 { gs16-[ <gs,! gs'!>32\( <a a'>16.]~ }
+                \tuplet 3/2 { gs16-[ <gs,! gs'!>32\( <a_~ a'^~>16.] }
                 \tuplet 3/2 { <a a'>16-[\) <a a'>32\( <b b'>16.]( }
                 \tuplet 3/2 { <c c'>16-[) <d d'>32 <ds ds'>16 <e e'>32\)] }
                 \undo \omit Dots | 
-                \tuplet 3/2 { <e e'>16-[ <e e'>32~ <e e'>16 <e e'>32]~ }
-                \tuplet 3/2 { <e e'>16-[ <a, a'>32~ <a a'>16 <a a'>32]~ }
-                \tuplet 3/2 { <a a'>16-[ <g! g'!>32~ <g g'>16 <g g'>32] } |
+                \tuplet 3/2 { <e e'>16-[ <e_~ e'^~>32 <e e'>16 <e_~ e'^~>32] }
+                \tuplet 3/2 { <e e'>16-[ <a,_~ a'^~>32 <a a'>16 <a_~ a'^~>32] }
+                \tuplet 3/2 { <a a'>16-[ <g!_~ g'!^~>32 <g g'>16 <g g'>32] } |
                 <g g'>16\noBeam \stemDown g''16~ g8~ g16-[~ g16] |
                 g16-[ c16]~ c16-[ c16]~ c16-[ f,16] |
                 \tuplet 3/2 { fs16-[ a32 fs16 g32]~ }
