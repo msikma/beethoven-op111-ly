@@ -702,8 +702,11 @@ arietta-section-five = {
               cs\sf\> b cs d cs d f, f fs |
               g16\! a g fs g fs f f f |
               <d f> <c e> <b f'> <b f'> <c e> d d c b |
-              <c e> e e e e e e e e |
-              e e e e e e e e e |
+              % todo: add padding for the cresc
+              <c e>\cresc e e e e e e e e |
+              e e e e e e e e <e b'> |
+              <e b'> <e b'> <e b'> <e c'> <e c'> <e c'> b' gs a |
+              <e a>\!\sf\> <e a> <e a> <e gs> <e gs> <e gs> <e a>\!\p <e a> <e a> |
             }
             \new Voice {
               \voiceTwo
@@ -946,6 +949,8 @@ arietta-section-five = {
                 g8.^~\< g8-[\!\> e16] e16-[^~\!\p e16 e16] |
                 c'4. c8-[^( b16)] |
                 b4. b8-[^( e16)] |
+                e8.-[ e8. d8^( c16)] |
+                c8.-[^( b8. c8.]) |
               }
             }
             \new Voice {
@@ -1439,6 +1444,13 @@ arietta-section-five = {
                 \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' }
                 \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' }
                 \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' } |
+                \tuplet 3/2 { gs, e' b' a, e' b' gs, e' b' }
+                \tuplet 3/2 { a, e' c' b, e c' a, e' c' }
+                \stemNeutral
+                \tuplet 3/2 { f,, f' f, f' f, f' ds, ds' ds, } |
+                \tuplet 3/2 { e ds' e ds, ds' e e, ds' e }
+                \tuplet 3/2 { e, ds' e ds, ds' e e, ds' e }
+                \tuplet 3/2 { a,, gs' a gs, gs' a a, gs' a } |
               }
             }
             \new Voice {
