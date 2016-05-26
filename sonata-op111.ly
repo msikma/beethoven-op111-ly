@@ -105,13 +105,13 @@ arietta-section-five = {
               \repeat volta 2 {
                 \relative c'' {
                   c8(-5 \p g16)-3 |
-                  g4. d'8( g,16)\finger \markup \tied-lyric #"3~4" |
+                  g4. d'8( g,16)\finger \markup \tied-finger-up #"3" #"4" |
                   g4.-4 g8.-4 |
-                  g8.-[(-2 e'-5 c])\finger \markup \tied-lyric #"4~5" |
+                  g8.-[(-2 e'-5 c])\finger \markup \tied-finger-up #"4" #"5" |
                   c8.-[-5 b-4 <b g>] |
                   c8.-[(-2 e g-5]) |
-                  g8.-[( f\finger \markup \tied-lyric #"4~5" d8\finger \markup \tied-lyric #"4~5" c16])\finger \markup \tied-lyric #"4~5" |
-                  b8.-[(-4 c\finger \markup \tied-lyric #"5~4" d8 g,16])\finger \markup \tied-lyric #"3~5" |
+                  g8.-[( f\finger \markup \tied-finger-up #"4" #"5" d8\finger \markup \tied-finger-up #"4" #"5" c16])\finger \markup \tied-finger-up #"4" #"5" |
+                  b8.-[(-4 c\finger \markup \tied-finger-up #"5" #"4" d8 g,16])\finger \markup \tied-finger-up #"3" #"5" |
                 }
               }
               \alternative {
@@ -124,7 +124,7 @@ arietta-section-five = {
                 {
                   \relative c'' {
                     \set Timing.measureLength = #(ly:make-moment 9/16)
-                    g4. e8.\finger \markup \tied-lyric #"4~1"
+                    g4. e8.\finger \markup \tied-finger-up #"4" #"1"
                   }
                 }
               }
@@ -160,14 +160,14 @@ arietta-section-five = {
               \repeat volta 2 {
                 \relative c'' {
                   c4. \p c8( b16)-4 |
-                  b4.\finger \markup \tied-lyric #"4~3" b8(-2 e16) |
-                  <b e>8.-[ <c e>_(-3-5 <b d>8-2-\finger \markup \tied-lyric #"4~5" <a c>16-1-\finger \markup \tied-lyric #"4~5"]) |
+                  b4.\finger \markup \tied-finger-up #"4" #"3" b8(-2 e16) |
+                  <b e>8.-[ <c e>_(-3-5 <b d>8-2-\finger \markup \tied-finger-up #"4" #"5" <a c>16-1-\finger \markup \tied-finger-up #"4" #"5"]) |
                   <a c>8.-[_(-3-5 <gs b>-2-4 <e a c>])-3-5
                   \once \override DynamicLineSpanner.staff-padding = #3 |
                   <g b d>4.-3-5 \cresc 
                   <g b d>8.-2-4 |
-                  <g c e>4.-3-\finger \markup \tied-lyric #"5~4" <a c f>8.-2-3-\finger \markup \tied-lyric #"5~4" |
-                  <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-lyric #"4~3" <d g>16]) \!
+                  <g c e>4.-3-\finger \markup \tied-finger-up #"5" #"4" <a c f>8.-2-3-\finger \markup \tied-finger-up #"5" #"4" |
+                  <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-finger-up #"4" #"3" <d g>16]) \!
                 }
               }
               \alternative {
@@ -314,8 +314,9 @@ arietta-section-five = {
                 \relative c'' {
                   \override Tie.minimum-length = #3.25
                   \set Timing.measureLength = #(ly:make-moment 6/16)
-                  \tuplet 5/4 { c16-[(~c16 b32] }
-                  \tuplet 5/4 { c16-[~c16 b32] }
+                  % todo: make fingering nicer
+                  \tuplet 5/4 { c16-[(-5 ~c16 b32-4] }
+                  \tuplet 5/4 { c16-[-5~c16 b32-4] }
                   \tuplet 5/4 { c16-[~c16 b32] } |
                   \tuplet 5/4 { b16-[~b16 c32] }
                   \tuplet 5/4 { b16-[~b16 c32] }
@@ -325,10 +326,10 @@ arietta-section-five = {
                   \tuplet 3/2 { <c_~ e^~>16.-[ <c e>16 <gs b d>32] }
                   \tuplet 3/2 { <e b' d>16-[_( <f a c>32 <fs a c>16 <b, g' b>32]) }
                   \undo \omit Dots |
-                  \tuplet 3/2 { <b gs' b>16-[ <b_~ gs'^~ b^~>32 <b gs' b>16 <b_~ gs'^~ b^~>32] }
+                  \tuplet 3/2 { <b gs' b>16-[\cresc <b_~ gs'^~ b^~>32 <b gs' b>16 <b_~ gs'^~ b^~>32] }
                   \tuplet 3/2 { <b gs' b>16-[ <c_~ a'^~ c^~>32 <c a' c>16 <c_~ a'^~ c^~>32] }
                   \stemNeutral
-                  \tuplet 3/2 { <c a' c>16-[ <d_~ b'^~ d^~>32 <d b' d>16 <d' b' d>32] } |
+                  \tuplet 3/2 { <c a' c>16-[ <d_~ b'^~ d^~>32 <d b' d>16 <d' b' d>32]\!\p } |
                   
                   \tuplet 3/2 { <d b' d>16-[ d32^( cs16 d32)] }
                   \stemUp
@@ -779,13 +780,14 @@ arietta-section-five = {
                 % todo maybe move this tie up a bit
                 \override Tie.minimum-length = #2.65
                 \tuplet 3/2 { e16-[ <d e>32~<c e>16 <b e>32~] }
-                \tuplet 3/2 { b16-[ <b d>32 <a c>16 <gs d'>32] } | 
-                \tuplet 5/4 { a16-[( ds32 e16]~ }
-                \tuplet 5/4 { e16-[ ds32 e16]~ }
+                \tuplet 3/2 { b16-[ <b d>32 <a c>16 <gs d'>32] } |
+                % todo fix the fingering positions
+                \tuplet 5/4 { a16-[( ds32-2 e16-1]~ }
+                \tuplet 5/4 { e16-[ ds32-2 e16-1]~ }
                 \tuplet 5/4 { e16-[ ds32 e16]~ } |
-                \tuplet 5/4 { e16-[ ds32 e16]~ }
-                \tuplet 5/4 { e16-[ ds32 e16]~ }
-                \tuplet 5/4 { e16-[ ds32 e16]) } |
+                \tuplet 5/4 { e16-[ f32 e16]~ }
+                \tuplet 5/4 { e16-[ f32 e16]~ }
+                \tuplet 5/4 { e16-[ f32 e16]) } |
                 \override Tie.minimum-length = #3.25
                 s4 s8 |
                 s4 s8 |
@@ -1049,7 +1051,13 @@ arietta-section-five = {
             \new Voice {
               \voiceOne
               \relative c, {
-                <c g'\finger \markup \tied-lyric #"(2~1)">8. |
+                % Some manual fixes to add parentheses to this fingering.
+                % The fingering is only for the repeat.
+                <c g'\finger \markup {
+                  \hspace #0.5 \fontsize #-2 "("
+                  \hspace #-0.5 \translate #'(0 . 1.14) \tied-finger-up #"2" #"1"
+                  \hspace #-0.55 \fontsize #-2 ")"
+                }>8. |
                 <c g'>8.-[ <d_4 g> <b g'>] |
                 <b g'>8.-[ <c_4 g'> <d_3 g>] |
                 <e_2 g>8.-[ <c g'> <e_2 g>] |
@@ -1061,7 +1069,7 @@ arietta-section-five = {
                 <d d'>4.
                 % note make slur higher
                 <f f'>8_( <fs fs'>16) |
-                g'8.-[( a b8) b16]_~\finger \markup \tied-lyric #"1~3" |
+                g'8.-[( a b8) b16]_~\finger \markup \tied-finger-up #"1" #"3" |
                 b8-[ b16_(-3 c8-2 d16)]-1 |
                 b8-[_(_\repeatTie c16 d8 c16]) e8. |
               }
@@ -1138,12 +1146,12 @@ arietta-section-five = {
                 b16 s16 s8 |
                 b16\repeatTie s16 s4 |
                 \stemUp
-                \tuplet 5/4 { a16-[ ds32 e16~] }
-                \tuplet 5/4 { e16-[ ds32 e16~] }
+                \tuplet 5/4 { a16-[ ds32-2 e16~-1] }
+                \tuplet 5/4 { e16-[ ds32-2 e16~-1] }
                 \tuplet 5/4 { e16-[ ds32 e16~] } |
-                \tuplet 5/4 { e16-[ ds32 e16~] }
-                \tuplet 5/4 { e16-[ ds32 e16~] }
-                \tuplet 5/4 { e16-[ ds32 e16] } |
+                \tuplet 5/4 { e16-[ f32-2 e16~-1] }
+                \tuplet 5/4 { e16-[ f32-2 e16~-1] }
+                \tuplet 5/4 { e16-[ f32 e16] } |
                 s4 s8 |
                 s4 s8 |
                 \tuplet 3/2 { s16 f'32-[ e16 f32] }
@@ -1502,11 +1510,11 @@ arietta-section-five = {
                 \tuplet 3/2 { c16-[ b32 a16 gs32]~ }
                 \tuplet 3/2 { gs16-[ gs32 a16 b32] } |
                 \stemDown
-                \tuplet 5/4 { a16-[~ a gs32] }
-                \tuplet 5/4 { a16-[~ a gs32] }
+                \tuplet 5/4 { a16-[-4~ a gs32-3] }
+                \tuplet 5/4 { a16-[~-4 a gs32-3] }
                 \tuplet 5/4 { a16-[~ a gs32] } |
-                \tuplet 5/4 { gs16-[~ gs a32] }
-                \tuplet 5/4 { gs16-[~ gs a32] }
+                \tuplet 5/4 { gs16-[~-5 gs a32-4] }
+                \tuplet 5/4 { gs16-[~-5 gs a32-4] }
                 \tuplet 5/4 { gs16-[~ gs gs32]~ } |
                 \stemUp
                 \omit Dots
