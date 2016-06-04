@@ -273,11 +273,11 @@ arietta-section-five = {
                   \tuplet 3/2 { d16-[ b32 as16 b32]) }
                   b8\rest |
                   \change Staff = "left"
-                  \tuplet 3/2 { f,16-[( d32 cs16 d32] }
+                  \tuplet 3/2 { f,16-[\( d32 cs16 d32] }
                   \change Staff = "right"
                   \tuplet 3/2 { g'16-[ e32 ds16 e32] }
                   \tuplet 3/2 { g16-[ e32 g16 f32] } |
-                  \tuplet 3/2 { a16-[ fs32 a16 g32]) } \stemDown
+                  \tuplet 3/2 { a16-[ fs32 a16 g32]\) } \stemDown
                   <g e'>8\noBeam <g c>8 |
                   \stemUp
                   \tuplet 3/2 { c16-[ b32 d16 c32] }
@@ -708,6 +708,12 @@ arietta-section-five = {
               e e e e e e e e <e b'> |
               <e b'> <e b'> <e b'> <e c'> <e c'> <e c'> b' gs a |
               <e a>\!\sf\> <e a> <e a> <e gs> <e gs> <e gs> <e a>\!\p <e a> <e a> |
+              <g b>16\cresc <g b> <g b> <g b> <g b> <g b> <f b> <f b> <f b> |
+              <e bf'>16 <e bf'> <e bf'> <e bf'> <e bf'> <e bf'> <f a> <a c> <af c> |
+              <g c>16 <g c> <g c> <g c> <g c> <g c> <g b> <g c> <g d'> |
+              d'16\!\sf\> b g e\!\p ds e b'\sf\> gs e |
+              e16\!\p e e g'\sf\> e c c\!\p <cs g'> <d f> |
+              e16\sf\> cs a a\!\p a a af\cresc af af\! |
             }
             \new Voice {
               \voiceTwo
@@ -953,6 +959,12 @@ arietta-section-five = {
                 b4. b8-[^( e16)] |
                 e8.-[ e8. d8^( c16)] |
                 c8.-[^( b8. c8.]) |
+                d4. d8. |
+                e4. f8. |
+                d8.-[ d8.] d8 g16 |
+                g8-[^( e16]) e8. e8-[^( c16]) |
+                c8. c'8-[^( a16]) a8. |
+                a8-[^( f16]) <d f>8.-[ <d f>] |
               }
             }
             \new Voice {
@@ -1459,6 +1471,24 @@ arietta-section-five = {
                 \tuplet 3/2 { e ds' e ds, ds' e e, ds' e }
                 \tuplet 3/2 { e, ds' e ds, ds' e e, ds' e }
                 \tuplet 3/2 { a,, gs' a gs, gs' a a, gs' a } |
+                \tuplet 3/2 { g, fs' g fs, fs' g g, fs' g }
+                \tuplet 3/2 { g, fs' g fs, fs' g g, fs' g }
+                \tuplet 3/2 { g, fs' g fs, fs' g g, fs' g } |
+                \tuplet 3/2 { g, c g' fs, c' fs g, c g' }
+                \tuplet 3/2 { g, c g' fs, c' fs g, c g' }
+                \tuplet 3/2 { f, c' f f, c' f f, c' f } |
+                \tuplet 3/2 { g, c d g c d g d c }
+                \tuplet 3/2 { g c d g d c g g' c }
+                \tuplet 3/2 { g, g' b a, g' c b, g' d' } |
+                \tuplet 3/2 { b, g' b g, g' d' c, g' c }
+                \tuplet 3/2 { c, g' c b, g' b c, g' c }
+                \tuplet 3/2 { gs, e' gs e, e' b' a, e' a } |
+                \tuplet 3/2 { a, e' a gs, e' gs a, e' a }
+                \tuplet 3/2 { e, c' e c, c' g' f, c' f }
+                \tuplet 3/2 { f, c' f e, a e' d, a' d } |
+                \tuplet 3/2 { cs, a' cs a, a' e' d, a' d }
+                \tuplet 3/2 { d, a' d cs, a' cs d, a' d }
+                \tuplet 3/2 { c, f c' b, f' b c, f c' } |
               }
             }
             \new Voice {
