@@ -713,7 +713,17 @@ arietta-section-five = {
               <g c>16 <g c> <g c> <g c> <g c> <g c> <g b> <g c> <g d'> |
               d'16\!\sf\> b g e\!\p ds e b'\sf\> gs e |
               e16\!\p e e g'\sf\> e c c\!\p <cs g'> <d f> |
-              e16\sf\> cs a a\!\p a a af\cresc af af\! |
+              e16\sf\> cs a a\!\p a a af\cresc af af |
+              g16 g g g g g <g b> <g c> <g d'> |
+              g16 g g <g bf> <g bf> <g bf> a a <a c> |
+              <e g> <e g> <e g> <f g> <f g> <f g>
+              \tuplet 3/2 { b32\!\sf\> d b' b, d g c, g' c } |
+              \tuplet 3/2 { c,\!\p g' c b, g' b c, g' c }
+              \tuplet 3/2 { gs\sf\> b gs' gs, b e a, e' a }
+              \tuplet 3/2 { a,\!\p e' a b, e gs a, e' a } |
+              \tuplet 3/2 { e,\sf\> g e' e, g c f, c' f }
+              \tuplet 3/2 { f,\!\p c' f e, c' e f, c' f }
+              e16\sf cs a |
             }
             \new Voice {
               \voiceTwo
@@ -965,6 +975,11 @@ arietta-section-five = {
                 g8-[^( e16]) e8. e8-[^( c16]) |
                 c8. c'8-[^( a16]) a8. |
                 a8-[^( f16]) <d f>8.-[ <d f>] |
+                <d f>4. f8. |
+                e8.-[ g] g16-[^( f) d] |
+                c8.-[^( e8 d16]) s8. |
+                s4. s8. |
+                s8. s8. a''8-[ f16] |
               }
             }
             \new Voice {
@@ -1489,6 +1504,20 @@ arietta-section-five = {
                 \tuplet 3/2 { cs, a' cs a, a' e' d, a' d }
                 \tuplet 3/2 { d, a' d cs, a' cs d, a' d }
                 \tuplet 3/2 { c, f c' b, f' b c, f c' } |
+                \tuplet 3/2 { b, g' b as, g' as b, g' b }
+                \tuplet 3/2 { b, g' b as, g' as b, g' b }
+                \tuplet 3/2 { g, fs' g a, g' a b, g' b } |
+                \tuplet 3/2 { c, g' c b, g' b c, g' c }
+                \tuplet 3/2 { c, b' c d, c' d e, c' e }
+                \tuplet 3/2 { f, c' f f, c' f fs, c' fs } |
+                \tuplet 3/2 { g, c g' g, b g' g, c g' }
+                \tuplet 3/2 { g, b g' g, c g' g, b g' }
+                \stemDown
+                <g g'>8-[^( <e e'>16]) |
+                <e e'>8. <e e'>8-[^( <c c'>16]) <c c'>8. |
+                <c c'>8-[^( <a a'>16]) <a a'>8.
+                \stemNeutral
+                \tuplet 3/2 { cs32 a' cs a, a' e' d, a' d } |
               }
             }
             \new Voice {
