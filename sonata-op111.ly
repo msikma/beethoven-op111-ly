@@ -723,7 +723,17 @@ arietta-section-five = {
               \tuplet 3/2 { a,\!\p e' a b, e gs a, e' a } |
               \tuplet 3/2 { e,\sf\> g e' e, g c f, c' f }
               \tuplet 3/2 { f,\!\p c' f e, c' e f, c' f }
-              e16\sf cs a |
+              e16\sf\> cs a |
+              a16\!\p a a <a d>\cresc <a d> <a d> <af d> <af d> <af d> |
+              \repeat unfold 9 { <g d> } |
+              \repeat unfold 9 { <c d> } |
+              <c e> <g c e> <g c e> \repeat unfold 6 { <g b> } |
+              <g b>\!\f \repeat unfold 4 { <g b> } <g c> <g c> <g b> <g c> |
+              g g g\sf g g g\sf <g bf> <g b> <g b>\sf |
+              \stemUp
+              \trillSpanUp
+              \once \override TrillSpanner.bound-details.right.padding = #1.5
+              d'8.\startTrillSpan \grace { cs32-[\stopTrillSpan d] fs16 } \stemDown g4.\sf |
             }
             \new Voice {
               \voiceTwo
@@ -980,6 +990,13 @@ arietta-section-five = {
                 c8.-[^( e8 d16]) s8. |
                 s4. s8. |
                 s8. s8. a''8-[ f16] |
+                f8. f8. f8. |
+                f4. f8. |
+                fs4. fs8. |
+                g8. f!8. g8-[ a16] |
+                a8.^~ a16 a^( g) g^( f) e |
+                % Note: manuscript does indeed indicate a staccato.
+                <c e>8 <e g>16 <ds fs>8 <d f>16 e f d^\staccato |
               }
             }
             \new Voice {
@@ -1518,6 +1535,29 @@ arietta-section-five = {
                 <c c'>8-[^( <a a'>16]) <a a'>8.
                 \stemNeutral
                 \tuplet 3/2 { cs32 a' cs a, a' e' d, a' d } |
+                \tuplet 3/2 { d, a' d cs, a' cs d, a' d }
+                \tuplet 3/2 { d, a' d cs, a' cs d, a' d }
+                \tuplet 3/2 { c, f c' b, f' b c, f c' } |
+                \tuplet 3/2 { b, g' b as, g' as b, g' b }
+                \tuplet 3/2 { b, g' b as, g' as b, g' b }
+                \tuplet 3/2 { b, g' b as, g' as b, g' b } |
+                \tuplet 3/2 { a, d a' gs, d' gs a, d a' }
+                \tuplet 3/2 { a, d a' gs, d' gs a, d a' }
+                \tuplet 3/2 { a, d a' gs, d' gs a, d a' } |
+                \stemDown
+                \tuplet 3/2 { g, c g' g, b g' g, c g' }
+                \tuplet 3/2 { g, d' g g, cs g' g, d' g }
+                \tuplet 3/2 { g, e' g g, e' g g, f' g } |
+                \tuplet 3/2 { g, f' g g, e' g g, f' g }
+                \tuplet 3/2 { g, f' g g, f' g g, e' g }
+                \tuplet 3/2 { g, e' g g, d' g g, c g' } |
+                \stemDown
+                \tuplet 3/2 { g, c g' g, b g' g, c g' }
+                \tuplet 3/2 { g, a g' g, a g' g, b g' }
+                \tuplet 3/2 { g, cs g' g, d' g }
+                g,64 b d f |
+                g b d f
+                \relative c { d16\rest d16\rest d8.\rest d8.\rest } |
               }
             }
             \new Voice {
