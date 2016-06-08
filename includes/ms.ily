@@ -70,6 +70,7 @@ regularTrill = \override TrillSpanner.bound-details.left.text = \markup {
 % due to the fact \pp is normally center-offset.
 ppLeggiermente = 
   \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
   \tweak DynamicText.X-offset #-1
   #(make-dynamic-script
      (markup #:dynamic "pp"
@@ -80,6 +81,7 @@ ppLeggiermente =
 % Prints "sempre" followed by a \pp.
 semprePp = 
   \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
   \tweak DynamicText.X-offset #0
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre")
@@ -90,6 +92,7 @@ semprePp =
 % Prints "sempre staccato".
 sempreStaccato = 
   \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
   \tweak DynamicText.X-offset #0
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre staccato")))
@@ -97,13 +100,14 @@ sempreStaccato =
 % \espressivoText
 %
 % Prints "espressivo".
-espressivoText = \markup { \italic "espressivo" }
+espressivoText = ^\markup { \italic "espressivo" }
 
 % \dolce
 %
 % Prints "dolce".
 dolce = 
   \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
   \tweak DynamicText.X-offset #0
   #(make-dynamic-script
      (markup #:normal-text (#:italic "dolce")))
@@ -113,6 +117,7 @@ dolce =
 % Prints "sempre legato".
 sempreLegato = 
   \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
   \tweak DynamicText.X-offset #0
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre legato")))
@@ -122,6 +127,7 @@ sempreLegato =
 % Prints "mano sinistra" (use left hand).
 manoSinistra = 
   \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
   \tweak DynamicText.X-offset #0
   #(make-dynamic-script
      (markup #:normal-text (#:italic "mano sinistra")))

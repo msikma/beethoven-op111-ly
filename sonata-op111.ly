@@ -677,7 +677,7 @@ arietta-section-five = {
               bf8-[ a16] af16-[\!\dim bf, <af bf,>]\) c,8-[ c16] |
               \set beatStructure = #'(3 3 3)
               \stemDown
-              <f, af>16^\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
+              <f, af>16\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
               g16 \p \dim g g g g g <ef g> <ef g> <ef g> |
               <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
               ef16\!\pp ef ef ef ef ef <c ef> <c ef> <c ef> |
