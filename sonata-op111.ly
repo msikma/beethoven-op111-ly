@@ -22,7 +22,7 @@ AUTHORS = "M.Sikma"
 HEADERS-DIR = "./includes/"
 COMPOSED = "Composed 1822"
 
-\version "2.18.2"
+\version "2.19.42"
 \language "english"
 \include "includes/ms.ily"
 \include "includes/markup.ily"
@@ -733,7 +733,54 @@ arietta-section-five = {
               \stemUp
               \trillSpanUp
               \once \override TrillSpanner.bound-details.right.padding = #1.5
-              d'8.\startTrillSpan \grace { cs32-[\stopTrillSpan d] fs16 } \stemDown g4.\sf |
+              d'8.\startTrillSpan \grace { cs32-[\stopTrillSpan d] fs16 } \stemDown
+              \once \override TrillSpanner.bound-details.right.padding = #1.5
+              g4.~\startTrillSpan\sf\> |
+              g4. \stemUp
+              \once \override TrillSpanner.bound-details.right.padding = #0
+              
+              %-----------------------------------------------------------------
+              %    Variation 6
+              %-----------------------------------------------------------------
+              g8.~\!\pp\stopTrillSpan \startTrillSpan |
+              g4.
+              ~g8.~ |
+              g4.~g8.~ |
+              g4.~g8.~ |
+              % Trill must span until just before the b.
+              g4. \grace { s64\stopTrillSpan }
+              \trillSpanDown
+              b,8.\startTrillSpan |
+              c8.-[ e g] |
+              g-[ f d8 c16] |
+              b8.-[ c d8 \grace { s64\stopTrillSpan } \trillSpanUp g,16]\startTrillSpan |
+              g4.~g8. |
+              g8.-[~g8 \grace { s64\stopTrillSpan } \trillSpanDown
+              \once \override TrillSpanner.bound-details.right.padding = #1.0
+              c16]^(\startTrillSpan cs16-[ d) g,] |
+              \trillSpanUp g4.\stopTrillSpan\startTrillSpan~g8. |
+              \stemNeutral
+              \tuplet 3/2 { g32\stopTrillSpan\pp a g fs g a b c a }
+              \tuplet 3/2 { b c b a b c d e c }
+              \tuplet 3/2 { d e d cs d e f! g e } |
+              % todo: ottava bracket is a bit close to the next note.
+              \ottava #1
+              \set Staff.ottavation = #"8"
+              \tuplet 3/2 { f g f e f e d e d }
+              \tuplet 3/2 { c d c b c b c d c }
+              \tuplet 3/2 { d e d e f g a g b } |
+              \tuplet 3/2 { c\cresc b a g f e d c b }
+              \ottava #0
+              \tuplet 3/2 { c b a g f e d c b }
+              \tuplet 3/2 { c b a g f e d c b\! } |
+              c8-[_(\f g16]) g8. f''8-[^(\sf b,16]) |
+              f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p <c e, c>16)]\dim <c e, c>8 \relative c'' { b16\rest } |
+              <c e, c>8\pp \relative c'' { b16\rest }
+              \change Staff = "left"
+              \stemUp
+              <e,,, g c>8
+              \change Staff = "right"
+              \relative c'' { b16\rest } \bar "|."
             }
             \new Voice {
               \voiceTwo
@@ -997,6 +1044,19 @@ arietta-section-five = {
                 a8.^~ a16 a^( g) g^( f) e |
                 % Note: manuscript does indeed indicate a staccato.
                 <c e>8 <e g>16 <ds fs>8 <d f>16 e f d^\staccato |
+                s4. s8. |
+                \stemDown
+                s4. c!8-[_( g16)] |
+                g4. d'8-[_( g,16)] |
+                g4. g8. |
+                g8.-[ e' c] |
+                c-[ b] g8.~ |
+                g4.~g8.~ |
+                g4.~g8.~ |
+                g4.~g8. |
+                \relative c'' { g8.\rest g8.\rest } d8-[_( g,16)] |
+                g8.-[_( g8) g'16]_~\< g8.\!\> |
+                \relative c'' { g8.\rest\! b16\rest b16\rest } c,16-[_(\< cs\!\> d) g,]\! |
               }
             }
             \new Voice {
@@ -1558,6 +1618,64 @@ arietta-section-five = {
                 g,64 b d f |
                 g b d f
                 \relative c { d16\rest d16\rest d8.\rest d8.\rest } |
+                \relative c { d8.\rest d8.\rest }
+                \clef treble
+                \stemNeutral
+                \tuplet 3/2 { e'32 c e c e c e c e } |
+                \tuplet 3/2 { \repeat unfold 4 { c e } c }
+                \tuplet 3/2 { \repeat unfold 3 { e cs } f d f }
+                \tuplet 3/2 { \repeat unfold 4 { b, f' } b, } |
+                \tuplet 3/2 { \repeat unfold 4 { f' b, } f' }
+                \tuplet 3/2 { c! e c e c e cs e cs }
+                \tuplet 3/2 { f d f ds fs ds e ds e } |
+                \stemUp
+                \tuplet 3/2 { \repeat unfold 4 { e, e' } e, }
+                \tuplet 3/2 { \repeat unfold 4 { c' c, } c' }
+                \tuplet 3/2 { \repeat unfold 4 { e, e' } e, } |
+                \tuplet 3/2 { \repeat unfold 4 { e' g, } e' }
+                \tuplet 3/2 { \repeat unfold 4 { g, d' } g, }
+                \tuplet 3/2 { \repeat unfold 4 { d' f, } d' } |
+                \tuplet 3/2 { e, \repeat unfold 4 { g e } }
+                \tuplet 3/2 { \repeat unfold 4 { c e } c }
+                \tuplet 3/2 { \repeat unfold 4 { bf c } bf } |
+                \tuplet 3/2 { \repeat unfold 4 { a c } a }
+                \tuplet 3/2 { c a c b! d b d b d }
+                \tuplet 3/2 { b f' b, f' b, f' e c e } |
+                \tuplet 3/2 { d f d g e g d f d }
+                \tuplet 3/2 { c e c f d f c e c }
+                \tuplet 3/2 { b d b c a c b d b }
+                \clef bass |
+                \stemDown
+                \tuplet 3/2 { \relative c { c } \repeat unfold 4 { e c } }
+                \tuplet 3/2 { \relative c { c } \repeat unfold 4 { e c } }
+                \tuplet 3/2 { \relative c { c } \repeat unfold 4 { f c } } |
+                \tuplet 3/2 { \relative c { c } \repeat unfold 4 { e c } }
+                \tuplet 3/2 { c, \repeat unfold 4 { e c } }
+                \stemUp
+                \tuplet 3/2 { \relative c, { c } \repeat unfold 4 { f c } } |
+                \tuplet 3/2 { \relative c, { c } \repeat unfold 4 { e c } }
+                \tuplet 3/2 { \relative c, { c } \repeat unfold 4 { e c } }
+                \tuplet 3/2 { \relative c, { c } \repeat unfold 4 { f c } } \clef treble |
+                \relative c'' { b8.\rest }
+                \stemNeutral
+                \tuplet 3/2 { g'''32 a g fs g a b c d }
+                \tuplet 3/2 { b c b as b c d e cs } |
+                \tuplet 3/2 { d e d c! d c b c b }
+                \tuplet 3/2 { a! b a g a g a b a }
+                \tuplet 3/2 { b c b c d e f e d } |
+                \tuplet 3/2 { e d c b a g f e d }
+                \tuplet 3/2 { e d c b a g f e d }
+                \clef bass
+                \tuplet 3/2 { e d c b a g f e d } |
+                % todo: tweak sf position, move to left
+                \relative c { d8.\rest } c,8-[_(\sf g16)] g8._~ |
+                g8._~g16-[ <g g'>16_( <c c'>)] \relative c { d16\rest } <a' a'>16-[^( <c c'>16)] |
+                \relative c { d16\rest }
+                <g, g'>16-[_( <c c'>)]
+                \stemDown
+                <c c'>8
+                \relative c { d16\rest }
+                \bar "|."
               }
             }
             \new Voice {
