@@ -8,9 +8,7 @@ Not entirely done yet.
 Notes
 -----
 
-* The *Arietta* section is comprised of several variations on a theme.
-  The third and fourth variations use implied tuplets. Their first measures
-  are both exactly the length of a quaver.
+* The *Arietta* section makes heavy use of implied tuplets. Some hacks have been used to properly render them.
 
 Copyright
 ---------
