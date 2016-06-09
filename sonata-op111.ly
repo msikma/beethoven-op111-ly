@@ -81,6 +81,60 @@ arietta-section-five = {
   \key c \major
 }
 
+%---------------------------------------------------------------------
+%    1. Preface
+%---------------------------------------------------------------------
+\bookpart {
+  \paper {
+    markup-system-spacing = \std-padding-page-one
+    ragged-right = ##t
+    indent = 0
+    top-margin = 0.7\in
+    left-margin = 0.6\in
+    right-margin = 0.6\in
+    bottom-margin = 0.7\in
+  }
+  \markup \bold {
+    Preface
+  }
+  \paragraphBreak
+  \markup \justify {
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in porta odio, ut efficitur odio. Aenean interdum tempus lectus, nec cursus lacus tincidunt ut. Ut nec lobortis massa. In vitae leo sit amet neque aliquam pharetra et vitae velit. Integer lacus dui, laoreet ut tristique in, vehicula ac turpis. Praesent egestas mauris a urna consectetur porttitor. Cras sed molestie est. Morbi in augue at urna ultrices lobortis. Nullam malesuada tincidunt elementum. Nam enim sapien, dictum posuere euismod sed, pretium ut sem.
+  }
+  \paragraphBreak
+  \markup \justify {
+    Donec rhoncus suscipit leo. Maecenas ac pellentesque nibh, a sodales odio. Cras a tellus tempus, feugiat nulla in, tempus ligula. Sed congue interdum congue. Quisque placerat consectetur tellus vitae aliquet. Sed non ligula leo. Praesent eleifend tortor vel risus aliquet, ut bibendum ligula pellentesque. Ut porta porttitor diam vitae semper. Integer dictum bibendum mi eget varius. Curabitur dui tellus, tincidunt sit amet consectetur vel, fermentum et eros. In vitae eros id lectus semper tincidunt. Nulla ex nibh, convallis et ipsum vel, pulvinar vehicula lectus. Etiam vestibulum eu tortor eget gravida. Ut aliquam nisl in lacus dignissim feugiat ac in diam. Aenean sodales iaculis ultrices.
+  }
+  
+  \new PianoStaff <<
+    \new Staff = "right" \relative d {
+      \clef treble
+      \key c \minor
+      \time 4/4
+      
+      \relative c'' {
+        c4 c c c |
+      }
+    }
+    \new Staff = "left" {
+      \clef bass
+      \key c \minor
+      \time 4/4
+  
+      \relative c {
+        c4 c c c |
+      }
+    }
+  >>
+  
+  \markup \justify {
+    Donec rhoncus suscipit leo. Maecenas ac pellentesque nibh, a sodales odio. Cras a tellus tempus, feugiat nulla in, tempus ligula. Sed congue interdum congue. Quisque placerat consectetur tellus vitae aliquet. Sed non ligula leo. Praesent eleifend tortor vel risus aliquet, ut bibendum ligula pellentesque. Ut porta porttitor diam vitae semper. Integer dictum bibendum mi eget varius. Curabitur dui tellus, tincidunt sit amet consectetur vel, fermentum et eros. In vitae eros id lectus semper tincidunt. Nulla ex nibh, convallis et ipsum vel, pulvinar vehicula lectus. Etiam vestibulum eu tortor eget gravida. Ut aliquam nisl in lacus dignissim feugiat ac in diam. Aenean sodales iaculis ultrices.
+  }
+}
+
+%---------------------------------------------------------------------
+%    I. Maestoso
+%---------------------------------------------------------------------
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-one
@@ -103,20 +157,28 @@ arietta-section-five = {
           \part-one-section-one
           \relative c'' { b32\rest } |
           <<
-            \new Voice {
-              \voiceOne
-              \relative c' {
-                \relative c'' { b8\rest b16.\rest }
-                <ef a c ef>32\f <ef_~ a_~ c^~ ef^~>4\sf <ef a c ef>8..-[ <a c>32] c8.-[\trill\sf\> b32 c32]\!
-              }
+            \relative c' {
+              \relative c'' { b8\rest b16.\rest }
+              <ef a c ef>32\f <ef_~ a_~ c^~ ef^~>4\sf <ef a c ef>8..-[ <a c>32] c8.-[\trill\sf\> b32 c32]\!
             }
-            \new Voice {
-              \voiceTwo
-              \relative c' {
-                s2 s4 a'4
-              }
+            \\
+            \relative c' {
+              s2 s4 a'4
             }
           >> |
+          <<
+            \relative c'' {
+              b8\p \relative c'' { b8\rest } <ef, g c>8 \relative c'' { b8\rest }
+              \grace {
+                s16.\cresc s64 d64-[ g b!]
+              }
+              <d, g d'>8\!\f \relative c'' { b8\rest b4\rest }
+            }
+            \\
+            \relative c'' {
+              g8
+            }
+          >>
         }
       }
       %---------------------------------------------------------------------
@@ -130,6 +192,11 @@ arietta-section-five = {
           \part-one-section-one
           <ef' ef'>32\f |
           <fs, fs'>8..-[ <fs, fs'>32] <fs'_~ fs'^~>4 <fs fs'>8..-[ <fs' fs'>32] <fs fs'>4 |
+          <g d>8 \relative c { d8\rest } <c, g' c>8 \relative c { d8\rest }
+          \grace {
+            b,64-[ d g b d g b] s32.
+          }
+          <b,,! b'!>8 \relative c { d8\rest d8\rest d16.\rest } <af'' af'>32 |
         }
       }
     >>
@@ -147,6 +214,9 @@ arietta-section-five = {
   }
 }
 
+%---------------------------------------------------------------------
+%    II. Arietta
+%---------------------------------------------------------------------
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
@@ -321,7 +391,7 @@ arietta-section-five = {
               \alternative {
                 {
                   \relative c'' {
-                    g'16-[\sf\> f e] f-[ e]\! e,-[ f e e]_( |
+                    g'16-[\sf\>^( f e] f-[ e])\! e,-[ f e e]_( |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8 <c, e>16)
                   }
@@ -603,8 +673,10 @@ arietta-section-five = {
               d16\rest <f g d'>^( <d f g>) \clef treble |
               \explicitTuplets
               \stemUp
-              \override TupletBracket.bracket-visibility = ##t
-              \tuplet 3/2 { g32-[ a b c d e f g a] }
+              \override TupletBracket.bracket-visibility = #'if-no-beam
+              \tuplet 3/2 { g32-[ a b }
+              \tuplet 3/2 { c d e }
+              \tuplet 3/2 { f g a] }
               \override TupletBracket.transparent = ##t
               \implicitTuplets
               \stemNeutral
@@ -647,10 +719,10 @@ arietta-section-five = {
               d16\rest <c' e>^( e,)
               d16\rest \clef treble <d'' e>_( <d, e>) |
               \explicitTuplets
-              \override TupletBracket.bracket-visibility = ##t
+              \override TupletBracket.bracket-visibility = #'if-no-beam
               \override TupletBracket.transparent = ##f
               \override TupletBracket.direction = #-1
-              <e c' e>16 \tuplet 3/2 { c''32-[ \ppLeggiermente d b c b a] }
+              <e c' e>16 \tuplet 3/2 { c''32-[ \ppLeggiermente d b } \tuplet 3/2 { c b a] }
               \implicitTuplets
               \override TupletBracket.bracket-visibility = #'if-no-beam
               \tuplet 3/2 { gs32-[ a b a b c b c d] }
@@ -692,6 +764,7 @@ arietta-section-five = {
               <c e>8. <e c' e>8.-[ <e c' e>] |
               <e c' e>8.-[ <e c' e> <d b' d>8] \clef bass
               \explicitTuplets
+              \override TupletBracket.direction = #1
               \tuplet 3/2 { g,,,,32-[ a b] }
               \implicitTuplets |
               \tuplet 3/2 { c32-[ e g] }
@@ -725,13 +798,11 @@ arietta-section-five = {
               \stemNeutral
               \trillSpanDown
               % Make some space for the flat sign in front of the next trill.
-              \once \override TrillSpanner.bound-details.right.padding = #2.5
+              \once \override TrillSpanner.bound-details.right.padding = #2.8
               % todo: perfectly align the dynamics
               d4._~ \f
               \startTrillSpan d8._~ |
               d4._~ d8._~ \p |
-              % Ensure the diminuendo is close to the bar line.
-              \once \override DynamicTextSpanner.bound-details.right.padding = #-3.0
               d8.\dim
               \flatTrill
               % Give a little bit of breathing space, since it goes to the bar line.
@@ -739,8 +810,8 @@ arietta-section-five = {
               d4._~ \stopTrillSpan
               \startTrillSpan |
               d4._~
-              d8._~\! |
-              d4._~ \pp d8._~ |
+              d8._~ |
+              d4._~\!\pp d8._~ |
               d4._~ d8. |
               \once \override TrillSpanner.bound-details.right.padding = #1.0
               d4._~\< \stopTrillSpan \startTrillSpan d8._~\! |
@@ -756,10 +827,10 @@ arietta-section-five = {
               \once \override PhrasingSlur.height-limit = #8
               ef8.-[^\( \p \cresc g bf~] |
               bf8-[ a16] af16-[\!\dim bf, <af bf,>]\) c,8-[ c16] |
-              \break
               \set beatStructure = #'(3 3 3)
               \stemDown
               <f, af>16\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
+              \break
               g16 \p \dim g g g g g <ef g> <ef g> <ef g> |
               <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
               ef16\!\pp ef ef ef ef ef <c ef> <c ef> <c ef> |
@@ -912,6 +983,7 @@ arietta-section-five = {
                 b8-[^( \cresc f16 e8 f16]) b8-[ f16] |
                 bf8 e,16 <bf' g>8 <bf e>16 a8. |
                 <f b>8. <f b>8. <b d>8 d16\! |
+                \override Tie.minimum-length = #2
                 d16 b c~c-[~c] s8 s8 |
                 s8. |
                 s16 s
@@ -1069,7 +1141,8 @@ arietta-section-five = {
                 af8.-[ af8. af8.] |
                 \trillSpanUp
                 \flatTrill
-                \once \override TrillSpanner.bound-details.right.padding = #2.5
+                \once \override TrillSpanner.bound-details.right-broken.padding = #0
+                \once \override TrillSpanner.bound-details.right.padding = #2.8
                 af4.^~ \startTrillSpan af8.^~ |
                 af4.^~ af8.^~ |
                 \once \override NoteColumn.ignore-collision = ##t
@@ -1476,9 +1549,11 @@ arietta-section-five = {
                 \tuplet 3/2 { b'32-[ c, b' c, b' c, b' c, b'] } |
                 \explicitTuplets
                 \stemDown
-                \override TupletBracket.bracket-visibility = ##t
+                \override TupletBracket.bracket-visibility = #'if-no-beam
                 \override TupletBracket.direction = #-1
-                \tuplet 3/2 { b32-[ c d e f g a b c] }
+                \tuplet 3/2 { b32-[ c d }
+                \tuplet 3/2 { e f g }
+                \tuplet 3/2 { a b c] }
                 \override TupletBracket.transparent = ##t
                 \implicitTuplets
                 \clef treble
@@ -1909,7 +1984,59 @@ arietta-section-five = {
                 s4. s8. |
                 s4. s8. |
                 bf8.-[ bf8. bf8.] |
-                bf8.
+                bf8. s4. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8. |
+                s4. s8.
               }
             }
           >>

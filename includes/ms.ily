@@ -18,6 +18,11 @@
 % Force "mid" file extension for compatibility.
 #(ly:set-option 'midi-extension "mid")
 
+% \paragraphBreak
+%
+% Used to add a space after a paragraph text.
+paragraphBreak = \markup \vspace #0.5
+
 % \implicitTuplets
 %
 % Shorthand for turning off tuplet numbers. This turns off
