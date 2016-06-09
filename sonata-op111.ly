@@ -319,7 +319,7 @@ arietta-section-five = {
                   % todo: make fingering nicer
                   \tuplet 5/4 {
                     c16-[(-5 ~c16 b32
-                    -\tweak Y-offset #3.5
+                    -\tweak Y-offset #3.6
                     ^4]
                   }
                   \tuplet 5/4 { c16-[~c16 b32] }
@@ -401,6 +401,7 @@ arietta-section-five = {
                   \tuplet 3/2 { <e'_~ g^~ e'^~>32.-[ <e g e'>32 <e_~ g^~ e'^~>64 <e_~ g^~ e'^~>32. <e g e'>32 <c e c'>64] } |
                   \tuplet 3/2 { c'32-[( a64 fs32 ef64 c32 a64 fs32 <ef c'>64)] }
                   \tuplet 3/2 { b''32-[( g64 d32 b64 g32 d64 b32) <af''_~ b^~ d,_~ b_~>64] }
+                  % todo: clean up ties
                   \tuplet 3/2 { <af_~ b^~ d,_~ b_~>32.-[ <af b d, b>32 <af_~ b^~ d,_~ b_~>64 <af_~ b^~ d,_~ b_~>32 <af b d, b>32. <af b d, b>64] } |
                   \tuplet 3/2 { c32-[( g64 e!32\sf c64 g32 e64 e'32\sf c64)] }
                   \tuplet 3/2 { e32-[ c64 g'32\sf e64 c32 g64\sf e'32 c64] }
@@ -1307,6 +1308,7 @@ arietta-section-five = {
                 \tuplet 3/2 { c,32-[ e64 g32 c64] }
                 \tuplet 3/2 { c,,32-[ e64 g32 c64] } |
                 \omit Dots
+                % todo clean up ties
                 \tuplet 3/2 { <g, g'>32.-[~ <g g'>32 <g g'>64~ <g g'>32.~ <g g'>32 <g g'>64]~ }
                 \tuplet 3/2 { <g g'>32.-[~ <g g'>32 <g g'>64~ <g g'>32.~ <g g'>32 <f f'>64] }
                 \tuplet 3/2 { f32-[ b64 d32 f64 b32 d64 e32 f64] }
@@ -1344,7 +1346,7 @@ arietta-section-five = {
                 \tuplet 3/2 { a32-[_( c64 e32 gs64 a32 c64 e32 gs64]) }
                 \tuplet 3/2 { a32.-[~ a32 <a_~ c^~ e^~>64 <a_~ c^~ e^~>32. <a c e>32 <a_~ c^~ e^~>64] }
                 \once \override TupletBracket.transparent = ##t
-                \tuplet 3/2 { <a_~ c^~ e^~>32.-[ <a c e>32 <a_~ c^~ e^~>64~ <a_~ c^~ e^~>32. <a c e>32] <a,, a'>64 } |
+                \tuplet 3/2 { <a_~ c^~ e^~>32.-[ <a c e>32 <a_~ c^~ e^~>64 <a_~ c^~ e^~>32. <a c e>32] <a,, a'>64 } |
                 \tuplet 3/2 { gs32-[_( b64 e32 gs64 b32 e64 gs32 a64)] }
                 \tuplet 3/2 { <gs_~ b^~ e^~>32.-[ <gs b e>32 <gs_~ b^~ e^~>64 <gs_~ b^~ e^~>32. <gs b e>32 <gs_~ b^~ e^~>64] }
                 \tuplet 3/2 { <gs_~ b^~ e^~>32.-[ <gs b e>32 <gs_~ b^~ e^~>64 <gs_~ b^~ e^~>32. <gs b e>32 <gs b e>64] } |
