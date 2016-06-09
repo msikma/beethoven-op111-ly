@@ -8,7 +8,7 @@
   title = "SONATA"
   composer = "L.Beethoven"
   opus = "Op.111"
-  %dedication = "Gewidmet der Fr. Antonie v. Brentanto Gebohrne Edle von Birkenstock."
+  dedication = "Dem Erzherzog Rudolph von Österreich gewidmet"
   copyright = ##f
   tagline = \ms-tagline-en-cc-by-sa-four
 }

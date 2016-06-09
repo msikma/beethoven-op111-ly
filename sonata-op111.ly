@@ -20,19 +20,28 @@
 
 AUTHORS = "M.Sikma"
 HEADERS-DIR = "./includes/"
-COMPOSED = "Composed 1822"
+COMPOSED = "Composed 1821/22"
 
 \version "2.19.42"
 \language "english"
 \include "includes/ms.ily"
 \include "includes/markup.ily"
 
-% todo
-maestoso-section-one = {
+% Maestoso, etc.
+part-one-section-one = {
   \key c \minor
   \time 4/4
   \partial 32
   \tempo "Maestoso"
+}
+part-one-section-two = {
+  \key f \minor
+}
+part-one-section-three = {
+  \key g \minor
+}
+part-one-section-four = {
+  \key c \minor
 }
 
 % Main theme and variation 1.
@@ -70,6 +79,72 @@ arietta-section-four-ef = {
 % Variation 5.
 arietta-section-five = {
   \key c \major
+}
+
+\bookpart {
+  \paper {
+    markup-system-spacing = \std-padding-page-one
+    bookTitleMarkup = \std-title-markup-page-one
+  }
+  \include "includes/header.ily"
+  \score {
+    \new PianoStaff \with {
+      \std-staff-spacing
+    } <<
+      \set PianoStaff.connectArpeggios = ##t
+      %---------------------------------------------------------------------
+      %    Right hand
+      %---------------------------------------------------------------------
+      \new Staff = "right" \with {
+        \std-magnification
+        midiInstrument = "acoustic grand"
+      } {
+        \clef treble \relative c' {
+          \part-one-section-one
+          \relative c'' { b32\rest } |
+          <<
+            \new Voice {
+              \voiceOne
+              \relative c' {
+                \relative c'' { b8\rest b16.\rest }
+                <ef a c ef>32\f <ef_~ a_~ c^~ ef^~>4\sf <ef a c ef>8..-[ <a c>32] c8.-[\trill\sf\> b32 c32]\!
+              }
+            }
+            \new Voice {
+              \voiceTwo
+              \relative c' {
+                s2 s4 a'4
+              }
+            }
+          >> |
+        }
+      }
+      %---------------------------------------------------------------------
+      %    Left hand
+      %---------------------------------------------------------------------
+      \new Staff = "left" \with {
+        \std-magnification
+        midiInstrument = "acoustic grand"
+      } {
+        \clef bass \relative c, {
+          \part-one-section-one
+          <ef' ef'>32\f |
+          <fs, fs'>8..-[ <fs, fs'>32] <fs'_~ fs'^~>4 <fs fs'>8..-[ <fs' fs'>32] <fs fs'>4 |
+        }
+      }
+    >>
+    \layout {
+      \context {
+        \Score
+        % Set the score to a default note value of one crotchet.
+        \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/32)
+        \consists #Span_stem_engraver
+      }
+    }
+    \midi {
+      \tempo 4 = 96
+    }
+  }
 }
 
 \bookpart {
