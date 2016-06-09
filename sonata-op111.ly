@@ -91,6 +91,7 @@ arietta-section-five = {
       %    Right hand
       %---------------------------------------------------------------------
       \new Staff = "right" \with {
+        \std-magnification
         midiInstrument = "acoustic grand"
       } {
         \clef treble \relative c'' {
@@ -111,6 +112,7 @@ arietta-section-five = {
                   c8.-[-5 b-4 <b g>] |
                   c8.-[(-2 e g-5]) |
                   g8.-[( f\finger \markup \tied-finger-up #"4" #"5" d8\finger \markup \tied-finger-up #"4" #"5" c16])\finger \markup \tied-finger-up #"4" #"5" |
+                  \break
                   b8.-[(-4 c\finger \markup \tied-finger-up #"5" #"4" d8 g,16])\finger \markup \tied-finger-up #"3" #"5" |
                 }
               }
@@ -203,16 +205,15 @@ arietta-section-five = {
               \alternative {
                 {
                   \relative c'' {
-                    % Move down the volta brackets, since there's just one
+                    % Note: move down the volta brackets, since there's just one
                     % slur pushing them up.
-                    % todo fixme
-                    %\once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
+                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
                     g4. c8( e,16)
                   }
                 }
                 {
                   \relative c'' {
-                    %\once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
+                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
                     g8.~g16\>-[( gs a\! b e, e]) |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8^\( e,16
@@ -229,7 +230,7 @@ arietta-section-five = {
                 \override DynamicLineSpanner.staff-padding = #4.5 |
                 \set Timing.measureLength = #(ly:make-moment 9/16)
                 % todo check with manuscript
-                b'8\< <b, e>16\)\!_\( <c e>16\> c' b\! c( <e, b'>\)) <e' b>( |
+                b'8\< <b, e>16\)\!_\(\> <c e>16 c' b\! c( <e, b'>\)) <e' b>( |
                 \override Tie.minimum-length = #3.25
                 f8 e16) e8( d16) d c c~ |
                 \override DynamicLineSpanner.staff-padding = #3
@@ -273,6 +274,7 @@ arietta-section-five = {
                   \tuplet 3/2 { d16-[ b32 as16 b32]) }
                   b8\rest |
                   \change Staff = "left"
+                  \once \override PhrasingSlur.eccentricity = #0.25
                   \tuplet 3/2 { f,16-[\( d32 cs16 d32] }
                   \change Staff = "right"
                   \tuplet 3/2 { g'16-[ e32 ds16 e32] }
@@ -315,8 +317,12 @@ arietta-section-five = {
                   \override Tie.minimum-length = #3.25
                   \set Timing.measureLength = #(ly:make-moment 6/16)
                   % todo: make fingering nicer
-                  \tuplet 5/4 { c16-[(-5 ~c16 b32-4] }
-                  \tuplet 5/4 { c16-[-5~c16 b32-4] }
+                  \tuplet 5/4 {
+                    c16-[(-5 ~c16 b32
+                    -\tweak Y-offset #3.5
+                    ^4]
+                  }
+                  \tuplet 5/4 { c16-[~c16 b32] }
                   \tuplet 5/4 { c16-[~c16 b32] } |
                   \tuplet 5/4 { b16-[~b16 c32] }
                   \tuplet 5/4 { b16-[~b16 c32] }
@@ -671,10 +677,10 @@ arietta-section-five = {
               c8.-[ cs8. d8.]^~\!\sf\> |
               d4.^~
               \afterGrace d8. { \stemUp c32-[ d32]\! \stemNeutral } |
-              \break
               \once \override PhrasingSlur.height-limit = #8
               ef8.-[^\( \p \cresc g bf~] |
               bf8-[ a16] af16-[\!\dim bf, <af bf,>]\) c,8-[ c16] |
+              \break
               \set beatStructure = #'(3 3 3)
               \stemDown
               <f, af>16\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
@@ -773,6 +779,8 @@ arietta-section-five = {
               \ottava #0
               \tuplet 3/2 { c b a g f e d c b }
               \tuplet 3/2 { c b a g f e d c b\! } |
+              % Note: space out the final notes a bit more.
+              \shortestNoteDuration 16
               c8-[_(\f g16]) g8. f''8-[^(\sf b,16]) |
               f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p <c e, c>16)]\dim <c e, c>8 \relative c'' { b16\rest } |
               <c e, c>8\pp \relative c'' { b16\rest }
@@ -801,7 +809,7 @@ arietta-section-five = {
                 s4. bf8 g16 |
                 a8 g16 a8 s16 a8 fs16 |
                 <f d>8. <f d>8.~<f d>16 <f d> <f d>
-                \override DynamicLineSpanner.staff-padding = #5 |
+                \override DynamicLineSpanner.staff-padding = #5.5 |
                 % todo fix this slur
                 <d f>16^(\< e d\! c\> d b)\! s8 s16 |
                 \revert DynamicLineSpanner.staff-padding
@@ -824,7 +832,8 @@ arietta-section-five = {
                 \revert DynamicLineSpanner.staff-padding
                 \single \hide Stem
                 a16 s8 s8. s8. \stemDown |
-                b8-[_( \cresc f16 e8 f16]) b8-[ f16] |
+                \once \override Slur.control-points = #'((2.1 . 0.3) (3.1 . 0.7) (8.5 . 1.2) (10.1 . -0.58))
+                b8-[^( \cresc f16 e8 f16]) b8-[ f16] |
                 bf8 e,16 <bf' g>8 <bf e>16 a8. |
                 <f b>8. <f b>8. <b d>8 d16\! |
                 d16 b c~c-[~c] s8 s8 |
@@ -855,7 +864,11 @@ arietta-section-five = {
                 \tuplet 3/2 { e16-[ <d e>32~<c e>16 <b e>32~] }
                 \tuplet 3/2 { b16-[ <b d>32 <a c>16 <gs d'>32] } |
                 % todo fix the fingering positions
-                \tuplet 5/4 { a16-[( ds32-2 e16-1]~ }
+                \tuplet 5/4 {
+                  a16-[( ds32
+                  -\tweak Y-offset #-7.24
+                  _2 e16-1]~
+                }
                 \tuplet 5/4 { e16-[ ds32-2 e16-1]~ }
                 \tuplet 5/4 { e16-[ ds32 e16]~ } |
                 \tuplet 5/4 { e16-[ f32 e16]~ }
@@ -978,7 +991,6 @@ arietta-section-five = {
                 g8.-[ g8. g8.] |
                 g8.-[ af8. af8.] |
                 af8.-[ af8. af8.] |
-                \break
                 \trillSpanUp
                 \flatTrill
                 \once \override TrillSpanner.bound-details.right.padding = #2.5
@@ -986,6 +998,7 @@ arietta-section-five = {
                 af4.^~ af8.^~ |
                 \once \override NoteColumn.ignore-collision = ##t
                 \stemDown \omit Flag af8. s8. s8. |
+                \break
                 \undo \omit Flag
                 s8. s8. s8. |
                 s8. s8. 
@@ -1147,6 +1160,7 @@ arietta-section-five = {
       %    Left hand
       %---------------------------------------------------------------------
       \new Staff = "left" \with {
+        \std-magnification
         midiInstrument = "acoustic grand"
       } {
         \clef bass \relative c, {
@@ -1157,10 +1171,10 @@ arietta-section-five = {
               \relative c, {
                 % Some manual fixes to add parentheses to this fingering.
                 % The fingering is only for the repeat.
-                <c g'\finger \markup {
-                  \hspace #0.5 \fontsize #-2 "("
-                  \hspace #-0.5 \translate #'(0 . 1.14) \tied-finger-up #"2" #"1"
-                  \hspace #-0.55 \fontsize #-2 ")"
+                <c g'\finger \markup \concat {
+                  \fontsize #-2 "("
+                  \translate #'(0 . 1.14) \tied-finger-up #"2" #"1"
+                  \fontsize #-2 ")"
                 }>8. |
                 <c g'>8.-[ <d_4 g> <b g'>] |
                 <b g'>8.-[ <c_4 g'> <d_3 g>] |
@@ -1189,7 +1203,7 @@ arietta-section-five = {
                 % Note: manually positioning the fingering.
                 f16
                 -\tweak X-offset #0.425
-                -\tweak Y-offset #-9.1
+                -\tweak Y-offset #-8.6
                 _4 |
                 s4. s8.
                 s4. s8. |
@@ -1209,7 +1223,7 @@ arietta-section-five = {
                 <c c'>4. <f, f'>8. |
                 <g g'>8.-[ <g g'>8. <g g'>8 <g g'>16] |
                 <g g'>8_( <c c'>16) <c c'>8. e'8. |
-                \shortestNoteDuration 16 <g,, g'>8_( <c c'>16) \shortestNoteDuration 8 <c c'>16( g'' f \stemDown e c g')~ \stemNeutral |
+                \shortestNoteDuration 16 <g,, g'>8_( <c c'>16) \shortestNoteDuration 8 <c c'>16( g'' f \stemDown e c g')_~ \stemNeutral |
                 g16\( cs, g'~g d g~g as, g'~ |
                 g16 b, g'~g c, g' e d g~ |
                 g16 ds e g c, g'~g e g~ |
@@ -1227,9 +1241,10 @@ arietta-section-five = {
                 e16_( gs, e'~e a, e'~ |
                 e16 gs, e'~e a, e'~e gs, gs'~ |
                 gs16) \sempreLegato gs a~a a b~b c d |
-                ds16 c c~c a a~a g g~_( |
+                \once \override PhrasingSlur.height-limit = #5.0
+                ds16 c c~c a a~a g g~_\( |
                 g16 g, g'~g g, g'~g g, g'~ |
-                g16) c,, c'~c c, c'~c f,, f' |
+                g16\) c,, c'~c c, c'~c f,, f' |
                 g16 g, g'~g g, g'~g g, b' |
                 s16 \stemUp g'16 g( a g) s4 |
                 s16 s16 s16 |
@@ -1251,10 +1266,10 @@ arietta-section-five = {
                 b16\repeatTie s16 s4 |
                 \stemUp
                 \tuplet 5/4 { a16-[ ds32-2 e16~-1] }
-                \tuplet 5/4 { e16-[ ds32-2 e16~-1] }
+                \tuplet 5/4 { e16-[ ds32 e16~] }
                 \tuplet 5/4 { e16-[ ds32 e16~] } |
                 \tuplet 5/4 { e16-[ f32-2 e16~-1] }
-                \tuplet 5/4 { e16-[ f32-2 e16~-1] }
+                \tuplet 5/4 { e16-[ f32 e16~] }
                 \tuplet 5/4 { e16-[ f32 e16] } |
                 s4 s8 |
                 s4 s8 |
@@ -1505,7 +1520,7 @@ arietta-section-five = {
                 \arietta-section-four-ef
                 \relative c { d8.\rest d8.\rest } bf,,,8._~\sf\> |
                 bf4._~ bf8_( af16)\!\p |
-                \once \override PhrasingSlur.height-limit = #4
+                \once \override PhrasingSlur.height-limit = #5
                 g4._\( gf8. |
                 f8._~ f8-[ g!16 af8 a16]\) |
                 bf8 \relative c { d16\rest d8.\rest d8.\rest } |
@@ -1712,6 +1727,7 @@ arietta-section-five = {
                 b16 g c~c8 c16 |
                 s8 |
                 s4 s8 |
+                \once \override Slur.height-limit = #4.0
                 a16(-[ b]~b-[ c] cs-[ d] |
                 ds16-[ e]) s8 s8 |
                 s4 s8 |
@@ -1728,10 +1744,10 @@ arietta-section-five = {
                 \tuplet 3/2 { gs16-[ gs32 a16 b32] } |
                 \stemDown
                 \tuplet 5/4 { a16-[-4~ a gs32-3] }
-                \tuplet 5/4 { a16-[~-4 a gs32-3] }
+                \tuplet 5/4 { a16-[~ a gs32] }
                 \tuplet 5/4 { a16-[~ a gs32] } |
                 \tuplet 5/4 { gs16-[~-5 gs a32-4] }
-                \tuplet 5/4 { gs16-[~-5 gs a32-4] }
+                \tuplet 5/4 { gs16-[~ gs a32] }
                 \tuplet 5/4 { gs16-[~ gs gs32]~ } |
                 \stemUp
                 \omit Dots

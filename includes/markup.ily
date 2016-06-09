@@ -18,6 +18,9 @@ std-staff-spacing = \override StaffGrouper.staff-staff-spacing =
      (padding . 1.0)
      (stretchability . 5))
 
+% Standard scaling for a staff.
+std-magnification = \magnifyStaff #89/100
+
 % Standard title markup. Use in \bookpart \paper bookTitleMarkup.
 % Assumes that the COMPOSED variable is set in the source file.
 % This is for the first page. Use std-title-markup-page-n for subsequent pages.
