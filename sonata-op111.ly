@@ -83,6 +83,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    1. Preface
 %---------------------------------------------------------------------
+%{
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-one
@@ -130,6 +131,7 @@ arietta-section-five = {
     Donec rhoncus suscipit leo. Maecenas ac pellentesque nibh, a sodales odio. Cras a tellus tempus, feugiat nulla in, tempus ligula. Sed congue interdum congue. Quisque placerat consectetur tellus vitae aliquet. Sed non ligula leo. Praesent eleifend tortor vel risus aliquet, ut bibendum ligula pellentesque. Ut porta porttitor diam vitae semper. Integer dictum bibendum mi eget varius. Curabitur dui tellus, tincidunt sit amet consectetur vel, fermentum et eros. In vitae eros id lectus semper tincidunt. Nulla ex nibh, convallis et ipsum vel, pulvinar vehicula lectus. Etiam vestibulum eu tortor eget gravida. Ut aliquam nisl in lacus dignissim feugiat ac in diam. Aenean sodales iaculis ultrices.
   }
 }
+%}
 
 %---------------------------------------------------------------------
 %    I. Maestoso
@@ -177,7 +179,60 @@ arietta-section-five = {
             \relative c'' {
               g8
             }
-          >>
+          >> |
+          \break
+          <<
+            \relative c'' {
+              \relative c'' { b8\rest b16.\rest }
+              \stemDown <a d f a>32\f <a_~ d_~ f^~ a^~>4\sf <a d f a>8.. <d f>32 \stemUp f8.\trill\sf\> e32 f\!
+            }
+            \\
+            \relative c'' {
+              s2 s4 d4
+            }
+          >> |
+          <g' e'>8\p \relative c'' { b8\rest } <f c' f>8 \relative c'' { b8\rest }
+          \grace {
+            s16.\cresc e64-[ g c e!]
+          }
+          <g, c g'>8\!\f \relative c'' { b8\rest b4\rest } |
+          <<
+            \relative c'' {
+              \relative c'' { b8\rest b16.\rest }
+              \stemDown <df f bf df>32\f <df_~ f_~ bf^~ df^~>4\sf <df f bf df>8.. <df bf'>32 \stemUp bf'8.\trill\sf\> a32 bf\!
+            }
+            \\
+            \relative c'' {
+              s2 s4 df4
+            }
+          >> |
+          \break
+          <df' ef bf'>8.. <df ef bf'>32 <df_~ ef^~ bf'^~>4 <df ef bf'>8.. <c ef a>32 <c ef a>8.. <c ef gf>32 |
+          <c ef gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <a ef' gf>32 <a ef' gf>8.. <a ef' gf>32 |
+          <a ef' gf>8.. <af df f>32 <af_~ df^~ f^~>4 <af df f>8.. <af cf f>32 <af cf f>8.. <af cf f>32 |
+          <af cf f>8.. <af c ef>32 <af_~ c^~ ef^~>4 <af c ef>8.. <af c ef>32 <af c ef>8.. <g bf df>32 |
+          <g bf df>8.. <f bf df>32 <f bf df>8.. <e bf' df>32 <e bf' df>8-. <c f c'>8-. <c f c'>8-. <c fs c'>8-. |
+          <d g bf>\sf \relative c'' { b8\rest b4\rest b4\rest }
+          <<
+            \relative c'' {
+              g4^(\p |
+              a b c) c8..^( b32) |
+              <d, g b>4. \relative c'' { b8\rest b4\rest } \clef bass g,4^(\p |
+              a4 b c) c8.. b32 |
+              \stemNeutral
+              <d, g b>2 <d g b>4.. <d g b>16 |
+              <d g b>1
+            }
+            \\
+            \relative c' {
+              b8\rest c8 |
+              <c fs>4 <d f> <ef g> <ef af>8.. <d g>32 |
+              s2. \relative c { b8\rest } c,8 |
+              <c fs>4 <d f> <ef g> <ef a>8.. <d f>32 |
+              s1 |
+              s1
+            }
+          >> |
         }
       }
       %---------------------------------------------------------------------
@@ -193,9 +248,40 @@ arietta-section-five = {
           <fs, fs'>8..-[ <fs, fs'>32] <fs'_~ fs'^~>4 <fs fs'>8..-[ <fs' fs'>32] <fs fs'>4 |
           <g d>8 \relative c { d8\rest } <c, g' c>8 \relative c { d8\rest }
           \grace {
-            b,64-[ d g b d g b] s32.
+            b,64-[\sustainOn d g b d g b] s32.
           }
-          <b,,! b'!>8 \relative c { d8\rest d8\rest d16.\rest } <af'' af'>32 |
+          <b,,! b'!>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <af'' af'>32 |
+          <b, b'>8..\sf <b, b'>32 <b'_~ b'^~>4 <b b'>8.. \clef treble <a' a'>32 <a a'>4 \clef bass |
+          <bf df>8 \relative c { d8\rest } <a c>8 \relative c { d8\rest }
+          \grace {
+            e,64-[\sustainOn g c e g c] s16
+          }
+          <e,, e'>8 \relative c { d8\rest d8..\rest\sustainOff } <df' df'>32\f |
+          <e, e'>8.. <f f'>32 <f_~ f'^~>4 <f f'>8.. <f' bf df>32 <f bf df>4 |
+          <gf bf df>8.. <g bf df>32 <g_~ bf^~ df^~>4 <g bf df>8.. <af c>32 <af c>8.. <a ef' gf>32 |
+          <a ef' gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <cf ef gf>32 <cf ef gf>8.. <c ef gf>32 |
+          <c ef gf>8.. <df f>32 <df_~ f^~>4 <df f>8.. <d f>32 <d f>8.. <d,, d'>32 |
+          <d d'>8.. <ef ef'>32 <ef_~ ef'^~>4 <ef ef'>8.. <ef ef'>32 <ef ef'>8.. <e e'>32 |
+          <e e'>8.. <f f'>32 <f f'>8.. <g g'>32 <g g'>8-. <af af'>8-. <af af'>8-. <af, af'>8-. |
+          <g g'>8\noBeam g''8\sfp g <g af>\sfp <f af> <f g>\sfp <f g> <ef g> |
+          <<
+            \relative c' {
+              g8 g g g g g g g^~ |
+              <g, g'> g\sfp g <g af>\sfp <f af> <f g>\sfp <f g> <ef g> |
+              g8 g g g g g g g^~ |
+              g g g g g g g g
+            }
+            \\
+            \relative c {
+              ef4 d c fs,8.._( g32) |
+              s1 |
+              ef4 d c fs,8.._( g32) |
+              g2\sustainOn g2 |
+              \stemNeutral
+              g32\sustainOff af \repeat unfold 3 { g af }
+              \repeat unfold 12 { g af }
+            }
+          >> |
         }
       }
     >>
@@ -203,7 +289,7 @@ arietta-section-five = {
       \context {
         \Score
         % Set the score to a default note value of one crotchet.
-        \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/32)
+        \override SpacingSpanner.common-shortest-duration = #(ly:make-moment 1/16)
         \consists #Span_stem_engraver
       }
     }
@@ -216,6 +302,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
+%{
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
@@ -2057,3 +2144,4 @@ arietta-section-five = {
     }
   }
 }
+%}
