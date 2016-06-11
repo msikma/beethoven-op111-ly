@@ -127,6 +127,16 @@ sempreLegato =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre legato")))
 
+% \aTempo
+%
+% Prints "a tempo".
+aTempo = 
+  \tweak DynamicText.self-alignment-X #RIGHT
+  \tweak DynamicText.X-extent #'(0 . 0)
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "a tempo")))
+
 % \manoSinistra
 %
 % Prints "mano sinistra" (use left hand).
@@ -136,6 +146,23 @@ manoSinistra =
   \tweak DynamicText.X-offset #0
   #(make-dynamic-script
      (markup #:normal-text (#:italic "mano sinistra")))
+
+% \mezzoP-pocoRitenente
+%
+% Prints a left-aligned column with two lines of text,
+% one describing "mezzo piano", the other "poco ritenente".
+mezzoP-pocoRitenente = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+    (markup
+     #:whiteout (
+      #:pad-to-box '(0 . 0) '(0 . 1.34)
+      (#:line
+       (#:left-column 
+        (#:line (#:normal-text (#:italic "mezzo") #:dynamic "p")
+         #:normal-text (#:italic "poco ritenente")))))))
 
 % \markup \tied-finger-up #"1" #"2"
 %

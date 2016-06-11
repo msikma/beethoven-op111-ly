@@ -232,7 +232,30 @@ arietta-section-five = {
               s1 |
               s1
             }
-          >> |
+          >> \clef treble |
+          \tempo "Allegro con brio ed appassionato"
+          <b d>1 |
+          g'16^[
+          \change Staff = "left"
+          af,, g af ]
+          \repeat unfold 4 { g af }
+          g af g a32 b |
+          s1 |
+          \voiceOne
+          c4^. ef4^. b4.^\fermata^\sf
+          \tuplet 3/2 { g16-[ a b] } |
+          c4^. ef4^. b4.^\sf af'!8^. |
+          g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-(^\mezzoP-pocoRitenente |
+          g8-. f-. ef-. d-.) ef16 f ef d c af'^\cresc^\markup { \center-column { \italic "a tempo " " " } } bf af |
+          g af g f ef f ef d ef f ef d c g' f ef |
+          f g f ef d af' g f g af g f e bf' af g |
+          af c g c f, c' fs, c'
+          b\!^\sf a g
+          \change Staff = "right"
+          \stemNeutral
+          d' c16\sf b f' ef |
+          d\sf af'! g f d'\sf c b f' ef\sf d af' g f\sf d' c b |
+          f'\sf\> ef d af' g f ef d c b af g f ef d g\! |
         }
       }
       %---------------------------------------------------------------------
@@ -282,6 +305,44 @@ arietta-section-five = {
               \repeat unfold 12 { g af }
             }
           >> |
+          \break
+          <<
+            \relative c {
+              <d g>1 |
+              \crossStaff { <g b d>16 }
+            }
+            \\
+            \relative c, {
+              \repeat unfold 8 { g16 af16 } |
+              \repeat unfold 6 { g16 af16 }
+              g af g a32 b
+            }
+          >> |
+          <<
+            \relative c {
+              c4^\f d4\rest d4\rest d8\rest
+              \tuplet 3/2 { g,16^\ff a b }
+              
+            }
+            \\
+            \relative c, {
+              c4 c4\rest c4\rest c8\rest
+              \tuplet 3/2 { g16 a b }
+            }
+          >> |
+          \voiceTwo
+          c,4_. ef4_. b4._\fermata
+          \tuplet 3/2 { g16-[ a b] } |
+          c4_. ef4_. b4. af'!8_. |
+          g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-( |
+          g8-. f-. ef-. d-.) ef16 f ef d c af' bf af |
+          g af g f ef f ef d ef f ef d c g' f ef |
+          f g f ef d af' g f g af g f e bf' af g |
+          af c g c f, c' fs, c' b a g d'
+          \stemNeutral
+          c b f' ef
+          d af'! g f \clef treble d' c b f' ef d af' g f d' c b |
+          f' ef d af' g f ef d c b af g f ef d g |
         }
       }
     >>
