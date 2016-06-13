@@ -233,6 +233,9 @@ arietta-section-five = {
               s1
             }
           >> \clef treble |
+          % Bring these staffs closer together.
+          \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+            #'((alignment-distances . (7.5)))
           \tempo "Allegro con brio ed appassionato"
           <b d>1 |
           g'16^[
@@ -246,7 +249,10 @@ arietta-section-five = {
           \tuplet 3/2 { g16-[ a b] } |
           c4^. ef4^. b4.^\sf af'!8^. |
           g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-(^\mezzoP-pocoRitenente |
+          % Just once, set the crescendo text to the same font size as everything else.
+          \override DynamicTextSpanner.font-size = #0
           g8-. f-. ef-. d-.) ef16 f ef d c af'^\cresc^\markup { \center-column { \italic "a tempo " " " } } bf af |
+          \revert DynamicTextSpanner.font-size
           g af g f ef f ef d ef f ef d c g' f ef |
           f g f ef d af' g f g af g f e bf' af g |
           af c g c f, c' fs, c'
@@ -363,7 +369,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
-%{
+
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
@@ -756,6 +762,8 @@ arietta-section-five = {
                   \tuplet 3/2 { <d b'>32-[ c64 b'32 a64\) <e_~ c'^~>16.]^\(\sf }
                   \once \override TupletBracket.transparent = ##t
                   \tuplet 3/2 { <e c'>32-[ d64 c'32 b64\) <f_~ d'^~>32.\sf <f d'>32 <f d'>64] } |
+                  \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                    #'((alignment-distances . (13)))
                   \tuplet 3/2 { <f_~ g^~ b^~ d^~>32.-[ <f g b d>32 <f_~ g^~ b^~ d^~>64 <f_~ g^~ b^~ d^~>32. <f g b d>32 <f_~ g^~ b^~ d^~>64] }
                   \tuplet 3/2 { <f g b d>32-[ b64( f'32 d64 c32 b64 d32 b64] }
                   \tuplet 3/2 { g32-[ f64 a32 f64 e32 d64 f32 d64)] } |
@@ -995,23 +1003,37 @@ arietta-section-five = {
               \arietta-section-five <c e> <c e> <c e> |
               e16 d e f e f d c <d f> |
               d16 e d e f e f e f |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (13.5)))
               c16 b c e d e g f e |
               e ds e d d d <d g> <d g> <d g> |
               % Todo make this spanner a bit more pretty
               \once \override TextSpanner.to-barline = ##t
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (13.5)))
               g\!\f fs g e g g d' cs d |
               cs\sf\> b cs d cs d f, f fs |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (13.5)))
               g16\! a g fs g fs f f f |
               <d f> <c e> <b f'> <b f'> <c e> d d c b |
               % todo: add padding for the cresc
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (13.5)))
               <c e>\cresc e e e e e e e e |
               e e e e e e e e <e b'> |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (13.5)))
               <e b'> <e b'> <e b'> <e c'> <e c'> <e c'> b' gs a |
               <e a>\!\sf\> <e a> <e a> <e gs> <e gs> <e gs> <e a>\!\p <e a> <e a> |
               <g b>16\cresc <g b> <g b> <g b> <g b> <g b> <f b> <f b> <f b> |
               <e bf'>16 <e bf'> <e bf'> <e bf'> <e bf'> <e bf'> <f a> <a c> <af c> |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (14.5)))
               <g c>16 <g c> <g c> <g c> <g c> <g c> <g b> <g c> <g d'> |
               d'16\!\sf\> b g e\!\p ds e b'\sf\> gs e |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (14.5)))
               e16\!\p e e g'\sf\> e c c\!\p <cs g'> <d f> |
               e16\sf\> cs a a\!\p a a af\cresc af af |
               g16 g g g g g <g b> <g c> <g d'> |
@@ -1046,6 +1068,8 @@ arietta-section-five = {
               g4.
               ~g8.~ |
               g4.~g8.~ |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (11.5)))
               g4.~g8.~ |
               % Trill must span until just before the b.
               g4. \grace { s64\stopTrillSpan }
@@ -1055,6 +1079,8 @@ arietta-section-five = {
               g-[ f d8 c16] |
               b8.-[ c d8 \grace { s64\stopTrillSpan } \trillSpanUp g,16]\startTrillSpan |
               g4.~g8. |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (13.5)))
               g8.-[~g8 \grace { s64\stopTrillSpan } \trillSpanDown
               \once \override TrillSpanner.bound-details.right.padding = #1.0
               c16]^(\startTrillSpan cs16-[ d) g,] |
@@ -2205,4 +2231,3 @@ arietta-section-five = {
     }
   }
 }
-%}

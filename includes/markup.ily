@@ -13,8 +13,8 @@ std-padding-page-n = #'((padding . 1.5))
 
 % Standard staff spacing. Use in \new PianoStaff \with.
 std-staff-spacing = \override StaffGrouper.staff-staff-spacing =
-  #'((basic-distance . 12)
-     (minimum-distance . 7)
+  #'((basic-distance . 11.5)
+     (minimum-distance . 9)
      (padding . 1.0)
      (stretchability . 5))
 
