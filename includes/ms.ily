@@ -117,6 +117,16 @@ dolce =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "dolce")))
 
+% \pocoRitenente
+%
+% Prints "dolce".
+pocoRitenente = 
+  \tweak DynamicText.self-alignment-X #LEFT
+  \tweak DynamicText.X-extent #'(0 . 0)
+  \tweak DynamicText.X-offset #0
+  #(make-dynamic-script
+     (markup #:normal-text (#:italic "poco rit.")))
+
 % \sempreLegato
 %
 % Prints "sempre legato".
@@ -182,6 +192,17 @@ mezzoP-pocoRitenente =
        }
      #}
    ))
+
+% \setStaffDistance <int>
+%
+% Sets the distance between two staff lines.
+setStaffDistance = 
+#(define-music-function
+  (parser location dist)
+  (number?)
+  #{\overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+      #'((alignment-distances . (dist)))
+  #})
 
 % \shortestNoteDuration <int>
 %

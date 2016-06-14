@@ -262,6 +262,27 @@ arietta-section-five = {
           d' c16\sf b f' ef |
           d\sf af'! g f d'\sf c b f' ef\sf d af' g f\sf d' c b |
           f'\sf\> ef d af' g f ef d c b af g f ef d g\! |
+          <<
+            \relative c'' {
+              c4-. e-. b4. af'8 |
+              % todo fix poco ritenente
+              g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
+              g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
+              g8 f ef d) ef^( d c b) |
+              c^( bf! af g) af^( f ef d) |
+            }
+            \\
+            \relative c' {
+              <ef g>8\p <ef g> <ef g> <ef g> <f g> <f g> <f g> <f g> |
+              <f g> <f g> <f g> <f g> g8\rest g8\rest g8 g |
+              g8 <g b> <g c> g g8\rest g8~g8\noBeam
+              % Hide the warning. Not sure why it's appearing.
+              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+              f''16-[\cresc af,] |
+              ef' g, d' g, c g d' <f, g> ef' g, d' g, c g b g |
+              g16 c, g' c, af' c, g' c, af'\!\rfz c, f c ef c d c |
+            }
+          >>
         }
       }
       %---------------------------------------------------------------------
@@ -349,6 +370,11 @@ arietta-section-five = {
           c b f' ef
           d af'! g f \clef treble d' c b f' ef d af' g f d' c b |
           f' ef d af' g f ef d c b af g f ef d g |
+          c4 \clef bass <c,,, c'>4 \relative c { d4\rest } <g g'> |
+          \relative c { d8\rest } <g'' d'>8 <g c> <g b> \relative c { d8\rest d8\rest } <c ef>8 <g f'>^.^( |
+          <g ef'>^. <g d'>^. <g c>^. <g b>^.) \relative c { d8\rest } <c_~ ef^~>8 <c ef>8\noBeam <g,, g'>8 |
+          <g g'> <g g'> <a a'> <b b'> <c c'> <b b'> <c c'> <d d'> |
+          <ef ef'> <e e'> <f f'> <e e'> <f f'> <af' c f>4 8 |
         }
       }
     >>
@@ -369,7 +395,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
-
+%{
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
@@ -2231,3 +2257,4 @@ arietta-section-five = {
     }
   }
 }
+%}
