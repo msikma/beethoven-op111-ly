@@ -156,6 +156,8 @@ arietta-section-five = {
       } {
         \clef treble \relative c' {
           \part-one-section-one
+          % Set "cresc" etc text to the same size as regular markup text.
+          \override DynamicTextSpanner.font-size = #0
           \relative c'' { b32\rest } |
           <<
             \relative c' {
@@ -235,7 +237,7 @@ arietta-section-five = {
           >> \clef treble |
           % Bring these staffs closer together.
           \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
-            #'((alignment-distances . (7.5)))
+            #'((alignment-distances . (7.3)))
           \tempo "Allegro con brio ed appassionato"
           <b d>1 |
           g'16^[
@@ -249,8 +251,6 @@ arietta-section-five = {
           \tuplet 3/2 { g16-[ a b] } |
           c4^. ef4^. b4.^\sf af'!8^. |
           g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-(^\mezzoP-pocoRitenente |
-          % Just once, set the crescendo text to the same font size as everything else.
-          \override DynamicTextSpanner.font-size = #0
           g8-. f-. ef-. d-.) ef16 f ef d c af'^\cresc^\markup { \center-column { \italic "a tempo " " " } } bf af |
           \revert DynamicTextSpanner.font-size
           g af g f ef f ef d ef f ef d c g' f ef |
@@ -265,11 +265,12 @@ arietta-section-five = {
           <<
             \relative c'' {
               c4-. e-. b4. af'8 |
-              % todo fix poco ritenente
               g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
               g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
               g8 f ef d) ef^( d c b) |
               c^( bf! af g) af^( f ef d) |
+              d8^( c) c2^\pocoRitenente-espressivo c4 |
+              c4\trill^( \grace { b16 c } e8 d) c4^\aTempo d4\rest |
             }
             \\
             \relative c' {
@@ -281,6 +282,9 @@ arietta-section-five = {
               f''16-[\cresc af,] |
               ef' g, d' g, c g d' <f, g> ef' g, d' g, c g b g |
               g16 c, g' c, af' c, g' c, af'\!\rfz c, f c ef c d c |
+              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+              f,4\> fs(\!\p\< g) a |
+              g\!\> g c,-.\!\f e-. |
             }
           >>
         }
@@ -294,6 +298,7 @@ arietta-section-five = {
       } {
         \clef bass \relative c, {
           \part-one-section-one
+          \override DynamicTextSpanner.font-size = #0
           <ef' ef'>32\f |
           <fs, fs'>8..-[ <fs, fs'>32] <fs'_~ fs'^~>4 <fs fs'>8..-[ <fs' fs'>32] <fs fs'>4 |
           <g d>8 \relative c { d8\rest } <c, g' c>8 \relative c { d8\rest }
@@ -375,6 +380,16 @@ arietta-section-five = {
           <g ef'>^. <g d'>^. <g c>^. <g b>^.) \relative c { d8\rest } <c_~ ef^~>8 <c ef>8\noBeam <g,, g'>8 |
           <g g'> <g g'> <a a'> <b b'> <c c'> <b b'> <c c'> <d d'> |
           <ef ef'> <e e'> <f f'> <e e'> <f f'> <af' c f>4 8 |
+          <<
+            \relative c' {
+              s4 ef2 ef4
+            }
+            \\
+            \relative c' {
+              <af c>4 af4_( g) fs
+            }
+          >> |
+          <g ef'>4 <g_~ b ef> g16 f ef d c d ef c |
         }
       }
     >>
@@ -420,6 +435,7 @@ arietta-section-five = {
       } {
         \clef treble \relative c'' {
           \arietta-section-one
+          \override DynamicTextSpanner.font-size = #0
 
           %-----------------------------------------------------------------
           %    Main theme, part 1
@@ -1513,6 +1529,7 @@ arietta-section-five = {
       } {
         \clef bass \relative c, {
           \arietta-section-one
+          \override DynamicTextSpanner.font-size = #0
           <<
             \new Voice {
               \voiceOne
