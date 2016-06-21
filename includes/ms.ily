@@ -178,16 +178,16 @@ mezzoP-pocoRitenente =
 %
 % Prints a left-aligned column with two lines of text,
 % one describing "poco ritenente", the other "espressivo".
-pocoRitenente-espressivo = 
-  \tweak DynamicText.self-alignment-X #LEFT
-  \tweak DynamicText.X-extent #'(0 . 0)
-  \tweak DynamicText.X-offset #0
-  #(make-dynamic-script
-    (markup
-      (#:line
-       (#:left-column 
-        (#:line (#:normal-text (#:italic "poco ritenente"))
-         #:normal-text (#:italic "espressivo"))))))
+pocoRitenente-espressivo = \markup {
+  \left-column {
+    \line {
+      \italic "poco ritenente"
+    }
+    \line {
+      \italic "espressivo"
+    }
+  }
+}
 
 % \markup \tied-finger-up #"1" #"2"
 %

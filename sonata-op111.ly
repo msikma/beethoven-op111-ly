@@ -269,8 +269,9 @@ arietta-section-five = {
               g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
               g8 f ef d) ef^( d c b) |
               c^( bf! af g) af^( f ef d) |
-              d8^( c) c2^\pocoRitenente-espressivo c4 |
-              c4\trill^( \grace { b16 c } e8 d) c4^\aTempo d4\rest |
+              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+              d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
+              c4\!\>\trill^( \grace { b16 c } e8 d)\! c4^\aTempo d4\rest |
             }
             \\
             \relative c' {
@@ -282,11 +283,15 @@ arietta-section-five = {
               f''16-[\cresc af,] |
               ef' g, d' g, c g d' <f, g> ef' g, d' g, c g b g |
               g16 c, g' c, af' c, g' c, af'\!\rfz c, f c ef c d c |
-              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
-              f,4\> fs(\!\p\< g) a |
-              g\!\> g c,-.\!\f e-. |
+              f,4 fs( g) a |
+              g g c,-.\f e-. |
             }
           >>
+          \stemUp
+          b,,4\sf_~ b16 d f af g af g f ef f ef d |
+          ef f ef d c ef g bf af bf af g f g f ef |
+          f g f ef d f af c bf c bf af g af g f |
+          g\f bf af g f ef d ef g cf, bf cf bf d f af |
         }
       }
       %---------------------------------------------------------------------
@@ -390,6 +395,10 @@ arietta-section-five = {
             }
           >> |
           <g ef'>4 <g_~ b ef> g16 f ef d c d ef c |
+          d16 c b a g b d g ef8 <g,, g'>_( <c c'> <b b'!> |
+          <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c { d8\rest } <c c'>_( <d d'> <c c'> |
+          <d d'> <g g'>) <f f'>-. <ef ef'>-. <d d'>-. <bf bf'>-. <c c'>-. <d d'>-. |
+          <ef ef'>4-. <g g'>-. <d d'>8 d_~\sf d16 f af c |
         }
       }
     >>
