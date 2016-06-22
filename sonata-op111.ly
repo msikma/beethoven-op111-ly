@@ -292,6 +292,31 @@ arietta-section-five = {
           ef f ef d c ef g bf af bf af g f g f ef |
           f g f ef d f af c bf c bf af g af g f |
           g\f bf af g f ef d ef g cf, bf cf bf d f af |
+          g8 <f, f'>_( <bf bf'> <af af'> <bf bf'> <df df'>) <c c'> <g g'> |
+          \relative c'' { b8\rest } <g g'>_( <c c'> <bf bf'> <c c'> <ef ef'>) <ef ef'>_. <a, a'>_. |
+          \relative c'' { b8\rest } <bf bf'>_( <df df'> <c c'> <df df'> <f f'>) <ef ef'>_. \stemDown bf'16-[ af] |
+          g ef f g af g af bf
+          <<
+            \relative c''' {
+              af4-.^\f c-.
+            }
+            \\
+            \relative c'' {
+              c16 df c bf s4
+            }
+          >>
+          \stemNeutral |
+          \part-one-section-two
+          g'4^~g16 bf df f ef f ef df c df c bf |
+          c df c bf a c ef gf f gf f ef df ef df c |
+          df ef df c bf df f af gf af gf f ef f ef df |
+          ef f ef df c ef gf bf af bf af gf f gf f ef |
+          f2\ff \clef bass df,,,,2\sf |
+          d2\sf \clef treble
+          \ottava #1
+          \set Staff.ottavation = #"8"
+          cf'''''2\sf
+          \ottava #0 |
         }
       }
       %---------------------------------------------------------------------
@@ -399,6 +424,21 @@ arietta-section-five = {
           <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c { d8\rest } <c c'>_( <d d'> <c c'> |
           <d d'> <g g'>) <f f'>-. <ef ef'>-. <d d'>-. <bf bf'>-. <c c'>-. <d d'>-. |
           <ef ef'>4-. <g g'>-. <d d'>8 d_~\sf d16 f af c |
+          bf c bf af g af g f g af g f e g bf df |
+          c df c bf af bf af g af bf af gf f a c ef |
+          df ef df c bf c bf a bf c bf af g bf df f |
+          ef f ef df c df c bf af4 \clef treble c''16 ef df c \bar "||" |
+          \part-one-section-two
+          bf af g f ef g bf df c8-[ <g, g'>_( <af af'> <g g'>] |
+          <af af'> <df df'>) <c c'>-. <a a'>-. \relative c'' { b8\rest } <a a'>-[_( <bf bf'> <a a'>] |
+          <bf bf'> <ef ef'>) <df df'>-. <bf bf'>-. \relative c'' { b8\rest } <bf bf'>-[_( <c c'> <bf bf'>] |
+          <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c'' { b8\rest } \clef bass <af,, af'> <bf bf'> <c c'> |
+          <df' f>16\sustainOn af'
+          \repeat unfold 6 { <df, f> af' }
+          <df, f> af'\sustainOff |
+          <d, f af>\sustainOn cf'
+          \repeat unfold 6 { <d, f af> cf' }
+          <d, f af> cf'\sustainOff |
         }
       }
     >>
