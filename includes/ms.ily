@@ -157,6 +157,36 @@ manoSinistra =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "mano sinistra")))
 
+% \ritardando
+%
+% Prints "ritardando" with a dynamic text spanner.
+ritardando =
+  #(make-music 'CrescendoEvent
+               'span-direction START
+               'span-type 'text
+               'span-text "ritardando")
+
+% \ritardandoOne
+%
+% Part one of a set of tweaks for Op.111. Prints "ritardando"
+% with spaces in between. Use with \ritardandoTwo and \ritardandoThree.
+ritardandoOne =
+  #(make-music 'CrescendoEvent
+               'span-direction START
+               'span-type 'text
+               'span-text "ritar")
+ritardandoTwo =
+  #(make-music 'CrescendoEvent
+               'span-direction START
+               'span-type 'text
+               'span-text "dan")
+ritardandoThree =
+  #(make-music 'CrescendoEvent
+               'span-direction START
+               'span-type 'text
+               'tweaks '((dash-period . -1))
+               'span-text "do")
+
 % \mezzoP-pocoRitenente
 %
 % Prints a left-aligned column with two lines of text,

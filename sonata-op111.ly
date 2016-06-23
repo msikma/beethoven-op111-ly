@@ -317,6 +317,27 @@ arietta-section-five = {
           \set Staff.ottavation = #"8"
           cf'''''2\sf
           \ottava #0 |
+          \relative c'' { b4\rest } ef,2^(\sf\> c8. af16) |
+          af4^(\!\p g8)_[ r16 f16] f4^( ef8)_[ r16 <df g df'>16] |
+          4 <bf_~ af'^~ c^~>
+          \tupletDown
+          % Note: slightly override the standard beam slope.
+          \offset positions #'(0 . 2.7) Beam
+          \tuplet 12/8 { 32-[^( ef' d ef f ef b c b c df c)] }
+          \undo \offset positions #'(0 . 3) Beam
+          % Move the tuplet number so that it sits just outside the staff lines.
+          \once \override TupletNumber.Y-offset = #-2.7
+          \tuplet 6/4 { g16-[^( af bf af g af)] } |
+          \once \override TupletNumber.Y-offset = #-2.7
+          \override DynamicTextSpanner.font-size = #0
+          \tuplet 5/4 { af16-[^(\ritardandoOne g af bf af)] }
+          g8-[ r16 f16]
+          \once \override TupletNumber.Y-offset = #-2.7
+          \tuplet 5/4 { f16-[^( ef f g f])\!\ritardandoTwo }
+          f8-[ r16 <df g df'>] |
+          4 <c af' c>4\!\ritardandoThree \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
+          4 <ef af ef'>4 \relative c'' { b4\rest b8\rest } af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
+          af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
         }
       }
       %---------------------------------------------------------------------
@@ -439,6 +460,14 @@ arietta-section-five = {
           <d, f af>\sustainOn cf'
           \repeat unfold 6 { <d, f af> cf' }
           <d, f af> cf'\sustainOff |
+          <ef,, ef'>4^\sf\sustainOn \relative c { d4\rest d4\rest d8.\rest } <ef' c'! ef>16\sustainOff |
+          <ef bf' df>4. \relative c { d16\rest } <ef af c>16 4 <ef g bf>8_[ f16\rest <ef g bf>16] |
+          4 <ef af c>4 d2\rest |
+          <ef bf' df>4. \relative c { d16\rest } <ef af c>16 <ef g bf>4. \relative c { d16\rest } <e g bf>16 |
+          4 <f af>4 \relative c { d4\rest d8.\rest } \clef treble <df' g bf>16 |
+          4 <c af' c>4 \relative c'' { b4\rest b8\rest } <d f af cf>8 |
+          8\noBeam f'16^( af) d,^( f) cf!^( d) af( cf) f,( af) d,( f) cf( d) \clef bass |
+          
         }
       }
     >>
