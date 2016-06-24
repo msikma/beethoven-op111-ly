@@ -152,12 +152,11 @@ arietta-section-five = {
       %---------------------------------------------------------------------
       \new Staff = "right" \with {
         \std-magnification
+        \stdDynSize
         midiInstrument = "acoustic grand"
       } {
         \clef treble \relative c' {
           \part-one-section-one
-          % Set "cresc" etc text to the same size as regular markup text.
-          \override DynamicTextSpanner.font-size = #0
           \relative c'' { b32\rest } |
           <<
             \relative c' {
@@ -329,7 +328,6 @@ arietta-section-five = {
           \once \override TupletNumber.Y-offset = #-2.7
           \tuplet 6/4 { g16-[^( af bf af g af)] } |
           \once \override TupletNumber.Y-offset = #-2.7
-          \override DynamicTextSpanner.font-size = #0
           \tuplet 5/4 { af16-[^(\ritardandoOne g af bf af)] }
           g8-[ r16 f16]
           \once \override TupletNumber.Y-offset = #-2.7
@@ -338,6 +336,35 @@ arietta-section-five = {
           4 <c af' c>4\!\ritardandoThree \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
           4 <ef af ef'>4 \relative c'' { b4\rest b8\rest } af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
           af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
+          \stemDown af( cf) f,( af) \stemNeutral d,^\nonLigato\p\cresc ef f g af bf c df ef e f ef |
+          f16\!\ff ef c af f' ef c af f'\sf ef df bf f' ef df bf |
+          bf' af ef c bf' af ef c bf'\sf af f df ef' df af df, |
+          ef' df af df, ef' df af df, df' c af ef df' c af ef |
+          df' c af ef c' bf g df
+          <<
+            \relative c''' {
+              af4-. c-. |
+              g2 gf4-. af-. |
+              f2 ff4-. af-. |
+              % Note: manuscript does not have a sf here. Lots of scores do though.
+              ef4 af8.-[ c16] ef8-[ ef] s8. s16
+            }
+            \\
+            \relative c'' {
+              <c ef>8 8 8 8 |
+              <bf ef>8 8 8 8 <af ef'>8 8 8 8 |
+              <af df>8 8 8 8 8 8 8 8 |
+              <af c>4 af8.-[ c16] ef8 s8 ef'8.-[^\trill d32 ef]
+            }
+          >> |
+          ef'8-[^( f16 g)] g8-[^( af])
+          \relative c'' { b8\rest }
+          ef,8\noBeam ef8.-[^\trill d32 ef32] |
+          ef8-[^( f16 g)] g8-[^( af)]
+          \relative c'' { b8\rest }
+          ef,8\noBeam ef8-[^\trill f16 g] |
+          af bf c b c df eff df eff ef ff ef ff f gf g |
+          af bf! c b c df eff df eff ef ff ef ff f gf g |
         }
       }
       %---------------------------------------------------------------------
@@ -345,11 +372,11 @@ arietta-section-five = {
       %---------------------------------------------------------------------
       \new Staff = "left" \with {
         \std-magnification
+        \stdDynSize
         midiInstrument = "acoustic grand"
       } {
         \clef bass \relative c, {
           \part-one-section-one
-          \override DynamicTextSpanner.font-size = #0
           <ef' ef'>32\f |
           <fs, fs'>8..-[ <fs, fs'>32] <fs'_~ fs'^~>4 <fs fs'>8..-[ <fs' fs'>32] <fs fs'>4 |
           <g d>8 \relative c { d8\rest } <c, g' c>8 \relative c { d8\rest }
@@ -467,7 +494,19 @@ arietta-section-five = {
           4 <f af>4 \relative c { d4\rest d8.\rest } \clef treble <df' g bf>16 |
           4 <c af' c>4 \relative c'' { b4\rest b8\rest } <d f af cf>8 |
           8\noBeam f'16^( af) d,^( f) cf!^( d) af( cf) f,( af) d,( f) cf( d) \clef bass |
-          
+          af^( cf) f,^( af) d, ef f g af bf c df ef e f ef |
+          <af,,, af'>4-. <c c'>-. <g g'>2\sf |
+          <gf gf'>4-. <af af'>4-. <f f'>2 |
+          <ff ff'>4-. <af af'>4-. <ef ef'>4 <af af'>8. <c c'>16 |
+          <ef ef'>4-. <ef, ef'>4-. \relative c { d16\rest } c'''16-[ bf af] g af bf af |
+          \stemUp
+          \relative c { d16\rest } \clef treble g'16 f ef d ef f ef \relative c'' { b16\rest } \clef bass ef,16 df c b c df c |
+          \relative c { d16\rest } \stemNeutral f'16 ef df c df ef df \relative c { d16\rest } df,,16 ef ff ef df c df |
+          d ef f! ef df c bf af g af bf c df c df b |
+          c df ef df c b c af g af bf c df c df b |
+          c df ef df c b c af g af bf c df ef f g |
+          af bf! c b c df eff df eff ef ff ef ff f gf g |
+          af bf! c b \clef treble c df eff df eff ef ff ef ff f gf g |
         }
       }
     >>
@@ -509,6 +548,7 @@ arietta-section-five = {
       %---------------------------------------------------------------------
       \new Staff = "right" \with {
         \std-magnification
+        \stdDynSize
         midiInstrument = "acoustic grand"
       } {
         \clef treble \relative c'' {
@@ -1603,6 +1643,7 @@ arietta-section-five = {
       %---------------------------------------------------------------------
       \new Staff = "left" \with {
         \std-magnification
+        \stdDynSize
         midiInstrument = "acoustic grand"
       } {
         \clef bass \relative c, {

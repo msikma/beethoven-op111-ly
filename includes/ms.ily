@@ -204,6 +204,18 @@ mezzoP-pocoRitenente =
         (#:line (#:normal-text (#:italic "mezzo") #:dynamic "p")
          #:normal-text (#:italic "poco ritenente")))))))
 
+% \stdDynSize
+%
+% Sets dynamic text spanners to the standard font size.
+stdDynSize = { \override DynamicTextSpanner.font-size = #0 }
+
+% \nonLigato
+%
+% Prints "non ligato".
+nonLigato = \markup {
+  \italic "non-ligato"
+}
+
 % \pocoRitenente-espressivo
 %
 % Prints a left-aligned column with two lines of text,
