@@ -244,127 +244,146 @@ arietta-section-five = {
           af,, g af ]
           \repeat unfold 4 { g af }
           g af g a32 b |
-          s1 |
-          \voiceOne
-          c4^. ef4^. b4.^\fermata^\sf
-          \tuplet 3/2 { g16-[ a b] } |
-          c4^. ef4^. b4.^\sf af'!8^. |
-          g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-(^\mezzoP-pocoRitenente |
-          g8-. f-. ef-. d-.) ef16 f ef d c af'^\cresc^\markup { \center-column { \italic "a tempo " " " } } bf af |
-          \revert DynamicTextSpanner.font-size
-          g af g f ef f ef d ef f ef d c g' f ef |
-          f g f ef d af' g f g af g f e bf' af g |
-          af c g c f, c' fs, c'
-          b\!^\sf a g
-          \change Staff = "right"
-          \stemNeutral
-          d' c16\sf b f' ef |
-          d\sf af'! g f d'\sf c b f' ef\sf d af' g f\sf d' c b |
-          f'\sf\> ef d af' g f ef d c b af g f ef d g\! |
-          <<
-            \relative c'' {
-              c4-. e-. b4. af'8 |
-              g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
-              g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
-              g8 f ef d) ef^( d c b) |
-              c^( bf! af g) af^( f ef d) |
-              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
-              d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
-              c4\!\>\trill^( \grace { b16 c } e8 d)\! c4^\aTempo d4\rest |
-            }
-            \\
-            \relative c' {
-              <ef g>8\p <ef g> <ef g> <ef g> <f g> <f g> <f g> <f g> |
-              <f g> <f g> <f g> <f g> g8\rest g8\rest g8 g |
-              g8 <g b> <g c> g g8\rest g8~g8\noBeam
-              % Hide the warning. Not sure why it's appearing.
-              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
-              f''16-[\cresc af,] |
-              ef' g, d' g, c g d' <f, g> ef' g, d' g, c g b g |
-              g16 c, g' c, af' c, g' c, af'\!\rfz c, f c ef c d c |
-              f,4 fs( g) a |
-              g g c,-.\f e-. |
-            }
-          >>
-          \stemUp
-          b,,4\sf_~ b16 d f af g af g f ef f ef d |
-          ef f ef d c ef g bf af bf af g f g f ef |
-          f g f ef d f af c bf c bf af g af g f |
-          g\f bf af g f ef d ef g cf, bf cf bf d f af |
-          g8 <f, f'>_( <bf bf'> <af af'> <bf bf'> <df df'>) <c c'> <g g'> |
-          \relative c'' { b8\rest } <g g'>_( <c c'> <bf bf'> <c c'> <ef ef'>) <ef ef'>_. <a, a'>_. |
-          \relative c'' { b8\rest } <bf bf'>_( <df df'> <c c'> <df df'> <f f'>) <ef ef'>_. \stemDown bf'16-[ af] |
-          g ef f g af g af bf
-          <<
+          \repeat volta 2 {
+            s1 |
+            \voiceOne
+            c4^. ef4^. b4.^\fermata^\sf
+            \tuplet 3/2 { g16-[ a b] } |
+            c4^. ef4^. b4.^\sf af'!8^. |
+            g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-(^\mezzoP-pocoRitenente |
+            g8-. f-. ef-. d-.) ef16 f ef d c af'^\cresc^\markup { \center-column { \italic "a tempo " " " } } bf af |
+            \revert DynamicTextSpanner.font-size
+            g af g f ef f ef d ef f ef d c g' f ef |
+            f g f ef d af' g f g af g f e bf' af g |
+            af c g c f, c' fs, c'
+            b\!^\sf a g
+            \change Staff = "right"
+            \stemNeutral
+            d' c16\sf b f' ef |
+            d\sf af'! g f d'\sf c b f' ef\sf d af' g f\sf d' c b |
+            f'\sf\> ef d af' g f ef d c b af g f ef d g\! |
+            <<
+              \relative c'' {
+                c4-. e-. b4. af'8 |
+                g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
+                g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
+                g8 f ef d) ef^( d c b) |
+                c^( bf! af g) af^( f ef d) |
+                #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+                d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
+                c4\!\>\trill^( \grace { b16 c } e8 d)\! c4^\aTempo d4\rest |
+              }
+              \\
+              \relative c' {
+                <ef g>8\p <ef g> <ef g> <ef g> <f g> <f g> <f g> <f g> |
+                <f g> <f g> <f g> <f g> g8\rest g8\rest g8 g |
+                g8 <g b> <g c> g g8\rest g8~g8\noBeam
+                % Hide the warning. Not sure why it's appearing.
+                #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+                f''16-[\cresc af,] |
+                ef' g, d' g, c g d' <f, g> ef' g, d' g, c g b g |
+                g16 c, g' c, af' c, g' c, af'\!\rfz c, f c ef c d c |
+                f,4 fs( g) a |
+                g g c,-.\f e-. |
+              }
+            >>
+            \stemUp
+            b,,4\sf_~ b16 d f af g af g f ef f ef d |
+            ef f ef d c ef g bf af bf af g f g f ef |
+            f g f ef d f af c bf c bf af g af g f |
+            g\f bf af g f ef d ef g cf, bf cf bf d f af |
+            g8 <f, f'>_( <bf bf'> <af af'> <bf bf'> <df df'>) <c c'> <g g'> |
+            \relative c'' { b8\rest } <g g'>_( <c c'> <bf bf'> <c c'> <ef ef'>) <ef ef'>_. <a, a'>_. |
+            \relative c'' { b8\rest } <bf bf'>_( <df df'> <c c'> <df df'> <f f'>) <ef ef'>_. \stemDown bf'16-[ af] |
+            g ef f g af g af bf
+            <<
+              \relative c''' {
+                af4-.^\f c-.
+              }
+              \\
+              \relative c'' {
+                c16 df c bf s4
+              }
+            >>
+            \stemNeutral |
+            \part-one-section-two
+            g'4^~g16 bf df f ef f ef df c df c bf |
+            c df c bf a c ef gf f gf f ef df ef df c |
+            df ef df c bf df f af gf af gf f ef f ef df |
+            ef f ef df c ef gf bf af bf af gf f gf f ef |
+            f2\ff \clef bass df,,,,2\sf |
+            d2\sf \clef treble
+            \ottava #1
+            \set Staff.ottavation = #"8"
+            cf'''''2\sf
+            \ottava #0 |
+            \relative c'' { b4\rest } ef,2^(\sf\> c8. af16) |
+            af4^(\!\p g8)_[ r16 f16] f4^( ef8)_[ r16 <df g df'>16] |
+            4 <bf_~ af'^~ c^~>
+            \tupletDown
+            % Note: slightly override the standard beam slope.
+            \offset positions #'(0 . 2.7) Beam
+            \tuplet 12/8 { 32-[^( ef' d ef f ef b c b c df c)] }
+            \undo \offset positions #'(0 . 3) Beam
+            % Move the tuplet number so that it sits just outside the staff lines.
+            \once \override TupletNumber.Y-offset = #-2.7
+            \tuplet 6/4 { g16-[^( af bf af g af)] } |
+            \once \override TupletNumber.Y-offset = #-2.7
+            \tuplet 5/4 { af16-[^(\ritardandoOne g af bf af)] }
+            g8-[ r16 f16]
+            \once \override TupletNumber.Y-offset = #-2.7
+            \tuplet 5/4 { f16-[^( ef f g f])\!\ritardandoTwo }
+            f8-[ r16 <df g df'>] |
+            4 <c af' c>4\!\ritardandoThree \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
+            4 <ef af ef'>4 \relative c'' { b4\rest b8\rest } af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
+            af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
+            \stemDown af( cf) f,( af) \stemNeutral d,^\nonLigato\p\cresc ef f g af bf c df ef e f ef |
+            f16\!\ff ef c af f' ef c af f'\sf ef df bf f' ef df bf |
+            bf' af ef c bf' af ef c bf'\sf af f df ef' df af df, |
+            ef' df af df, ef' df af df, df' c af ef df' c af ef |
+            df' c af ef c' bf g df
+            <<
+              \relative c''' {
+                af4-. c-. |
+                g2 gf4-. af-. |
+                f2 ff4-. af-. |
+                % Note: manuscript does not have a sf here. Lots of scores do though.
+                ef4 af8.-[ c16] ef8-[ ef] s8. s16
+              }
+              \\
+              \relative c'' {
+                <c ef>8 8 8 8 |
+                <bf ef>8 8 8 8 <af ef'>8 8 8 8 |
+                <af df>8 8 8 8 8 8 8 8 |
+                <af c>4 af8.-[ c16] ef8 s8 ef'8.-[^\trill d32 ef]
+              }
+            >> |
+            ef'8-[^( f16 g)] g8-[^( af])
+            \relative c'' { b8\rest }
+            ef,8\noBeam ef8.-[^\trill d32 ef32] |
+            ef8-[^( f16 g)] g8-[^( af)]
+            \relative c'' { b8\rest }
+            ef,8\noBeam ef8-[^\trill f16 g] |
+            af bf c b c df eff df eff ef ff ef ff f gf g |
+            af bf! c b c df eff df eff ef ff ef ff f gf g |
+          }
+          \alternative {
             \relative c''' {
-              af4-.^\f c-.
+              <af af'>4-.\ff <af,, af'>4_. \relative c'' { b4\rest b8\rest s8 }
             }
-            \\
-            \relative c'' {
-              c16 df c bf s4
-            }
-          >>
-          \stemNeutral |
-          \part-one-section-two
-          g'4^~g16 bf df f ef f ef df c df c bf |
-          c df c bf a c ef gf f gf f ef df ef df c |
-          df ef df c bf df f af gf af gf f ef f ef df |
-          ef f ef df c ef gf bf af bf af gf f gf f ef |
-          f2\ff \clef bass df,,,,2\sf |
-          d2\sf \clef treble
-          \ottava #1
-          \set Staff.ottavation = #"8"
-          cf'''''2\sf
-          \ottava #0 |
-          \relative c'' { b4\rest } ef,2^(\sf\> c8. af16) |
-          af4^(\!\p g8)_[ r16 f16] f4^( ef8)_[ r16 <df g df'>16] |
-          4 <bf_~ af'^~ c^~>
-          \tupletDown
-          % Note: slightly override the standard beam slope.
-          \offset positions #'(0 . 2.7) Beam
-          \tuplet 12/8 { 32-[^( ef' d ef f ef b c b c df c)] }
-          \undo \offset positions #'(0 . 3) Beam
-          % Move the tuplet number so that it sits just outside the staff lines.
-          \once \override TupletNumber.Y-offset = #-2.7
-          \tuplet 6/4 { g16-[^( af bf af g af)] } |
-          \once \override TupletNumber.Y-offset = #-2.7
-          \tuplet 5/4 { af16-[^(\ritardandoOne g af bf af)] }
-          g8-[ r16 f16]
-          \once \override TupletNumber.Y-offset = #-2.7
-          \tuplet 5/4 { f16-[^( ef f g f])\!\ritardandoTwo }
-          f8-[ r16 <df g df'>] |
-          4 <c af' c>4\!\ritardandoThree \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
-          4 <ef af ef'>4 \relative c'' { b4\rest b8\rest } af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
-          af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
-          \stemDown af( cf) f,( af) \stemNeutral d,^\nonLigato\p\cresc ef f g af bf c df ef e f ef |
-          f16\!\ff ef c af f' ef c af f'\sf ef df bf f' ef df bf |
-          bf' af ef c bf' af ef c bf'\sf af f df ef' df af df, |
-          ef' df af df, ef' df af df, df' c af ef df' c af ef |
-          df' c af ef c' bf g df
-          <<
             \relative c''' {
-              af4-. c-. |
-              g2 gf4-. af-. |
-              f2 ff4-. af-. |
-              % Note: manuscript does not have a sf here. Lots of scores do though.
-              ef4 af8.-[ c16] ef8-[ ef] s8. s16
+              <af af'>4-.\ff <af,, af'>4_. \relative c'' { b2\rest }
             }
-            \\
-            \relative c'' {
-              <c ef>8 8 8 8 |
-              <bf ef>8 8 8 8 <af ef'>8 8 8 8 |
-              <af df>8 8 8 8 8 8 8 8 |
-              <af c>4 af8.-[ c16] ef8 s8 ef'8.-[^\trill d32 ef]
-            }
-          >> |
-          ef'8-[^( f16 g)] g8-[^( af])
+          }
+          \relative c'' { b4\rest } <g,,, g'>4\p \relative c'' { b2\rest } |
           \relative c'' { b8\rest }
-          ef,8\noBeam ef8.-[^\trill d32 ef32] |
-          ef8-[^( f16 g)] g8-[^( af)]
-          \relative c'' { b8\rest }
-          ef,8\noBeam ef8-[^\trill f16 g] |
-          af bf c b c df eff df eff ef ff ef ff f gf g |
-          af bf! c b c df eff df eff ef ff ef ff f gf g |
+          \tuplet 3/2 { a'16\cresc b cs }
+          <d, a' d>4\!\sf \relative c'' { b2\rest } \bar "||" |
+          \part-one-section-three
+          \relative c'' { b4\rest b8\rest }
+          \tupletUp
+          \tuplet 3/2 { d16\p e fs }
+          <g, g'>4_. <bf bf'>4_. |
         }
       }
       %---------------------------------------------------------------------
@@ -507,6 +526,36 @@ arietta-section-five = {
           c df ef df c b c af g af bf c df ef f g |
           af bf! c b c df eff df eff ef ff ef ff f gf g |
           af bf! c b \clef treble c df eff df eff ef ff ef ff f gf g |
+          af4_. \clef bass <af,,, af'>4_. \relative c { d4\rest d8\rest }
+          <<
+            \relative c {
+              \tuplet 3/2 { g16 a b }
+            }
+            \\
+            \relative c, {
+              \tuplet 3/2 { g16 a b }
+            }
+          >> |
+          % Ensure that the clef change occurs after the bar line.
+          \once \override Score.BreakAlignment.break-align-orders = #(
+            make-vector 3 '(
+              span-bar
+              breathing-sign
+              staff-bar
+              clef
+              key-cancellation
+              key-signature
+              time-signature
+          ))
+          \clef treble af'''4_. \clef bass <af,,, af'>4_. \relative c { d2\rest } |
+          \relative c { d4\rest } <g g'>4 \relative { d2\rest } |
+          \relative c { d4\rest } <fs fs'>4 \relative { d2\rest } |
+          \part-one-section-three
+          \relative c { d4\rest d8\rest }
+          \tupletUp
+          \once \override TupletNumber.Y-offset = #2.6
+          \tuplet 3/2 { d'16 e fs }
+          <g, g'>4_. <bf bf'>4_. |
         }
       }
     >>
