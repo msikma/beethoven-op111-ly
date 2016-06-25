@@ -18,6 +18,9 @@
 % Force "mid" file extension for compatibility.
 #(ly:set-option 'midi-extension "mid")
 
+% Set after grace notes a bit closer to the next notes.
+#(define afterGraceFraction (cons 8 9))
+
 % \paragraphBreak
 %
 % Used to add a space after a paragraph text.

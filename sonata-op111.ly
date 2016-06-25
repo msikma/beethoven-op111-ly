@@ -376,6 +376,7 @@ arietta-section-five = {
             }
           }
           \relative c'' { b4\rest } <g,,, g'>4\p \relative c'' { b2\rest } |
+          \break
           \relative c'' { b8\rest }
           \tuplet 3/2 { a'16\cresc b cs }
           <d, a' d>4\!\sf \relative c'' { b2\rest } \bar "||" |
@@ -384,6 +385,26 @@ arietta-section-five = {
           \tupletUp
           \tuplet 3/2 { d16\p e fs }
           <g, g'>4_. <bf bf'>4_. |
+          <fs fs'>2 <f f'>4_. <af af'>4_. |
+          <e e'>2 <ef ef'>4_. <g g'>4_. |
+          <d d'>4 <g g'>8.-[ <bf bf'>16] <d d'>4_. <fs, a d>4_. |
+          d'2_( ef2 |
+          a,2 \afterGrace fs'2\startTrillSpan) { e16\stopTrillSpan fs } |
+          g16 d ef! f! g f ef d c4_. ef_. |
+          b4. af'8 g f ef d |
+          <<
+            \relative c'' {
+              c2^( df |
+              g,2 \afterGrace e'2\startTrillSpan) { d16\stopTrillSpan e }
+            }
+            \\
+            \relative c' {
+              e16 f e df c g' f e f4_. af_. |
+              e4. df'8 c bf af g 
+            }
+          >> |
+          \stemUp
+          <af' f'>16 bf af g f af df b c b c bf c af c g |
         }
       }
       %---------------------------------------------------------------------
@@ -556,6 +577,27 @@ arietta-section-five = {
           \once \override TupletNumber.Y-offset = #2.6
           \tuplet 3/2 { d'16 e fs }
           <g, g'>4_. <bf bf'>4_. |
+          <fs fs'>2 <f f'>4_. <af af'>4_. |
+          <e e'>2 <ef ef'>4_. <g g'>4_. |
+          <d d'> <g g'>8.-[ <bf bf'>16] <d d'>4_. <c c'>4_. |
+          <b b'>4 <g g'>4 g''4^. c^. |
+          <<
+            \relative c' {
+              s4. ef8 d c bf af |
+              b4 s2 s4 |
+            }
+            \\
+            \relative c {
+              fs4. s8 s4 d4 |
+              g2_( af2 |
+              \trillSpanUp
+              d,2 \afterGrace b'2\startTrillSpan) { a!16\stopTrillSpan b }
+            }
+          >> |
+          c4 \relative c { d16\rest } bf16 af g af4 f |
+          bf g c c, |
+          \trillSpanUp
+          f2 \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
         }
       }
     >>
