@@ -429,7 +429,7 @@ arietta-section-five = {
           \grace {
             e,64-[\sustainOn g c e g c] s16
           }
-          <e,, e'>8 \relative c { d8\rest d8..\rest\sustainOff } <df' df'>32\f |
+          <e,, e'>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <df' df'>32\f |
           <e, e'>8.. <f f'>32 <f_~ f'^~>4 <f f'>8.. <f' bf df>32 <f bf df>4 |
           <gf bf df>8.. <g bf df>32 <g_~ bf^~ df^~>4 <g bf df>8.. <af c>32 <af c>8.. <a ef' gf>32 |
           <a ef' gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <cf ef gf>32 <cf ef gf>8.. <c ef gf>32 |
