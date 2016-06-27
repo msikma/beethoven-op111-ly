@@ -425,7 +425,27 @@ arietta-section-five = {
           f-[ c <fs c'> ef]
           \undo \offset positions #'(1 . 1) Beam |
           <g c> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <ef a c> c |
-          <b d g>4_.\!\f <b d g b>_. <a c ef fs>2\sf |
+          <b d g>4_.\!\f <b d g b>_. <a c ef fs>2\sf \bar "||" |
+          \part-one-section-four
+          <<
+            \relative c'' {
+              c4^. ef^. b2 |
+              f'4^. af^. e2 |
+              g4^. bf^. fs2 |
+              c'4^. ef^. b4. s8
+            }
+            \\
+            \relative c' {
+              <ef fs a>4 4 <d f af>2\sf |
+              <af' b d>4 4 <g bf df>2\sf |
+              <bf df e>4 4 <a c ef>2\sf |
+              <ef' fs a>4 4 <d f af>4.\sf <af' af'>8
+            }
+          >> |
+          \stemNeutral
+          g'''16 af g f ef f ef d ef f ef d c g a b |
+          <c, c'>4^.\ff <ef ef'>4^. <b b'>4.\sf <af' af'>8 |
+          <g g'>8 <f f'> <ef ef'> <d d'> <ef ef'>16 f' ef d <c, c'>8\noBeam <f g af'>8\p |
         }
       }
       %---------------------------------------------------------------------
@@ -644,6 +664,25 @@ arietta-section-five = {
           \relative c { d16\rest } g af b
           \relative c { d16\rest } g'16 a b
           \relative c { d16\rest } g, c ef fs af c ef |
+          \part-one-section-four
+          \relative c { d16\rest } g,, c ef
+          \relative c { d16\rest } g c ef
+          \relative c { d16\rest } g,, c ef g b d f |
+          \relative c { d16\rest } g,, d' f
+          \relative c { d16\rest } g d' f
+          \relative c { d16\rest } g,, g' bf df e g bf |
+          \relative c { d16\rest } g,, g' bf
+          \stemNeutral
+          \relative c { d16\rest } g g' bf
+          \relative c { d16\rest } g,, a' c ef fs a c |
+          \relative c { d16\rest } g,, a' c
+          \relative c { d16\rest } fs a c
+          \relative c { d16\rest } g,, b' d f af f af |
+          \stemDown
+          g16 af g f ef f ef d ef f ef d c g a b |
+          \stemNeutral
+          <c, c'>4_. <ef ef'>4_. <b b'>4. <af' af'>8 |
+          <g g'>8 <f f'>8 <ef ef'>8 <d d'>8 ef16 f ef d <c c'>8 \relative c { d8\rest } |
         }
       }
     >>
