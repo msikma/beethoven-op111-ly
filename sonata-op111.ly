@@ -329,12 +329,12 @@ arietta-section-five = {
             \once \override TupletNumber.Y-offset = #-2.7
             \tuplet 6/4 { g16-[^( af bf af g af)] } |
             \once \override TupletNumber.Y-offset = #-2.7
-            \tuplet 5/4 { af16-[^(\ritardandoOne g af bf af)] }
+            \tuplet 5/4 { af16-[^(-\textCresc "ritar" g af bf af)] }
             g8-[ r16 f16]
             \once \override TupletNumber.Y-offset = #-2.7
-            \tuplet 5/4 { f16-[^( ef f g f])\!\ritardandoTwo }
+            \tuplet 5/4 { f16-[^( ef f g f])\!-\textCresc "dan" }
             f8-[ r16 <df g df'>] |
-            4 <c af' c>4\!\ritardandoThree \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
+            4 <c af' c>4\!-\textCrescEnd "do" \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
             4 <ef af ef'>4 \relative c'' { b4\rest b8\rest } af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
             af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
             \stemDown af( cf) f,( af) \stemNeutral d,^\nonLigato\p\cresc ef f g af bf c df ef e f ef |

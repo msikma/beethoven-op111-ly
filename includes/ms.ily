@@ -169,26 +169,26 @@ ritardando =
                'span-type 'text
                'span-text "ritardando")
 
-% \ritardandoOne
+% \textCresc <string>
 %
-% Part one of a set of tweaks for Op.111. Prints "ritardando"
-% with spaces in between. Use with \ritardandoTwo and \ritardandoThree.
-ritardandoOne =
-  #(make-music 'CrescendoEvent
+% Creates a crescendo with custom text.
+textCresc =
+#(define-music-function (parser location mymarkup) (markup?)
+   (make-music 'CrescendoEvent
                'span-direction START
                'span-type 'text
-               'span-text "ritar")
-ritardandoTwo =
-  #(make-music 'CrescendoEvent
-               'span-direction START
-               'span-type 'text
-               'span-text "dan")
-ritardandoThree =
-  #(make-music 'CrescendoEvent
+               'span-text mymarkup))
+
+% \textCrescEnd <string>
+%
+% Creates another crescendo with custom text, but without dashed line.
+textCrescEnd =
+#(define-music-function (parser location mymarkup) (markup?)
+   (make-music 'CrescendoEvent
                'span-direction START
                'span-type 'text
                'tweaks '((dash-period . -1))
-               'span-text "do")
+               'span-text mymarkup))
 
 % \mezzoP-pocoRitenente
 %
