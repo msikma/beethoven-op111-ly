@@ -446,6 +446,21 @@ arietta-section-five = {
           g'''16 af g f ef f ef d ef f ef d c g a b |
           <c, c'>4^.\ff <ef ef'>4^. <b b'>4.\sf <af' af'>8 |
           <g g'>8 <f f'> <ef ef'> <d d'> <ef ef'>16 f' ef d <c, c'>8\noBeam <f g af'>8\p |
+          <<
+            \relative c'' {
+              % We're hacking away with fake crescendos in a separate voice, so hide the warning.
+              #(ly:expect-warning "(De)crescendo with unspecified starting volume in MIDI.")
+              \stemDown <f g g'>^.^(-\textCresc "ri" <f g f'>^. <f g ef'>^. <f g d'>^.) \stemUp ef'16-\textCresc "tar" f ef d c8\noBeam af |
+              g8^.-\textCresc "dan" f^. ef^. d^. ef16 f ef d-\textCrescEnd "do" c8\!
+            }
+            \\
+            \relative c'' {
+              s2 \relative c'' { b8\rest } <ef g>8_~ <ef g> <f, g>8\noBeam |
+              % fixme: why no beams here?
+              <f g>8 8 8 8 \relative c'' { g8\rest } <ef g>8_~-[ <ef g>]
+            }
+          >>
+          <af af'>16\cresc^\markup { \italic "a tempo" } \relative c'' { b16\rest\! }
         }
       }
       %---------------------------------------------------------------------
@@ -683,6 +698,8 @@ arietta-section-five = {
           \stemNeutral
           <c, c'>4_. <ef ef'>4_. <b b'>4. <af' af'>8 |
           <g g'>8 <f f'>8 <ef ef'>8 <d d'>8 ef16 f ef d <c c'>8 \relative c { d8\rest } |
+          <g'' b>8 8 <g c> <g b> \relative c { d8\rest } <c,_~ c'^~>8 <c c'> \relative c { d8\rest } |
+          <g, g'>8 8 <g a'> <g b'> \relative c { d8\rest } <c_~ c'^~> <c c'> \relative c { d16\rest } <b! b'!>16 |
         }
       }
     >>
