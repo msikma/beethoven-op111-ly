@@ -460,7 +460,14 @@ arietta-section-five = {
               <f g>8 8 8 8 \relative c'' { g8\rest } <ef g>8_~-[ <ef g>]
             }
           >>
-          <af af'>16\cresc^\markup { \italic "a tempo" } \relative c'' { b16\rest\! }
+          <af af'>16\cresc^\markup { \italic "a tempo" } \relative c'' { b16\rest } |
+          <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] a'\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] f'\rest |
+          <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] d'\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
+          <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] d\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
+          % We're hacking here, so expect a crescendo error.
+          #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+          % todo: move 'poco ritenente' above the hairpin
+          <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>] b'\rest <c, g' c>8\!^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' d'>4 <c g' b>8\! |
         }
       }
       %---------------------------------------------------------------------
@@ -700,6 +707,15 @@ arietta-section-five = {
           <g g'>8 <f f'>8 <ef ef'>8 <d d'>8 ef16 f ef d <c c'>8 \relative c { d8\rest } |
           <g'' b>8 8 <g c> <g b> \relative c { d8\rest } <c,_~ c'^~>8 <c c'> \relative c { d8\rest } |
           <g, g'>8 8 <g a'> <g b'> \relative c { d8\rest } <c_~ c'^~> <c c'> \relative c { d16\rest } <b! b'!>16 |
+          \relative c { d16\rest }
+          \offset positions #'(1.5 . 1.5) Beam
+          <b b'>16-[ \relative c { d\rest } <b b'> \relative c { d\rest } <b b'> \relative c { d\rest } <b b'>] \relative c { d\rest }
+          \offset positions #'(0.8 . 0.8) Beam
+          <c c'>-[ \relative c { d\rest } <d d'> \relative c { d\rest } <ef ef'> \relative c { d\rest } <d d'>]
+          \undo \offset positions #'(1 . 3) Beam |
+          \relative c { d16\rest } <ef ef'>16-[ \relative c { d16\rest } <e e'> \relative c { d16\rest } <f f'> \relative c { d16\rest } <e e'>] \relative c { d16\rest } <f f'>-[ \relative c { d16\rest } <g g'> \relative c { d16\rest } <af af'> \relative c { d16\rest } <f' af>] |
+          \relative c { d16\rest } <f af>16-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df>] \relative c' { a16\rest } <f af df>-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af>] |
+          \relative c { d16\rest } <f af>16-[ \relative c { f16\rest } <e g> \relative c { f16\rest } <e g> \relative c { f16\rest } <e g>] <e g>8 e,4 \tuplet 3/2 { c16 d e } |
         }
       }
     >>
