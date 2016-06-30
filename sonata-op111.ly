@@ -464,10 +464,27 @@ arietta-section-five = {
           <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] a'\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] f'\rest |
           <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] d'\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
           <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] d\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
-          % We're hacking here, so expect a crescendo error.
-          #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
           % todo: move 'poco ritenente' above the hairpin
-          <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>] b'\rest <c, g' c>8\!^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' d'>4 <c g' b>8\! |
+          <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>] b'\rest <c, g' c>8\!^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
+          af'16^\markup { \italic "a tempo" }\f c bf af g f e f g af bf g df e g bf_~ |
+          bf8-[ <e,, e'>^( <f f'> <e e'>] <f f'>-[ <bf bf'>) <af af'>-. <f f'>-.] |
+          \override Tie.minimum-length = #3.25
+          \relative c'' { b8\rest } <f f'>-[^( <g g'>) <g_~ g'^~>^(] <g g'>-[ <c c'>) <bf bf'>^. <g g'>^.] |
+          \relative c'' { b8\rest } <g g'>-[^( <af af'>) <af_~ af'^~>^(] <af af'>-[ <df df'>) <c c'>^.] <c c'>16-[ bf'] |
+          a8-[ bf16 c] f, gf f ef
+          <<
+            \relative c'' {
+              bf4^.^\f df^. |
+              a4.^\sf gf'8\noBeam f16 gf f ef df ef df c
+            }
+            \\
+            \relative c' {
+              f16 gf f ef df f df f |
+              ef f gf f ef8-[ ef'16 df] c4 e,4\rest
+            }
+          >> |
+          df'16 ef df c bf df f af gf af gf f ef f ef df |
+          ef f ef df c ef gf bf af bf af gf f gf f ef |
         }
       }
       %---------------------------------------------------------------------
@@ -716,6 +733,14 @@ arietta-section-five = {
           \relative c { d16\rest } <ef ef'>16-[ \relative c { d16\rest } <e e'> \relative c { d16\rest } <f f'> \relative c { d16\rest } <e e'>] \relative c { d16\rest } <f f'>-[ \relative c { d16\rest } <g g'> \relative c { d16\rest } <af af'> \relative c { d16\rest } <f' af>] |
           \relative c { d16\rest } <f af>16-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df>] \relative c' { a16\rest } <f af df>-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af>] |
           \relative c { d16\rest } <f af>16-[ \relative c { f16\rest } <e g> \relative c { f16\rest } <e g> \relative c { f16\rest } <e g>] <e g>8 e,4 \tuplet 3/2 { c16 d e } |
+          <f, f'>4_. <af af'>_. <e_~ e'^~>\sf <e e'>16-[ g' bf df] |
+          c16 df c bf af bf af g af bf af g f af bf c |
+          df ef df c bf c bf a bf c bf af g bf df f |
+          ef f ef df c df c bf c df c af a c ef gf |
+          f gf f ef df ef df c df ef df c bf df bf df |
+          c df ef df c df c bf a8-[ <f f'>^( <bf bf'> <a a'>] |
+          <bf bf'> <ef ef'>) <df df'>^. <bf bf'>^. \relative c { d8\rest } <bf bf'>-[^( <c c'> <bf bf'>] |
+          <c c'> <f f'>) <ef ef'>^. <c c'>^. \relative c { d8\rest } <c c'>^( <df df'> <c c'>) |
         }
       }
     >>
