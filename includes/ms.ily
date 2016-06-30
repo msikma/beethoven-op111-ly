@@ -296,14 +296,14 @@ CURRENT-DATE = #(strftime "%Y-%m-%d" (localtime (current-time)))
 % English
 ms-copyright-cc-by-sa-four-en = "Licensed under CC BY-SA 4.0."
 ms-copyright-pd-en = "Public domain."
-ms-copyright-template-en = "© ~A. Arranged by ~A."
-ms-copyright-template-en-license = "© ~A. Arranged by ~A. ~A"
+ms-copyright-template-en = "© ~A. Typeset by ~A."
+ms-copyright-template-en-license = "© ~A. Typeset by ~A. ~A"
 
 % Japanese (Todo)
 ms-copyright-cc-by-sa-four-jp = "Licensed under CC BY-SA 4.0."
 ms-copyright-pd-jp = "Public domain."
-ms-copyright-template-jp = "© ~A. Arranged by ~A."
-ms-copyright-template-jp-license = "© ~A. Arranged by ~A. ~A"
+ms-copyright-template-jp = "© ~A. Typeset by ~A."
+ms-copyright-template-jp-license = "© ~A. Typeset by ~A. ~A"
 
 % Standardized tagline.
 ms-tagline-en = \markup {
