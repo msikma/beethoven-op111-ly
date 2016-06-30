@@ -485,6 +485,32 @@ arietta-section-five = {
           >> |
           df'16 ef df c bf df f af gf af gf f ef f ef df |
           ef f ef df c ef gf bf af bf af gf f gf f ef |
+          <<
+            \relative c''' {
+              df4^. f^. c4^~ \stemDown c16
+              \ottava #1
+              \set Staff.ottavation = #"8"
+              ef gf bf
+            }
+            \\
+            \relative c''' {
+              af bf af gf f gf af f ef8\noBeam \relative c'' { b8\rest } s4
+            }
+          >> |
+          af'16 bf af gf f gf f ef f gf f ef d! f af cf |
+          bf cf bf af gf af gf f gf af gf f e g bf df, |
+          c df c bf af bf af g af bf af g fs a c ef |
+          d! ef d c bf c bf a b c b a b d f af! |
+          g af g f ef f ef d ef f ef d ef g a b |
+          c2\sf
+          \ottava #0
+          \clef bass
+          \relative c, { c2\sf f,\sf }
+          \clef treble
+          \ottava #1
+          \set Staff.ottavation = #"8"
+          c2\sf
+          \ottava #0
         }
       }
       %---------------------------------------------------------------------
@@ -740,7 +766,19 @@ arietta-section-five = {
           f gf f ef df ef df c df ef df c bf df bf df |
           c df ef df c df c bf a8-[ <f f'>^( <bf bf'> <a a'>] |
           <bf bf'> <ef ef'>) <df df'>^. <bf bf'>^. \relative c { d8\rest } <bf bf'>-[^( <c c'> <bf bf'>] |
-          <c c'> <f f'>) <ef ef'>^. <c c'>^. \relative c { d8\rest } <c c'>^( <df df'> <c c'>) |
+          <c c'> <f f'>) <ef ef'>^. <c c'>^. \relative c { d8\rest } <c c'>^( <df df'> <c c'>) \clef treble |
+          f'16 gf f ef df ef f df af' bf af g af c ef gf |
+          f gf f ef df ef df c df ef df c bf d f af |
+          gf af gf f ef f ef d! ef f ef df c e g f |
+          e f e g f g f e f g f ef d! fs a c |
+          bf c bf a! g a g fs g a g fs g b d f! |
+          ef f ef d c d c b c d c b c8 \clef bass g,,,16-[ af] |
+          <ef g>16\sustainOn c' <ef, g> c' <ef, g> c' <ef, g> c' <e, g bf!> c' <e, g bf> c' <e, g bf> c' <e, g bf>
+          % Note: manual override
+          % todo: change to a proper fix
+          \once \override Staff.SustainPedal.X-offset = #1.5
+          c'\sustainOff |
+          <f, af> c' <f, af> c' <f, af> c' <f, af> c' <fs, a c> ef' <fs, a c> ef' <fs, a c> ef' <fs, a c> ef' |
         }
       }
     >>
