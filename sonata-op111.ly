@@ -510,7 +510,15 @@ arietta-section-five = {
           \ottava #1
           \set Staff.ottavation = #"8"
           c2\sf
-          \ottava #0
+          \ottava #0 |
+          \relative c'' { b4\rest } g2\sf^( e8. c16) |
+          c4^( b8-[) \relative c''' { a16\rest } a16] a4^( g8-[) \relative c'' { f16\rest } <f d' f>16] |
+          4 <e_~ c'^~ e^~>4
+          \tupletDown
+          \offset positions #'(0.0 . 1.0) Beam
+          \tuplet 12/8 { <e c' e>32-[_\markup { \italic "meno allegro" }^( g' fs g a g ds e f e b c]) }
+          \undo \offset positions #'(0.0 . 1.0) Beam
+          \tuplet 9/8 { d-[^( c fs, g gs a g e c]) } |
         }
       }
       %---------------------------------------------------------------------
@@ -776,9 +784,12 @@ arietta-section-five = {
           <ef g>16\sustainOn c' <ef, g> c' <ef, g> c' <ef, g> c' <e, g bf!> c' <e, g bf> c' <e, g bf> c' <e, g bf>
           % Note: manual override
           % todo: change to a proper fix
-          \once \override Staff.SustainPedal.X-offset = #1.5
+          %\once \override Staff.SustainPedal.X-offset = #1.5
           c'\sustainOff |
           <f, af> c' <f, af> c' <f, af> c' <f, af> c' <fs, a c> ef' <fs, a c> ef' <fs, a c> ef' <fs, a c> ef' |
+          <g,, g'>4^\sf\sustainOn d''4\rest d4\rest d8.\rest <g e' g>16\sustainOff |
+          <g d' f>4. \relative c { d16\rest } <g c e>16 4 <g b d>8-[ \relative c { f16\rest } <g b d>16] |
+          <g b d>4 <g c e>4 \relative c { d2\rest } |
         }
       }
     >>
