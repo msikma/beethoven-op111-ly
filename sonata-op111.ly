@@ -519,6 +519,33 @@ arietta-section-five = {
           \tuplet 12/8 { <e c' e>32-[_\markup { \italic "meno allegro" }^( g' fs g a g ds e f e b c]) }
           \undo \offset positions #'(0.0 . 1.0) Beam
           \tuplet 9/8 { d-[^( c fs, g gs a g e c]) } |
+          <<
+            \relative c'' {
+              % We're hacking away with fake crescendos in a separate voice, so hide the warning.
+              #(ly:expect-warning "(De)crescendo with unspecified starting volume in MIDI.")
+              \tuplet 5/4 { c16-[-\textCresc "ritar" b c d c] }
+              b8-[ \relative c'' { b16\rest } a16]
+              \tuplet 5/4 { a16-[ g a b-\textCresc "dan" a] }
+              g8-[ \relative c'' { b16\rest } <b f'>16] |
+              \stemDown <b f'>4 <c e>4-\textCrescEnd "do" \relative c'' { b4\rest b8.\rest } <g d' a'>16\!^\markup { \italic "Adagio" } |
+              4 <g g'> s4 s8. \stemUp af'!16^\markup { \italic "Tempo I" } |
+              af4^( g2 bf4^~ |
+              bf4) bf4^~^(
+              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+              bf8\cresc a bf b) |
+              \stemDown
+              \relative c'' { b16\rest\!\p } c,16 f af c4 \relative c'' { b16\rest } c,16 f af c4
+            }
+            \\
+            \relative c' {
+              <b f'>4. s16 <c f>16 <d f>4. s8 |
+              s1 |
+              s2 \relative c'' { b4\rest b8.\rest } d'16 |
+              d4_( df2 <f_~ g^~>4 |
+              <f g>4) <e_~ g_~>2 <e g>8-[ <f af>8] |
+              s1
+            }
+          >> |
         }
       }
       %---------------------------------------------------------------------
@@ -790,6 +817,12 @@ arietta-section-five = {
           <g,, g'>4^\sf\sustainOn d''4\rest d4\rest d8.\rest <g e' g>16\sustainOff |
           <g d' f>4. \relative c { d16\rest } <g c e>16 4 <g b d>8-[ \relative c { f16\rest } <g b d>16] |
           <g b d>4 <g c e>4 \relative c { d2\rest } |
+          <g, d' f>4. \relative c { d16\rest } <g c f>16 <g b f'>4. \relative c { d16\rest } <g' d'>16 |
+          <gs d'>4 <a c>4 \relative c { d4\rest d8.\rest } <f g b>16 |
+          4 <e g c>4 \relative c { d4\rest d8.\rest } \clef treble <f' b>16 |
+          <f b>4_( <e bf'>2) <df_~ g_~ bf^~>4 |
+          4 <df_~ g_~ bf^~>2 8 <df f af>8 \clef bass |
+          <c, c'>2.^( <af af'>8. <f f'>16) |
         }
       }
     >>
