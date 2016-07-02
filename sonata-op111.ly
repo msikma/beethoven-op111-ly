@@ -516,6 +516,7 @@ arietta-section-five = {
           4 <e_~ c'^~ e^~>4
           \tupletDown
           \offset positions #'(0.0 . 1.0) Beam
+          \once \override TupletNumber.Y-offset = #-2.7
           \tuplet 12/8 { <e c' e>32-[_\markup { \italic "meno allegro" }^( g' fs g a g ds e f e b c]) }
           \undo \offset positions #'(0.0 . 1.0) Beam
           \tuplet 9/8 { d-[^( c fs, g gs a g e c]) } |
