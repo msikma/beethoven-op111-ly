@@ -471,7 +471,7 @@ arietta-section-five = {
           \override Tie.minimum-length = #3.25
           \relative c'' { b8\rest } <f f'>-[^( <g g'>) <g_~ g'^~>^(] <g g'>-[ <c c'>) <bf bf'>^. <g g'>^.] |
           \relative c'' { b8\rest } <g g'>-[^( <af af'>) <af_~ af'^~>^(] <af af'>-[ <df df'>) <c c'>^.] <c c'>16-[ bf'] |
-          a8-[ bf16 c] f, gf f ef
+          \stemUp a8-[ bf16 c] f, gf f ef \stemNeutral
           <<
             \relative c'' {
               bf4^.^\f df^. |
@@ -545,6 +545,38 @@ arietta-section-five = {
               d4_( df2 <f_~ g^~>4 |
               <f g>4) <e_~ g_~>2 <e g>8-[ <f af>8] |
               s1
+            }
+          >> |
+          \relative c'' { b16\rest } c g' bf c4 \relative c'' { b16\rest } c, e g c4 |
+          \tupletDown
+          \relative c'' { b16\rest } c,-[ f af] c-[ e f_\markup { \italic "meno allegro" } c] \tuplet 6/4 { ef df bf df c af } \tuplet 6/4 { c bf g bf af f } |
+          <<
+            \relative c'' {
+              #(ly:expect-warning "(De)crescendo with unspecified starting volume in MIDI.")
+              \tuplet 5/4 { f16-\textCresc "ritar" e f g f } e8-[ \relative c'' { b16\rest } df16] \tuplet 5/4 { df\!-\textCresc "dan" c df ef df } c8-[ \relative c'' { b16\rest-\textCrescEnd "do" } bf'16] |
+              \stemNeutral
+              \tupletDown
+              \tuplet 5/4 { bf16\!\cresc af bf c bf } af8-[ c] \tuplet 5/4 { c16 b c d c } b8-[ d] |
+              \ottava #1
+              \set Staff.ottavation = #"8"
+              \tuplet 5/4 { d16 c d ef d } c8-[ ef] \tuplet 5/4 { ef16 d ef f ef } d8-[ f] |
+              \tuplet 5/4 { f16 ef f g f } ef8-[ g] \tuplet 5/4 { g16 f g af g } f8-[ af] |
+              \tuplet 5/4 { af16 g af bf af } g8^.-[ bf^.] \tuplet 5/4 { bf16 af bf c bf } af8^.-[ b^.] |
+              % Note: manuscript has no \ff here, but the cresc is awkward without one.
+              % We're also following the same format as the previous section.
+              c16^(\!^\markup { \italic "Tempo I" }-\parenthesize \ff ef) a,^( c) fs,^( a) ef^( fs)
+              \ottava #0
+              c^( ef) a,^( c) fs,^( a) ef^( fs) |
+            }
+            \\
+            \relative c'' {
+              bf4. s16 af16 g4. s8 |
+              #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+              s8-\textCresc "poi a poi sempre più allegro" s4. s2 |
+              s1 |
+              s1 |
+              s1 |
+              s8\! s4. s2
             }
           >> |
         }
@@ -824,6 +856,19 @@ arietta-section-five = {
           <f b>4_( <e bf'>2) <df_~ g_~ bf^~>4 |
           4 <df_~ g_~ bf^~>2 8 <df f af>8 \clef bass |
           <c, c'>2.^( <af af'>8. <f f'>16) |
+          \set doubleSlurs = ##t
+          <f f'>4( <e e'>8-[) \relative c { d16\rest } <df df'>16] <df df'>4( <c c'>8-[) \relative c { d16\rest } <bf' bf'>16] |
+          \set doubleSlurs = ##f
+          <bf bf'>4 <af af'>4 \relative c { d2\rest } |
+          <c g' c>4. \relative c { d16\rest } <c f c'>16 <c e c'>4. \relative c { d16\rest } <e g c>16 |
+          <f af c>8-[ 8] \relative c { d8\rest } <fs a ef'!>8 <g b d>8-[ 8] \relative c { d8\rest } <g b f'!>8 |
+          <af! c ef>8-[ 8] \relative c { d8\rest } <a c f>8\noBeam <bf! d f>8-[ 8] \relative c { d8\rest } <b d g>8 |
+          % todo cleanup per manuscript
+          <c ef g>8-[ 8] \clef treble \relative c'' { b8\rest } <c ef g>8\noBeam <d f af b>8-[ 8] \relative c'' { b8\rest } <d f af b>8 |
+          \stemUp
+          <ef g c>8-[ 8] \relative c'' { b8\rest } <e g c>8 <f af c>8-[ 8] \relative c'' { b8\rest } <f af d>8 |
+          \stemNeutral
+          <fs a ef'>8-[ a'16^( c]) fs,^( a) ef^( fs) c^( ef) a,^( c) fs,( a) ef( fs) \clef bass |
         }
       }
     >>
