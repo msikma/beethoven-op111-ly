@@ -581,6 +581,10 @@ arietta-section-five = {
               c16^(\!^\markup { \italic "Tempo I" }-\parenHigh\ff ef) a,^( c) fs,^( a) ef^( fs)
               \ottava #0
               c^( ef) a,^( c) fs,^( a) ef^( fs) |
+              d^( f!) b,^( d) \stemUp af!_( b) f_( af) d,_( f) b,_( d) af_( b) af_( b) |
+              \stemNeutral
+              g\p\cresc b c d ef f g af b c d ef f fs g fs |
+              af\!\ff g ef c af' g ef c af'\sf g f! d af' g f d |
             }
             \\
             \relative c'' {
@@ -884,6 +888,9 @@ arietta-section-five = {
           <ef g c>8-[ 8] \relative c'' { b8\rest } <e g c>8 <f af c>8-[ 8] \relative c'' { b8\rest } <f af d>8 |
           \stemNeutral
           <fs a ef'>8-[ a'16^( c]) fs,^( a) ef^( fs) c^( ef) a,^( c) fs,( a) ef( fs) \clef bass |
+          d^( f) b,^( d) af!^( b) f^( af) d,^( f) b,^( d) af_( b) af_( b) |
+          \stemDown g b c d ef f g af b c d ef f fs g8 \stemNeutral |
+          <c,,, c'>4_. <ef ef'>4_. <b b'>2^\sf |
         }
       }
     >>
