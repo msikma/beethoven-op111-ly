@@ -288,6 +288,30 @@ resetNoteDuration =
      \revert Score.SpacingSpanner #'common-shortest-duration  
    #})
 
+% \paren
+%
+% Parenthesizes a dynamic mark.
+paren =
+#(define-event-function (parser location dyn) (ly:event?)
+   (make-dynamic-script
+    #{ \markup \concat {
+         \normal-text \italic \fontsize #2 (
+	 \pad-x #0.2 #(ly:music-property dyn 'text)
+	 \normal-text \italic \fontsize #2 )
+       }
+    #}))
+
+% Special form of \paren, set a bit higher so that it works for two text spanners.
+parenHigh =
+#(define-event-function (parser location dyn) (ly:event?)
+   (make-dynamic-script
+    #{ \markup \concat {
+         \hspace #-0.5 \normal-text \italic \fontsize #2 (
+	 \pad-x #0.2 #(ly:music-property dyn 'text)
+	 \normal-text \italic \fontsize #2 )
+       }
+    #}))
+
 % Language-independent variables.
 CURRENT-YEAR = #(strftime "%Y" (localtime (current-time)))
 CURRENT-DATE = #(strftime "%Y-%m-%d" (localtime (current-time)))

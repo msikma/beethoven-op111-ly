@@ -549,22 +549,36 @@ arietta-section-five = {
           >> |
           \relative c'' { b16\rest } c g' bf c4 \relative c'' { b16\rest } c, e g c4 |
           \tupletDown
-          \relative c'' { b16\rest } c,-[ f af] c-[ e f_\markup { \italic "meno allegro" } c] \tuplet 6/4 { ef df bf df c af } \tuplet 6/4 { c bf g bf af f } |
+          \relative c'' { b16\rest } c,-[ f af] c-[ e f_\markup { \italic "meno allegro" } c]
+          \once \override TupletNumber.Y-offset = #-1.05
+          \tuplet 6/4 { ef df bf df c af }
+          \once \override TupletNumber.Y-offset = #-1.65
+          \tuplet 6/4 { c bf g bf af f } |
           <<
             \relative c'' {
               #(ly:expect-warning "(De)crescendo with unspecified starting volume in MIDI.")
               \tuplet 5/4 { f16-\textCresc "ritar" e f g f } e8-[ \relative c'' { b16\rest } df16] \tuplet 5/4 { df\!-\textCresc "dan" c df ef df } c8-[ \relative c'' { b16\rest-\textCrescEnd "do" } bf'16] |
               \stemNeutral
               \tupletDown
-              \tuplet 5/4 { bf16\!\cresc af bf c bf } af8-[ c] \tuplet 5/4 { c16 b c d c } b8-[ d] |
+              \once \override DynamicTextSpanner.to-barline = ##t
+              \once \override TupletNumber.Y-offset = #-1.70
+              \tuplet 5/4 { bf16\!\cresc af bf c bf } af8-[ c]
+              \once \override TupletNumber.Y-offset = #-1.70
+              \tuplet 5/4 { c16 b c d c } b8-[ d] |
               \ottava #1
               \set Staff.ottavation = #"8"
               \tuplet 5/4 { d16 c d ef d } c8-[ ef] \tuplet 5/4 { ef16 d ef f ef } d8-[ f] |
-              \tuplet 5/4 { f16 ef f g f } ef8-[ g] \tuplet 5/4 { g16 f g af g } f8-[ af] |
-              \tuplet 5/4 { af16 g af bf af } g8^.-[ bf^.] \tuplet 5/4 { bf16 af bf c bf } af8^.-[ b^.] |
+              \once \override TupletNumber.Y-offset = #-2.04
+              \tuplet 5/4 { f16 ef f g f } ef8-[ g]
+              \once \override TupletNumber.Y-offset = #-2.04
+              \tuplet 5/4 { g16 f g af g } f8-[ af] |
+              \once \override TupletNumber.Y-offset = #-1.70
+              \tuplet 5/4 { af16 g af bf af } g8^.-[ bf^.]
+              \once \override TupletNumber.Y-offset = #-1.70
+              \tuplet 5/4 { bf16 af bf c bf } af8^.-[ b^.] |
               % Note: manuscript has no \ff here, but the cresc is awkward without one.
               % We're also following the same format as the previous section.
-              c16^(\!^\markup { \italic "Tempo I" }-\parenthesize \ff ef) a,^( c) fs,^( a) ef^( fs)
+              c16^(\!^\markup { \italic "Tempo I" }-\parenHigh\ff ef) a,^( c) fs,^( a) ef^( fs)
               \ottava #0
               c^( ef) a,^( c) fs,^( a) ef^( fs) |
             }
@@ -572,11 +586,12 @@ arietta-section-five = {
             \relative c'' {
               bf4. s16 af16 g4. s8 |
               #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
+              \once \override DynamicTextSpanner.to-barline = ##t
               s8-\textCresc "poi a poi sempre più allegro" s4. s2 |
               s1 |
               s1 |
               s1 |
-              s8\! s4. s2
+              s1\!
             }
           >> |
         }
