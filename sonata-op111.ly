@@ -557,7 +557,7 @@ arietta-section-five = {
           <<
             \relative c'' {
               #(ly:expect-warning "(De)crescendo with unspecified starting volume in MIDI.")
-              \tuplet 5/4 { f16-\textCresc "ritar" e f g f } e8-[ \relative c'' { b16\rest } df16] \tuplet 5/4 { df\!-\textCresc "dan" c df ef df } c8-[ \relative c'' { b16\rest-\textCrescEnd "do" } bf'16] |
+              \tuplet 5/4 { f16-\textCresc "ritar" e f g f } e8-[ \relative c'' { b16\rest } df16] \tuplet 5/4 { df\!-\textCresc "dan" c df ef df } c8-[ \relative c'' { b16\rest } bf'16]-\textCrescEnd "do" |
               \stemNeutral
               \tupletDown
               \once \override DynamicTextSpanner.to-barline = ##t
@@ -585,6 +585,29 @@ arietta-section-five = {
               \stemNeutral
               g\p\cresc b c d ef f g af b c d ef f fs g fs |
               af\!\ff g ef c af' g ef c af'\sf g f! d af' g f d |
+              df' c g ef df' c g ef g' f c f, g' f c f, |
+              g' fs ef c g' fs ef c af' g ef c f ef c bf |
+              f' ef c g ef' d! b! f
+              <<
+                \relative c''' {
+                  c4^. ef^. |
+                  b2\sf bf4^. c^. |
+                  a2\sf af4^. c4^. |
+                  g4\sf
+                  \ottava #1
+                  \set Staff.ottavation = #"8"
+                  c8.-[ ef16] g8 8 \stemDown g8.-[\trill fs32 g] |
+                  g8-[^( b)] b-[^(\> c)]\!
+                  \ottava #0
+                }
+                \\
+                \relative c'' {
+                  <ef g>8 8 8 8 |
+                  <d g>8 8 8 8 <c g'>8 8 8 8 |
+                  <c f>8 8 8 8 8 8 8 <c ef> |
+                  <c ef>4 c8.-[ ef16] g8 s4. |
+                }
+              >>
             }
             \\
             \relative c'' {
@@ -597,7 +620,46 @@ arietta-section-five = {
               s1 |
               s1\!
             }
-          >> |
+          >>
+          \relative c'' { b8\rest }
+          g8\noBeam g8.\trill-[ fs32 g32] |
+          g8-[^( b]) b-[^(\> c)]\! \relative c'' { b8\rest } g,8\noBeam af16 g a b |
+          c16\sf d ef d ef\sf e f e f\sf fs g fs g\sf a bf b |
+          \ottava #1
+          \set Staff.ottavation = #"8"
+          c16\sf d ef d ef\sf e f e f\sf fs g fs g\sf a bf b |
+          c4\ff \ottava #0 <c,,, c'>4\sf \relative c'' { b4\rest } <ef fs a ef'>4\sf |
+          \stemUp
+          % todo bring these closer together (left/right)
+          \relative c'' { b4\rest } <d f! af! b>4\sf \relative c'' { b4\rest } <f af b d>4\sf |
+          <<
+            \relative c' {
+              \relative c'' { b4\rest } <df e g bf!>4_.\dim_( \relative c'' { b4\rest } <e g bf df>4_. |
+              \relative c'' { b4\rest } <c f a>4_. \relative c'' { b4\rest } <f a c>_.) |
+              \relative c'' { b2\rest\!\p } c'2\p |
+              c2 c4.^( <b d>8 |
+              e4 c4) c2 |
+              c2 c4.^( f8 |
+              g4 c4) c,2 |
+              c2 c4. b'8
+            }
+            \\
+            \relative c' {
+              s1 |
+              s1 |
+              s2 <f af!>2 |
+              <g bf>2 <f af>2\< |
+              <e g c>4\!\> e8-[_( f16 g])\! <f af>2 |
+              <g bf>2 <f af>\< |
+              <g c ef>4\!\> e8-[_( f16 g])\! <c, f af>2 |
+              <c g' bf>2 <c f af>4.\< <d' f af>8 |
+              \stemNeutral
+              <d f af b>1\!\> |
+              <e g c>2\!\p\dim 2 |
+              1\!\pp
+            }
+          >>
+          \bar "|."
         }
       }
       %---------------------------------------------------------------------
@@ -891,6 +953,29 @@ arietta-section-five = {
           d^( f) b,^( d) af!^( b) f^( af) d,^( f) b,^( d) af_( b) af_( b) |
           \stemDown g b c d ef f g af b c d ef f fs g8 \stemNeutral |
           <c,,, c'>4_. <ef ef'>4_. <b b'>2^\sf |
+          <bf! bf'!>4_. <c c'>_. <a a'>2^\sf |
+          <af! af'!>4_. <c c'>_. <g g'>4^\sf <c c'>8.-[ <ef ef'>16] |
+          <g g'>4_. <g, g'>4_. \relative c { d16\rest } d'''16-[ c b] c d ef c |
+          \relative c { d16\rest } a,16 g fs g a b g \relative c { d16\rest } f''!16 e d e f g e |
+          \relative c { d16\rest } g,, f e f g a f \relative c { d16\rest } g' f e f g af! fs |
+          g16 ef! c g ef g ef c b g' d g ef g f g |
+          ef g d g ef g c, g' b, g' d g ef g f g |
+          ef g d g ef g c, g' b, g' d g af g a b |
+          c16 d ef d ef e f e f fs g fs g a bf b \clef treble |
+          c16 d ef d ef e f e f fs g fs g a bf b |
+          c4 \clef bass <c,,, c'>4 \relative c { d4\rest } <c c'> |
+          \relative c { d4\rest } <c c'> \relative c { d4\rest } <c c'> |
+          \relative c { d4\rest } <c c'>_._( \relative c { d4\rest } <c c'>_. |
+          \relative c { d4\rest } <c c'>_. \relative c { d4\rest } <c c'>_.) |
+          \relative c { d8\rest } c'16-[ df] c-[ bf af! g] f-[ c' df c] bf-[ af g f] |
+          e c' df c bf g e c' f, c' df c bf af g f |
+          c d e f g c, d e f c' df c bf af g f |
+          e c' df c bf g e c' f, c' df c bf af g f |
+          c d e f g c, d e f c' df c bf af g f |
+          e c' df c bf g e c' f, af f c f af f c |
+          f af f c f af f c f af f c f af f c |
+          g'\sustainOn c g c, g' c g c, g' e' g, c, g' e' g, c, |
+          <c, c'>1\sustainOff |
         }
       }
     >>
