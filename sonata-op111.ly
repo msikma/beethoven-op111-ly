@@ -81,59 +81,6 @@ arietta-section-five = {
 }
 
 %---------------------------------------------------------------------
-%    1. Preface
-%---------------------------------------------------------------------
-%{
-\bookpart {
-  \paper {
-    markup-system-spacing = \std-padding-page-one
-    ragged-right = ##t
-    indent = 0
-    top-margin = 0.7\in
-    left-margin = 0.6\in
-    right-margin = 0.6\in
-    bottom-margin = 0.7\in
-  }
-  \markup \bold {
-    Preface
-  }
-  \paragraphBreak
-  \markup \justify {
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in porta odio, ut efficitur odio. Aenean interdum tempus lectus, nec cursus lacus tincidunt ut. Ut nec lobortis massa. In vitae leo sit amet neque aliquam pharetra et vitae velit. Integer lacus dui, laoreet ut tristique in, vehicula ac turpis. Praesent egestas mauris a urna consectetur porttitor. Cras sed molestie est. Morbi in augue at urna ultrices lobortis. Nullam malesuada tincidunt elementum. Nam enim sapien, dictum posuere euismod sed, pretium ut sem.
-  }
-  \paragraphBreak
-  \markup \justify {
-    Donec rhoncus suscipit leo. Maecenas ac pellentesque nibh, a sodales odio. Cras a tellus tempus, feugiat nulla in, tempus ligula. Sed congue interdum congue. Quisque placerat consectetur tellus vitae aliquet. Sed non ligula leo. Praesent eleifend tortor vel risus aliquet, ut bibendum ligula pellentesque. Ut porta porttitor diam vitae semper. Integer dictum bibendum mi eget varius. Curabitur dui tellus, tincidunt sit amet consectetur vel, fermentum et eros. In vitae eros id lectus semper tincidunt. Nulla ex nibh, convallis et ipsum vel, pulvinar vehicula lectus. Etiam vestibulum eu tortor eget gravida. Ut aliquam nisl in lacus dignissim feugiat ac in diam. Aenean sodales iaculis ultrices.
-  }
-  
-  \new PianoStaff <<
-    \new Staff = "right" \relative d {
-      \clef treble
-      \key c \minor
-      \time 4/4
-      
-      \relative c'' {
-        c4 c c c |
-      }
-    }
-    \new Staff = "left" {
-      \clef bass
-      \key c \minor
-      \time 4/4
-  
-      \relative c {
-        c4 c c c |
-      }
-    }
-  >>
-  
-  \markup \justify {
-    Donec rhoncus suscipit leo. Maecenas ac pellentesque nibh, a sodales odio. Cras a tellus tempus, feugiat nulla in, tempus ligula. Sed congue interdum congue. Quisque placerat consectetur tellus vitae aliquet. Sed non ligula leo. Praesent eleifend tortor vel risus aliquet, ut bibendum ligula pellentesque. Ut porta porttitor diam vitae semper. Integer dictum bibendum mi eget varius. Curabitur dui tellus, tincidunt sit amet consectetur vel, fermentum et eros. In vitae eros id lectus semper tincidunt. Nulla ex nibh, convallis et ipsum vel, pulvinar vehicula lectus. Etiam vestibulum eu tortor eget gravida. Ut aliquam nisl in lacus dignissim feugiat ac in diam. Aenean sodales iaculis ultrices.
-  }
-}
-%}
-
-%---------------------------------------------------------------------
 %    I. Maestoso
 %---------------------------------------------------------------------
 \bookpart {
@@ -979,7 +926,6 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
-%{
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
@@ -2845,4 +2791,3 @@ arietta-section-five = {
     }
   }
 }
-%}
