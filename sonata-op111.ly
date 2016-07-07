@@ -185,7 +185,7 @@ arietta-section-five = {
           <<
             \relative c'' {
               \relative c'' { b8\rest b16.\rest }
-              \stemDown <a d f a>32\f <a_~ d_~ f^~ a^~>4\sf <a d f a>8.. <d f>32 \stemUp f8.\trill\sf\> e32 f\!
+              \stemDown <af d f af>32\f <af_~ d_~ f^~ af^~>4\sf <af d f af>8.. <d f>32 \stemUp f8.\trill\sf\> e32 f\!
             }
             \\
             \relative c'' {
@@ -208,7 +208,7 @@ arietta-section-five = {
             }
           >> |
           \break
-          <df' ef bf'>8.. <df ef bf'>32 <df_~ ef^~ bf'^~>4 <df ef bf'>8.. <c ef a>32 <c ef a>8.. <c ef gf>32 |
+          <df' ef! bf'>8.. <df ef bf'>32 <df_~ ef^~ bf'^~>4 <df ef bf'>8.. <c ef af>32 <c ef af>8.. <c ef gf>32 |
           <c ef gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <a ef' gf>32 <a ef' gf>8.. <a ef' gf>32 |
           <a ef' gf>8.. <af df f>32 <af_~ df^~ f^~>4 <af df f>8.. <af cf f>32 <af cf f>8.. <af cf f>32 |
           <af cf f>8.. <af c ef>32 <af_~ c^~ ef^~>4 <af c ef>8.. <af c ef>32 <af c ef>8.. <g bf df>32 |
@@ -227,7 +227,7 @@ arietta-section-five = {
             \\
             \relative c' {
               b8\rest c8 |
-              <c fs>4 <d f> <ef g> <ef af>8.. <d g>32 |
+              <c fs>4 <d f> <ef g> <ef a>8.. <d g>32 |
               s2. \relative c { b8\rest } c,8 |
               <c fs>4 <d f> <ef g> <ef a>8.. <d f>32 |
               s1 |
@@ -264,14 +264,14 @@ arietta-section-five = {
             f'\sf\> ef d af' g f ef d c b af g f ef d g\! |
             <<
               \relative c'' {
-                c4-. e-. b4. af'8 |
+                c4-. ef-. b4. af'8 |
                 g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
                 g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
                 g8 f ef d) ef^( d c b) |
                 c^( bf! af g) af^( f ef d) |
                 #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
                 d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
-                c4\!\>\trill^( \grace { b16 c } e8 d)\! c4^\aTempo d4\rest |
+                c4\!\>\trill^( \grace { b16 c } ef8 d)\! c4^\aTempo d4\rest |
               }
               \\
               \relative c' {
@@ -284,7 +284,7 @@ arietta-section-five = {
                 ef' g, d' g, c g d' <f, g> ef' g, d' g, c g b g |
                 g16 c, g' c, af' c, g' c, af'\!\rfz c, f c ef c d c |
                 f,4 fs( g) a |
-                g g c,-.\f e-. |
+                g g c,-.\f ef-. |
               }
             >>
             \stemUp
@@ -333,10 +333,15 @@ arietta-section-five = {
             g8-[ r16 f16]
             \once \override TupletNumber.Y-offset = #-2.7
             \tuplet 5/4 { f16-[^( ef f g f])\!-\textCresc "dan" }
-            f8-[ r16 <df g df'>] |
+            ef8-[ r16 <df g df'>] |
             4 <c af' c>4\!-\textCrescEnd "do" \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
-            4 <ef af ef'>4 \relative c'' { b4\rest b8\rest } af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
-            af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
+            4 <ef af ef'>4 \relative c'' { b4\rest b8\rest }
+            \ottava #1
+            \set Staff.ottavation = #"8"
+            af'16-[^(\ff^\markup { \italic "Tempo I" } cf]) |
+            af16^( cf) f,^( af)
+            \ottava #0
+            d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
             \stemDown af( cf) f,( af) \stemNeutral d,^\nonLigato\p\cresc ef f g af bf c df ef e f ef |
             f16\!\ff ef c af f' ef c af f'\sf ef df bf f' ef df bf |
             \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
@@ -665,12 +670,12 @@ arietta-section-five = {
             b,64-[\sustainOn d g b d g b] s32.
           }
           <b,,! b'!>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <af'' af'>32 |
-          <b, b'>8..\sf <b, b'>32 <b'_~ b'^~>4 <b b'>8.. \clef treble <a' a'>32 <a a'>4 \clef bass |
-          <bf df>8 \relative c { d8\rest } <a c>8 \relative c { d8\rest }
+          <b, b'>8..\sf <b, b'>32 <b'_~ b'^~>4 <b b'>8.. \clef treble <b' af'>32 <b af'>4 \clef bass |
+          <bf! df>8 \relative c { d8\rest } <af c>8 \relative c { d8\rest }
           \grace {
             e,64-[\sustainOn g c e g c] s16
           }
-          <e,, e'>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <df' df'>32\f |
+          <e,, e'>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <df' df'!>32\f |
           <e, e'>8.. <f f'>32 <f_~ f'^~>4 <f f'>8.. <f' bf df>32 <f bf df>4 |
           <gf bf df>8.. <g bf df>32 <g_~ bf^~ df^~>4 <g bf df>8.. <af c>32 <af c>8.. <a ef' gf>32 |
           <a ef' gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <cf ef gf>32 <cf ef gf>8.. <c ef gf>32 |
@@ -681,7 +686,7 @@ arietta-section-five = {
           <<
             \relative c' {
               g8 g g g g g g g^~ |
-              <g, g'> g\sfp g <g af>\sfp <f af> <f g>\sfp <f g> <ef g> |
+              <g, g'> g\sfp g <g af!>\sfp <f af> <f g>\sfp <f g> <ef g> |
               g8 g g g g g g g^~ |
               g g g g g g g g
             }
@@ -734,7 +739,7 @@ arietta-section-five = {
           c b f' ef
           d af'! g f \clef treble d' c b f' ef d af' g f d' c b |
           f' ef d af' g f ef d c b af g f ef d g |
-          c4 \clef bass <c,,, c'>4 \relative c { d4\rest } <g g'> |
+          c,4 \clef bass <c,, c'>4 \relative c { d4\rest } <g g'> |
           \relative c { d8\rest } <g'' d'>8 <g c> <g b> \relative c { d8\rest d8\rest } <c ef>8 <g f'>^.^( |
           <g ef'>^. <g d'>^. <g c>^. <g b>^.) \relative c { d8\rest } <c_~ ef^~>8 <c ef>8\noBeam <g,, g'>8 |
           <g g'> <g g'> <a a'> <b b'> <c c'> <b b'> <c c'> <d d'> |
@@ -824,7 +829,7 @@ arietta-section-five = {
           <b b'>4 <g g'>4 g''4^. c^. |
           <<
             \relative c' {
-              s4. ef8 d c bf af |
+              s4. ef8 d c bf! a |
               b4 s2 s4 |
             }
             \\
@@ -848,20 +853,20 @@ arietta-section-five = {
             \\
             \relative c {
               \stemUp
-              \crossStaff { f4 }
+              f4
             }
           >> |
           g,,8 fs_~ fs <fs_~ fs'^~> <fs fs'> <fs fs'>4 <fs fs'>8 |
-          \relative c { d16\rest } g af b
+          \relative c { d16\rest } g a b
           \relative c { d16\rest } g'16 a b
-          \relative c { d16\rest } g, c ef fs af c ef |
+          \relative c { d16\rest } g, c ef fs a c ef |
           \part-one-section-four
           \relative c { d16\rest } g,, c ef
           \relative c { d16\rest } g c ef
-          \relative c { d16\rest } g,, c ef g b d f |
+          \relative c { d16\rest } g,, d' f g b d f |
           \relative c { d16\rest } g,, d' f
           \relative c { d16\rest } g d' f
-          \relative c { d16\rest } g,, g' bf df e g bf |
+          \relative c { d16\rest } g,, g' bf! df e g bf |
           \relative c { d16\rest } g,, g' bf
           \stemNeutral
           \relative c { d16\rest } g g' bf
@@ -898,7 +903,7 @@ arietta-section-five = {
           gf af gf f ef f ef d! ef f ef df c e g f |
           e f e g f g f e f g f ef d! fs a c |
           bf c bf a! g a g fs g a g fs g b d f! |
-          ef f ef d c d c b c d c b c8 \clef bass g,,,16-[ af] |
+          ef f ef d c d c b c d c b c8 \clef bass g,,,16-[ f] |
           <ef g>16\sustainOn c' <ef, g> c' <ef, g> c' <ef, g> c' <e, g bf!> c' <e, g bf> c' <e, g bf> c' <e, g bf>
           % Note: manual override
           % todo: change to a proper fix
@@ -965,7 +970,7 @@ arietta-section-five = {
       }
     }
     \midi {
-      \tempo 4 = 96
+      \tempo 4 = 60
     }
   }
 }
