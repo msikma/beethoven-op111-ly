@@ -251,7 +251,7 @@ arietta-section-five = {
             \tuplet 3/2 { g16-[ a b] } |
             c4^. ef4^. b4.^\sf af'!8^. |
             g8-. f-. ef-. d-. ef16 f ef d c8 af'-.-(^\mezzoP-pocoRitenente |
-            g8-. f-. ef-. d-.) ef16 f ef d c af'^\cresc^\markup { \center-column { \italic "a tempo " " " } } bf af |
+            g8-. f-. ef-. d-.) ef16 f ef d c^\cresc^\markup { \center-column { \italic "a tempo" " " } } af' bf af |
             \revert DynamicTextSpanner.font-size
             g af g f ef f ef d ef f ef d c g' f ef |
             f g f ef d af' g f g af g f e bf' af g |
@@ -266,12 +266,12 @@ arietta-section-five = {
               \relative c'' {
                 c4-. ef-. b4. af'8 |
                 g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
-                g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\aTempo^( |
+                g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\markup { \italic "a tempo" }^( |
                 g8 f ef d) ef^( d c b) |
                 c^( bf! af g) af^( f ef d) |
                 #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
                 d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
-                c4\!\>\trill^( \grace { b16 c } ef8 d)\! c4^\aTempo d4\rest |
+                c4\!\>\trill^( \grace { b16 c } ef8 d)\! c4^\markup { \italic "a tempo" } d4\rest |
               }
               \\
               \relative c' {
@@ -548,7 +548,8 @@ arietta-section-five = {
           <<
             \relative c'' {
               #(ly:expect-warning "(De)crescendo with unspecified starting volume in MIDI.")
-              \tuplet 5/4 { f16-\textCresc "ritar" e f g f } e8-[ \relative c'' { b16\rest } df16] \tuplet 5/4 { df\!-\textCresc "dan" c df ef df } c8-[ \relative c'' { b16\rest } bf'16]-\textCrescEnd "do" |
+              % Move the "do" part of "ritardando" to the left just a bit so that it doesn't touch the bar line.
+              \tuplet 5/4 { f16-\textCresc "ritar" e f g f } e8-[ \relative c'' { b16\rest } df16] \tuplet 5/4 { df\!-\textCresc "dan" c df ef df } c8-[ \relative c'' { b16\rest } bf'16]-\tweak bound-details.left.padding #0.35 \textCrescEnd "do" |
               \stemNeutral
               \tupletDown
               \once \override DynamicTextSpanner.to-barline = ##t

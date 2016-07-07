@@ -140,16 +140,6 @@ sempreLegato =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre legato")))
 
-% \aTempo
-%
-% Prints "a tempo".
-aTempo = 
-  \tweak DynamicText.self-alignment-X #RIGHT
-  \tweak DynamicText.X-extent #'(0 . 0)
-  \tweak DynamicText.X-offset #0
-  #(make-dynamic-script
-     (markup #:normal-text (#:italic "a tempo")))
-
 % \manoSinistra
 %
 % Prints "mano sinistra" (use left hand).
