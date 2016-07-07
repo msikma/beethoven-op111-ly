@@ -449,8 +449,9 @@ arietta-section-five = {
           <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] a'\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] f'\rest |
           <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] d'\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
           <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] d\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
-          % todo: move 'poco ritenente' above the hairpin
-          <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>] b'\rest <c, g' c>8\!^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
+          <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>]\! b'\rest
+          \once \override Staff.TextScript.outside-staff-priority = #0
+          <c, g' c>8^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
           af'16^\markup { \italic "a tempo" }\f c bf af g f e f g af bf g df e g bf_~ |
           bf8-[ <e,, e'>^( <f f'> <e e'>] <f f'>-[ <bf bf'>) <af af'>-. <f f'>-.] |
           \override Tie.minimum-length = #3.25
