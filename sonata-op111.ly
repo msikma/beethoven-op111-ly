@@ -339,6 +339,8 @@ arietta-section-five = {
             af16^( cf) f,^( af) d,^( f) cf^( d) af^( cf) f,^( af) d,^( f) cf^( d) |
             \stemDown af( cf) f,( af) \stemNeutral d,^\nonLigato\p\cresc ef f g af bf c df ef e f ef |
             f16\!\ff ef c af f' ef c af f'\sf ef df bf f' ef df bf |
+            \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+              #'((alignment-distances . (8.5)))
             bf' af ef c bf' af ef c bf'\sf af f df ef' df af df, |
             ef' df af df, ef' df af df, df' c af ef df' c af ef |
             df' c af ef c' bf g df
