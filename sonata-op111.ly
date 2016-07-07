@@ -405,25 +405,8 @@ arietta-section-five = {
           >> |
           \stemUp
           <af' f'>16 bf af g f af df b c b c bf c af c g |
-          \offset positions #'(1 . 3) Beam
-          af16-[
-          \undo \offset positions #'(0 . 0) Beam
-          \change Staff = "left"
-          bf, af g]
-          f af df b c b c bf c af c g |
-          \change Staff = "right"
-          % Note: many manual fixes.
-          \once \override DynamicLineSpanner.Y-offset = #-5.5
-          s2\cresc
-          \change Staff = "left"
-          \offset positions #'(2 . 0) Beam
-          d'16-[ g,
-          \undo \offset positions #'(4 . 2) Beam
-          \change Staff = "right"
-          e' c]
-          \offset positions #'(0.65 . 0.65) Beam
-          f-[ c <fs c'> ef]
-          \undo \offset positions #'(1 . 1) Beam |
+          <af af,>16-[ bf, af g] f af df b c b c bf c af c g |
+          c16\cresc af c g b g c ef, d'16-[ g, e' c] f-[ c <fs c'> ef] |
           <g c> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <ef a c> c |
           <b d g>4_.\!\f <b d g b>_. <a c ef fs>2\sf \bar "||" |
           \part-one-section-four
@@ -855,23 +838,14 @@ arietta-section-five = {
           f2 \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
           \stemUp
           <<
-            \relative c' {
-              \crossStaff { af16 }
-              s16 s8 s2. |
-              s1
-            }
-            \\
             \relative c, {
-              f2 \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
+              \stemDown f2 \stemUp \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
               f8 ef d c b bf a af
             }
             \\
             \relative c {
-              \stemDown
-              \override NoteColumn.ignore-collision = ##t
-              f4 s2. |
               \stemUp
-              c'16 af c g b g c ef, s2
+              \crossStaff { f4 }
             }
           >> |
           g,,8 fs_~ fs <fs_~ fs'^~> <fs fs'> <fs fs'>4 <fs fs'>8 |
