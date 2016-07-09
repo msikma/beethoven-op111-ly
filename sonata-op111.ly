@@ -1974,6 +1974,7 @@ arietta-section-five = {
                 \relative c'' { f16\rest } b8 \relative c'' { f16\rest } c8 \relative c'' { f16\rest } d16-[^( g,]) |
                 g8 \relative c'' { d16\rest d8.\rest d8.\rest } |
                 \relative c'' { d16\rest } g8 \relative c'' { d16\rest } af8 \relative c'' { d16\rest } bf16-[^( ef,]) |
+                \pageBreak
                 ef8-[\semprePp ef16] ef16-[ a^( d,]) d8-[ d16] |
                 df16-[ g^( c,)] c8-[ c16] <af cf>16-[ <af bf f'>^( <af bf>)] |
                 bf8-[ bf16] bf16-[ ef^( a,])
@@ -2360,6 +2361,7 @@ arietta-section-five = {
                 \tuplet 3/2 { d'32-[ c, d' c, d' c, d' c, d'] }
                 \tuplet 3/2 { c,32-[ c' c, c' c, c' c, c' c,] }
                 \tuplet 3/2 { b'32-[ c, b' c, b' c, b' c, b'] } |
+                \pageBreak
                 \explicitTuplets
                 \stemDown
                 \override TupletBracket.bracket-visibility = #'if-no-beam
