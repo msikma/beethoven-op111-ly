@@ -83,6 +83,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    I. Maestoso
 %---------------------------------------------------------------------
+%{
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-one
@@ -989,11 +990,11 @@ arietta-section-five = {
     }
   }
 }
-
+%}
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
-%{\bookpart {
+\bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
     bookTitleMarkup = \std-title-markup-page-n
@@ -1086,7 +1087,10 @@ arietta-section-five = {
                 \relative c'' {
                   c4. \p c8( b16)-4 |
                   b4.\finger \markup \tied-finger-up #"4" #"3" b8(-2 e16) |
-                  <b e>8.-[ <c e>_(-3-5 <b d>8-2-\finger \markup \tied-finger-up #"4" #"5" <a c>16-1-\finger \markup \tied-finger-up #"4" #"5"]) |
+                  <b e>8.-[
+                  \once \override Slur.height-limit = #3
+                  <c e>_(-3-5 <b d>8-2-\finger \markup \tied-finger-up #"4" #"5" <a c>16-1-\finger \markup \tied-finger-up #"4" #"5"]) |
+                  \once \override Slur.height-limit = #3
                   <a c>8.-[_(-3-5 <gs b>-2-4 <e a c>])-3-5
                   \once \override DynamicLineSpanner.staff-padding = #3 |
                   <g b d>4.-3-5 \cresc 
@@ -1105,7 +1109,9 @@ arietta-section-five = {
                 }
                 {
                   \relative c'' {
-                    <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p c8_( \dolce e,16
+                    <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p
+                    \once \override Slur.height-limit = #3
+                    c8_( \dolce e,16
                   }
                 }
               }
@@ -1118,10 +1124,13 @@ arietta-section-five = {
                   a8 e16 g8 f16 d'8 d,16 |
                   g8 \sempreLegato d16 f8 e16 g8 f16 |
                   a8 g16 e'8 e,16 c'8 e,16) |
+                  \once \override Slur.height-limit = #5
                   <ef c'>8( <d b'>16 <c a'>8 <b g'>16 <c a'>8 <d b'>16 |
                   \stemUp
                   c'8\< e,16 e'8 g,16 g'8 bf,16)\! |
+                  \once \override Slur.height-limit = #3
                   g'8(\> a,16 f'8 a,16 d8 c16)\! |
+                  \once \override Slur.height-limit = #3
                   c8-[( b16 c8 cs16] cs16 <d g,> g,) |
                 }
               }
@@ -1139,6 +1148,7 @@ arietta-section-five = {
                     \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
                     g8.~g16\>-[( gs a\! b e, e]) |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
+                    \once \override PhrasingSlur.height-limit = #5
                     c'8^\( e,16
                   }
                 }
@@ -1159,7 +1169,7 @@ arietta-section-five = {
                 \override DynamicLineSpanner.staff-padding = #3
                 <c a>16 \cresc <b gs>
                 \once \override Tie.minimum-length = #2.75
-                <b gs>_~_( <b gs> <c e,>) <c e,>_~_( <c e,> <d b>)\! <d b> \p |
+                \once \override Slur.height-limit = #4 <b gs>_~_( <b gs> <c e,>) \once \override Slur.height-limit = #4 <c e,>_~_( <c e,> <d b>) <d b>\!\p |
                 \mergeDifferentlyDottedOn
                 \revert DynamicLineSpanner.staff-padding
                 <d b>4. <ds b>8. |
@@ -1210,7 +1220,7 @@ arietta-section-five = {
                   c8\cresc \tuplet 3/2 { e16-[( d32 f16 e32] } g8)~ |
                   g16-[\! g~]\> \tuplet 3/2 { g16-[ e32 g16 f32] }
                   \tuplet 3/2 { e16-[ cs32 e16 d32]\! } |
-                  c!16-[( b c cs
+                  \once \override Slur.height-limit = #3 c!16-[( b c cs
                   \once \override TupletBracket.transparent = ##t                  
                   \tuplet 3/2 { d16 s32 d16 g,32]) } |
                 }
@@ -1241,7 +1251,7 @@ arietta-section-five = {
                   \set Timing.measureLength = #(ly:make-moment 6/16)
                   % todo: make fingering nicer
                   \tuplet 5/4 {
-                    c16-[(-5 ~c16 b32
+                    \once \override Slur.height-limit = #4 c16-[(-5 ~c16 b32
                     -\tweak Y-offset #3.6
                     ^4]
                   }
@@ -1307,26 +1317,26 @@ arietta-section-five = {
                   \override Tie.minimum-length = #3
                   \set Timing.measureLength = #(ly:make-moment 4/32)
                   \stemNeutral
-                  \tuplet 3/2 { c32-[^(\f g64 e32 c64] }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #4 c32-[^(\f g64 e32 c64] }
                   \tuplet 3/2 { g32-[ e64 c32 g64]) } |
                   \set Timing.measureLength = #(ly:make-moment 12/32)
                   \omit Dots
                   \tuplet 3/2 { <e'_~ g^~>32.-[ <e g>32 <e_~ g^~>64 <e_~ g^~>32. <e g>32 <e g>64] }
                   \tuplet 3/2 { <f_~ g^~>32.-[ <f g>32 <f_~ g^~>64 <f_~ g^~>32. <f g>32 <f g>64] }
-                  \tuplet 3/2 { f''32-[^( d64 b32 g64 f32 d64 b32 g64]) } |
+                  \tuplet 3/2 { \once \override Slur.height-limit = #6 f''32-[^( d64 b32 g64 f32 d64 b32 g64]) } |
                   \tuplet 3/2 { <f_~ g^~>32.-[ <f g>32 <f_~ g^~>64 <f_~ g^~>32. <f g>32 <f g>64] }
                   \tuplet 3/2 { g32.~-[ g32 g64~ g32.~ g32 g64] }
-                  \tuplet 3/2 { g''32-[( e64 c32 g64 e32 c64 g32 g'64]) } |
+                  \tuplet 3/2 { \once \override Slur.height-limit = #6 g''32-[( e64 c32 g64 e32 c64 g32 g'64]) } |
                   % todo clean up these ties a little
                   \tuplet 3/2 { <g,_~ bf_~ cs^~ g'^~>32.-[ <g bf cs g'>32 <g_~ bf_~ cs^~ g'^~>64 <g_~ b^~ d^~ g^~>32. <g b d g>32 <g b d g>64] }
                   \tuplet 3/2 { <g_~ b^~ g'^~>32.-[ <g b g'>32 <g_~ b^~ g'^~>64] }
                   \tuplet 3/2 { <g_~ c g'^~>32.-[ <g c g'>32 <g c g'>64] }
                   \tuplet 3/2 { <e'_~ g^~ e'^~>32.-[ <e g e'>32 <e_~ g^~ e'^~>64 <e_~ g^~ e'^~>32. <e g e'>32 <c e c'>64] } |
-                  \tuplet 3/2 { c'32-[( a64 fs32 ef64 c32 a64 fs32 <ef c'>64)] }
-                  \tuplet 3/2 { b''32-[( g64 d32 b64 g32 d64 b32) <af''_~ b^~ d,_~ b_~>64] }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #6 c'32-[( a64 fs32 ef64 c32 a64 fs32 <ef c'>64)] }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #6 b''32-[( g64 d32 b64 g32 d64 b32) <af''_~ b^~ d,_~ b_~>64] }
                   % todo: clean up ties
                   \tuplet 3/2 { <af_~ b^~ d,_~ b_~>32.-[ <af b d, b>32 <af_~ b^~ d,_~ b_~>64 <af_~ b^~ d,_~ b_~>32 <af b d, b>32. <af b d, b>64] } |
-                  \tuplet 3/2 { c32-[( g64 e!32\sf c64 g32 e64 e'32\sf c64)] }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #6 c32-[( g64 e!32\sf c64 g32 e64 e'32\sf c64)] }
                   \tuplet 3/2 { e32-[ c64 g'32\sf e64 c32 g64\sf e'32 c64] }
                   \tuplet 3/2 { g'32-[ e64 c'32\sf g64 e32 c64 g'32\sf e64] } |
                   \stemDown
@@ -1348,7 +1358,7 @@ arietta-section-five = {
                     \omit Dots
                     \tuplet 3/2 { g32.~-[ g32 g64]~ }
                     \tuplet 3/2 { g32.~-[ g32 g64]~ }
-                    \tuplet 3/2 { g32.~-[ g32 g64]( }
+                    \tuplet 3/2 { \once \override Slur.height-limit = #6 g32.~-[ g32 g64]( }
                     \tuplet 3/2 { f32-[ g64 a32 b64)] }
                     \undo \omit Dots
                   }
@@ -1380,24 +1390,24 @@ arietta-section-five = {
                   \tuplet 3/2 { c''32-[\p gs64 a32 e64 d32 c64 e32 c64] }
                   \tuplet 3/2 { b32-[ a64 c32 a64 b32 a64 c32 <d, f b>64] } |
                   \tuplet 3/2 { <d_~ e^~ b'^~>32.-[ \f <d e b'>32 <d_~ e^~ b'^~>64 <d_~ e^~ b'^~>32. <d_~ e^~ b'^~>32 <d e b'>64] }
-                  \tuplet 3/2 { c''32-[( \p b64 e32 b64 a32 gs64 b32 e,64] }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #6 c''32-[( \p b64 e32 b64 a32 gs64 b32 e,64] }
                   \tuplet 3/2 { b'32-[ e,64 f32 d64 c32 b64 e32 b64)] } |
-                  \tuplet 3/2 { c32-[\( b64 e32 b64 d32 c64 e32 c64 e32 d64 gs32 d64 f32 e64 a32 e64 a32 f64 a32 b,64 a'32 fs64 a32 c,64~] } |
-                  \tuplet 3/2 { <c a'>32-[\f b64 a'32 gs64\) <d_~ b'^~>16.]^\(\sf }
-                  \tuplet 3/2 { <d b'>32-[ c64 b'32 a64\) <e_~ c'^~>16.]^\(\sf }
+                  \tuplet 3/2 { \once \override PhrasingSlur.height-limit = #6 c32-[\( b64 e32 b64 d32 c64 e32 c64 e32 d64 gs32 d64 f32 e64 a32 e64 a32 f64 a32 b,64 a'32 fs64 a32 c,64~] } |
+                  \tuplet 3/2 { <c a'>32-[\f b64 a'32 gs64\) \once \override PhrasingSlur.height-limit = #4 <d_~ b'^~>16.]^\(\sf }
+                  \tuplet 3/2 { <d b'>32-[ c64 b'32 a64\) \once \override PhrasingSlur.height-limit = #4 <e_~ c'^~>16.]^\(\sf }
                   \once \override TupletBracket.transparent = ##t
                   \tuplet 3/2 { <e c'>32-[ d64 c'32 b64\) <f_~ d'^~>32.\sf <f d'>32 <f d'>64] } |
                   \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
                     #'((alignment-distances . (13)))
                   \tuplet 3/2 { <f_~ g^~ b^~ d^~>32.-[ <f g b d>32 <f_~ g^~ b^~ d^~>64 <f_~ g^~ b^~ d^~>32. <f g b d>32 <f_~ g^~ b^~ d^~>64] }
-                  \tuplet 3/2 { <f g b d>32-[ b64( f'32 d64 c32 b64 d32 b64] }
+                  \tuplet 3/2 { <f g b d>32-[ \once \override Slur.height-limit = #6 b64( f'32 d64 c32 b64 d32 b64] }
                   \tuplet 3/2 { g32-[ f64 a32 f64 e32 d64 f32 d64)] } |
                   \stemUp
                   \tuplet 3/2 { <g,_~ c_~ e^~>32.-[ <g c e>32 <g_~ c_~ e^~>64 <g_~ c_~ e^~>32. <g c e>32 <g_~ c_~ e^~>64] }
                   \once \override TupletBracket.transparent = ##t
                   \tuplet 3/2 { <g c e>32-[( <g b>64 <a c>32 <b d>64]) e16.~ e32-[( cs64 d32 e64 f16.~]) } |
                   \stemUp
-                  \tuplet 3/2 { <f b,>32-[( <as, cs>64 <b d>32 <c e>64 d16.]~) }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #3 <f b,>32-[( <as, cs>64 <b d>32 <c e>64 d16.]~) }
                   \tuplet 3/2 { d32-[( cs64 d32 e64 d16.)]~ }
                   \tuplet 3/2 { d32-[( e64 f32 fs64 g16.~]) } |
                 }
@@ -1405,8 +1415,8 @@ arietta-section-five = {
               \alternative {
                 {
                   \tuplet 3/2 { g32-[ a64 g32 a64 g32 <d f>64 e32 <d f>64] }
-                  \tuplet 3/2 { e32-[ <g, d' f>64^( <g e'>32 d'64 c32 b64 c32 e64]) }
-                  \tuplet 3/2 { e,32-[_( <c' e>64 e,32 <b' d>64 e,32 <a c>64 e32 <gs b>64)] }
+                  \tuplet 3/2 { e32-[ \once \override Slur.height-limit = #3 <g, d' f>64^( <g e'>32 d'64 c32 b64 c32 e64]) }
+                  \tuplet 3/2 { \once \override Slur.height-limit = #3 e,32-[_( <c' e>64 e,32 <b' d>64 e,32 <a c>64 e32 <gs b>64)] }
                 }
                 {
                   \set Timing.measureLength = #(ly:make-moment 8/32)
@@ -1563,7 +1573,7 @@ arietta-section-five = {
               % Note: hack to accommodate Beethoven's weird notation.
               % This should actually be e32.~e32, but Beethoven uses
               % a 64th. Since a tie cannot pass through a space, we
-              % use a slur instead.
+              % use a slur instead. todo fix this
               \tuplet 3/2 { a'32-[ c e c e a e64 a c e64^(] s32 }
               \tuplet 3/2 { e32-[) b c e, b' c e b c] } |
               \relative c'' { b16\rest }
@@ -1811,7 +1821,7 @@ arietta-section-five = {
                 \tuplet 3/2 { b16-[ <b d>32 <a c>16 <gs d'>32] } |
                 % todo fix the fingering positions
                 \tuplet 5/4 {
-                  a16-[( ds32
+                  \once \override Slur.height-limit = #4 a16-[( ds32
                   -\tweak Y-offset #-7.24
                   _2 e16-1]~
                 }
@@ -1849,13 +1859,13 @@ arietta-section-five = {
                 s4 s8 |
                 s4 s8 |
                 s4 s8 |
-                \tuplet 3/2 { d32-[( e64 f32) <f d>64]( }
-                \tuplet 3/2 { b,32-[ c64 d32) c64]( }
+                \tuplet 3/2 { d32-[( e64 f32) \once \override Slur.height-limit = #4 <f d>64]( }
+                \tuplet 3/2 { b,32-[ c64 d32) \once \override Slur.height-limit = #5 c64]( }
                 \tuplet 3/2 { d32-[ e64 f32) e64] }
                 s16 |
-                \tuplet 3/2 { d32-[( e64 f32) <f d>64]( }
-                \tuplet 3/2 { b,32-[ c64 d32) c64]( }
-                \tuplet 3/2 { d32-[ e64 f32) e64]( }
+                \tuplet 3/2 { d32-[( e64 f32) \once \override Slur.height-limit = #4 <f d>64]( }
+                \tuplet 3/2 { b,32-[ c64 d32) \once \override Slur.height-limit = #5 c64]( }
+                \tuplet 3/2 { d32-[ e64 f32) \once \override Slur.height-limit = #4 e64]( }
                 \tuplet 3/2 { f32-[ d64 f32) e64] }
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { d32-[ c64 b32] e,,64\rest }
@@ -1868,14 +1878,14 @@ arietta-section-five = {
                 s8.
                 \once \override TupletBracket.transparent = ##t
                 \omit Dots
-                \tuplet 3/2 { g'32-[( e64 f32 g64] a16.~) }
-                \tuplet 3/2 { a32-[( f64 g32 a64] } |
+                \tuplet 3/2 { \once \override Slur.height-limit = #4 g'32-[( e64 f32 g64] a16.~) }
+                \tuplet 3/2 { \once \override Slur.height-limit = #4 a32-[( f64 g32 a64] } |
                 % Some hackery to properly integrate two voices.
                 \hideNotes
                 \stemUp
                 \once \override TupletBracket.transparent = ##t
                 \override NoteColumn.ignore-collision = ##t
-                \tuplet 3/2 { \single \hide Stem \single \hide Flag b32) \unHideNotes s64 s32 s64 \single \hide Flag b16.(\noBeam }
+                \tuplet 3/2 { \single \hide Stem \single \hide Flag b32) \unHideNotes s64 s32 s64 \single \hide Flag \once \override Slur.height-limit = #4 b16.(\noBeam }
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { \stemDown g16.)~ g32-[ a64 b32 c64] b16.\noBeam r32 e64-[ d32 c64] } |
                 \stemDown
@@ -2172,7 +2182,8 @@ arietta-section-five = {
                 <c c'>4. <f, f'>8. |
                 <g g'>8.-[ <g g'>8. <g g'>8 <g g'>16] |
                 <g g'>8_( <c c'>16) <c c'>8. e'8. |
-                \shortestNoteDuration 16 <g,, g'>8_( <c c'>16) \shortestNoteDuration 8 <c c'>16( g'' f \stemDown e c g')_~ \stemNeutral |
+                \shortestNoteDuration 16 <g,, g'>8_( <c c'>16) \shortestNoteDuration 8 \once \override Slur.height-limit = #5 <c c'>16( g'' f \stemDown e c g')_~ \stemNeutral |
+                \once \override PhrasingSlur.height-limit = #4
                 g16\( cs, g'~g d g~g as, g'~ |
                 g16 b, g'~g c, g' e d g~ |
                 g16 ds e g c, g'~g e g~ |
@@ -2187,11 +2198,13 @@ arietta-section-five = {
                 g'\laissezVibrer |
                 b16-[^( c d c b a gs a b]) |
                 c16 a, e'~ |
+                \once \override Slur.height-limit = #5
                 e16_( gs, e'~e a, e'~ |
                 e16 gs, e'~e a, e'~e gs, gs'~ |
                 gs16) \sempreLegato gs a~a a b~b c d |
-                \once \override PhrasingSlur.height-limit = #5.0
-                ds16 c c~c a a~a g g~_\( |
+                ds16 c c~c a a~a g
+                \once \override PhrasingSlur.height-limit = #5
+                g~_\( |
                 g16 g, g'~g g, g'~g g, g'~ |
                 g16\) c,, c'~c c, c'~c f,, f' |
                 g16 g, g'~g g, g'~g g, b' |
@@ -2204,9 +2217,9 @@ arietta-section-five = {
                 s4 s8 |
                 s8 \stemNeutral \tuplet 3/2 { d'16-[( b32 d16 c32] }
                 \tuplet 3/2 { f16-[ ds32 f16 e32]) } |
-                g8\noBeam g,8 \tuplet 3/2 { f16-[_( e32 g16 f32] } |
+                g8\noBeam g,8 \tuplet 3/2 { \once \override Slur.height-limit = #3 f16-[_( e32 g16 f32] } |
                 \tuplet 3/2 { e16-[ d32 f16 e32]) }
-                \tuplet 3/2 { c16-[_( b32 d16 c32] }
+                \tuplet 3/2 { \once \override Slur.height-limit = #3 c16-[_( b32 d16 c32] }
                 \tuplet 3/2 { bf16-[ a32 c16 bf32]) } |
                 a16-[ a'16] d,16-[ d'16] f,16-[ fs16]~ |
                 \tuplet 3/2 { fs16-[ fs32_( a16 g32]) }
@@ -2239,7 +2252,7 @@ arietta-section-five = {
                   <g, g'>32^\(
                   <a a'>16 <b b'>32]
                 }
-                \tuplet 3/2 { <c! c'!>16-[\) d32^( e16 f32] }
+                \tuplet 3/2 { <c! c'!>16-[\) \once \override Slur.height-limit = #4 d32^( e16 f32] }
                 \tuplet 3/2 { e16-[ d32 c16 b32)] } |
                 \tuplet 3/2 { <g' d' f>16-[ <g, g'>32^( <a a'>16 <b b'>32] }
                 \tuplet 3/2 { <c! c'!>16-[) \clef treble b''32^( c16 d32)] } \clef bass |
@@ -2257,8 +2270,8 @@ arietta-section-five = {
                 \tuplet 3/2 { c,,32-[ e64 g32 c64] } |
                 \omit Dots
                 % todo clean up ties
-                \tuplet 3/2 { <g, g'>32.-[~ <g g'>32 <g g'>64~ <g g'>32.~ <g g'>32 <g g'>64]~ }
-                \tuplet 3/2 { <g g'>32.-[~ <g g'>32 <g g'>64~ <g g'>32.~ <g g'>32 <f f'>64] }
+                \tuplet 3/2 { <g,_~ g'^~>32.-[ <g g'>32 <g_~ g'^~>64 <g_~ g'^~>32. <g g'>32 <g_~ g'^~>64] }
+                \tuplet 3/2 { <g_~ g'^~>32.-[ <g g'>32 <g_~ g'^~>64 <g_~ g'^~>32. <g g'>32 <f f'>64] }
                 \tuplet 3/2 { f32-[ b64 d32 f64 b32 d64 e32 f64] }
                 \undo \omit Dots |
                 <e, e'>32 d'32\rest d32\rest
@@ -2279,23 +2292,23 @@ arietta-section-five = {
                 \tuplet 3/2 { bf,32-[ bf'64 bf,32 bf'64 bf,32 bf'64 b,32 b'64] } |
                 \stemNeutral
                 \tuplet 3/2 { b,32-[_( c64 d32) b64]_( }
-                \tuplet 3/2 { d32-[ e64 f32) e64]^( }
-                \tuplet 3/2 { b'32-[ c64 d32) c64]^( }
+                \tuplet 3/2 { d32-[ e64 f32) \once \override Slur.height-limit = #6 e64]^( }
+                \tuplet 3/2 { b'32-[ c64 d32) \once \override Slur.height-limit = #3 c64]^( }
                 \tuplet 3/2 { d32-[ e64 f32 e64]) } |
                 \tuplet 3/2 { b,32-[_( c64 d32) b64]_( }
-                \tuplet 3/2 { d32-[ e64 f32) e64]^( }
+                \tuplet 3/2 { d32-[ e64 f32) \once \override Slur.height-limit = #6 e64]^( }
                 \tuplet 3/2 { b'32-[ c64 d32) c64]^( }
-                \tuplet 3/2 { d32-[ b64 d32) c64]^( }
+                \tuplet 3/2 { d32-[ b64 d32) \once \override Slur.height-limit = #6 c64]^( }
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { b32-[ a64 gs32]) d'64\rest }
                 \clef bass
                 \tuplet 3/2 { gs,,,,32-[_( a64 b32 a64])_~ } |
                 \omit Dots
-                \tuplet 3/2 { a32-[_( c64 e32 gs64 a32 c64 e32 gs64]) }
+                \tuplet 3/2 { \once \override Slur.height-limit = #6 a32-[_( c64 e32 gs64 a32 c64 e32 gs64]) }
                 \tuplet 3/2 { a32.-[~ a32 <a_~ c^~ e^~>64 <a_~ c^~ e^~>32. <a c e>32 <a_~ c^~ e^~>64] }
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { <a_~ c^~ e^~>32.-[ <a c e>32 <a_~ c^~ e^~>64 <a_~ c^~ e^~>32. <a c e>32] <a,, a'>64 } |
-                \tuplet 3/2 { gs32-[_( b64 e32 gs64 b32 e64 gs32 a64)] }
+                \tuplet 3/2 { \once \override Slur.height-limit = #6 gs32-[_( b64 e32 gs64 b32 e64 gs32 a64)] }
                 \tuplet 3/2 { <gs_~ b^~ e^~>32.-[ <gs b e>32 <gs_~ b^~ e^~>64 <gs_~ b^~ e^~>32. <gs b e>32 <gs_~ b^~ e^~>64] }
                 \tuplet 3/2 { <gs_~ b^~ e^~>32.-[ <gs b e>32 <gs_~ b^~ e^~>64 <gs_~ b^~ e^~>32. <gs b e>32 <gs b e>64] } |
                 \stemDown
@@ -2306,24 +2319,24 @@ arietta-section-five = {
                 \tuplet 3/2 { e16.~-[ e32 e,64 f32 e64] }
                 \tuplet 3/2 { a16.~-[ a32 a,64 b32 a64] }
                 \stemNeutral
-                \tuplet 3/2 { g16._~-[ g32 g,64_( af32 g64]_~ } |
+                \tuplet 3/2 { g16._~-[ g32 \once \override Slur.height-limit = #6 g,64_( af32 g64]_~ } |
                 \tuplet 3/2 { g32-[ b64 d32 g64 b32 d64 fs32 g64]) }
                 \override Tie.minimum-length = #2.65
                 \tuplet 3/2 { <g,_~ b^~ d^~ f^~>32.-[ <g b d f>32 <g_~ b^~ d^~ f^~>64 <g_~ b^~ d^~ f^~>32. <g b d f>32 <g_~ b^~ d^~ f^~>64] }
                 \tuplet 3/2 { <g_~ b^~ d^~ f^~>32.-[ <g b d f>32 <g_~ b^~ d^~ f^~>64 <g_~ b^~ d^~ f^~>32. <g b d f>32 <g b d f>64] } |
-                \tuplet 3/2 { c,32-[_( e64 g32 b64 c32 e64 g32 b64)] }
+                \tuplet 3/2 { \once \override Slur.height-limit = #6 c,32-[_( e64 g32 b64 c32 e64 g32 b64)] }
                 \once \override TupletBracket.transparent = ##t
                 \override Beam.auto-knee-gap = #1
                 % Ignore the warning about the beam slope.
                 #(ly:expect-warning "no viable")
-                \tuplet 3/2 { c32-[^( f64 e32 d64] c32-[) c,,64_( d32 e64] f32-[) g'64_( f32 e64] d32-[) d,64_( e32 f64] }
+                \tuplet 3/2 { \once \override Slur.height-limit = #6 c32-[^( f64 e32 d64] c32-[) \once \override Slur.height-limit = #4 c,,64_( d32 e64] f32-[) \once \override Slur.height-limit = #4 g'64_( f32 e64] d32-[) \once \override Slur.height-limit = #4 d,64_( e32 f64] }
                 \revert Beam.auto-knee-gap |
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { g16.) g'32-[ fs64 g32 a64] b16.~ b32-[ c64 d32 e64] f!32-[ e64 d32 c64] b32-[ c64 b32 g64] } |
                 \once \override TupletBracket.transparent = ##t
-                \tuplet 3/2 { b32-[ b64~ b32 b64~] b32-[ b64( c32 b64)] c32-[( b64 c32 d64 e32 d64 e32 c64]) \stemNeutral d,32.\rest d32\rest e,64~ e32.-[ e32 e64] } |
+                \tuplet 3/2 { b32-[ b64~ b32 b64~] b32-[ b64( c32 b64)] \once \override Slur.height-limit = #3 c32-[( b64 c32 d64 e32 d64 e32 c64]) \stemNeutral d,32.\rest d32\rest e,64~ e32.-[ e32 e64] } |
                 \once \override TupletBracket.transparent = ##t
-                \tuplet 3/2 { b''32-[ b64~ b32 b64~] b32-[ b64( c32 b64] c32-[) a,64^( g32 f64] e32-[ f64 e32 d64]) }
+                \tuplet 3/2 { b''32-[ b64~ b32 b64~] b32-[ b64( c32 b64] c32-[) \once \override Slur.height-limit = #6 a,64^( g32 f64] e32-[ f64 e32 d64]) }
                 \undo \omit Dots |
                 \tuplet 3/2 { c32-[ g' c, g' c, g' c, g' c,] } |
                 \tuplet 3/2 { g'32-[ c, g' c, g' c, g' c, g'] }
@@ -2472,7 +2485,7 @@ arietta-section-five = {
                 \arietta-section-four-ef
                 \relative c { d8.\rest d8.\rest } bf,,,8._~\sf\> |
                 bf4._~ bf8_( af16)\!\p |
-                \once \override PhrasingSlur.height-limit = #5
+                \once \override PhrasingSlur.height-limit = #6
                 g4._\( gf8. |
                 f8._~ f8-[ g!16 af8 a16]\) |
                 bf8 \relative c { d16\rest d8.\rest d8.\rest } |
@@ -2704,7 +2717,7 @@ arietta-section-five = {
                 \stemUp
                 \omit Dots
                 \tuplet 3/2 { gs16-[ <gs,! gs'!>32\( <a_~ a'^~>16.] }
-                \tuplet 3/2 { <a a'>16-[\) <a a'>32\( <b b'>16.]( }
+                \tuplet 3/2 { <a a'>16-[\) \once \override PhrasingSlur.height-limit = #4 <a a'>32\( <b b'>16.]( }
                 \tuplet 3/2 { <c c'>16-[) <d d'>32 <ds ds'>16 <e e'>32\)] }
                 \undo \omit Dots | 
                 \tuplet 3/2 { <e e'>16-[ <e_~ e'^~>32 <e e'>16 <e_~ e'^~>32] }
@@ -2857,4 +2870,4 @@ arietta-section-five = {
       \tempo 4 = 96
     }
   }
-}%}
+}
