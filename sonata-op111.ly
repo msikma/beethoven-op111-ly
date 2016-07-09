@@ -166,6 +166,8 @@ arietta-section-five = {
               g4^(\p |
               a b c) c8..^( b32) |
               <d, g b>4. \relative c'' { b8\rest b4\rest } \clef bass g,4^(\p |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9.5)))
               a4 b c) c8.. b32 |
               \stemNeutral
               <d, g b>2 <d g b>4.. <d g b>16 |
@@ -435,6 +437,8 @@ arietta-section-five = {
               af bf af gf f gf af f ef8\noBeam \relative c'' { b8\rest } s4
             }
           >> |
+          \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+            #'((alignment-distances . (10)))
           af'16 bf af gf f gf f ef f gf f ef d! f af cf |
           bf cf bf af gf af gf f gf af gf f e g bf df, |
           c df c bf af bf af g af bf af g fs a c ef |
@@ -524,6 +528,9 @@ arietta-section-five = {
               \stemNeutral
               g\p\cresc b c d ef f g af b c d ef f fs g fs |
               af\!\ff g ef c af' g ef c af'\sf g f! d af' g f d |
+              \pageBreak
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9)))
               df' c g ef df' c g ef g' f c f, g' f c f, |
               g' fs ef c g' fs ef c af' g ef c f ef c bf |
               f' ef c g ef' d! b! f
@@ -536,6 +543,8 @@ arietta-section-five = {
                   \ottava #1
                   \set Staff.ottavation = #"8"
                   c8.-[ ef16] g8 8 \stemDown g8.-[\trill fs32 g] |
+                  \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                    #'((alignment-distances . (9.5)))
                   g8-[^( b)] b-[^(\> c)]\!
                   \ottava #0
                 }
@@ -566,6 +575,8 @@ arietta-section-five = {
           c16\sf d ef d ef\sf e f e f\sf fs g fs g\sf a bf b |
           \ottava #1
           \set Staff.ottavation = #"8"
+          \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+            #'((alignment-distances . (9.5)))
           c16\sf d ef d ef\sf e f e f\sf fs g fs g\sf a bf b |
           c4\ff \ottava #0 <c,,, c'>4\sf \relative c'' { b4\rest } <ef fs a ef'>4\sf |
           \stemUp
@@ -789,6 +800,7 @@ arietta-section-five = {
             }
           >> |
           c4 \relative c { d16\rest } bf16 af g af4 f |
+          \pageBreak
           bf g c c, |
           \trillSpanUp
           f2 \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
@@ -926,7 +938,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
-\bookpart {
+%{\bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-n
     bookTitleMarkup = \std-title-markup-page-n
@@ -2790,4 +2802,4 @@ arietta-section-five = {
       \tempo 4 = 96
     }
   }
-}
+}%}
