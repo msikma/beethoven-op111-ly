@@ -163,9 +163,12 @@ arietta-section-five = {
           <d g bf>\sf \relative c'' { b8\rest b4\rest b4\rest }
           <<
             \relative c'' {
+              \once \override Slur.height-limit = #5
               g4^(\p |
               a b c) c8..^( b32) |
-              <d, g b>4. \relative c'' { b8\rest b4\rest } \clef bass g,4^(\p |
+              <d, g b>4. \relative c'' { b8\rest b4\rest } \clef bass
+              \once \override Slur.height-limit = #5
+              g,4^(\p |
               \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
                 #'((alignment-distances . (9.5)))
               a4 b c) c8.. b32 |
@@ -220,6 +223,7 @@ arietta-section-five = {
                 c^( bf! af g) af^( f ef d) |
                 #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
                 d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
+                \once \override Slur.height-limit = #5
                 c4\!\>\trill^( \grace { b16 c } ef8 d)\! c4^\markup { \italic "a tempo" } d4\rest |
               }
               \\
@@ -241,9 +245,15 @@ arietta-section-five = {
             ef f ef d c ef g bf af bf af g f g f ef |
             f g f ef d f af c bf c bf af g af g f |
             g\f bf af g f ef d ef g cf, bf cf bf d f af |
-            g8 <f, f'>_( <bf bf'> <af af'> <bf bf'> <df df'>) <c c'> <g g'> |
-            \relative c'' { b8\rest } <g g'>_( <c c'> <bf bf'> <c c'> <ef ef'>) <ef ef'>_. <a, a'>_. |
-            \relative c'' { b8\rest } <bf bf'>_( <df df'> <c c'> <df df'> <f f'>) <ef ef'>_. \stemDown bf'16-[ af] |
+            g8
+            \once \override Slur.height-limit = #5
+            <f, f'>_( <bf bf'> <af af'> <bf bf'> <df df'>) <c c'> <g g'> |
+            \relative c'' { b8\rest }
+            \once \override Slur.height-limit = #5
+            <g g'>_( <c c'> <bf bf'> <c c'> <ef ef'>) <ef ef'>_. <a, a'>_. |
+            \relative c'' { b8\rest }
+            \once \override Slur.height-limit = #5
+            <bf bf'>_( <df df'> <c c'> <df df'> <f f'>) <ef ef'>_. \stemDown bf'16-[ af] |
             g ef f g af g af bf
             <<
               \relative c''' {
@@ -266,13 +276,15 @@ arietta-section-five = {
             \set Staff.ottavation = #"8"
             cf'''''2\sf
             \ottava #0 |
-            \relative c'' { b4\rest } ef,2^(\sf\> c8. af16) |
+            \relative c'' { b4\rest }
+            \once \override Slur.height-limit = #3
+            ef,2^(\sf\> c8. af16) |
             af4^(\!\p g8)_[ r16 f16] f4^( ef8)_[ r16 <df g df'>16] |
             4 <bf_~ af'^~ c^~>
             \tupletDown
             % Note: slightly override the standard beam slope.
             \offset positions #'(0 . 2.7) Beam
-            \tuplet 12/8 { 32-[^( ef' d ef f ef b c b c df c)] }
+            \tuplet 12/8 { \once \override Slur.height-limit = #7 32-[^( ef' d ef f ef b c b c df c)] }
             \undo \offset positions #'(0 . 3) Beam
             % Move the tuplet number so that it sits just outside the staff lines.
             \once \override TupletNumber.Y-offset = #-2.7
@@ -344,12 +356,14 @@ arietta-section-five = {
           <fs fs'>2 <f f'>4_. <af af'>4_. |
           <e e'>2 <ef ef'>4_. <g g'>4_. |
           <d d'>4 <g g'>8.-[ <bf bf'>16] <d d'>4_. <fs, a d>4_. |
+          \once \override Slur.height-limit = #4
           d'2_( ef2 |
           a,2 \afterGrace fs'2\startTrillSpan) { e16\stopTrillSpan fs } |
           g16 d ef! f! g f ef d c4_. ef_. |
           b4. af'8 g f ef d |
           <<
             \relative c'' {
+              \once \override Slur.height-limit = #5
               c2^( df |
               g,2 \afterGrace e'2\startTrillSpan) { d16\stopTrillSpan e }
             }
@@ -407,10 +421,16 @@ arietta-section-five = {
           \once \override Staff.TextScript.outside-staff-priority = #0
           <c, g' c>8^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
           af'16^\markup { \italic "a tempo" }\f c bf af g f e f g af bf g df e g bf_~ |
-          bf8-[ <e,, e'>^( <f f'> <e e'>] <f f'>-[ <bf bf'>) <af af'>-. <f f'>-.] |
+          bf8-[
+          \once \override Slur.height-limit = #5
+          <e,, e'>^( <f f'> <e e'>] <f f'>-[ <bf bf'>) <af af'>-. <f f'>-.] |
           \override Tie.minimum-length = #3.25
-          \relative c'' { b8\rest } <f f'>-[^( <g g'>) <g_~ g'^~>^(] <g g'>-[ <c c'>) <bf bf'>^. <g g'>^.] |
-          \relative c'' { b8\rest } <g g'>-[^( <af af'>) <af_~ af'^~>^(] <af af'>-[ <df df'>) <c c'>^.] <c c'>16-[ bf'] |
+          \relative c'' { b8\rest } <f f'>-[^( <g g'>)
+          \once \override Slur.height-limit = #3
+          <g_~ g'^~>^(] <g g'>-[ <c c'>) <bf bf'>^. <g g'>^.] |
+          \relative c'' { b8\rest } <g g'>-[^( <af af'>)
+          \once \override Slur.height-limit = #3
+          <af_~ af'^~>^(] <af af'>-[ <df df'>) <c c'>^.] <c c'>16-[ bf'] |
           \stemUp a8-[ bf16 c] f, gf f ef \stemNeutral
           <<
             \relative c'' {
@@ -453,15 +473,17 @@ arietta-section-five = {
           \set Staff.ottavation = #"8"
           c2\sf
           \ottava #0 |
-          \relative c'' { b4\rest } g2\sf^( e8. c16) |
+          \relative c'' { b4\rest }
+          \once \override Slur.height-limit = #3
+          g2\sf^( e8. c16) |
           c4^( b8-[) \relative c''' { a16\rest } a16] a4^( g8-[) \relative c'' { f16\rest } <f d' f>16] |
           4 <e_~ c'^~ e^~>4
           \tupletDown
           \offset positions #'(0.0 . 1.0) Beam
           \once \override TupletNumber.Y-offset = #-2.7
-          \tuplet 12/8 { <e c' e>32-[_\markup { \italic "meno allegro" }^( g' fs g a g ds e f e b c]) }
+          \tuplet 12/8 { \once \override Slur.height-limit = #9 <e c' e>32-[_\markup { \italic "meno allegro" }^( g' fs g a g ds e f e b c]) }
           \undo \offset positions #'(0.0 . 1.0) Beam
-          \tuplet 9/8 { d-[^( c fs, g gs a g e c]) } |
+          \tuplet 9/8 { \once \override Slur.height-limit = #7 d-[^( c fs, g gs a g e c]) } |
           <<
             \relative c'' {
               % We're hacking away with fake crescendos in a separate voice, so hide the warning.
@@ -472,8 +494,11 @@ arietta-section-five = {
               g8-[ \relative c'' { b16\rest } <b f'>16] |
               \stemDown <b f'>4 <c e>4-\textCrescEnd "do" \relative c'' { b4\rest b8.\rest } <g d' a'>16\!^\markup { \italic "Adagio" } |
               4 <g g'> s4 s8. \stemUp af'!16^\markup { \italic "Tempo I" } |
+              \once \override Slur.height-limit = #5
               af4^( g2 bf4^~ |
-              bf4) bf4^~^(
+              bf4)
+              \once \override Slur.height-limit = #5
+              bf4^~^(
               #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
               bf8\cresc a bf b) |
               \stemDown
@@ -484,6 +509,7 @@ arietta-section-five = {
               <b f'>4. s16 <c f>16 <d f>4. s8 |
               s1 |
               s2 \relative c'' { b4\rest b8.\rest } d'16 |
+              \once \override Slur.height-limit = #5
               d4_( df2 <f_~ g^~>4 |
               <f g>4) <e_~ g_~>2 <e g>8-[ <f af>8] |
               s1
@@ -584,12 +610,18 @@ arietta-section-five = {
           \relative c'' { b4\rest } <d f! af! b>4\sf \relative c'' { b4\rest } <f af b d>4\sf |
           <<
             \relative c' {
-              \relative c'' { b4\rest } <df e g bf!>4_.\dim_( \relative c'' { b4\rest } <e g bf df>4_. |
+              \relative c'' { b4\rest }
+              \once \override Slur.height-limit = #3
+              <df e g bf!>4_.\dim_( \relative c'' { b4\rest } <e g bf df>4_. |
               \relative c'' { b4\rest } <c f a>4_. \relative c'' { b4\rest } <f a c>_.) |
               \relative c'' { b2\rest\!\p } c'2\p |
-              c2 c4.^( <b d>8 |
+              c2
+              \once \override Slur.height-limit = #4
+              c4.^( <b d>8 |
               e4 c4) c2 |
-              c2 c4.^( f8 |
+              c2
+              \once \override Slur.height-limit = #6
+              c4.^( f8 |
               g4 c4) c,2 |
               c2 c4. b'8
             }
@@ -713,8 +745,12 @@ arietta-section-five = {
             }
           >> |
           <g ef'>4 <g_~ b ef> g16 f ef d c d ef c |
-          d16 c b a g b d g ef8 <g,, g'>_( <c c'> <b b'!> |
-          <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c { d8\rest } <c c'>_( <d d'> <c c'> |
+          d16 c b a g b d g ef8
+          \once \override Slur.height-limit = #5
+          <g,, g'>_( <c c'> <b b'!> |
+          <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c { d8\rest }
+          \once \override Slur.height-limit = #5
+          <c c'>_( <d d'> <c c'> |
           <d d'> <g g'>) <f f'>-. <ef ef'>-. <d d'>-. <bf bf'>-. <c c'>-. <d d'>-. |
           <ef ef'>4-. <g g'>-. <d d'>8 d_~\sf d16 f af c |
           bf c bf af g af g f g af g f e g bf df |
@@ -722,9 +758,15 @@ arietta-section-five = {
           df ef df c bf c bf a bf c bf af g bf df f |
           ef f ef df c df c bf af4 \clef treble c''16 ef df c \bar "||" |
           \part-one-section-two
-          bf af g f ef g bf df c8-[ <g, g'>_( <af af'> <g g'>] |
-          <af af'> <df df'>) <c c'>-. <a a'>-. \relative c'' { b8\rest } <a a'>-[_( <bf bf'> <a a'>] |
-          <bf bf'> <ef ef'>) <df df'>-. <bf bf'>-. \relative c'' { b8\rest } <bf bf'>-[_( <c c'> <bf bf'>] |
+          bf af g f ef g bf df c8-[
+          \once \override Slur.height-limit = #5
+          <g, g'>_( <af af'> <g g'>] |
+          <af af'> <df df'>) <c c'>-. <a a'>-. \relative c'' { b8\rest }
+          \once \override Slur.height-limit = #5
+          <a a'>-[_( <bf bf'> <a a'>] |
+          <bf bf'> <ef ef'>) <df df'>-. <bf bf'>-. \relative c'' { b8\rest }
+          \once \override Slur.height-limit = #5
+          <bf bf'>-[_( <c c'> <bf bf'>] |
           <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c'' { b8\rest } \clef bass <af,, af'> <bf bf'> <c c'> |
           <df' f>16\sustainOn af'
           \repeat unfold 6 { <df, f> af' }
@@ -794,6 +836,7 @@ arietta-section-five = {
             \\
             \relative c {
               fs4. s8 s4 d4 |
+              \once \override Slur.height-limit = #6
               g2_( af2 |
               \trillSpanUp
               d,2 \afterGrace b'2\startTrillSpan) { a!16\stopTrillSpan b }
@@ -855,9 +898,15 @@ arietta-section-five = {
           df ef df c bf c bf a bf c bf af g bf df f |
           ef f ef df c df c bf c df c af a c ef gf |
           f gf f ef df ef df c df ef df c bf df bf df |
-          c df ef df c df c bf a8-[ <f f'>^( <bf bf'> <a a'>] |
-          <bf bf'> <ef ef'>) <df df'>^. <bf bf'>^. \relative c { d8\rest } <bf bf'>-[^( <c c'> <bf bf'>] |
-          <c c'> <f f'>) <ef ef'>^. <c c'>^. \relative c { d8\rest } <c c'>^( <df df'> <c c'>) \clef treble |
+          c df ef df c df c bf a8-[
+          \once \override Slur.height-limit = #5
+          <f f'>^( <bf bf'> <a a'>] |
+          <bf bf'> <ef ef'>) <df df'>^. <bf bf'>^. \relative c { d8\rest }
+          \once \override Slur.height-limit = #5
+          <bf bf'>-[^( <c c'> <bf bf'>] |
+          <c c'> <f f'>) <ef ef'>^. <c c'>^. \relative c { d8\rest }
+          \once \override Slur.height-limit = #3
+          <c c'>^( <df df'> <c c'>) \clef treble |
           f'16 gf f ef df ef f df af' bf af g af c ef gf |
           f gf f ef df ef df c df ef df c bf d f af |
           gf af gf f ef f ef d! ef f ef df c e g f |
@@ -878,9 +927,13 @@ arietta-section-five = {
           4 <e g c>4 \relative c { d4\rest d8.\rest } \clef treble <f' b>16 |
           <f b>4_( <e bf'>2) <df_~ g_~ bf^~>4 |
           4 <df_~ g_~ bf^~>2 8 <df f af>8 \clef bass |
+          \once \override Slur.height-limit = #5
           <c, c'>2.^( <af af'>8. <f f'>16) |
           \set doubleSlurs = ##t
-          <f f'>4( <e e'>8-[) \relative c { d16\rest } <df df'>16] <df df'>4( <c c'>8-[) \relative c { d16\rest } <bf' bf'>16] |
+          \once \override Slur.height-limit = #2
+          <f f'>4( <e e'>8-[) \relative c { d16\rest } <df df'>16]
+          \once \override Slur.height-limit = #2
+          <df df'>4( <c c'>8-[) \relative c { d16\rest } <bf' bf'>16] |
           \set doubleSlurs = ##f
           <bf bf'>4 <af af'>4 \relative c { d2\rest } |
           <c g' c>4. \relative c { d16\rest } <c f c'>16 <c e c'>4. \relative c { d16\rest } <e g c>16 |
@@ -907,7 +960,9 @@ arietta-section-five = {
           c16 d ef d ef e f e f fs g fs g a bf b |
           c4 \clef bass <c,,, c'>4 \relative c { d4\rest } <c c'> |
           \relative c { d4\rest } <c c'> \relative c { d4\rest } <c c'> |
-          \relative c { d4\rest } <c c'>_._( \relative c { d4\rest } <c c'>_. |
+          \relative c { d4\rest }
+          \once \override Slur.height-limit = #3
+          <c c'>_._( \relative c { d4\rest } <c c'>_. |
           \relative c { d4\rest } <c c'>_. \relative c { d4\rest } <c c'>_.) |
           \relative c { d8\rest } c'16-[ df] c-[ bf af! g] f-[ c' df c] bf-[ af g f] |
           e c' df c bf g e c' f, c' df c bf af g f |
