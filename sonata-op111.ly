@@ -1071,7 +1071,7 @@ arietta-section-five = {
                 <d g>8.-[ <c g'> <d g>8 d16]~\finger \markup \tied-lyric #"1~2" |
                 d8-[ d16^(^2\< <c e-3>8\!\> <b f'-4>16)\!] |
                 % todo fix this slur
-                \once \override Slur.control-points = #'((1.5 . -1.5) (3.5 . 0.5) (6 . 1) (8.5 . -0.83))
+                \once \override Slur.control-points = #'((1.3 . -1.4) (3.0 . 0.5) (6 . 0.85) (7.8 . -0.75))
                 d8-[^(\repeatTie <c e-4>16\< <b f'-5>8\!\> <c e-4>16)]\! s8. |
               }
             }
