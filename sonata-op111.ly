@@ -83,7 +83,7 @@ arietta-section-five = {
 %---------------------------------------------------------------------
 %    I. Maestoso
 %---------------------------------------------------------------------
-%{
+
 \bookpart {
   \paper {
     markup-system-spacing = \std-padding-page-one
@@ -133,7 +133,11 @@ arietta-section-five = {
           <<
             \relative c'' {
               \relative c'' { b8\rest b16.\rest }
-              \stemDown <af d f af>32\f <af_~ d_~ f^~ af^~>4\sf <af d f af>8.. <d f>32 \stemUp f8.\trill\sf\> e32 f\!
+              \stemDown
+              \shortestNoteDuration 32
+              <af d f af>32\f 
+              \shortestNoteDuration 16
+              <af_~ d_~ f^~ af^~>4\sf <af d f af>8.. <d f>32 \stemUp f8.\trill\sf\> e32 f\!
             }
             \\
             \relative c'' {
@@ -147,8 +151,15 @@ arietta-section-five = {
           <g, c g'>8\!\f \relative c'' { b8\rest b4\rest } |
           <<
             \relative c'' {
-              \relative c'' { b8\rest b16.\rest }
-              \stemDown <df f bf df>32\f <df_~ f_~ bf^~ df^~>4\sf <df f bf df>8.. <df bf'>32 \stemUp bf'8.\trill\sf\> a32 bf\!
+              \relative c'' {
+                b8\rest 
+                \shortestNoteDuration 32
+                b16.\rest
+              }
+              \stemDown
+              <df f bf df>32\f
+              \shortestNoteDuration 16
+              <df_~ f_~ bf^~ df^~>4\sf <df f bf df>8.. <df bf'>32 \stemUp bf'8.\trill\sf\> a32 bf\!
             }
             \\
             \relative c'' {
@@ -415,11 +426,13 @@ arietta-section-five = {
             }
           >>
           <af af'>16\cresc^\markup { \italic "a tempo" } \relative c'' { b16\rest } |
+          % todo check if some of these rests need to go down
           <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] a'\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] f'\rest |
           <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] d'\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
           <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] d\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
           <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>]\! b'\rest
           \once \override Staff.TextScript.outside-staff-priority = #0
+          % todo add spacing to poco ritenente
           <c, g' c>8^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
           af'16^\markup { \italic "a tempo" }\f c bf af g f e f g af bf g df e g bf_~ |
           bf8-[
@@ -607,7 +620,6 @@ arietta-section-five = {
           c16\sf d ef d ef\sf e f e f\sf fs g fs g\sf a bf b |
           c4\ff \ottava #0 <c,,, c'>4\sf \relative c'' { b4\rest } <ef fs a ef'>4\sf |
           \stemUp
-          % todo bring these closer together (left/right)
           \relative c'' { b4\rest } <d f! af! b>4\sf \relative c'' { b4\rest } <f af b d>4\sf |
           <<
             \relative c' {
@@ -661,13 +673,24 @@ arietta-section-five = {
           \grace {
             b,64-[\sustainOn d g b d g b] s32.
           }
-          <b,,! b'!>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <af'' af'>32 |
+          <b,,! b'!>8 \relative c {
+            d8\rest d8\rest
+            \once \override Staff.SustainPedal.X-offset = #-0.15
+            \once \override Staff.SustainPedal.Y-offset = #-2
+            d16.\rest\sustainOff
+          } <af'' af'>32 |
           <b, b'>8..\sf <b, b'>32 <b'_~ b'^~>4 <b b'>8.. \clef treble <b' af'>32 <b af'>4 \clef bass |
           <bf! df>8 \relative c { d8\rest } <af c>8 \relative c { d8\rest }
           \grace {
             e,64-[\sustainOn g c e g c] s16
           }
-          <e,, e'>8 \relative c { d8\rest d8\rest d16.\rest\sustainOff } <df' df'!>32\f |
+          <e,, e'>8 \relative c {
+            d8\rest d8\rest
+            % Move the stencil just a bit.
+            \once \override Staff.SustainPedal.X-offset = #-0.15
+            \once \override Staff.SustainPedal.Y-offset = #-2
+            d16.\rest\sustainOff
+          } <df' df'!>32\f |
           <e, e'>8.. <f f'>32 <f_~ f'^~>4 <f f'>8.. <f' bf df>32 <f bf df>4 |
           <gf bf df>8.. <g bf df>32 <g_~ bf^~ df^~>4 <g bf df>8.. <af c>32 <af c>8.. <a ef' gf>32 |
           <a ef' gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <cf ef gf>32 <cf ef gf>8.. <c ef gf>32 |
@@ -689,6 +712,8 @@ arietta-section-five = {
               ef4 d c fs,8.._( g32) |
               g2\sustainOn g2 |
               \stemNeutral
+              \once \override Staff.SustainPedal.X-offset = #-2.32
+              \once \override Staff.SustainPedal.Y-offset = #-3
               g32\sustainOff af \repeat unfold 3 { g af }
               \repeat unfold 12 { g af }
             }
@@ -771,11 +796,19 @@ arietta-section-five = {
           <c c'> <f f'>) <ef ef'>-. <c c'>-. \relative c'' { b8\rest } \clef bass <af,, af'> <bf bf'> <c c'> |
           <df' f>16\sustainOn af'
           \repeat unfold 6 { <df, f> af' }
-          <df, f> af'\sustainOff |
+          <df, f>
+          \once \override Staff.SustainPedal.X-offset = #-0.11
+          af'\sustainOff |
           <d, f af>\sustainOn cf'
           \repeat unfold 6 { <d, f af> cf' }
-          <d, f af> cf'\sustainOff |
-          <ef,, ef'>4^\sf\sustainOn \relative c { d4\rest d4\rest d8.\rest } <ef' c'! ef>16\sustainOff |
+          <d, f af>
+          \once \override Staff.SustainPedal.X-offset = #-0.11
+          cf'\sustainOff |
+          \once \override Staff.SustainPedal.X-offset = #-1.10
+          <ef,, ef'>4^\sf\sustainOn \relative c { d4\rest d4\rest d8.\rest }
+          \once \override Staff.SustainPedal.X-offset = #-0.11
+          \once \override Staff.SustainPedal.Y-offset = #-1.5
+          <ef' c'! ef>16\sustainOff |
           <ef bf' df>4. \relative c { d16\rest } <ef af c>16 4 <ef g bf>8_[ f16\rest <ef g bf>16] |
           4 <ef af c>4 d2\rest |
           <ef bf' df>4. \relative c { d16\rest } <ef af c>16 <ef g bf>4. \relative c { d16\rest } <e g bf>16 |
@@ -917,10 +950,14 @@ arietta-section-five = {
           <ef g>16\sustainOn c' <ef, g> c' <ef, g> c' <ef, g> c' <e, g bf!> c' <e, g bf> c' <e, g bf> c' <e, g bf>
           % Note: manual override
           % todo: change to a proper fix
-          %\once \override Staff.SustainPedal.X-offset = #1.5
+          \once \override Staff.SustainPedal.X-offset = #1.44
+          \once \override Staff.SustainPedal.Y-offset = #-2.25
           c'\sustainOff |
           <f, af> c' <f, af> c' <f, af> c' <f, af> c' <fs, a c> ef' <fs, a c> ef' <fs, a c> ef' <fs, a c> ef' |
-          <g,, g'>4^\sf\sustainOn d''4\rest d4\rest d8.\rest <g e' g>16\sustainOff |
+          <g,, g'>4^\sf\sustainOn d''4\rest d4\rest d8.\rest
+          \once \override Staff.SustainPedal.X-offset = #1.18
+          \once \override Staff.SustainPedal.Y-offset = #-2.25
+          <g e' g>16\sustainOff |
           <g d' f>4. \relative c { d16\rest } <g c e>16 4 <g b d>8-[ \relative c { f16\rest } <g b d>16] |
           <g b d>4 <g c e>4 \relative c { d2\rest } |
           <g, d' f>4. \relative c { d16\rest } <g c f>16 <g b f'>4. \relative c { d16\rest } <g' d'>16 |
@@ -972,7 +1009,9 @@ arietta-section-five = {
           c d e f g c, d e f c' df c bf af g f |
           e c' df c bf g e c' f, af f c f af f c |
           f af f c f af f c f af f c f af f c |
+          \once \override Staff.SustainPedal.X-offset = #-1.11
           g'\sustainOn c g c, g' c g c, g' e' g, c, g' e' g, c, |
+          \once \override Staff.SustainPedal.X-offset = #0.18
           <c, c'>1\sustainOff |
         }
       }
@@ -990,7 +1029,7 @@ arietta-section-five = {
     }
   }
 }
-%}
+
 %---------------------------------------------------------------------
 %    II. Arietta
 %---------------------------------------------------------------------
@@ -1249,7 +1288,6 @@ arietta-section-five = {
                 \relative c'' {
                   \override Tie.minimum-length = #3.25
                   \set Timing.measureLength = #(ly:make-moment 6/16)
-                  % todo: make fingering nicer
                   \tuplet 5/4 {
                     \once \override Slur.height-limit = #4 c16-[(-5 ~c16 b32
                     -\tweak Y-offset #3.6
@@ -1520,6 +1558,7 @@ arietta-section-five = {
               \tuplet 3/2 { b32-[ c d c b a gs a b] }
               \tuplet 3/2 { gs32-[ a b a b c b c d] }
               \tuplet 3/2 { b32-[ c d f e d c b e] } |
+              % todo pad the semprePp a bit
               \tuplet 3/2 { a,32-[ gs e' \semprePp b a e' c b e] }
               \tuplet 3/2 { d32-[ c e c b e d c e] }
               \tuplet 3/2 { d32-[ c e c b d b a c] } |
@@ -2302,6 +2341,7 @@ arietta-section-five = {
                 \tuplet 3/2 { b,32-[_( c64 d32) b64]_( }
                 \tuplet 3/2 { d32-[ e64 f32) \once \override Slur.height-limit = #6 e64]^( }
                 \tuplet 3/2 { b'32-[ c64 d32) c64]^( }
+                % todo: customize this slur
                 \tuplet 3/2 { d32-[ b64 d32) \once \override Slur.height-limit = #6 c64]^( }
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { b32-[ a64 gs32]) d'64\rest }
@@ -2319,7 +2359,6 @@ arietta-section-five = {
                 \tuplet 3/2 { gs,32.~-[ gs32 gs'64 a,32.~ a32 a'64] }
                 \tuplet 3/2 { b,32.~-[ b32 b'64 c,32.~ c32 c'64] }
                 \tuplet 3/2 { d,32.~-[ d32 d'64 ds,32.~ ds32 ds'64] } |
-                % todo put 32nd flags in the same direction
                 \tuplet 3/2 { e16.~-[ e32 \set stemLeftBeamCount = #4 \set stemRightBeamCount = #3 e,64 f32 e64] }
                 \tuplet 3/2 { a16.~-[ a32 a,64 b32 a64] }
                 \stemNeutral
@@ -2503,8 +2542,10 @@ arietta-section-five = {
                 \relative c { d16\rest } <ef,,, ef'>8 \relative c { d16\rest } <c c'>8 \relative c { d16\rest } <d d'>16_(-[ <c c'>)] |
                 <b b'>16\noBeam \clef treble \stemNeutral b'''8 \relative c'' { b16\rest } c8 \relative c'' { b16\rest } a8 \clef bass |
                 \relative c { d16\rest } <bf,,, bf'>8 \relative c { d16\rest } <g g'>8
-                % todo: need a tuplet bracket here, just once?
-                \tuplet 3/2 { af32-[ af' af, af' af, af' af, af' af,] } |
+                \explicitTuplets
+                \tupletUp
+                \tuplet 3/2 { af32-[ af' af, } \tuplet 3/2 { af' af, af' } \tuplet 3/2 { af, af' af,] } |
+                \implicitTuplets
                 \tuplet 3/2 { \repeat unfold 4 { fs' fs, } fs' }
                 \tuplet 3/2 { \repeat unfold 4 { g, g' } g, }
                 \stemUp
