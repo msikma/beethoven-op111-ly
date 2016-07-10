@@ -1868,6 +1868,7 @@ arietta-section-five = {
                 \tuplet 3/2 { d32-[ e64 f32) \once \override Slur.height-limit = #4 e64]( }
                 \tuplet 3/2 { f32-[ d64 f32) e64] }
                 \once \override TupletBracket.transparent = ##t
+                % todo is this rest correctly placed? manuscript is ambiguous
                 \tuplet 3/2 { d32-[ c64 b32] e,,64\rest }
                 \tuplet 3/2 { b'32-[ c64 d32 c64] } |
                 s4 s8 |
@@ -2139,9 +2140,11 @@ arietta-section-five = {
                 <c g'>8.-[ <d_4 g> <b g'>] |
                 <b g'>8.-[ <c_4 g'> <d_3 g>] |
                 <e_2 g>8.-[ <c g'> <e_2 g>] |
-                \once \override PhrasingSlur.eccentricity = #1.75
-                \once \override PhrasingSlur.height-limit = #8
-                g,8.-[_\( g' g8^( f16 ] |
+                \once \override PhrasingSlur.eccentricity = #1.65
+                \once \override PhrasingSlur.height-limit = #9
+                g,8.-[_\( g'
+                \once \override Slur.height-limit = #9
+                g8^( f16 ] |
                 % todo fix slur
                 <e, e'>4.)\) <e e'>8. |
                 <d d'>4.
@@ -2216,7 +2219,7 @@ arietta-section-five = {
                 \tuplet 3/2 { c16-[( \dolce g32 fs16 g32)] } |
                 g16-[ g~g g] \stemDown \tuplet 3/2 { d-[^( g,32 fs16 g32]) } |
                 s4 s8 |
-                s8 \stemNeutral \tuplet 3/2 { d'16-[( b32 d16 c32] }
+                s8 \stemNeutral \tuplet 3/2 { \once \override Slur.height-limit = #4.0 d'16-[( b32 d16 c32] }
                 \tuplet 3/2 { f16-[ ds32 f16 e32]) } |
                 g8\noBeam g,8 \tuplet 3/2 { \once \override Slur.height-limit = #3 f16-[_( e32 g16 f32] } |
                 \tuplet 3/2 { e16-[ d32 f16 e32]) }
@@ -2694,7 +2697,8 @@ arietta-section-five = {
                 b16 g c~c8 c16 |
                 s8 |
                 s4 s8 |
-                \once \override Slur.height-limit = #4.0
+                \once \override Slur.eccentricity = #1.65
+                \once \override Slur.height-limit = #5.0
                 a16(-[ b]~b-[ c] cs-[ d] |
                 ds16-[ e]) s8 s8 |
                 s4 s8 |
