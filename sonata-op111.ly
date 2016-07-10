@@ -1992,8 +1992,8 @@ arietta-section-five = {
                 c8.-[^( e g)] |
                 g8.-[^( f d8 c16)] |
                 b8.-[^( c8. d8 g,16)] |
-                % todo fix the dot!
-                g8.^~\< g8-[\!\> e16] e16-[^~\!\p e16 e16] |
+                % Note: the dot on this note has been manually adjusted.
+                \once \override Dots.extra-offset = #'(0 . 1) g8.^~\< g8-[\!\> e16] e16-[^~\!\p e16 e16] |
                 c'4. c8-[^( b16)] |
                 b4. b8-[^( e16)] |
                 e8.-[ e8. d8^( c16)] |
