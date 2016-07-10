@@ -1572,10 +1572,12 @@ arietta-section-five = {
               \clef treble
               % Note: hack to accommodate Beethoven's weird notation.
               % This should actually be e32.~e32, but Beethoven uses
-              % a 64th. Since a tie cannot pass through a space, we
-              % use a slur instead. todo fix this
-              \tuplet 3/2 { a'32-[ c e c e a e64 a c e64^(] s32 }
-              \tuplet 3/2 { e32-[) b c e, b' c e b c] } |
+              % a 64th. We've manually set the amount of beams to 4 for
+              % the last note.
+              \omit Dots
+              \tuplet 3/2 { a'32-[ c e c e a e64 a \set stemRightBeamCount = #4 c \set stemLeftBeamCount = #4 e32.^~] }
+              \undo \omit Dots
+              \tuplet 3/2 { e32-[ b c e, b' c e b c] } |
               \relative c'' { b16\rest }
               \tuplet 3/2 { e32-[ c e, e' cs e,] }
               \relative c'' { b16\rest }
@@ -2140,15 +2142,14 @@ arietta-section-five = {
                 <c g'>8.-[ <d_4 g> <b g'>] |
                 <b g'>8.-[ <c_4 g'> <d_3 g>] |
                 <e_2 g>8.-[ <c g'> <e_2 g>] |
-                \once \override PhrasingSlur.eccentricity = #1.65
-                \once \override PhrasingSlur.height-limit = #9
+                \once \override PhrasingSlur.eccentricity = #1.25
+                \once \override PhrasingSlur.height-limit = #9.5
                 g,8.-[_\( g'
                 \once \override Slur.height-limit = #9
                 g8^( f16 ] |
-                % todo fix slur
                 <e, e'>4.)\) <e e'>8. |
                 <d d'>4.
-                % note make slur higher
+                \once \override Slur.height-limit = #9
                 <f f'>8_( <fs fs'>16) |
                 g'8.-[( a b8) b16]_~\finger \markup \tied-finger-up #"1" #"3" |
                 b8-[ b16_(-3 c8-2 d16)]-1 |
@@ -2273,7 +2274,6 @@ arietta-section-five = {
                 \tuplet 3/2 { c,32-[ e64 g32 c64] }
                 \tuplet 3/2 { c,,32-[ e64 g32 c64] } |
                 \omit Dots
-                % todo clean up ties
                 \tuplet 3/2 { <g,_~ g'^~>32.-[ <g g'>32 <g_~ g'^~>64 <g_~ g'^~>32. <g g'>32 <g_~ g'^~>64] }
                 \tuplet 3/2 { <g_~ g'^~>32.-[ <g g'>32 <g_~ g'^~>64 <g_~ g'^~>32. <g g'>32 <f f'>64] }
                 \tuplet 3/2 { f32-[ b64 d32 f64 b32 d64 e32 f64] }
@@ -2320,10 +2320,10 @@ arietta-section-five = {
                 \tuplet 3/2 { b,32.~-[ b32 b'64 c,32.~ c32 c'64] }
                 \tuplet 3/2 { d,32.~-[ d32 d'64 ds,32.~ ds32 ds'64] } |
                 % todo put 32nd flags in the same direction
-                \tuplet 3/2 { e16.~-[ e32 e,64 f32 e64] }
+                \tuplet 3/2 { e16.~-[ e32 \set stemLeftBeamCount = #4 \set stemRightBeamCount = #3 e,64 f32 e64] }
                 \tuplet 3/2 { a16.~-[ a32 a,64 b32 a64] }
                 \stemNeutral
-                \tuplet 3/2 { g16._~-[ g32 \once \override Slur.height-limit = #6 g,64_( af32 g64]_~ } |
+                \tuplet 3/2 { \once \override Beam.damping = #+inf.0 g16._~-[ g32 \once \override Slur.height-limit = #6 \set stemLeftBeamCount = #4 \set stemRightBeamCount = #3 g,64_( af32 g64]_~ } |
                 \tuplet 3/2 { g32-[ b64 d32 g64 b32 d64 fs32 g64]) }
                 \override Tie.minimum-length = #2.65
                 \tuplet 3/2 { <g,_~ b^~ d^~ f^~>32.-[ <g b d f>32 <g_~ b^~ d^~ f^~>64 <g_~ b^~ d^~ f^~>32. <g b d f>32 <g_~ b^~ d^~ f^~>64] }
