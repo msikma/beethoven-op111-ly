@@ -1662,9 +1662,11 @@ arietta-section-five = {
               \stemDown
               <f, af>16\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
               \break
+              \override DynamicLineSpanner.staff-padding = #4.55
               g16 \p \dim g g g g g <ef g> <ef g> <ef g> |
               <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
               ef16\!\pp ef ef ef ef ef <c ef> <c ef> <c ef> |
+              \revert DynamicLineSpanner.staff-padding
               <df ef>16 <df ef> <df ef> <df ef>16 <df ef> <df ef> <df ef>16 <df ef> df |
               df16 c c c <c d> c c b b |
               bf!16 <bf df> bf bf a a s8. \clef bass |
@@ -1762,10 +1764,11 @@ arietta-section-five = {
               c16]^(\startTrillSpan cs16-[ d) g,] |
               \trillSpanUp g4.\stopTrillSpan\startTrillSpan~g8. |
               \stemNeutral
+              \override DynamicLineSpanner.staff-padding = #2
               \tuplet 3/2 { g32\stopTrillSpan\pp a g fs g a b c a }
               \tuplet 3/2 { b c b a b c d e c }
               \tuplet 3/2 { d e d cs d e f! g e } |
-              % todo: ottava bracket is a bit close to the next note.
+              \once \override Staff.OttavaBracket.shorten-pair = #'(0 . 0.2)
               \ottava #1
               \set Staff.ottavation = #"8"
               \tuplet 3/2 { f g f e f e d e d }
@@ -2019,6 +2022,7 @@ arietta-section-five = {
                 g8 \relative c'' { d16\rest d8.\rest d8.\rest } |
                 \relative c'' { d16\rest } g8 \relative c'' { d16\rest } af8 \relative c'' { d16\rest } bf16-[^( ef,]) |
                 \pageBreak
+                \override DynamicLineSpanner.staff-padding = #5.56
                 ef8-[\semprePp ef16] ef16-[ a^( d,]) d8-[ d16] |
                 df16-[ g^( c,)] c8-[ c16] <af cf>16-[ <af bf f'>^( <af bf>)] |
                 bf8-[ bf16] bf16-[ ef^( a,])
