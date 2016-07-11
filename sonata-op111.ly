@@ -1778,6 +1778,7 @@ arietta-section-five = {
               % Note: space out the final notes a bit more.
               \shortestNoteDuration 16
               c8-[_(\f g16]) g8. f''8-[^(\sf b,16]) |
+              \shortestNoteDuration 64
               f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p <c e, c>16)]\dim <c e, c>8 \relative c'' { b16\rest } |
               <c e, c>8\pp \relative c'' { b16\rest }
               \change Staff = "left"
@@ -1785,6 +1786,7 @@ arietta-section-five = {
               <e,,, g c>8
               \change Staff = "right"
               \relative c'' { b16\rest } \bar "|."
+              \shortestNoteDuration 16
             }
             \new Voice {
               \voiceTwo
