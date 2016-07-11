@@ -978,7 +978,7 @@ arietta-section-five = {
           <f af c>8-[ 8] \relative c { d8\rest } <fs a ef'!>8 <g b d>8-[ 8] \relative c { d8\rest } <g b f'!>8 |
           <af! c ef>8-[ 8] \relative c { d8\rest } <a c f>8\noBeam <bf! d f>8-[ 8] \relative c { d8\rest } <b d g>8 |
           % todo cleanup per manuscript
-          <c ef g>8-[ 8] \clef treble \relative c'' { b8\rest } <c ef g>8\noBeam <d f af b>8-[ 8] \relative c'' { b8\rest } <d f af b>8 |
+          <c ef g>8-[ 8] \relative c { d8\rest } \clef treble <c ef g>8\noBeam <d f af b>8-[ 8] \relative c'' { b8\rest } <d f af b>8 |
           \stemUp
           <ef g c>8-[ 8] \relative c'' { b8\rest } <e g c>8 <f af c>8-[ 8] \relative c'' { b8\rest } <f af d>8 |
           \stemNeutral
