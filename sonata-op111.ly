@@ -880,8 +880,7 @@ arietta-section-five = {
           \pageBreak
           bf g c c, |
           \trillSpanUp
-          f2 \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
-          \stemUp
+          f2 \afterGrace e2\startTrillSpan { \stemUp d16\stopTrillSpan e } |
           <<
             \relative c, {
               \stemDown f2 \stemUp \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
@@ -1764,7 +1763,6 @@ arietta-section-five = {
               c16]^(\startTrillSpan cs16-[ d) g,] |
               \trillSpanUp g4.\stopTrillSpan\startTrillSpan~g8. |
               \stemNeutral
-              \override DynamicLineSpanner.staff-padding = #2
               \tuplet 3/2 { g32\stopTrillSpan\pp a g fs g a b c a }
               \tuplet 3/2 { b c b a b c d e c }
               \tuplet 3/2 { d e d cs d e f! g e } |
@@ -1774,7 +1772,7 @@ arietta-section-five = {
               \tuplet 3/2 { f g f e f e d e d }
               \tuplet 3/2 { c d c b c b c d c }
               \tuplet 3/2 { d e d e f g a g b } |
-              \tuplet 3/2 { c\cresc b a g f e d c b }
+              \tuplet 3/2 { \override DynamicLineSpanner.staff-padding = #3.2 c\cresc b a g f e d c b }
               \ottava #0
               \tuplet 3/2 { c b a g f e d c b }
               \tuplet 3/2 { c b a g f e d c b\! } |
@@ -1782,7 +1780,10 @@ arietta-section-five = {
               \shortestNoteDuration 16
               c8-[_(\f g16]) g8. f''8-[^(\sf b,16]) |
               \shortestNoteDuration 64
-              f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p <c e, c>16)]\dim <c e, c>8 \relative c'' { b16\rest } |
+              f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p
+              \override DynamicLineSpanner.staff-padding = #2.7
+              % todo move dim to the left
+              <c e, c>16)]\dim <c e, c>8 \relative c'' { b16\rest } |
               <c e, c>8\pp \relative c'' { b16\rest }
               \change Staff = "left"
               \stemUp
@@ -1811,7 +1812,7 @@ arietta-section-five = {
                 a8 g16 a8 s16 a8 fs16 |
                 <f d>8. <f d>8.~<f d>16 <f d> <f d>
                 \override DynamicLineSpanner.staff-padding = #5.5 |
-                % todo fix this slur
+                \shape #'((0.3 . 0) (0.8 . 0) (0.4 . 0) (0 . 0)) Slur
                 <d f>16^(\< e d\! c\> d b)\! s8 s16 |
                 \revert DynamicLineSpanner.staff-padding
                 <d f>16\<-[ e f\! e <d e> <c e>] <b e> <c e> d |
@@ -1934,7 +1935,10 @@ arietta-section-five = {
                 \override NoteColumn.ignore-collision = ##t
                 \tuplet 3/2 { \single \hide Stem \single \hide Flag b32) \unHideNotes s64 s32 s64 \single \hide Flag \once \override Slur.height-limit = #4 b16.(\noBeam }
                 \once \override TupletBracket.transparent = ##t
-                \tuplet 3/2 { \stemDown g16.)~ g32-[ a64 b32 c64] b16.\noBeam r32 e64-[ d32 c64] } |
+                \tuplet 3/2 {
+                  \stemDown g16.)~ g32-[ a64 b32 c64] b16.\noBeam r32
+                  e64-[ d32 c64]
+                } |
                 \stemDown
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { d32-[ d64~ d32 d64]~ \stemUp \single \hide Flag d32 \noBeam s64 s32 s64 } s4
@@ -2242,10 +2246,12 @@ arietta-section-five = {
                 g16 e, g'~g c,, e'~e c, e'~ |
                 e16\) cs, e'~e d, f' fs fs, a' |
                 af16^( g, g' a g, bf'~bf) b b |
+                \once \override Slur.height-limit = #4
                 b16^( c f, e f d) e c
                 % Moving the LV tie up a bit for clarity.
                 \once \override LaissezVibrerTie.Y-offset = #'0.2
                 g'\laissezVibrer |
+                \once \override Slur.height-limit = #4
                 b16-[^( c d c b a gs a b]) |
                 c16 a, e'~ |
                 \once \override Slur.height-limit = #5
@@ -2347,8 +2353,11 @@ arietta-section-five = {
                 \tuplet 3/2 { b,32-[_( c64 d32) b64]_( }
                 \tuplet 3/2 { d32-[ e64 f32) \once \override Slur.height-limit = #6 e64]^( }
                 \tuplet 3/2 { b'32-[ c64 d32) c64]^( }
-                % todo: customize this slur
-                \tuplet 3/2 { d32-[ b64 d32) \once \override Slur.height-limit = #6 c64]^( }
+                \tuplet 3/2 {
+                  d32-[ b64 d32)
+                  \shape #'((0.0 . -1.8) (0.0 . 0.2) (0.0 . 0.0) (0 . 0.0)) Slur
+                  \once \override Slur.height-limit = #6 c64]^(
+                }
                 \once \override TupletBracket.transparent = ##t
                 \tuplet 3/2 { b32-[ a64 gs32]) d'64\rest }
                 \clef bass
@@ -2441,7 +2450,9 @@ arietta-section-five = {
                 e-.-[ e-. e-.]
                 e-.-[ c'-. d-.]
                 e-.-[ e-. <e, bf'>-.] |
+                \override DynamicLineSpanner.staff-padding = #1.8
                 <e bf'>-.-[ \sempreStaccato <e g>-. <e bf'>-.]
+                \revert DynamicLineSpanner.staff-padding
                 <e bf'>-.-[ <f a> f]
                 f-[ f e] |
                 e16-[ d e]
@@ -2699,8 +2710,8 @@ arietta-section-five = {
                 \tuplet 3/2 { e d c b a g f e d }
                 \clef bass
                 \tuplet 3/2 { e d c b a g f e d } |
-                % todo: tweak sf position, move to left
-                \relative c { d8.\rest } c,8-[_(\sf g16)] g8._~ |
+                \relative c { d8.\rest }
+                c,8-[_(^\sf g16)] g8._~ |
                 g8._~g16-[ <g g'>16_( <c c'>)] \relative c { d16\rest } <a' a'>16-[^( <c c'>16)] |
                 \relative c { d16\rest }
                 <g, g'>16-[_( <c c'>)]
