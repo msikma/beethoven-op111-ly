@@ -421,7 +421,6 @@ arietta-section-five = {
             \\
             \relative c'' {
               s2 \relative c'' { b8\rest } <ef g>8_~\noBeam <ef g> <f, g>8\noBeam |
-              % fixme: why no beams here?
               <f g>8 8 8 8 \relative c'' { g8\rest } <ef g>8_~\noBeam <ef g>
             }
           >>
@@ -529,7 +528,7 @@ arietta-section-five = {
           >> |
           \relative c'' { b16\rest } c g' bf c4 \relative c'' { b16\rest } c, e g c4 |
           \tupletDown
-          \relative c'' { b16\rest } c,-[ f af] c-[ e f_\markup { \italic "meno allegro" } c]
+          \relative c'' { b16\rest } c,-[ f af] c-[ e_\markup { \italic "meno allegro" } f c]
           \once \override TupletNumber.Y-offset = #-1.05
           \tuplet 6/4 { ef df bf df c af }
           \once \override TupletNumber.Y-offset = #-1.65
@@ -973,7 +972,6 @@ arietta-section-five = {
           <c g' c>4. \relative c { d16\rest } <c f c'>16 <c e c'>4. \relative c { d16\rest } <e g c>16 |
           <f af c>8-[ 8] \relative c { d8\rest } <fs a ef'!>8 <g b d>8-[ 8] \relative c { d8\rest } <g b f'!>8 |
           <af! c ef>8-[ 8] \relative c { d8\rest } <a c f>8\noBeam <bf! d f>8-[ 8] \relative c { d8\rest } <b d g>8 |
-          % todo cleanup per manuscript
           <c ef g>8-[ 8] \relative c { d8\rest } \clef treble <c ef g>8\noBeam <d f af b>8-[ 8] \relative c'' { b8\rest } <d f af b>8 |
           \stemUp
           <ef g c>8-[ 8] \relative c'' { b8\rest } <e g c>8 <f af c>8-[ 8] \relative c'' { b8\rest } <f af d>8 |
