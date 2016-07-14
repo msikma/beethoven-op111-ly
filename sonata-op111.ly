@@ -925,7 +925,7 @@ arietta-section-five = {
           \undo \offset positions #'(1 . 3) Beam |
           \relative c { d16\rest } <ef ef'>16-[ \relative c { d16\rest } <e e'> \relative c { d16\rest } <f f'> \relative c { d16\rest } <e e'>] \relative c { d16\rest } <f f'>-[ \relative c { d16\rest } <g g'> \relative c { d16\rest } <af af'> \relative c { d16\rest } <f' af>] |
           \relative c { d16\rest } <f af>16-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df>] \relative c' { a16\rest } <f af df>-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af>] |
-          \relative c { d16\rest } <f af>16-[ \relative c { f16\rest } <e g> \relative c { f16\rest } <e g> \relative c { f16\rest } <e g>] <e g>8 e,4 \tuplet 3/2 { c16 d e } |
+          \relative c { d16\rest } <f af>16-[ \relative c { f16\rest } <e g> \relative c { f16\rest } <e g> \relative c { f16\rest } <e g>] <e g>8 e,4 \tuplet 3/2 { \shortestNoteDuration 32 c16 d e \shortestNoteDuration 16 } |
           <f, f'>4_. <af af'>_. <e_~ e'^~>\sf <e e'>16-[ g' bf df] |
           c16 df c bf af bf af g af bf af g f af bf c |
           df ef df c bf c bf a bf c bf af g bf df f |
