@@ -432,7 +432,6 @@ arietta-section-five = {
           <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] d\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
           <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>]\! b'\rest
           \once \override Staff.TextScript.outside-staff-priority = #0
-          % todo add spacing to poco ritenente
           <c, g' c>8^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
           af'16^\markup { \italic "a tempo" }\f c bf af g f e f g af bf g df e g bf_~ |
           bf8-[
@@ -948,7 +947,6 @@ arietta-section-five = {
           ef f ef d c d c b c d c b c8 \clef bass g,,,16-[ f] |
           <ef g>16\sustainOn c' <ef, g> c' <ef, g> c' <ef, g> c' <e, g bf!> c' <e, g bf> c' <e, g bf> c' <e, g bf>
           % Note: manual override
-          % todo: change to a proper fix
           \once \override Staff.SustainPedal.X-offset = #1.44
           \once \override Staff.SustainPedal.Y-offset = #-2.25
           c'\sustainOff |
@@ -1108,7 +1106,6 @@ arietta-section-five = {
                 _\finger \markup \tied-lyric #"1~2" <d, a'>16]\! |
                 <d g>8.-[ <c g'> <d g>8 d16]~\finger \markup \tied-lyric #"1~2" |
                 d8-[ d16^(^2\< <c e-3>8\!\> <b f'-4>16)\!] |
-                % todo fix this slur
                 \once \override Slur.control-points = #'((1.3 . -1.4) (3.0 . 0.5) (6 . 0.85) (7.8 . -0.75))
                 d8-[^(\repeatTie <c e-4>16\< <b f'-5>8\!\> <c e-4>16)]\! s8. |
               }
