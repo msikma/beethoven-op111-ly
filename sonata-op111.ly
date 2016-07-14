@@ -1194,8 +1194,8 @@ arietta-section-five = {
                 f,8\> e16\! c'8 <e, c>16
                 \override DynamicLineSpanner.staff-padding = #4.5 |
                 \set Timing.measureLength = #(ly:make-moment 9/16)
-                % todo check with manuscript
-                b'8\< <b, e>16\)\!_\(\> <c e>16 c' b\! c( <e, b'>\)) <e' b>( |
+                % Note: we've used the Schlesinger copy as leading here.
+                b'8-[\< \set stemLeftBeamCount = #2 \set stemRightBeamCount = #1 <b, e>16\!_(\> \set stemLeftBeamCount = #1 <c e>16 c' b]\)\! c\( <e, b'>\)) <e' b>( |
                 \override Tie.minimum-length = #3.25
                 f8 e16) e8( d16) d c c~ |
                 \override DynamicLineSpanner.staff-padding = #3
@@ -1806,7 +1806,7 @@ arietta-section-five = {
                 a8 g16 a8 s16 a8 fs16 |
                 <f d>8. <f d>8.~<f d>16 <f d> <f d>
                 \override DynamicLineSpanner.staff-padding = #5.5 |
-                \shape #'((0.3 . 0) (0.8 . 0) (0.4 . 0) (0 . 0)) Slur
+                \shape #'((0.5 . -0.2) (0.8 . -0.1) (0.4 . 0) (0 . 0)) Slur
                 <d f>16^(\< e d\! c\> d b)\! s8 s16 |
                 \revert DynamicLineSpanner.staff-padding
                 <d f>16\<-[ e f\! e <d e> <c e>] <b e> <c e> d |
