@@ -426,10 +426,9 @@ arietta-section-five = {
             }
           >>
           <af af'>16\cresc^\markup { \italic "a tempo" } \relative c'' { b16\rest } |
-          % todo check if some of these rests need to go down
-          <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] a'\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] f'\rest |
-          <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] d'\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
-          <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] d\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
+          <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] b\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] b\rest |
+          <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] b\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
+          <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] b,\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
           <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>]\! b'\rest
           \once \override Staff.TextScript.outside-staff-priority = #0
           <c, g' c>8^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
@@ -923,7 +922,7 @@ arietta-section-five = {
           <c c'>-[ \relative c { d\rest } <d d'> \relative c { d\rest } <ef ef'> \relative c { d\rest } <d d'>]
           \undo \offset positions #'(1 . 3) Beam |
           \relative c { d16\rest } <ef ef'>16-[ \relative c { d16\rest } <e e'> \relative c { d16\rest } <f f'> \relative c { d16\rest } <e e'>] \relative c { d16\rest } <f f'>-[ \relative c { d16\rest } <g g'> \relative c { d16\rest } <af af'> \relative c { d16\rest } <f' af>] |
-          \relative c { d16\rest } <f af>16-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df>] \relative c' { a16\rest } <f af df>-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af>] |
+          \relative c { d16\rest } <f af>16-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df>] \relative c { d16\rest } <f af df>-[ \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af df> \relative c' { a16\rest } <f af>] |
           \relative c { d16\rest } <f af>16-[ \relative c { f16\rest } <e g> \relative c { f16\rest } <e g> \relative c { f16\rest } <e g>] <e g>8 e,4 \tuplet 3/2 { \shortestNoteDuration 32 c16 d e \shortestNoteDuration 16 } |
           <f, f'>4_. <af af'>_. <e_~ e'^~>\sf <e e'>16-[ g' bf df] |
           c16 df c bf af bf af g af bf af g f af bf c |
