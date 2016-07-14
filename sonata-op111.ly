@@ -420,9 +420,9 @@ arietta-section-five = {
             }
             \\
             \relative c'' {
-              s2 \relative c'' { b8\rest } <ef g>8_~ <ef g> <f, g>8\noBeam |
+              s2 \relative c'' { b8\rest } <ef g>8_~\noBeam <ef g> <f, g>8\noBeam |
               % fixme: why no beams here?
-              <f g>8 8 8 8 \relative c'' { g8\rest } <ef g>8_~-[ <ef g>]
+              <f g>8 8 8 8 \relative c'' { g8\rest } <ef g>8_~\noBeam <ef g>
             }
           >>
           <af af'>16\cresc^\markup { \italic "a tempo" } \relative c'' { b16\rest } |
@@ -915,8 +915,8 @@ arietta-section-five = {
           \stemNeutral
           <c, c'>4_. <ef ef'>4_. <b b'>4. <af' af'>8 |
           <g g'>8 <f f'>8 <ef ef'>8 <d d'>8 ef16 f ef d <c c'>8 \relative c { d8\rest } |
-          <g'' b>8 8 <g c> <g b> \relative c { d8\rest } <c,_~ c'^~>8 <c c'> \relative c { d8\rest } |
-          <g, g'>8 8 <g a'> <g b'> \relative c { d8\rest } <c_~ c'^~> <c c'> \relative c { d16\rest } <b! b'!>16 |
+          <g'' b>8 8 <g c> <g b> \relative c { d8\rest } <c,_~ c'^~>8\noBeam <c c'> \relative c { d8\rest } |
+          <g, g'>8 8 <g a'> <g b'> \relative c { d8\rest } <c_~ c'^~>\noBeam <c c'> \relative c { d16\rest } <b! b'!>16 |
           \relative c { d16\rest }
           \offset positions #'(1.5 . 1.5) Beam
           <b b'>16-[ \relative c { d\rest } <b b'> \relative c { d\rest } <b b'> \relative c { d\rest } <b b'>] \relative c { d\rest }
