@@ -869,7 +869,7 @@ arietta-section-five = {
               \once \override Slur.height-limit = #6
               g2_( af2 |
               \trillSpanUp
-              d,2 \afterGrace b'2\startTrillSpan) { a!16\stopTrillSpan b }
+              d,2 \afterGrace b'2\startTrillSpan) { \stemUp a!16\stopTrillSpan b }
             }
           >> |
           c4 \relative c { d16\rest } bf16 af g af4 f |
