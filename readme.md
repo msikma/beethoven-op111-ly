@@ -25,15 +25,6 @@ For this transcription, two manuscripts were consulted: the [original holograph 
 * 39 l: The first of many implicit tuplets to follow.
 * 117 u: The first of the two tied notes actually has a duration of a dotted 32nd note—otherwise the bar duration does not add up. As per the manuscript, it's written as a 64th note.
 
-### Source notes
-
-* Some hacks are in place in the *Arietta* section, in part due to the heavy use of implied tuplets.
-* Currently, some macros (e.g. `\semprePp`) use `\tweak DynamicText.X-extent #'(0 . 0)` to prevent them from blocking note placement. However, this also means they'll slide right off the edge of the page if they happen to be be placed too far to the right. It would be nice to fix this in a way that doesn't alter the output.
-* The `\tied-finger-up` macro was created by [tisimst on the Lilypond mailing list](https://lists.gnu.org/archive/html/bug-lilypond/2015-04/msg00078.html). It's a flipped version of `\tied-lyric` for fingering.
-* 71: Manually ensuring that the beams face a certain direction. Look for `stemLeftBeamCount` and `stemRightBeamCount`.
-* 117: Using `stemLeftBeamCount` and `stemRightBeamCount` to make a `32.` look like a `64`.
-* 151: The dot for the `g8` appeared in the wrong place, so we manually bumped it up by overriding `Dots.extra-offset`.
-
 Copyright
 ---------
 
