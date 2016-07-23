@@ -1062,9 +1062,11 @@ arietta-section-five = {
               \voiceOne
               \repeat volta 2 {
                 \relative c'' {
+                  \autoPageBreaksOff
                   c8(-5 \p g16)-3 |
                   g4. d'8( g,16)\finger \markup \tied-finger-up #"3" #"4" |
                   g4.-4 g8.-4 |
+                  \noPageBreak
                   g8.-[(-2 e'-5 c])\finger \markup \tied-finger-up #"4" #"5" |
                   c8.-[-5 b-4 <b g>] |
                   c8.-[(-2 e g-5]) |
@@ -1119,6 +1121,7 @@ arietta-section-five = {
                 \relative c'' {
                   c4. \p c8( b16)-4 |
                   b4.\finger \markup \tied-finger-up #"4" #"3" b8(-2 e16) |
+                  \noPageBreak
                   <b e>8.-[
                   \once \override Slur.height-limit = #3
                   <c e>_(-3-5 <b d>8-2-\finger \markup \tied-finger-up #"4" #"5" <a c>16-1-\finger \markup \tied-finger-up #"4" #"5"]) |
@@ -1154,6 +1157,7 @@ arietta-section-five = {
               \repeat volta 2 {
                 \relative c'' {
                   a8 e16 g8 f16 d'8 d,16 |
+                  \noPageBreak
                   g8_\markup { \italic "sempre legato" } d16 f8 e16 g8 f16 |
                   a8 g16 e'8 e,16 c'8 e,16) |
                   \once \override Slur.height-limit = #5
@@ -1162,6 +1166,7 @@ arietta-section-five = {
                   c'8\< e,16 e'8 g,16 g'8 bf,16)\! |
                   \once \override Slur.height-limit = #3
                   g'8(\> a,16 f'8 a,16 d8 c16)\! |
+                  \noPageBreak
                   \once \override Slur.height-limit = #3
                   c8-[( b16 c8 cs16] cs16 <d g,> g,) |
                 }
@@ -1198,6 +1203,7 @@ arietta-section-five = {
                 b'8-[\< \set stemLeftBeamCount = #2 \set stemRightBeamCount = #1 <b, e>16\!_(\> \set stemLeftBeamCount = #1 <c e>16 c' b]\)\! c\( <e, b'>\)) <e' b>( |
                 \override Tie.minimum-length = #3.25
                 f8 e16) e8( d16) d c c~ |
+                \noPageBreak
                 \override DynamicLineSpanner.staff-padding = #3
                 <c a>16 \cresc <b gs>
                 \once \override Tie.minimum-length = #2.75
@@ -1214,11 +1220,13 @@ arietta-section-five = {
                     g'16-[\sf\>^( f e] f-[ e])\! e,-[ f e e]_( |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8 <c, e>16)
+                    \pageBreak
                   }
                 }
                 {
                   \relative c'' {
                     \set Timing.measureLength = #(ly:make-moment 6/16)
+                    \autoPageBreaksOn
                     \stemDown <g' d>16-[\sf\> <f b,> <e c>] <f c>-[ <e c> <e c>]\! |
                   }
                 }
