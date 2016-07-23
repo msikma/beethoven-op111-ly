@@ -145,6 +145,21 @@ textCrescEnd =
                'tweaks '((dash-period . -1))
                'span-text mymarkup))
 
+% As above, with a decrescendo.
+textDecresc =
+#(define-music-function (parser location mymarkup) (markup?)
+   (make-music 'DecrescendoEvent
+               'span-direction START
+               'span-type 'text
+               'span-text mymarkup))
+textDecrescEnd =
+#(define-music-function (parser location mymarkup) (markup?)
+   (make-music 'DecrescendoEvent
+               'span-direction START
+               'span-type 'text
+               'tweaks '((dash-period . -1))
+               'span-text mymarkup))
+
 % \mezzoP-pocoRitenente
 %
 % Prints a left-aligned column with two lines of text,
@@ -252,6 +267,17 @@ paren =
     #{ \markup \concat {
          \normal-text \italic \fontsize #2 (
 	 \pad-x #0.2 #(ly:music-property dyn 'text)
+	 \normal-text \italic \fontsize #2 )
+       }
+    #}))
+
+% Special form of \paren, with better padding for \sf.
+parenSf =
+#(define-event-function (parser location dyn) (ly:event?)
+   (make-dynamic-script
+    #{ \markup \concat {
+         \hspace #-0.3 \normal-text \italic \fontsize #2 (
+	 \hspace #-0.5 \pad-x #0.2 #(ly:music-property dyn 'text)
 	 \normal-text \italic \fontsize #2 )
        }
     #}))

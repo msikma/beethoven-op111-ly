@@ -233,7 +233,6 @@ arietta-section-five = {
                 g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\markup { \italic "a tempo" }^( |
                 g8 f ef d) ef^( d c b) |
                 c^( bf! af g) af^( f ef d) |
-                #(ly:expect-warning "Impossible or ambiguous (de)crescendo in MIDI.")
                 d8^(\> c) c2\!\p\<^\pocoRitenente-espressivo c4 |
                 \once \override Slur.height-limit = #5
                 c4\!\>\trill^( \grace { b16 c } ef8 d)\! c4^\markup { \italic "a tempo" } d4\rest |
@@ -335,7 +334,7 @@ arietta-section-five = {
                 <c ef>8 8 8 8 |
                 <bf ef>8 8 8 8 <af ef'>8 8 8 8 |
                 <af df>8 8 8 8 8 8 8 8 |
-                <af c>4 af8.-[ c16] ef8 s8 ef'8.-[^\trill d32 ef]
+                <af c>4-\parenSf\sf af8.-[ c16] ef8 s8 ef'8.-[^\trill d32 ef]
               }
             >> |
             ef'8-[^( f16 g)] g8-[^( af])
@@ -428,7 +427,7 @@ arietta-section-five = {
           <g g'>-[ a\rest <f f'> a\rest <ef ef'> a\rest <d, d'>] b\rest <ef ef'>-[ r <d d'> f\rest <c c'> f\rest <b, b'>] b\rest |
           <c c'>-[ d\rest <bf! bf'!> d\rest <af af'> d\rest <g, g'>] b\rest <af af'>-[ b\rest <g g'> b\rest <f f'> b\rest <ef, ef'>] b'\rest |
           <df, df'>-[ b'\rest <af af'> b\rest <df! df'> d\rest <f f'>] b,\rest <af' af'>-[ d,\rest <af af'> b\rest <f f'> b\rest <df, df'>] b'\rest |
-          <df, df'>-[\!-\textCrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>]\! b'\rest
+          <df, df'>-[\!-\textDecrescEnd "dimin." b'\rest <c, c'> b'\rest <c, c'> b'\rest <c, c'>]\! b'\rest
           \once \override Staff.TextScript.outside-staff-priority = #0
           <c, g' c>8^\markup { \italic "espressivo" }_\markup { \italic "poco ritenente" }\> <c g' df'>4 <c g' bf>8\! |
           af'16^\markup { \italic "a tempo" }\f c bf af g f e f g af bf g df e g bf_~ |
@@ -622,7 +621,7 @@ arietta-section-five = {
             \relative c' {
               \relative c'' { b4\rest }
               \once \override Slur.height-limit = #3
-              <df e g bf!>4_.\dim_( \relative c'' { b4\rest } <e g bf df>4_. |
+              <df e g bf!>4_.-\textDecresc "dimin."_( \relative c'' { b4\rest } <e g bf df>4_. |
               \relative c'' { b4\rest } <c f a>4_. \relative c'' { b4\rest } <f a c>_.) |
               \relative c'' { b2\rest\!\p } c'2\p |
               c2
@@ -647,7 +646,7 @@ arietta-section-five = {
               <c g' bf>2 <c f af>4.\< <d' f af>8 |
               \stemNeutral
               <d f af b>1\!\> |
-              <e g c>2\!\p\dim 2 |
+              <e g c>2\!\p-\textDecresc "dimin." 2 |
               1\!\pp
             }
           >>
@@ -1005,7 +1004,8 @@ arietta-section-five = {
           f af f c f af f c f af f c f af f c |
           \once \override Staff.SustainPedal.X-offset = #-1.11
           g'\sustainOn c g c, g' c g c, g' e' g, c, g' e' g, c, |
-          \once \override Staff.SustainPedal.X-offset = #0.18
+          \once \override Staff.SustainPedal.X-offset = #3.50
+          \once \override Staff.SustainPedal.Y-offset = #-4.00
           <c, c'>1\sustainOff |
         }
       }
@@ -1580,8 +1580,7 @@ arietta-section-five = {
               \tuplet 3/2 { f'32-[ e d e d b d c b] } |
               \tuplet 3/2 { g'32-[ f e f e d f e c] }
               \undo \omit Dots
-              % note I would rather keep this rest at the same height as the other notes
-              r8.
+              \relative c'' { b8.\rest }
               \tuplet 3/2 { g32-[ f e f e d f e c] } |
               \tuplet 3/2 { f32-[ e d e d b d c b] }
               \tuplet 3/2 { f'32-[ e d e d b d c b] }
@@ -1632,7 +1631,7 @@ arietta-section-five = {
               d4._~ \f
               \startTrillSpan d8._~ |
               d4._~ d8._~ \p |
-              d8.\dim
+              d8.-\textDecresc "dimin."
               \flatTrill
               % Give a little bit of breathing space, since it goes to the bar line.
               \once \override TrillSpanner.bound-details.right.padding = #1.0
@@ -1657,13 +1656,13 @@ arietta-section-five = {
               \afterGrace d8. { \stemUp c32-[ d32]\! \stemNeutral } |
               \once \override PhrasingSlur.height-limit = #8
               ef8.-[^\( \p \cresc g bf~] |
-              bf8-[ a16] af16-[\!\dim bf, <af bf,>]\) c,8-[ c16] |
+              bf8-[ a16] af16-[\!-\textDecresc "dimin." bf, <af bf,>]\) c,8-[ c16] |
               \set beatStructure = #'(3 3 3)
               \stemDown
               <f, af>16^\markup { \italic "espressivo" } \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
               \break
               \override DynamicLineSpanner.staff-padding = #4.55
-              g16 \p \dim g g g g g <ef g> <ef g> <ef g> |
+              g16 \p -\textDecresc "dimin." g g g g g <ef g> <ef g> <ef g> |
               <f g>16 <f g> <f g> <f g>16 <f g> <f g> <f g>16 <f g> f |
               ef16\!\pp ef ef ef ef ef <c ef> <c ef> <c ef> |
               \revert DynamicLineSpanner.staff-padding
@@ -1790,7 +1789,7 @@ arietta-section-five = {
               f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p
               \override DynamicLineSpanner.staff-padding = #2.7
               % todo move dim to the left
-              <c e, c>16)]\dim <c e, c>8 \relative c'' { b16\rest } |
+              <c e, c>16)]-\textDecresc "dimin." <c e, c>8 \relative c'' { b16\rest } |
               <c e, c>8\pp \relative c'' { b16\rest }
               \change Staff = "left"
               \stemUp
