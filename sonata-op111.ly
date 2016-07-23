@@ -305,7 +305,7 @@ arietta-section-five = {
             g8-[ r16 f16]
             \once \override TupletNumber.Y-offset = #-2.7
             \tuplet 5/4 { f16-[^( ef f g f])\!-\textCresc "dan" }
-            ef8-[ r16 <df g df'>] |
+            ef8-[ \relative c'' { d16\rest } <df g df'>] |
             4 <c af' c>4\!-\textCrescEnd "do" \relative c'' { b4\rest\! b8.\rest } <g' bf f'>16^\markup { \italic "Adagio" } |
             4 <ef af ef'>4 \relative c'' { b4\rest b8\rest }
             \ottava #1
