@@ -1004,8 +1004,8 @@ arietta-section-five = {
           f af f c f af f c f af f c f af f c |
           \once \override Staff.SustainPedal.X-offset = #-1.11
           g'\sustainOn c g c, g' c g c, g' e' g, c, g' e' g, c, |
-          \once \override Staff.SustainPedal.X-offset = #3.50
-          \once \override Staff.SustainPedal.Y-offset = #-4.00
+          \once \override Staff.SustainPedal.X-offset = #3.80
+          \once \override Staff.SustainPedal.Y-offset = #-2.00
           <c, c'>1\sustainOff |
         }
       }
