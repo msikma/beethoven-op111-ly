@@ -94,41 +94,6 @@ semprePp =
   #(make-dynamic-script
      (markup #:normal-text (#:italic "sempre")
              #:dynamic "pp"))
-  
-% \sempreStaccato
-%
-% Prints "sempre staccato".
-sempreStaccato = 
-  \tweak DynamicText.self-alignment-X #LEFT
-  \tweak DynamicText.X-extent #'(0 . 0)
-  \tweak DynamicText.X-offset #0
-  #(make-dynamic-script
-     (markup #:normal-text (#:italic "sempre staccato")))
-
-% \espressivoText
-%
-% Prints "espressivo".
-espressivoText = ^\markup { \italic "espressivo" }
-
-% \dolce
-%
-% Prints "dolce".
-dolce = 
-  \tweak DynamicText.self-alignment-X #LEFT
-  \tweak DynamicText.X-extent #'(0 . 0)
-  \tweak DynamicText.X-offset #0
-  #(make-dynamic-script
-     (markup #:normal-text (#:italic "dolce")))
-
-% \pocoRitenente
-%
-% Prints "dolce".
-pocoRitenente = 
-  \tweak DynamicText.self-alignment-X #LEFT
-  \tweak DynamicText.X-extent #'(0 . 0)
-  \tweak DynamicText.X-offset #0
-  #(make-dynamic-script
-     (markup #:normal-text (#:italic "poco ritenente")))
 
 % \sempreLegato
 %

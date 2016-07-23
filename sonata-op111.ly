@@ -229,7 +229,7 @@ arietta-section-five = {
             <<
               \relative c'' {
                 c4-. ef-. b4. af'8 |
-                g f ef d ef16 f ef d c8^\pocoRitenente af'8-.^( |
+                g f ef d ef16 f ef d c8^\markup { \italic "poco ritenente" } af'8-.^( |
                 g-. f-. ef-. d-.) ef16 f ef d c8\noBeam af''8^\markup { \italic "a tempo" }^( |
                 g8 f ef d) ef^( d c b) |
                 c^( bf! af g) af^( f ef d) |
@@ -1143,7 +1143,7 @@ arietta-section-five = {
                   \relative c'' {
                     <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p
                     \once \override Slur.height-limit = #3
-                    c8_( \dolce e,16
+                    c8_(_\markup { \italic "dolce" } e,16
                   }
                 }
               }
@@ -1154,7 +1154,7 @@ arietta-section-five = {
               \repeat volta 2 {
                 \relative c'' {
                   a8 e16 g8 f16 d'8 d,16 |
-                  g8 \sempreLegato d16 f8 e16 g8 f16 |
+                  g8_\markup { \italic "sempre legato" } d16 f8 e16 g8 f16 |
                   a8 g16 e'8 e,16 c'8 e,16) |
                   \once \override Slur.height-limit = #5
                   <ef c'>8( <d b'>16 <c a'>8 <b g'>16 <c a'>8 <d b'>16 |
@@ -1171,13 +1171,13 @@ arietta-section-five = {
                   \relative c'' {
                     % Note: move down the volta brackets, since there's just one
                     % slur pushing them up.
-                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
+                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -2.2)
                     g4. c8( e,16)
                   }
                 }
                 {
                   \relative c'' {
-                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -1.8)
+                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -2.2)
                     g8.~g16\>-[( gs a\! b e, e]) |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     \once \override PhrasingSlur.height-limit = #5
@@ -1514,11 +1514,15 @@ arietta-section-five = {
               \tuplet 3/2 { g,32-[ g' g, c! g' c, b g' b,] c-[ g' d ds g e f g fs] g-[ a fs g fs g cs, a' g] } |
               \tuplet 3/2 { cs,32-[ a' g cs, f! e cs a' g] cs,-[ a' g d! g f a, e' d] af-[ e' d g, e' d g, d' c] } |
               \tuplet 3/2 { g32-[ d' c f, c' b g d' c] g-[ d' c g d' cs a! e' d] a-[ e' d b e d cs d g,] } |
+              \override DynamicLineSpanner.staff-padding = #1.8
               \tuplet 3/2 { a32-[ fs g a fs g a fs g] a-[ fs g a fs g a gs e'] b-[ a e' c b e] } b,16\rest \pp |
+              \revert DynamicLineSpanner.staff-padding
               b16\rest \clef bass <a, b~>16 <g b>
               d16\rest <a' b~>16 <g b>
               d16\rest <a' b~>16 <g b> |
+              \override DynamicLineSpanner.staff-padding = #1.8
               d16\rest \semprePp <a' b~> <gs b>
+              \revert DynamicLineSpanner.staff-padding
               d16\rest <a' b~> <gs b>
               d16\rest <a' b~ e~> <gs b e> |
               d16\rest <gs c~ e~> <a c e>
@@ -1551,8 +1555,9 @@ arietta-section-five = {
               \tuplet 3/2 { b32-[ c d c b a gs a b] }
               \tuplet 3/2 { gs32-[ a b a b c b c d] }
               \tuplet 3/2 { b32-[ c d f e d c b e] } |
-              % todo pad the semprePp a bit
+              \override DynamicLineSpanner.staff-padding = #1.8
               \tuplet 3/2 { a,32-[ gs e' \semprePp b a e' c b e] }
+              \revert DynamicLineSpanner.staff-padding
               \tuplet 3/2 { d32-[ c e c b e d c e] }
               \tuplet 3/2 { d32-[ c e c b d b a c] } |
               \tuplet 3/2 { b32-[ a c b d c b a c] }
@@ -1642,7 +1647,9 @@ arietta-section-five = {
               % Note: this trill ends before the final note, as per the manuscript.
               d4._~\> d8._~\! |
               \once \override TrillSpanner.to-barline = ##t
+              \override DynamicLineSpanner.staff-padding = #2
               d8.-[ \stopTrillSpan \p \cresc a'8. \regularTrill bf8.]~ |
+              \revert DynamicLineSpanner.staff-padding
               bf8.-[ b8. c8.^~] \bar "||" |
               \arietta-section-four-ef
               c8.-[ cs8. d8.]^~\!\sf\> |
@@ -1653,7 +1660,7 @@ arietta-section-five = {
               bf8-[ a16] af16-[\!\dim bf, <af bf,>]\) c,8-[ c16] |
               \set beatStructure = #'(3 3 3)
               \stemDown
-              <f, af>16\espressivoText \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
+              <f, af>16^\markup { \italic "espressivo" } \!\p <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 <f af>16 |
               \break
               \override DynamicLineSpanner.staff-padding = #4.55
               g16 \p \dim g g g g g <ef g> <ef g> <ef g> |
@@ -1706,22 +1713,28 @@ arietta-section-five = {
               \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
                 #'((alignment-distances . (14.5)))
               e16\!\p e e g'\sf\> e c c\!\p <cs g'> <d f> |
-              e16\sf\> cs a a\!\p a a af\cresc af af |
+              e16\sf\> cs a a\!\p a a
+              \override DynamicLineSpanner.staff-padding = #3.5
+              af\cresc af af |
+              %%
               g16 g g g g g <g b> <g c> <g d'> |
               g16 g g <g bf> <g bf> <g bf> a a <a c> |
               <e g> <e g> <e g> <f g> <f g> <f g>
               \tuplet 3/2 { b32\!\sf\> d b' b, d g c, g' c } |
               \tuplet 3/2 { c,\!\p g' c b, g' b c, g' c }
+              \revert DynamicLineSpanner.staff-padding
               \tuplet 3/2 { gs\sf\> b gs' gs, b e a, e' a }
               \tuplet 3/2 { a,\!\p e' a b, e gs a, e' a } |
               \tuplet 3/2 { e,\sf\> g e' e, g c f, c' f }
               \tuplet 3/2 { f,\!\p c' f e, c' e f, c' f }
               e16\sf\> cs a |
+              \override DynamicLineSpanner.staff-padding = #2.0
               a16\!\p a a <a d>\cresc <a d> <a d> <af d> <af d> <af d> |
               \repeat unfold 9 { <g d> } |
               \repeat unfold 9 { <c d> } |
               <c e> <g c e> <g c e> \repeat unfold 6 { <g b> } |
               <g b>\!\f \repeat unfold 4 { <g b> } <g c> <g c> <g b> <g c> |
+              \revert DynamicLineSpanner.staff-padding
               g g g\sf g g g\sf <g bf> <g b> <g b>\sf |
               \stemUp
               \trillSpanUp
@@ -2262,7 +2275,7 @@ arietta-section-five = {
                 s16 s16 s16 |
                 s16 g-[ g] a g g \stemNeutral |
                 \implicitTuplets
-                \tuplet 3/2 { c16-[( \dolce g32 fs16 g32)] } |
+                \tuplet 3/2 { c16-[(_\markup { \italic "dolce" } g32 fs16 g32)] } |
                 g16-[ g~g g] \stemDown \tuplet 3/2 { d-[^( g,32 fs16 g32]) } |
                 s4 s8 |
                 s8 \stemNeutral \tuplet 3/2 { \once \override Slur.height-limit = #4.0 d'16-[( b32 d16 c32] }
@@ -2444,9 +2457,9 @@ arietta-section-five = {
                 e-.-[ e-. e-.]
                 e-.-[ c'-. d-.]
                 e-.-[ e-. <e, bf'>-.] |
-                \override DynamicLineSpanner.staff-padding = #1.8
-                <e bf'>-.-[ \sempreStaccato <e g>-. <e bf'>-.]
-                \revert DynamicLineSpanner.staff-padding
+                \override TextScript.staff-padding = #2.4
+                <e bf'>-.-[_\markup { \italic "sempre staccato" } <e g>-. <e bf'>-.]
+                \revert TextScript.staff-padding
                 <e bf'>-.-[ <f a> f]
                 f-[ f e] |
                 e16-[ d e]
