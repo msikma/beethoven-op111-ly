@@ -216,8 +216,8 @@ pocoRitenente-espressivo = \markup {
        \markup {
        \override #'(baseline-skip . 1.2)
        \center-column {
-         \scale #'(1 . -1) \musicglyph #"ties.lyric.default"
-         \concat { #f1 \hspace #0.6 #f2 }
+         \scale #'(1 . -1) \translate #'(0 . 2) \musicglyph #"ties.lyric.default"
+         \concat { #f1 \hspace #0.52 #f2 }
        }
        }
      #}
