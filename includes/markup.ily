@@ -63,13 +63,11 @@ std-title-markup-page-n = \markup {
   \left-align {
     \override #'(baseline-skip . 2.0)
     \line {
-      \fontsize #4
-      \pad-x #11.5
-      \fromproperty #'header:subtitle
-    }
-    \fill-line {
-      \smaller \bold
-      \fromproperty #'header:subsubtitle
+      \pad-x #11.5 \concat {
+        \fontsize #4 \fromproperty #'header:subtitle
+        \hspace #1.4
+        \fontsize #1.8 \fromproperty #'header:subsubtitle
+      }
     }
     \fill-line {
       \fromproperty #'header:poet
