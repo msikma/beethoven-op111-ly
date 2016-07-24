@@ -2224,9 +2224,9 @@ arietta-section-five = {
                 % Some manual fixes to add parentheses to this fingering.
                 % The fingering is only for the repeat.
                 <c g'\finger \markup \concat {
-                  \fontsize #-2 "("
-                  \translate #'(0 . 1.14) \tied-finger-up #"2" #"1"
-                  \fontsize #-2 ")"
+                  \text \bold \fontsize #2.5 "("
+                  \translate #'(0 . 2.98) \tied-finger-up #"2" #"1"
+                  \text \bold \fontsize #2.5 ")"
                 }>8. |
                 <c g'>8.-[ <d_4 g> <b g'>] |
                 <b g'>8.-[ <c_4 g'> <d_3 g>] |
