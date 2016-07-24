@@ -63,8 +63,8 @@ std-title-markup-page-n = \markup {
   \left-align {
     \override #'(baseline-skip . 2.0)
     \line {
-      \fontsize #3.33
-      \pad-x #11.66
+      \fontsize #4
+      \pad-x #11.5
       \fromproperty #'header:subtitle
     }
     \fill-line {
