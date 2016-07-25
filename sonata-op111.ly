@@ -1421,6 +1421,8 @@ arietta-section-five = {
                     \stemUp
                     \set Timing.measureLength = #(ly:make-moment 8/32)
                     \omit Dots
+                    \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                      #'((alignment-distances . (12.5)))
                     \tuplet 3/2 { g32.~-[ g32 g64]~ }
                     \tuplet 3/2 { g32.~-[ g32 g64]~ }
                     \tuplet 3/2 { \once \override Slur.height-limit = #6 g32.~-[ g32 g64]( }
