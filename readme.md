@@ -5,6 +5,8 @@ A transcription of Beethoven's 32nd piano sonata (Op.111) in Lilypond format.
 
 Feel free to open an issue if you have suggestions for improvements.
 
+**Todo: add fingering, and the third variation needs one last check.**
+
 Notes
 -----
 

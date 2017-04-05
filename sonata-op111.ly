@@ -1503,10 +1503,10 @@ arietta-section-five = {
               \set Timing.measureLength = #(ly:make-moment 3/16)
               <e c'>16 <e_~ g^~ c^~>16 <e g c> |
               \set Timing.measureLength = #(ly:make-moment 9/16)
+              \set doubleSlurs = ##t
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <f_~ g_~ b^~ d^~> <f g b d> |
-              \set doubleSlurs = ##t
               % todo fix all the other legato chords
               d16\rest <d f^~ g^~>( <c e g>)
               d16\rest <c_~ e^~ g^~> <c e g>
