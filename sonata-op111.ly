@@ -1171,6 +1171,7 @@ arietta-section-five = {
               \voiceOne
               \repeat volta 2 {
                 \relative c'' {
+                  \shortestNoteDuration 4
                   c4. \p c8( b16)-4 |
                   b4.\finger \markup \tied-finger-up #"4" #"3" b8(-2 e16) |
                   \noPageBreak
@@ -1183,6 +1184,7 @@ arietta-section-five = {
                   <g b d>4.-3-5 \cresc 
                   <g b d>8.-2-4 |
                   <g c e>4.-3-\finger \markup \tied-finger-up #"5" #"4" <a c f>8.-2-3-\finger \markup \tied-finger-up #"5" #"4" |
+                  \break
                   <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-finger-up #"4" #"3" <d g>16]) \!
                 }
               }
@@ -1191,7 +1193,7 @@ arietta-section-five = {
                   \relative c'' {
                     \shortestNoteDuration 16
                     \stemDown <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p \stemUp e8. \stemNeutral
-                    \shortestNoteDuration 8
+                    \shortestNoteDuration 4
                   }
                 }
                 {
@@ -1211,7 +1213,9 @@ arietta-section-five = {
                   a8 e16 g8 f16 d'8 d,16 |
                   \noPageBreak
                   g8_\markup { \italic "sempre legato" } d16 f8 e16 g8 f16 |
+                  \noBreak
                   a8 g16 e'8 e,16 c'8 e,16) |
+                  \break
                   \once \override Slur.height-limit = #5
                   <ef c'>8( <d b'>16 <c a'>8 <b g'>16 <c a'>8 <d b'>16 |
                   \stemUp
@@ -1226,14 +1230,13 @@ arietta-section-five = {
               \alternative {
                 {
                   \relative c'' {
-                    % Note: move down the volta brackets, since there's just one
-                    % slur pushing them up.
-                    \once \override Score.VoltaBracket.extra-offset = #'(0 . -2.2)
                     g4. c8( e,16)
                   }
                 }
                 {
                   \relative c'' {
+                    % Note: move down the volta bracket, since there's just one
+                    % slur pushing it up.
                     \once \override Score.VoltaBracket.extra-offset = #'(0 . -2.2)
                     g8.~g16\>-[( gs a\! b e, e]) |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
@@ -1272,7 +1275,7 @@ arietta-section-five = {
                     g'16-[\sf\>^( f e] f-[ e])\! e,-[ f e e]_( |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8 <c, e>16)
-                    \pageBreak
+                    \noPageBreak
                   }
                 }
                 {
@@ -1280,6 +1283,7 @@ arietta-section-five = {
                     \set Timing.measureLength = #(ly:make-moment 6/16)
                     \autoPageBreaksOn
                     \stemDown <g' d>16-[\sf\> <f b,> <e c>] <f c>-[ <e c> <e c>]\! |
+                    \pageBreak
                   }
                 }
               }
