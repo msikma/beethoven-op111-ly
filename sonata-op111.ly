@@ -402,6 +402,9 @@ arietta-section-five = {
             \relative c'' {
               \once \override Slur.height-limit = #5
               c2^( df |
+              % Bridge the gap a bit.
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (8.7)))
               g,2 \afterGrace e'2\startTrillSpan) { d16\stopTrillSpan e }
             }
             \\
@@ -412,10 +415,26 @@ arietta-section-five = {
           >> |
           \stemUp
           <af' f'>16 bf af g f af df b c b c bf c af c g |
-          <af af,>16-[ bf, af g] f af df b c b c bf c af c g |
-          c16\cresc af c g b g c ef, d'16-[ g, e' c] f-[ c <fs c'> ef] |
-          <g c> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <ef a c> c |
-          <b d g>4_.\!\f <b d g b>_. <a c ef fs>2\sf \bar "||" |
+          <<
+            \relative c'' {
+              af16-[
+              \change Staff = "left"
+              bf, af g] f af df b c b c bf c af c g |
+              c16 af c g b g c ef, d'16-[ g,
+              \change Staff = "right"
+              e' c] f-[ c <fs c'> ef]
+            }
+            \\
+            \relative c'' {
+              \stemUp
+              s1 |
+              s1\cresc |
+              <g c>16 ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <a c ef> ef <ef a c> c |
+              <b d g>4_.\!\f
+            }
+          >>
+          <b, d g b>_. <a c ef fs>2\sf
+          \bar "||" |
           \part-one-section-four
           <<
             \relative c'' {
@@ -905,15 +924,22 @@ arietta-section-five = {
           f2 \afterGrace e2\startTrillSpan { \stemUp d16\stopTrillSpan e } |
           <<
             \relative c, {
-              \stemDown f2 \stemUp \afterGrace e2\startTrillSpan { d16\stopTrillSpan e } |
-              f8 ef d c b bf a af
+              \trillSpanDown \stemDown f2 \afterGrace e2\startTrillSpan { \stemUp d16\stopTrillSpan e } |
+              \stemDown f8 ef d c b bf a af
+              \trillSpanUp
             }
             \\
             \relative c {
-              \stemUp
+              \stemDown
               f4
             }
+            \\
+            \relative c' {
+              \stemUp
+              \crossStaff { af16 }
+            }
           >> |
+          \trillSpanUp
           g,,8 fs_~ fs <fs_~ fs'^~> <fs fs'> <fs fs'>4 <fs fs'>8 |
           \relative c { d16\rest } g a b
           \relative c { d16\rest } g'16 a b
