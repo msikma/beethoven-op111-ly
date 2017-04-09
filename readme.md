@@ -17,7 +17,7 @@ For this transcription, two manuscripts were consulted: the [original holograph 
 **1st movement**
 
 * 64 u: No ***sf*** is present in the manuscript, but the analogous passage in M 142 does have one. For consistency, a parenthesized ***sf*** was added.
-* 133 u: No ***ff***; parenthesized as per M 55.
+* 133 u: No ***ff***; parenthesized as per analogous in M 55.
 
 **2nd movement**
 
@@ -29,7 +29,7 @@ For this transcription, two manuscripts were consulted: the [original holograph 
 Copyright
 ---------
 
-© 2016, Michiel Sikma <michiel@sikma.org>
+© 2016-2017, Michiel Sikma <michiel@sikma.org>
 
 Licensed under CC BY-SA 4.0.
 
