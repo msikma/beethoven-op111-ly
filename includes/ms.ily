@@ -295,6 +295,7 @@ parenHigh =
 
 % Language-independent variables.
 CURRENT-YEAR = #(strftime "%Y" (localtime (current-time)))
+COPYRIGHT-YEAR = #(format "~A-~A" COPYRIGHT-START-YEAR CURRENT-YEAR)
 CURRENT-DATE = #(strftime "%Y-%m-%d" (localtime (current-time)))
 
 % Copyright strings, separated by language.
@@ -312,20 +313,20 @@ ms-copyright-template-jp-license = "© ~A. Typeset by ~A. ~A"
 
 % Standardized tagline.
 ms-tagline-en = \markup {
-  \fontsize #-3 #(format ms-copyright-template-en CURRENT-YEAR AUTHORS)
+  \fontsize #-3 #(format ms-copyright-template-en COPYRIGHT-YEAR AUTHORS)
 }
 ms-tagline-en-cc-by-sa-four = \markup {
-  \fontsize #-3 #(format ms-copyright-template-en-license CURRENT-YEAR AUTHORS ms-copyright-cc-by-sa-four-en)
+  \fontsize #-3 #(format ms-copyright-template-en-license COPYRIGHT-YEAR AUTHORS ms-copyright-cc-by-sa-four-en)
 }
 ms-tagline-en-pd = \markup {
-  \fontsize #-3 #(format ms-copyright-template-en-license CURRENT-YEAR AUTHORS ms-copyright-pd-en)
+  \fontsize #-3 #(format ms-copyright-template-en-license COPYRIGHT-YEAR AUTHORS ms-copyright-pd-en)
 }
 ms-tagline-jp = \markup {
-  \fontsize #-3 #(format ms-copyright-template-jp CURRENT-YEAR AUTHORS)
+  \fontsize #-3 #(format ms-copyright-template-jp COPYRIGHT-YEAR AUTHORS)
 }
 ms-tagline-jp-cc-by-sa-four = \markup {
-  \fontsize #-3 #(format ms-copyright-template-jp-license CURRENT-YEAR AUTHORS ms-copyright-cc-by-sa-four-jp)
+  \fontsize #-3 #(format ms-copyright-template-jp-license COPYRIGHT-YEAR AUTHORS ms-copyright-cc-by-sa-four-jp)
 }
 ms-tagline-jp-pd = \markup {
-  \fontsize #-3 #(format ms-copyright-template-jp-license CURRENT-YEAR AUTHORS ms-copyright-pd-jp)
+  \fontsize #-3 #(format ms-copyright-template-jp-license COPYRIGHT-YEAR AUTHORS ms-copyright-pd-jp)
 }
