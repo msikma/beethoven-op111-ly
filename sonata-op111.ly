@@ -1192,14 +1192,14 @@ arietta-section-five = {
                   <g b d>8.-2-4 |
                   <g c e>4.-3-\finger \markup \tied-finger-up #"5" #"4" <a c f>8.-2-3-\finger \markup \tied-finger-up #"5" #"4" |
                   \break
-                  <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-finger-up #"4" #"3" <d g>16]) \!
+                  <g b d>8.-[-4 <g b d>] <b d>8-[(-\finger \markup \tied-finger-up #"4" #"3" <d g>16])
                 }
               }
               \alternative {
                 {
                   \relative c'' {
                     \shortestNoteDuration 16
-                    \stemDown <b d g>8(\sf\> <g c e>16) <g c e>8.\! \p \stemUp e8. \stemNeutral
+                    \stemDown <b d g>8(\!\sf\> <g c e>16) <g c e>8.\! \p \stemUp e8. \stemNeutral
                     \shortestNoteDuration 4
                   }
                 }
@@ -1858,13 +1858,16 @@ arietta-section-five = {
               \tuplet 3/2 { f g f e f e d e d }
               \tuplet 3/2 { c d c b c b c d c }
               \tuplet 3/2 { d e d e f g a g b } |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (12.5)))
               \tuplet 3/2 { \override DynamicLineSpanner.staff-padding = #3.2 c\cresc b a g f e d c b }
               \ottava #0
               \tuplet 3/2 { c b a g f e d c b }
-              \tuplet 3/2 { c b a g f e d c b\! } |
+              \tuplet 3/2 { c b a g f e d c b } |
               % Note: space out the final notes a bit more.
               \shortestNoteDuration 16
-              c8-[_(\f g16]) g8. f''8-[^(\sf b,16]) |
+              \once \override DynamicText.Y-offset = #-0.9
+              c8-[_(\!\f g16]) g8. f''8-[^(\sf b,16]) |
               \shortestNoteDuration 64
               f''8-[^(\sf\> b,16]) <d f, d>8-[^(\!\p
               \override DynamicLineSpanner.staff-padding = #2.7
