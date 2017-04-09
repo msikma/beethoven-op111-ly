@@ -1780,7 +1780,7 @@ arietta-section-five = {
               <g c>16 <g c> <g c> <g c> <g c> <g c> <g b> <g c> <g d'> |
               d'16\!\sf\> b g e\!\p ds e b'\sf\> gs e |
               \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
-                #'((alignment-distances . (14.5)))
+                #'((alignment-distances . (12.5)))
               e16\!\p e e g'\sf\> e c c\!\p <cs g'> <d f> |
               e16\sf\> cs a a\!\p a a
               \override DynamicLineSpanner.staff-padding = #3.5
@@ -1799,10 +1799,16 @@ arietta-section-five = {
               e16\sf\> cs a |
               \override DynamicLineSpanner.staff-padding = #2.0
               a16\!\p a a <a d>\cresc <a d> <a d> <af d> <af d> <af d> |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9.5)))
               \repeat unfold 9 { <g d> } |
               \repeat unfold 9 { <c d> } |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9.5)))
               <c e> <g c e> <g c e> \repeat unfold 6 { <g b> } |
               <g b>\!\f \repeat unfold 4 { <g b> } <g c> <g c> <g b> <g c> |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9.5)))
               \revert DynamicLineSpanner.staff-padding
               g g g\sf g g g\sf <g bf> <g b> <g b>\sf |
               \stemUp
@@ -1818,16 +1824,19 @@ arietta-section-five = {
               %    Variation 6
               %-----------------------------------------------------------------
               g8.~\!\pp\stopTrillSpan \startTrillSpan |
-              g4.
-              ~g8.~ |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9.0)))
+              g4.~g8.~ |
               g4.~g8.~ |
               \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
-                #'((alignment-distances . (11.5)))
+                #'((alignment-distances . (10.0)))
               g4.~g8.~ |
               % Trill must span until just before the b.
               g4. \grace { s64\stopTrillSpan }
               \trillSpanDown
               b,8.\startTrillSpan |
+              \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
+                #'((alignment-distances . (9.0)))
               c8.-[ e g] |
               g-[ f d8 c16] |
               b8.-[ c d8 \grace { s64\stopTrillSpan } \trillSpanUp g,16]\startTrillSpan |
