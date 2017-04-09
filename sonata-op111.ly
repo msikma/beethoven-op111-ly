@@ -417,10 +417,16 @@ arietta-section-five = {
           <af' f'>16 bf af g f af df b c b c bf c af c g |
           <<
             \relative c'' {
+              \offset positions #'(0.5 . 2.0) Beam
               af16-[
+              \undo \offset positions #'(0.5 . 2.0) Beam
               \change Staff = "left"
               bf, af g] f af df b c b c bf c af c g |
-              c16 af c g b g c ef, d'16-[ g,
+              c16 af c g b g c ef,
+              \offset positions #'(1.0 . -0.5) Beam
+              d'16-[
+              \undo \offset positions #'(1.0 . -0.5) Beam
+              g,
               \change Staff = "right"
               e' c] f-[ c <fs c'> ef]
             }
