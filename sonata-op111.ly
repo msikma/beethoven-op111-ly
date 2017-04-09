@@ -1279,7 +1279,7 @@ arietta-section-five = {
               \alternative {
                 {
                   \relative c'' {
-                    g'16-[\sf\>^( f e] f-[ e])\! e,-[ f e e]_( |
+                    g'16-[^( f e] f-[ e]) e,-[ f e e]_( |
                     \set Timing.measureLength = #(ly:make-moment 3/16)
                     c'8 <c, e>16)
                     \noPageBreak
@@ -1923,9 +1923,9 @@ arietta-section-five = {
                 \once \override Slur.control-points = #'((2.1 . 0.3) (3.1 . 0.7) (8.5 . 1.2) (10.1 . -0.58))
                 b8-[^( \cresc f16 e8 f16]) b8-[ f16] |
                 bf8 e,16 <bf' g>8 <bf e>16 a8. |
-                <f b>8. <f b>8. <b d>8 d16\! |
+                <f b>8. <f b>8. <b d>8 d16 |
                 \override Tie.minimum-length = #2
-                d16 b c~c-[~c] s8 s8 |
+                d16\!\sf\> b c~c-[~c]\! s8 s8 |
                 s8. |
                 s16 s
                 \override NoteColumn.ignore-collision = ##t
