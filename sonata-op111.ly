@@ -1543,25 +1543,25 @@ arietta-section-five = {
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <f_~ g_~ b^~ d^~> <f g b d> |
               % todo fix all the other legato chords
-              d16\rest <d f^~ g^~>( <c e g>)
+              d16\rest <d f^~ g^~>_( <c e g>)
               d16\rest <c_~ e^~ g^~> <c e g>
               \override Tie.minimum-length = #4
               d16\rest <d_~ f^~ g^~> <d f g> |
-              d16\rest <ds fs g^~>( <e g>)
+              d16\rest <ds fs g^~>_( <e g>)
               d16\rest <e_~ g^~ e'^~> <e g e'>
               d16\rest <ef_~ fs^~ a^~ c^~> <ef fs a c> |
               d16\rest <d_~ f_~ af^~ c^~> <d f af c>
               d16\rest <d_~ f_~ af^~ b^~> <d f af b>
               d16\rest <d_~ f_~ g^~ b^~> <d f g b> |
-              d16\rest <ds fs c'^~> <e g c>
-              d16\rest <g_~ b e^~> <g c e>
+              d16\rest <ds fs c'^~>_( <e g c>)
+              d16\rest <g_~ b e^~>_( <g c e>)
               d16\rest \stemUp \clef treble <bf'_~ df_~ e^~ g^~> <bf df e g> |
               b'16\rest <bf,_~ df_~ e^~ g^~> <bf df e g>
               b'16\rest \stemDown \clef bass <f,_~ c'^~ f^~> <f c' f>
               d16\rest <f_~ af^~ d^~> <f af d> |
               d16\rest <f_~ af^~ b^~> <f af b>
-              d16\rest <f e c'^~> <e g c>
-              d16\rest <f g d'>^( <d f g>) \clef treble |
+              d16\rest <f e c'^~>_( <e g c>)
+              d16\rest <f g d'>_( <d f g>) \clef treble |
               \explicitTuplets
               \stemUp
               \override TupletBracket.bracket-visibility = #'if-no-beam
@@ -1587,32 +1587,32 @@ arietta-section-five = {
               \override DynamicLineSpanner.staff-padding = #1.8
               \tuplet 3/2 { a32-[ fs g a fs g a fs g] a-[ fs g a fs g a gs e'] b-[ a e' c b e] } b,16\rest \pp |
               \revert DynamicLineSpanner.staff-padding
-              b16\rest \clef bass <a, b~>16 <g b>
-              d16\rest <a' b~>16 <g b>
-              d16\rest <a' b~>16 <g b> |
+              b16\rest \clef bass <a, b~>16_( <g b>)
+              d16\rest <a' b~>16_( <g b>)
+              d16\rest <a' b~>16_( <g b>) |
               \override DynamicLineSpanner.staff-padding = #1.8
-              d16\rest \semprePp <a' b~> <gs b>
+              d16\rest \semprePp <a' b~>_( <gs b>)
               \revert DynamicLineSpanner.staff-padding
-              d16\rest <a' b~> <gs b>
-              d16\rest <a' b~ e~> <gs b e> |
-              d16\rest <gs c~ e~> <a c e>
-              d,16\rest <gs c~ e~> <a c e>
-              d,16\rest <b' d> <a c> |
+              d16\rest <a' b~>_( <gs b>)
+              d16\rest <a' b~ e~>_( <gs b e>) |
+              d16\rest <gs c~ e~>_( <a c e>)
+              d,16\rest <gs c~ e~>_( <a c e>)
+              d,16\rest <b' d>_( <a c>) |
               d,16\rest <ds_~ fs_~ a^~ c^~> <ds fs a c>
               d16\rest <d_~ f_~ gs^~ b^~> <d f gs b>
               d16\rest <e_~ a^~ c^~> <e a c> |
               d16\rest <f_~ c'_~ d^~> <f c' d>
-              d16\rest <c d^~> <b d>
+              d16\rest <c d^~>^( <b d>)
               d16\rest <f_~ c'_~ d^~> <f c' d> |
-              d16\rest <g_~ d' e^~> <g c e>
-              d16\rest <d e^~> <c e>
-              d16\rest <af' b_~ d^~ f^~> <g b d f> |
-              d16\rest <c d~> <b d>
-              d16\rest <c d~ g~> <b d g>
-              d16\rest \clef treble <c' d_~ g^~> <b d g> \clef bass |
-              d,16\rest <b d g>^( <c e>)
-              d16\rest <c' e>^( e,)
-              d16\rest \clef treble <d'' e>_( <d, e>) |
+              d16\rest <g_~ d' e^~>_( <g c e>)
+              d16\rest <d e^~>_( <c e>)
+              d16\rest <af' b_~ d^~ f^~>_( <g b d f>) |
+              d16\rest <c d~>^( <b d>)
+              d16\rest <c d~ g~>_( <b d g>)
+              d16\rest \clef treble <c' d_~ g^~>^( <b d g>) \clef bass |
+              d,16\rest <b d g>_( <c e>)
+              d16\rest <c' e>_( e,)
+              d16\rest \clef treble <d'' e>^( <d, e>) |
               \explicitTuplets
               \override TupletBracket.bracket-visibility = #'if-no-beam
               \override TupletBracket.transparent = ##f
