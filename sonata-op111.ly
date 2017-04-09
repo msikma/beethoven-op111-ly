@@ -1539,7 +1539,6 @@ arietta-section-five = {
               \set Timing.measureLength = #(ly:make-moment 3/16)
               <e c'>16 <e_~ g^~ c^~>16 <e g c> |
               \set Timing.measureLength = #(ly:make-moment 9/16)
-              \set doubleSlurs = ##t
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <b_~ d_~ f^~ g^~> <b d f g>
               d16\rest <f_~ g_~ b^~ d^~> <f g b d> |
@@ -1549,7 +1548,6 @@ arietta-section-five = {
               \override Tie.minimum-length = #4
               d16\rest <d_~ f^~ g^~> <d f g> |
               d16\rest <ds fs g^~>( <e g>)
-              \set doubleSlurs = ##f
               d16\rest <e_~ g^~ e'^~> <e g e'>
               d16\rest <ef_~ fs^~ a^~ c^~> <ef fs a c> |
               d16\rest <d_~ f_~ af^~ c^~> <d f af c>
