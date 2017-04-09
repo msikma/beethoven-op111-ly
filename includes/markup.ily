@@ -80,25 +80,3 @@ std-title-markup-page-n = \markup {
     }
   }
 }
-
-std-title-markup-page-n = \markup {
-  \left-align {
-    \override #'(baseline-skip . 2.0)
-    \line {
-      \pad-x #11.5 \concat {
-        \fontsize #4 \fromproperty #'header:subtitle
-        \hspace #1.4
-        \fontsize #1.8 \fromproperty #'header:subsubtitle
-      }
-    }
-    \fill-line {
-      \fromproperty #'header:poet
-      { \large \bold \fromproperty #'header:instrument }
-      \fromproperty #'header:composer
-    }
-    \fill-line {
-      \fromproperty #'header:meter
-      \fromproperty #'header:arranger
-    }
-  }
-}
