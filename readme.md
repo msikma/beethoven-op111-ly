@@ -17,7 +17,6 @@ For this transcription, two manuscripts were consulted: the [original holograph 
 **1st movement**
 
 * 64 u: No ***sf*** is present in the manuscript, but the analogous passage in M 142 does have one. For consistency, a parenthesized ***sf*** was added.
-* 84 u/l: Beethoven's manuscript crosses the right hand over into the bottom staff. We kept them separate.
 * 133 u: No ***ff***; parenthesized as per M 55.
 
 **2nd movement**
