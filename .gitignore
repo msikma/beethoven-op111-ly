@@ -3,6 +3,12 @@
 *.svg
 *.ly~
 
+# Builds for the individual files.
+sonata-op111-i.mid
+sonata-op111-ii.mid
+sonata-op111-i.pdf
+sonata-op111-ii.pdf
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
