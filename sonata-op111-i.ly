@@ -655,7 +655,9 @@ one-section-four = {
           <e, e'>8.. <f f'>32 <f_~ f'^~>4 <f f'>8.. <f' bf df>32 <f bf df>4 |
           <gf bf df>8.. <g bf df>32 <g_~ bf^~ df^~>4 <g bf df>8.. <af c>32 <af c>8.. <a ef' gf>32 |
           <a ef' gf>8.. <bf ef gf>32 <bf_~ ef^~ gf^~>4 <bf ef gf>8.. <cf ef gf>32 <cf ef gf>8.. <c ef gf>32 |
-          <c ef gf>8.. <df f>32 <df_~ f^~>4 <df f>8.. <d f>32 <d f>8.. <d,, d'>32 |
+          <c ef gf>8.. <df f>32 <df_~ f^~>4 <df f>8.. <d f>32
+          \once \offset positions #'(-1.5 . -0.75) Beam
+          <d f>8.. <d,, d'>32 |
           <d d'>8.. <ef ef'>32 <ef_~ ef'^~>4 <ef ef'>8.. <ef ef'>32 <ef ef'>8.. <e e'>32 |
           <e e'>8.. <f f'>32 <f f'>8.. <g g'>32 <g g'>8-. <af af'>8-. <af af'>8-. <af, af'>8-. |
           <g g'>8\noBeam g''8\sfp g <g af>\sfp <f af> <f g>\sfp <f g> <ef g> |
